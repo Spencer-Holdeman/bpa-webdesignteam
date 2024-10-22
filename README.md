@@ -10,7 +10,5 @@ A submission for (435) BPA Web Design Competition, 2024-25.
 ### Planned Technologies
 1. HTML
 2. Tailwind CSS
-3. Python
-4. Flask
+3. Python (Flask)
 5. SQL
-6. PHP
