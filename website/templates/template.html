@@ -9,19 +9,23 @@
     />
     <title>{% block title %} Stage Fright {% endblock %}</title>
   </head>
-  <body class="bg-gray-950">
-    <div class="flex flex-row justify-between mx-8 my-8 text-white">
-      <div>
-        <h1>Stage Fright</h1>
-      </div>
-      <div class="flex space-x-5">
-        <a href="/">Home</a>
-        <a href="/members">Members</a>
-        <a href="/swag">Swag</a>
-      </div>
-    </div>
-    {% block content %}
+  <body>
+    <header class="h-screen w-screen bg-fixed" style="background-image: url(../static/img/background/1.png);">
+      <nav class="flex flex-row justify-between px-8 py-8 text-white">
+        <div>
+          <h1>Stage Fright</h1>
+        </div>
+        <div class="flex space-x-5">
+          <a href="/">Home</a>
+          <a href="/members">Members</a>
+          <a href="/swag">Swag</a>
+        </div>
+      </nav>
+    </header>
+    <main class="h-screen w-screen bg-fixed" style="background-image: url(../static/img/background/2.png);">
+      {% block content %}
           
-    {% endblock %}
+      {% endblock %}
+    </main>
   </body>
 </html>
