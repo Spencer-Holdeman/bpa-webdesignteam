@@ -4,8 +4,8 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'Skibidi'
     
-    from .home import home
+    from .base import base
     
-    app.register_blueprint(home, url_prefix='/')
+    app.register_blueprint(base, url_prefix='/')
     
     return app
