@@ -10,24 +10,23 @@
     <title>{% block title %} Stage Fright {% endblock %}</title>
     <script defer src="../static/js/app.js"></script>
   </head>
-  <body class="scroll-smooth px-8 bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/4.png);">
+  <body class="scroll-smooth transition-all duration-[1.5s] px-8 bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/6.png);">
+    <nav id="navbar" class="flex flex-row items-center justify-between py-8">
+      <div class="flex flow-row">
+        <a href="/"><img class="max-h-20" src="../static/img/logo/icon.png" alt=""></a>
+      </div>
+      <div class="flex space-x-5 text-xl">
+        <a href="/"><p>Home</p></a>
+        <a href="/members"><p>Members</p></a>
+        <a href="/members"><p>Tours</p></a>
+        <a href="/swag"><p>Swag</p></a>
+        <a href="/swag"><p>About</p></a>
+      </div>
+    </nav>
+    {% block header_title %}
     <header class="h-screen w-full bg-fixed">
-      <nav class="flex flex-row justify-between py-8">
-        <div>
-          <a href="/">Stage Fright</a>
-        </div>
-        <div class="flex space-x-5">
-          <a href="/">Home</a>
-          <a href="/members">Members</a>
-          <a href="/members">Tours</a>
-          <a href="/swag">Swag</a>
-          <a href="/swag">About</a>
-        </div>
-      </nav>
-      {% block header_title %}
-      <section class="h-4/5 flex flex-col items-center justify-center">
-        <h1 class="text-6xl">Stage Fright</h1>
-        <p class="text-2xl">Subtitle</p>
+      <section class="h-[calc(84%)] flex flex-col items-center justify-center">
+        <img class="scroll-hidden scroll-blur mt-[-144px]" src="../static/img/logo/text.png" alt="">
       </section>
       {% endblock %}
     </header>
@@ -43,7 +42,7 @@
             <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.jpg);">
               <h1>Landon Warren</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Pianist</p>
+              <p class="pb-3">Electric Guitar</p>
             </div>
             <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.jpg);">
               <h1>Spendagr Holdeman</h1>
@@ -53,12 +52,12 @@
             <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.jpg);">
               <h1>Connor Crossley</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Dancer</p>
+              <p class="pb-3">Bass</p>
             </div>
             <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.jpg);">
               <h1>David Casswell</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Lead Singer</p>
+              <p class="pb-3">Vocalist</p>
             </div>
           </div>
         </div>

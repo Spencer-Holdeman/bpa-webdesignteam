@@ -3,10 +3,52 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('scroll-show');
         }
+        else {
+            entry.target.classList.remove('scroll-show');
+        }
     });
 });
 
-const hiddenElements = document.querySelectorAll('.scroll-uhidden, .scroll-dhidden, .scroll-lhidden, .scroll-rhidden');
+const hiddenElements = document.querySelectorAll('.scroll-hidden, .scroll-uhidden, .scroll-dhidden, .scroll-lhidden, .scroll-rhidden, .scroll-blur');
 hiddenElements.forEach((element) => {
     observer.observe(element);
 });
+
+
+// ----------------- Scroll -----------------
+// The debounce function receives our function as a parameter
+const debounce = (fn) => {
+
+    // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+    let frame;
+  
+    // The debounce function returns a new function that can receive a variable number of arguments
+    return (...params) => {
+      
+      // If the frame variable has been defined, clear it now, and queue for next frame
+      if (frame) { 
+        cancelAnimationFrame(frame);
+      }
+  
+      // Queue our function call for the next frame
+      frame = requestAnimationFrame(() => {
+        
+        // Call our function and pass any params we received
+        fn(...params);
+      });
+  
+    } 
+  };
+  
+  
+  // Reads out the scroll position and stores it in the data attribute
+  // so we can use it in our stylesheets
+  const storeScroll = () => {
+    document.documentElement.dataset.scroll = window.scrollY;
+  }
+  
+  // Listen for new scroll events, here we debounce our `storeScroll` function
+  document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+  
+  // Update scroll position for first time
+  storeScroll();
