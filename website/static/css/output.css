@@ -558,6 +558,18 @@ video {
   position: static;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-6 {
+  margin: 1.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -566,16 +578,64 @@ video {
   display: flex;
 }
 
+.h-4\/5 {
+  height: 80%;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
+.h-\[2px\] {
+  height: 2px;
+}
+
 .h-screen {
   height: 100vh;
 }
 
-.w-screen {
-  width: 100vw;
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.w-60 {
+  width: 15rem;
+}
+
+.w-\[90\%\] {
+  width: 90%;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .flex-row {
   flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {
@@ -588,8 +648,30 @@ video {
   margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+.bg-slate-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
 .bg-fixed {
   background-attachment: fixed;
+}
+
+.bg-center {
+  background-position: center;
 }
 
 .px-8 {
@@ -602,7 +684,61 @@ video {
   padding-bottom: 2rem;
 }
 
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+/* Scroll Animation Classes */
+
+.scroll-uhidden {
+  opacity: 0;
+  transition: all 1.2s;
+  transform: translateY(85%);
+}
+
+.scroll-dhidden {
+  opacity: 0;
+  transition: all 1.2s;
+  transform: translateY(-85%);
+}
+
+.scroll-lhidden {
+  opacity: 0;
+  transition: all 1.2s;
+  transform: translateX(85%);
+}
+
+.scroll-rhidden {
+  opacity: 0;
+  transition: all 1.2s;
+  transform: translateX(-85%);
+}
+
+.scroll-show {
+  opacity: 1;
+  transform: translateY(0);
 }

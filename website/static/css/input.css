@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Scroll Animation Classes */
+.scroll-uhidden {
+    opacity: 0;
+    transition: all 1.2s;
+    transform: translateY(85%);
+}
+.scroll-dhidden {
+    opacity: 0;
+    transition: all 1.2s;
+    transform: translateY(-85%);
+}
+.scroll-lhidden {
+    opacity: 0;
+    transition: all 1.2s;
+    transform: translateX(85%);
+}
+.scroll-rhidden {
+    opacity: 0;
+    transition: all 1.2s;
+    transform: translateX(-85%);
+}
+
+.scroll-show {
+    opacity: 1;
+    transform: translateY(0);
+}

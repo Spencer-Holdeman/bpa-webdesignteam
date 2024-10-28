@@ -8,24 +8,65 @@
       rel="stylesheet"
     />
     <title>{% block title %} Stage Fright {% endblock %}</title>
+    <script defer src="../static/js/app.js"></script>
   </head>
-  <body>
-    <header class="h-screen w-screen bg-fixed" style="background-image: url(../static/img/background/1.png);">
-      <nav class="flex flex-row justify-between px-8 py-8 text-white">
+  <body class="scroll-smooth px-8 bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/4.png);">
+    <header class="h-screen w-full bg-fixed">
+      <nav class="flex flex-row justify-between py-8">
         <div>
-          <h1>Stage Fright</h1>
+          <a href="/">Stage Fright</a>
         </div>
         <div class="flex space-x-5">
           <a href="/">Home</a>
           <a href="/members">Members</a>
+          <a href="/members">Tours</a>
           <a href="/swag">Swag</a>
+          <a href="/swag">About</a>
         </div>
       </nav>
-    </header>
-    <main class="h-screen w-screen bg-fixed" style="background-image: url(../static/img/background/2.png);">
-      {% block content %}
-          
+      {% block header_title %}
+      <section class="h-4/5 flex flex-col items-center justify-center">
+        <h1 class="text-6xl">Stage Fright</h1>
+        <p class="text-2xl">Subtitle</p>
+      </section>
       {% endblock %}
+    </header>
+    {% block content %}
+    <main class="w-full">
+      <section class="min-h-screen flex flex-col items-center justify-start text-center">
+        <div class="scroll-uhidden mt-2">
+          <div>
+            <h2 class="text-4xl">Meet the Band</h2>
+            <p class="py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus vitae odio rem ut deserunt, totam et debitis labore ullam dolorum, molestias fuga vero dignissimos alias ab! Ratione, molestias nisi.</p>
+          </div>
+          <div class="flex flex-row flex-wrap justify-center">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.jpg);">
+              <h1>Landon Warren</h1>
+              <div class="h-[2px] w-[90%] m-2 bg-white"></div>
+              <p class="pb-3">Pianist</p>
+            </div>
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.jpg);">
+              <h1>Spendagr Holdeman</h1>
+              <div class="h-[2px] w-[90%] m-2 bg-white"></div>
+              <p class="pb-3">Drummer</p>
+            </div>
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.jpg);">
+              <h1>Connor Crossley</h1>
+              <div class="h-[2px] w-[90%] m-2 bg-white"></div>
+              <p class="pb-3">Dancer</p>
+            </div>
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.jpg);">
+              <h1>David Casswell</h1>
+              <div class="h-[2px] w-[90%] m-2 bg-white"></div>
+              <p class="pb-3">Lead Singer</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="h-screen w-full">
+
+      </section>
     </main>
+    {% endblock %}
   </body>
 </html>
