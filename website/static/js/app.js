@@ -1,17 +1,30 @@
+// const data_scroll = document.getElementsByTagName('html')[0].getAttribute('data-scroll');
+// if (data_scroll > 0) {
+//   const scrollAnimations = 
+// }
+
+// Create a new IntersectionObserver instance to observe visibility changes of target elements
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('scroll-show');
-        }
-        else {
-            entry.target.classList.remove('scroll-show');
-        }
-    });
+  // Loop through each entry (observed element)
+  entries.forEach((entry) => {
+    // If the element is intersecting (visible in the viewport)
+    if (entry.isIntersecting) {
+      // Add the 'scroll-show' class to the element
+      entry.target.classList.add('scroll-show');
+    }
+    // If the element is not intersecting and has the 'scroll-redo' class
+    else if (!entry.isIntersecting && entry.target.classList.contains('scroll-redo')) {
+      // Remove the 'scroll-show' class from the element
+      entry.target.classList.remove('scroll-show');
+    }
+  });
 });
 
-const hiddenElements = document.querySelectorAll('.scroll-hidden, .scroll-uhidden, .scroll-dhidden, .scroll-lhidden, .scroll-rhidden, .scroll-blur');
+// Select all elements with the 'scroll-ani' class
+const hiddenElements = document.querySelectorAll('.scroll-ani');
+// Observe each selected element with the IntersectionObserver instance
 hiddenElements.forEach((element) => {
-    observer.observe(element);
+  observer.observe(element);
 });
 
 

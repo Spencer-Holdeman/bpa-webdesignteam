@@ -4,57 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="{{url_for('static',filename='css/output.css')}}"
-      rel="stylesheet"
+    href="{{url_for('static',filename='css/output.css')}}"
+    rel="stylesheet"
     />
     <title>{% block title %} Stage Fright {% endblock %}</title>
+    <script src="jquery-3.7.1.min.js"></script>
     <script defer src="../static/js/app.js"></script>
   </head>
-  <body class="scroll-smooth transition-all duration-[1.5s] px-8 bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/6.png);">
-    <nav id="navbar" class="flex flex-row items-center justify-between py-8">
+  <body class="scroll-smooth transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/6.png);">
+    <nav id="navbar" class="flex flex-row items-center transition-all duration-[1.2s] justify-between px-8 py-8">
       <div class="flex flow-row">
-        <a href="/"><img class="max-h-20" src="../static/img/logo/icon.png" alt=""></a>
+        <a href="/"><img class="h-20 transition-all duration-[1.2s]" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
       </div>
       <div class="flex space-x-5 text-xl">
-        <a href="/"><p>Home</p></a>
-        <a href="/members"><p>Members</p></a>
-        <a href="/members"><p>Tours</p></a>
-        <a href="/swag"><p>Swag</p></a>
-        <a href="/swag"><p>About</p></a>
+        <a href="/"><p class="transition-all duration-[1.2s]">Home</p></a>
+        <a href="/members"><p class="transition-all duration-[1.2s]">Members</p></a>
+        <a href="/members"><p class="transition-all duration-[1.2s]">Tours</p></a>
+        <a href="/swag"><p class="transition-all duration-[1.2s]">Swag</p></a>
+        <a href="/swag"><p class="transition-all duration-[1.2s]">About</p></a>
       </div>
     </nav>
     {% block header_title %}
     <header class="h-screen w-full bg-fixed">
       <section class="h-[calc(84%)] flex flex-col items-center justify-center">
-        <img class="scroll-hidden scroll-blur mt-[-144px]" src="../static/img/logo/text.png" alt="">
+        <img class="scroll-ani scroll-hidden scroll-blur scroll-redo duration-[1.2s] mt-[-144px]" src="../static/img/logo/text.png" alt="">
       </section>
       {% endblock %}
     </header>
     {% block content %}
     <main class="w-full">
       <section class="min-h-screen flex flex-col items-center justify-start text-center">
-        <div class="scroll-uhidden mt-2">
+        <div class="mt-2">
           <div>
-            <h2 class="text-4xl">Meet the Band</h2>
-            <p class="py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus vitae odio rem ut deserunt, totam et debitis labore ullam dolorum, molestias fuga vero dignissimos alias ab! Ratione, molestias nisi.</p>
+            <h2 class="scroll-ani scroll-hidden scroll-up duration-[1.2s] text-4xl">Meet the Band</h2>
+            <p class="scroll-ani scroll-hidden scroll-up duration-[1.2s] py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus vitae odio rem ut deserunt, totam et debitis labore ullam dolorum, molestias fuga vero dignissimos alias ab! Ratione, molestias nisi.</p>
           </div>
           <div class="flex flex-row flex-wrap justify-center">
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.jpg);">
+            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.jpg);">
               <h1>Landon Warren</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Electric Guitar</p>
+              <p class="pb-3">Electric Guitarist</p>
             </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.jpg);">
+            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.jpg);">
               <h1>Spendagr Holdeman</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Drummer</p>
             </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.jpg);">
+            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.jpg);">
               <h1>Connor Crossley</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Bass</p>
+              <p class="pb-3">Bassist</p>
             </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.jpg);">
+            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.jpg);">
               <h1>David Casswell</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Vocalist</p>
@@ -62,8 +63,16 @@
           </div>
         </div>
       </section>
-      <section class="h-screen w-full">
-
+      <section class="min-h-screen w-full flex flex-row">
+        <div class="flex flex-col w-[50%]">
+          <div class="flex flex-col items-center justify-center">
+            <p class="text-4xl">Merch 1</p>
+            <p class="text-2xl">Description</p>
+          </div>
+        </div>
+        <div class="w-[50%]">
+          <img class="h-[300px]" src="../static/img/logo/icon.png" alt="">
+        </div>
       </section>
     </main>
     {% endblock %}
