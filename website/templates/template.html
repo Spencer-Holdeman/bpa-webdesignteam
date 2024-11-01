@@ -9,7 +9,6 @@
     />
     <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
     <title>{% block title %} Stage Fright {% endblock %}</title>
-    <script src="jquery-3.7.1.min.js"></script>
     <script defer src="../static/js/app.js"></script>
   </head>
   <body class="scroll-smooth transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/6.png);">
@@ -64,17 +63,42 @@
           </div>
         </div>
       </section>
-      <section class="min-h-screen w-full flex flex-row">
-        <div class="flex flex-col w-[50%]">
-          <div class="flex flex-col items-center justify-center">
-            <p class="text-4xl">Merch 1</p>
-            <p class="text-2xl">Description</p>
+      <section class="w-full flex flex-col">
+        <div class="text-center">
+          <h2 class="scroll-ani scroll-hidden scroll-up duration-[1.2s] text-4xl">NEW SWAG</h2>
+          <p class="scroll-ani scroll-hidden scroll-up duration-[1.2s] py-8">GET IT NOW</p>
+        </div>
+        <div class="min-h-[300vh] w-full flex flex-row">
+          <div class="flex flex-col w-[40%]">
+            <div class="flex flex-col items-end pt-[60%]">
+              <p class="text-4xl">Merch 1</p>
+              <p class="text-2xl">Description</p>
+            </div>
+            <div class="flex flex-col items-end pt-[60%]">
+              <p class="text-4xl">Merch 2</p>
+              <p class="text-2xl">Description</p>
+            </div>
+            <div class="flex flex-col items-end pt-[60%]">
+              <p class="text-4xl">Merch 3</p>
+              <p class="text-2xl">Description</p>
+            </div>
+            <div class="flex flex-col items-end pt-[60%]">
+              <p class="text-4xl">Merch 4</p>
+              <p class="text-2xl">Description</p>
+            </div>
+            <div class="flex flex-col items-end pt-[60%] pb-[60%]">
+              <p class="text-4xl">Merch 5</p>
+              <p class="text-2xl">Description</p>
+            </div>
+          </div>
+          <div class="w-[60%]">
+            <div class="h-screen sticky top-0 flex flex-col items-start">
+              <img id="swagItem" class="w-[60%] pt-[20%]" src="../static/img/swag/hat/hat-fr.png" alt="">
+            </div>
           </div>
         </div>
-        <div class="w-[50%]">
-          <img class="h-[300px]" src="../static/img/logo/icon.png" alt="">
-        </div>
       </section>
+      <section class="h-screen"></section>
     </main>
     {% endblock %}
   </body>

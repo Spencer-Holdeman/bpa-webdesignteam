@@ -1,8 +1,3 @@
-// const data_scroll = document.getElementsByTagName('html')[0].getAttribute('data-scroll');
-// if (data_scroll > 0) {
-//   const scrollAnimations = 
-// }
-
 // Create a new IntersectionObserver instance to observe visibility changes of target elements
 const observer = new IntersectionObserver((entries) => {
   // Loop through each entry (observed element)
@@ -65,3 +60,18 @@ const debounce = (fn) => {
   
   // Update scroll position for first time
   storeScroll();
+
+
+  // ----------------- Scroll -----------------
+  function scrollFunction() {
+    const SwagItem = document.getElementById('swagItem');
+    if (document.documentElement.dataset.scroll = window.scrollY > 2250) {
+      console.log('data-scroll');
+      SwagItem.src = '../static/img/swag/hat/hat-b.png';
+    }
+    else {
+      SwagItem.src = '../static/img/swag/hat/hat-fr.png';
+    }
+    setTimeout(scrollFunction, 1000);
+  }
+  scrollFunction()

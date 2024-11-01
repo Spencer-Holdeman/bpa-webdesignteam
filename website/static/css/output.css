@@ -576,12 +576,8 @@ html:not([data-scroll='0']) #navbar div a p {
   position: static;
 }
 
-.fixed {
-  position: fixed;
-}
-
-.bottom-0 {
-  bottom: 0px;
+.sticky {
+  position: sticky;
 }
 
 .top-0 {
@@ -602,6 +598,10 @@ html:not([data-scroll='0']) #navbar div a p {
 
 .mt-\[-144px\] {
   margin-top: -144px;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
 }
 
 .block {
@@ -640,6 +640,10 @@ html:not([data-scroll='0']) #navbar div a p {
   min-height: 100vh;
 }
 
+.min-h-\[300vh\] {
+  min-height: 300vh;
+}
+
 .w-60 {
   width: 15rem;
 }
@@ -656,8 +660,24 @@ html:not([data-scroll='0']) #navbar div a p {
   width: 100%;
 }
 
-.w-screen {
-  width: 100vw;
+.w-\[300px\] {
+  width: 300px;
+}
+
+.w-\[30\%\] {
+  width: 30%;
+}
+
+.w-\[70\%\] {
+  width: 70%;
+}
+
+.w-\[40\%\] {
+  width: 40%;
+}
+
+.w-\[60\%\] {
+  width: 60%;
 }
 
 .flex-row {
@@ -670,6 +690,14 @@ html:not([data-scroll='0']) #navbar div a p {
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
 }
 
 .items-center {
@@ -696,14 +724,6 @@ html:not([data-scroll='0']) #navbar div a p {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.25rem * var(--tw-space-x-reverse));
   margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.overflow-x-hidden {
-  overflow-x: hidden;
-}
-
-.overflow-y-scroll {
-  overflow-y: scroll;
 }
 
 .scroll-smooth {
@@ -744,6 +764,54 @@ html:not([data-scroll='0']) #navbar div a p {
 
 .pb-3 {
   padding-bottom: 0.75rem;
+}
+
+.pt-3 {
+  padding-top: 0.75rem;
+}
+
+.pt-\[300px\] {
+  padding-top: 300px;
+}
+
+.pt-\[50\%\] {
+  padding-top: 50%;
+}
+
+.pt-\[calc\(50\%-300px\)\] {
+  padding-top: calc(50% - 300px);
+}
+
+.pt-\[calc\(100\%-300px\)\] {
+  padding-top: calc(100% - 300px);
+}
+
+.pt-\[20\%\] {
+  padding-top: 20%;
+}
+
+.pt-\[40\%\] {
+  padding-top: 40%;
+}
+
+.pt-\[410\%\] {
+  padding-top: 410%;
+}
+
+.pt-\[140\%\] {
+  padding-top: 140%;
+}
+
+.pt-\[100\%\] {
+  padding-top: 100%;
+}
+
+.pt-\[60\%\] {
+  padding-top: 60%;
+}
+
+.pb-\[60\%\] {
+  padding-bottom: 60%;
 }
 
 .text-center {
