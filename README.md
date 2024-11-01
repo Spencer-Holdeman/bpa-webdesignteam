@@ -10,6 +10,8 @@ A submission for (435) BPA Web Design Competition, 2024-25.
 ### Technologies Used
 1. HTML
 2. CSS
-3. Tailwind
+3. Tailwind CSS
 4. Python
 5. Flask
+6. Jinja
+8. SQLAlchemy
