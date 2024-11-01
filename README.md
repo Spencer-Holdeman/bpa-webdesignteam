@@ -13,5 +13,6 @@ A submission for (435) BPA Web Design Competition, 2024-25.
 3. Tailwind
 4. Python
 5. Flask
-6. SQLite
-7. SQLAlchemy
+6. Jinja
+7. SQLite
+8. SQLAlchemy
