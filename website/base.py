@@ -16,3 +16,8 @@ def Members():
 def Swag():
     
     return render_template("swag.html")
+
+@base.route('/login')
+def Login():
+    
+    return render_template("login.html")

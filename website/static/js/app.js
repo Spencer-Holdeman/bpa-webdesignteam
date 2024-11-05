@@ -72,6 +72,6 @@ const debounce = (fn) => {
     else {
       SwagItem.src = '../static/img/swag/hat/hat-fr.png';
     }
-    setTimeout(scrollFunction, 1000);
+    setTimeout(scrollFunction, 100);
   }
   scrollFunction()

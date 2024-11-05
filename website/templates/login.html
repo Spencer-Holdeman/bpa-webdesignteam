@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-scroll='0'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up</title>
+    <link
+    href="{{url_for('static',filename='css/output.css')}}"
+    rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
+    <script defer src="../static/js/login.js"></script>
+</head>
+<body class="h-screen bg-fixed bg-center bg-cover text-white">
+    <canvas id="gradient-canvas" class="fixed"></canvas>
+    <main class="h-screen w-full flex flex-col items-center justify-center">
+        <div class="flex flex-col items-center justify-center z-10">
+            <img src="../static/img/logo/icon.png" alt="" class="h-20">
+            <h1 class="text-4xl font-bold my-6">Sign in to your account</h1>
+            <br>
+        </div>
+        <div class="w-[600px] flex flex-col items-center justify-center rounded-xl Z-1" style="background-color: #431288;">
+            <form action="/login" method="POST" class="w-full flex flex-col justify-center p-10">
+                <label class="my-2 font-medium" for="signin-email">Email</label>
+                <input class="p-2 my-2 rounded-xl text-black" type="email" name="" id="signin-email">
+                <br>
+                <label class="my-2 font-medium" for="signin-pass">Password</label>
+                <input class="p-2 my-2 rounded-xl text-black" type="password" name="" id="signin-pass">
+                <div class="w-full flex justify-end">
+                    <p class="my-4 text-purple-400 font-medium">Forgot Password?</p>
+                </div>
+                <button class="w-full bg-purple-500 py-2 my-2 rounded-xl font-medium">Sign In</button>
+            </form>
+        </div>
+        <p class="font-medium py-5">Need an account? <span class="text-purple-400"><a href="">Create one.</a></span></p>
+    </main>
+</body>
+</html>
