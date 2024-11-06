@@ -65,12 +65,21 @@ const debounce = (fn) => {
   // ----------------- Scroll -----------------
   function scrollFunction() {
     const SwagItem = document.getElementById('swagItem');
-    if (document.documentElement.dataset.scroll = window.scrollY > 2250) {
-      console.log('data-scroll');
-      SwagItem.src = '../static/img/swag/hat/hat-b.png';
+    if (document.documentElement.dataset.scroll > 2250 && document.documentElement.dataset.scroll < 2700) {
+      console.log('Front Hat');
+      SwagItem.src = '../static/img/swag/hat/hat-f.png';
     }
-    else {
+    else if (document.documentElement.dataset.scroll > 2700 && document.documentElement.dataset.scroll < 3000) {
+      console.log('Front Right Hat');
       SwagItem.src = '../static/img/swag/hat/hat-fr.png';
+    }
+    else if (document.documentElement.dataset.scroll > 3000 && document.documentElement.dataset.scroll < 3300) {
+      console.log('Right Hat');
+      SwagItem.src = '../static/img/swag/hat/hat-r.png';
+    }
+    else if (document.documentElement.dataset.scroll > 3300) {
+      console.log('Back Hat');
+      SwagItem.src = '../static/img/swag/hat/hat-b.png';
     }
     setTimeout(scrollFunction, 100);
   }

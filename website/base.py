@@ -21,3 +21,8 @@ def Swag():
 def Login():
     
     return render_template("login.html")
+
+@base.route('/signup')
+def SignUp():
+    
+    return render_template("signup.html")
