@@ -6,25 +6,28 @@
 
 {% block form %}
 <main class="h-screen w-full flex flex-col items-center justify-center">
-    <div class="hidden mdh:flex flex-col items-center justify-center z-10">
-        <img src="../static/img/logo/icon.png" alt="" class="h-20">
-        <h1 class="text-4xl text-center font-bold my-6">Create a new account</h1>
-        <br>
+    <div class="flex flex-row mdh:flex-col items-center justify-center z-10 my-0 mdh:my-5">
+        <img src="../static/img/logo/icon.png" alt="" class="h-12 mx-2 mdh:mx-0 mdh:h-20">
+        <h1 class="text-2xl mdh:text-4xl text-center font-bold my-2 mdh:my-6">Create a new account</h1>
+        <br class="hidden md:block">
     </div>
-    <div class="w-full md:w-[600px] flex flex-col items-center justify-center md:rounded-xl Z-1" style="background-color: #431288;">
-        <form action="/login" method="POST" class="w-full flex flex-col justify-center p-10">
+    <div class="w-full md:w-[600px] flex flex-col items-center justify-center md:rounded-xl Z-1 bg-opacity-0 md:bg-opacity-100 bg-[#431288]">
+        <form action="/login" method="POST" class="w-full flex flex-col justify-center px-10 py-5 md:py-10">
             <label class="my-2 font-medium" for="signup-name">Name</label>
             <input class="p-2 my-2 rounded-xl text-black" type="text" name="" id="signup-name">
-            <br>
+            <br class="hidden md:block">
             <label class="my-2 font-medium" for="signup-email">Email</label>
             <input class="p-2 my-2 rounded-xl text-black" type="email" name="" id="signup-email" placeholder="example@example.com">
-            <br>
+            <br class="hidden md:block">
             <label class="my-2 font-medium" for="signup-pass">Password</label>
             <input class="my-2 p-2 rounded-xl text-black" type="password" name="" id="signup-pass">
-            <br>
+            <span>
+                <input checked class="my-4" type="checkbox" name="" id="signup-news">
+                <label for="signup-news">I would like to recieve emails from the <i>Stage Fright</i> newsletter.</label>
+            </span>
             <button class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-2 my-2 rounded-xl font-medium">Create Account</button>
         </form>
     </div>
-    <p class="font-medium py-5">Already have an account? <span class="text-purple-400 hover:text-purple-500 duration-200"><a href="/login">Sign In.</a></span></p>
+    <p class="font-medium py-0 md:py-5">Already have an account? <span class="text-purple-400 hover:text-purple-500 duration-200"><a href="/login">Sign In.</a></span></p>
 </main>
 {% endblock %}
