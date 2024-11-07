@@ -48,7 +48,8 @@ html:not([data-scroll='0']) body {
     transform: translateX(0);
 }
 
-/* Gradient Background */
+/* ----Animated Backgrounds---- */
+/* Sign In/Up */
 #gradient-canvas {
     width: 100%;
     height: 100%;
@@ -58,3 +59,5 @@ html:not([data-scroll='0']) body {
     --gradient-color-4: #240638;
     z-index: -1;
 }
+
+/* Main Page */

@@ -11,12 +11,19 @@
     <title>{% block title %} Stage Fright {% endblock %}</title>
     <script defer src="../static/js/app.js"></script>
   </head>
-  <body class="scroll-smooth transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/6.png);">
+  <body class="scroll-smooth overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/6.png);">
+    
+    
+    <div class="fixed top-0 left-0">
+      <video src="https://dsuo8ru7qqukg.cloudfront.net/the-cure/thecure/background-video-x.mp4" autoplay="" muted="" loop="" playsinline=""></video>
+    </div>
+
+    
     <nav id="navbar" class="flex flex-row items-center transition-all duration-[1.2s] justify-between px-8 py-8">
       <div class="flex flow-row">
         <a href="/"><img class="h-20 transition-all duration-[1.2s]" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
       </div>
-      <div class="flex space-x-5 text-xl z-10">
+      <div class="flex space-x-5 text-xl z-50">
         <a href="/"><p class="transition-all duration-[1.2s]">Home</p></a>
         <a href="/members"><p class="transition-all duration-[1.2s]">Members</p></a>
         <a href="/members"><p class="transition-all duration-[1.2s]">Tours</p></a>
