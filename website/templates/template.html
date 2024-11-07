@@ -4,68 +4,102 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="{{url_for('static',filename='css/output.css')}}"
-      rel="stylesheet"
+    href="{{url_for('static',filename='css/output.css')}}"
+    rel="stylesheet"
     />
+    <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
     <title>{% block title %} Stage Fright {% endblock %}</title>
     <script defer src="../static/js/app.js"></script>
   </head>
-  <body class="scroll-smooth px-8 bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/4.png);">
+  <body class="scroll-smooth transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/6.png);">
+    <nav id="navbar" class="flex flex-row items-center transition-all duration-[1.2s] justify-between px-8 py-8">
+      <div class="flex flow-row">
+        <a href="/"><img class="h-20 transition-all duration-[1.2s]" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
+      </div>
+      <div class="flex space-x-5 text-xl z-10">
+        <a href="/"><p class="transition-all duration-[1.2s]">Home</p></a>
+        <a href="/members"><p class="transition-all duration-[1.2s]">Members</p></a>
+        <a href="/members"><p class="transition-all duration-[1.2s]">Tours</p></a>
+        <a href="/swag"><p class="transition-all duration-[1.2s]">Swag</p></a>
+        <a href="/swag"><p class="transition-all duration-[1.2s]">About</p></a>
+        <a href="/login"><p class="transition-all duration-[1.2s]">Login</p></a>
+      </div>
+    </nav>
+    {% block header_title %}
     <header class="h-screen w-full bg-fixed">
-      <nav class="flex flex-row justify-between py-8">
-        <div>
-          <a href="/">Stage Fright</a>
-        </div>
-        <div class="flex space-x-5">
-          <a href="/">Home</a>
-          <a href="/members">Members</a>
-          <a href="/members">Tours</a>
-          <a href="/swag">Swag</a>
-          <a href="/swag">About</a>
-        </div>
-      </nav>
-      {% block header_title %}
-      <section class="h-4/5 flex flex-col items-center justify-center">
-        <h1 class="text-6xl">Stage Fright</h1>
-        <p class="text-2xl">Subtitle</p>
+      <section class="h-[calc(84%)] flex flex-col items-center justify-center">
+        <img class="scroll-ani scroll-hidden scroll-blur scroll-redo duration-[1.2s] mt-[-144px]" src="../static/img/logo/text.png" alt="">
       </section>
-      {% endblock %}
     </header>
+    {% endblock %}
     {% block content %}
     <main class="w-full">
       <section class="min-h-screen flex flex-col items-center justify-start text-center">
-        <div class="scroll-uhidden mt-2">
+        <div class="mt-2">
           <div>
-            <h2 class="text-4xl">Meet the Band</h2>
-            <p class="py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus vitae odio rem ut deserunt, totam et debitis labore ullam dolorum, molestias fuga vero dignissimos alias ab! Ratione, molestias nisi.</p>
+            <h2 class="scroll-ani scroll-hidden scroll-up duration-[1.2s] text-4xl">Meet the Band</h2>
+            <p class="scroll-ani scroll-hidden scroll-up duration-[1.2s] py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus vitae odio rem ut deserunt, totam et debitis labore ullam dolorum, molestias fuga vero dignissimos alias ab! Ratione, molestias nisi.</p>
           </div>
           <div class="flex flex-row flex-wrap justify-center">
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.jpg);">
+            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.jpg);">
               <h1>Landon Warren</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Pianist</p>
+              <p class="pb-3">Electric Guitarist</p>
             </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.jpg);">
+            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.jpg);">
               <h1>Spendagr Holdeman</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Drummer</p>
             </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.jpg);">
+            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.jpg);">
               <h1>Connor Crossley</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Dancer</p>
+              <p class="pb-3">Bassist</p>
             </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.jpg);">
+            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.jpg);">
               <h1>David Casswell</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Lead Singer</p>
+              <p class="pb-3">Vocalist</p>
             </div>
           </div>
         </div>
       </section>
-      <section class="h-screen w-full">
-
+      <section class="w-full flex flex-col">
+        <div class="text-center">
+          <h2 class="scroll-ani scroll-hidden scroll-up duration-[1.2s] text-4xl">NEW SWAG</h2>
+          <p class="scroll-ani scroll-hidden scroll-up duration-[1.2s] py-8">GET IT NOW</p>
+        </div>
+        <div class="min-h-[300vh] w-full flex flex-row">
+          <div class="flex flex-col w-[40%]">
+            <div class="flex flex-col items-end pt-[30%] pb-[30%]">
+              <p class="text-4xl">Merch 1</p>
+              <p class="text-2xl">Description</p>
+            </div>
+            <div class="flex flex-col items-end pt-[30%] pb-[30%]">
+              <p class="text-4xl">Merch 2</p>
+              <p class="text-2xl">Description</p>
+            </div>
+            <div class="flex flex-col items-end pt-[30%] pb-[30%]">
+              <p class="text-4xl">Merch 3</p>
+              <p class="text-2xl">Description</p>
+            </div>
+            <div class="flex flex-col items-end pt-[30%] pb-[30%]">
+              <p class="text-4xl">Merch 4</p>
+              <p class="text-2xl">Description</p>
+            </div>
+            <div class="flex flex-col items-end pt-[30%] pb-[30%]">
+              <p class="text-4xl">Merch 5</p>
+              <p class="text-2xl">Description</p>
+            </div>
+          </div>
+          <div class="w-[60%]">
+            <div class="h-screen sticky top-0 flex flex-col items-start">
+              <img id="swagItem" class="w-[60%]" src="../static/img/swag/hat/hat-fr.png" alt="">
+            </div>
+          </div>
+        </div>
       </section>
+      <section class="h-screen"></section>
     </main>
     {% endblock %}
   </body>

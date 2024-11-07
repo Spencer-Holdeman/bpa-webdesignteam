@@ -4,7 +4,12 @@ module.exports = {
     './website/templates/*.html',
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'smh': {'raw': '(min-height: 600px)'}, 
+        'mdh': {'raw': '(min-height: 800px)'},
+      }
+    },
   },
   plugins: [],
 }

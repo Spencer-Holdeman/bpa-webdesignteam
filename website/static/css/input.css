@@ -2,29 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Scroll Animation Classes */
-.scroll-uhidden {
-    opacity: 0;
-    transition: all 1.2s;
-    transform: translateY(85%);
+/* Scroll Postion Styles  */
+html:not([data-scroll='0']) body {
+    backdrop-filter: brightness(60%);
 }
-.scroll-dhidden {
-    opacity: 0;
-    transition: all 1.2s;
-    transform: translateY(-85%);
-}
-.scroll-lhidden {
-    opacity: 0;
-    transition: all 1.2s;
-    transform: translateX(85%);
-}
-.scroll-rhidden {
-    opacity: 0;
-    transition: all 1.2s;
-    transform: translateX(-85%);
+@layer components {
+    html:not([data-scroll='0']) #navbar {
+        @apply sticky top-0 py-4 px-4;
+    }
+    html:not([data-scroll='0']) #navbar div a img {
+        @apply h-12;
+    }
+    html:not([data-scroll='0']) #navbar div a p {
+        @apply text-sm;
+    }
 }
 
+/* Scroll Animation Classes */
+.scroll-hidden {
+    opacity: 0;
+}
+.scroll-blur {
+    filter: blur(50px);
+}
+.scroll-up {
+    transform-origin: top;
+    transform: translateY(45px);
+}
+.scroll-down {
+    transform-origin: top;
+    transform: translateY(-45px);
+}
+.scroll-left {
+    transform-origin: top;
+    transform: translateX(45px);
+}
+.scroll-right {
+    transform-origin: top;
+    transform: translateX(-45px);
+}
 .scroll-show {
     opacity: 1;
+    filter: blur(0);
     transform: translateY(0);
+    transform: translateX(0);
+}
+
+/* Gradient Background */
+#gradient-canvas {
+    width: 100%;
+    height: 100%;
+    --gradient-color-1: #3f0863;
+    --gradient-color-2: #000000;
+    --gradient-color-3: #000000;
+    --gradient-color-4: #240638;
+    z-index: -1;
 }

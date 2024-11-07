@@ -7,8 +7,11 @@ A submission for (435) BPA Web Design Competition, 2024-25.
 - Connor C. - Back-End Developer
 - David C. - Graphic Designer
 
-### Planned Technologies
+### Technologies Used
 1. HTML
-2. Tailwind CSS
-3. Python (Flask)
-5. SQL
+2. CSS
+3. Tailwind CSS
+4. Python
+5. Flask
+6. Jinja
+8. SQLAlchemy
