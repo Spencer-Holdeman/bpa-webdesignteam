@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-base = Blueprint('views', __name__)
+base = Blueprint('base', __name__)
 
 @base.route('/')
 def Home():
