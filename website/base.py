@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, flash
+from flask import Blueprint, render_template, request, session, flash, redirect, url_for
 from . import db
 
 base = Blueprint('base', __name__)
@@ -9,15 +9,32 @@ class User(db.Model):
     email = db.Column(db.String(100))
     password = db.Column(db.String(50))
     
-    def __init__(self, username, email, password):
-        self.username = username
+    def __init__(self, name, email, password):
+        self.name = name
         self.email = email
         self.password = password
-
+        
 @base.route('/', methods=['POST', 'GET'])
+def clear_session():
+    session.clear()
+    return redirect(url_for('base.Home'))
+
+@base.route('/home', methods=['POST', 'GET'])
 def Home():
-    print('Home')
-    return render_template('index.html')
+    # db.session.query(User).delete()
+    # db.session.commit()
+    if 'logged_in?' in session:
+        if session['logged_in?'] == True:
+            print('home (logged in)')
+            name = session['name']
+            flash(f'Hello {name}, you have logged in!', 'success')
+            return render_template('index.html')
+        else:
+            print('Home (session[logged_in?] is false)')
+        return render_template('index.html')
+    else:
+        print('Home (logged out)')
+        return render_template('index.html')
 
 @base.route('/members', methods=['POST', 'GET'])
 def Members():
@@ -31,8 +48,26 @@ def Swag():
 
 @base.route('/login', methods=['POST', 'GET'])
 def Login():
-    print('Login')
-    return render_template('login.html')
+    if request.method == 'POST':
+        print('login: inside if')
+        email = request.form['email-login']
+        password = request.form['password-login']
+        emails_passwords = db.session.query(User.email, User.password).all()
+        database = [email[0] for email in emails_passwords]
+        print(database)
+        print(email)
+        if email in database:
+            user = User.query.filter_by(email=email).first()
+            session['email'] = email
+            session['password'] = password
+            session['name'] = user.name
+            session['logged_in?'] = True
+            return redirect(url_for('base.Home'))
+        else:
+            return 'not logged in'
+    else:
+        print('login: outside if')
+        return render_template('login.html')
 
 @base.route('/signup', methods=['POST', 'GET'])
 def SignUp():
@@ -44,10 +79,12 @@ def SignUp():
         new_user = User(name=name, email=email, password=password)
         db.session.add(new_user)
         db.session.commit()
-        # redirects to login 
+        session['logged_in?'] = False
+        return redirect(url_for('base.Login'))
     else:
         print('Sign-up: outside if')
         return render_template('signup.html')
+    
     
     #this is how you log a user in
     #     session['name'] = name

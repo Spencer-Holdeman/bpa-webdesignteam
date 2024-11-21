@@ -12,17 +12,29 @@
     <script defer src="../static/js/app.js"></script>
   </head>
   <body class="scroll-smooth transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/6.png);">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div>
+                {% for category, message in messages %}
+                    <div>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
     <nav id="navbar" class="flex flex-row items-center transition-all duration-[1.2s] justify-between px-8 py-8">
       <div class="flex flow-row">
-        <a href="/"><img class="h-20 transition-all duration-[1.2s]" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
+        <a href="/home"><img class="h-20 transition-all duration-[1.2s]" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
       </div>
       <div class="flex space-x-5 text-xl z-10">
-        <a href="/"><p class="transition-all duration-[1.2s]">Home</p></a>
+        <a href="/home"><p class="transition-all duration-[1.2s]">Home</p></a>
         <a href="/members"><p class="transition-all duration-[1.2s]">Members</p></a>
         <a href="/members"><p class="transition-all duration-[1.2s]">Tours</p></a>
         <a href="/swag"><p class="transition-all duration-[1.2s]">Swag</p></a>
         <a href="/swag"><p class="transition-all duration-[1.2s]">About</p></a>
         <a href="/login"><p class="transition-all duration-[1.2s]">Login</p></a>
+        <a href="/"><p class="transition-all duration-[1.2s]">Logout</p></a>
       </div>
     </nav>
     {% block header_title %}
