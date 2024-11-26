@@ -13,6 +13,17 @@
 </head>
 <body class="flex flex-col h-screen bg-fixed bg-center bg-cover text-white">
     <canvas id="gradient-canvas" class="fixed"></canvas>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div>
+                {% for category, message in messages %}
+                    <div>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
     {% block form %}
     <main class="h-screen w-full flex flex-col items-center justify-center">
         <div class="hidden mdh:flex flex-col items-center justify-center z-10">

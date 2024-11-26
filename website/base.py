@@ -53,10 +53,11 @@ def Login():
         email = request.form['email-login']
         password = request.form['password-login']
         emails_passwords = db.session.query(User.email, User.password).all()
-        database = [email[0] for email in emails_passwords]
-        print(database)
-        print(email)
-        if email in database:
+        database_emails = [email[0] for email in emails_passwords]
+        database_passwords = [password[1] for password in emails_passwords]
+        print(database_emails)
+        print(database_passwords)
+        if email in database_emails and password in database_passwords:
             user = User.query.filter_by(email=email).first()
             session['email'] = email
             session['password'] = password
@@ -76,6 +77,11 @@ def SignUp():
         name = request.form['signup-name']
         email = request.form['signup-email']
         password = request.form['signup-password']
+        emails_passwords = db.session.query(User.email, User.password).all()
+        database_emails = [email[0] for email in emails_passwords]
+        if email in database_emails:
+            flash('email already taken, did you spell it correctly?')
+            return redirect(url_for('base.SignUp'))
         new_user = User(name=name, email=email, password=password)
         db.session.add(new_user)
         db.session.commit()
@@ -84,10 +90,3 @@ def SignUp():
     else:
         print('Sign-up: outside if')
         return render_template('signup.html')
-    
-    
-    #this is how you log a user in
-    #     session['name'] = name
-    #     session['email'] = email
-    #     session['password'] = password
-    #     is_logged_in = True

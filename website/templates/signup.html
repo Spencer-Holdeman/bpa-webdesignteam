@@ -5,26 +5,26 @@
 
 
 {% block form %}
-<main class="h-screen w-full flex flex-col items-center justify-center">
-    <div class="hidden mdh:flex flex-col items-center justify-center z-10">
-        <img src="../static/img/logo/icon.png" alt="" class="h-20">
-        <h1 class="text-4xl text-center font-bold my-6">Create a new account</h1>
-        <br>
-    </div>
-    <div class="w-full md:w-[600px] flex flex-col items-center justify-center md:rounded-xl Z-1" style="background-color: #431288;">
-        <form action="/signup" method="POST" class="w-full flex flex-col justify-center p-10">
-            <label class="my-2 font-medium" for="signup-name">Name</label>
-            <input class="p-2 my-2 rounded-xl text-black" type="text" name="signup-name" id="signup-name">
+    <main class="h-screen w-full flex flex-col items-center justify-center">
+        <div class="hidden mdh:flex flex-col items-center justify-center z-10">
+            <img src="../static/img/logo/icon.png" alt="" class="h-20">
+            <h1 class="text-4xl text-center font-bold my-6">Create a new account</h1>
             <br>
-            <label class="my-2 font-medium" for="signup-email">Email</label>
-            <input class="p-2 my-2 rounded-xl text-black" type="email" name="signup-email" id="signup-email" placeholder="example@example.com">
-            <br>
-            <label class="my-2 font-medium" for="signup-password">Password</label>
-            <input class="my-2 p-2 rounded-xl text-black" type="password" name="signup-password" id="signup-password">
-            <br>
-            <button class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-2 my-2 rounded-xl font-medium">Create Account</button>
-        </form>
-    </div>
-    <p class="font-medium py-5">Already have an account? <span class="text-purple-400 hover:text-purple-500 duration-200"><a href="/login">Sign In.</a></span></p>
-</main>
+        </div>
+        <div class="w-full md:w-[600px] flex flex-col items-center justify-center md:rounded-xl Z-1" style="background-color: #431288;">
+            <form action="/signup" method="POST" class="w-full flex flex-col justify-center p-10">
+                <label class="my-2 font-medium" for="signup-name">Name</label>
+                <input class="p-2 my-2 rounded-xl text-black" type="text" name="signup-name" id="signup-name">
+                <br>
+                <label class="my-2 font-medium" for="signup-email">Email</label>
+                <input class="p-2 my-2 rounded-xl text-black" type="email" name="signup-email" id="signup-email" placeholder="example@example.com">
+                <br>
+                <label class="my-2 font-medium" for="signup-password">Password</label>
+                <input class="my-2 p-2 rounded-xl text-black" type="password" name="signup-password" id="signup-password">
+                <br>
+                <button class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-2 my-2 rounded-xl font-medium">Create Account</button>
+            </form>
+        </div>
+        <p class="font-medium py-5">Already have an account? <span class="text-purple-400 hover:text-purple-500 duration-200"><a href="/login">Sign In.</a></span></p>
+    </main>
 {% endblock %}
