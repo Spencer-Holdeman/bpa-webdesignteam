@@ -16,13 +16,14 @@ class User(db.Model):
         
 @base.route('/', methods=['POST', 'GET'])
 def clear_session():
+    # db.session.query(User).delete()
+    # db.session.commit()
     session.clear()
     return redirect(url_for('base.Home'))
 
 @base.route('/home', methods=['POST', 'GET'])
 def Home():
-    # db.session.query(User).delete()
-    # db.session.commit()
+    print(session.items())
     if 'logged_in?' in session:
         if session['logged_in?'] == True:
             print('home (logged in)')
