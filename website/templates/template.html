@@ -16,8 +16,8 @@
     <script defer src="../static/js/app.js"></script>
     <script defer src="../static/js/login.js"></script>
   </head>
-  <body class="scroll-smooth transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/6.png);">
-    {% with messages = get_flashed_messages(with_categories=true) %}
+  <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white backdrop-brightness-75" style="background-image: url(../static/img/member/group.jpg);">      {% with messages = get_flashed_messages(with_categories=true) %}
+    <canvas id="gradient-canvas" class="canvas-main fixed h-screen max-h-screen"></canvas>
         {% if messages %}
             <div>
                 {% for category, message in messages %}
@@ -28,14 +28,10 @@
             </div>
         {% endif %}
     {% endwith %}
-  <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white backdrop-brightness-75" style="background-image: url(../static/img/member/group.jpg);">    
-    <canvas id="gradient-canvas" class="canvas-main fixed h-screen max-h-screen"></canvas>
     <nav id="navbar" class="flex flex-row items-center transition-all duration-[1.2s] justify-between px-8 py-8">
       <div class="flex flow-row">
         <a href="/home"><img class="h-20 transition-all duration-[1.2s]" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
       </div>
-      <div class="flex space-x-5 text-xl z-10">
-        <a href="/home"><p class="transition-all duration-[1.2s]">Home</p></a>
       <div class="flex space-x-5 text-xl z-50">
         <a href="/"><p class="transition-all duration-[1.2s]">Home</p></a>
         <a href="/members"><p class="transition-all duration-[1.2s]">Members</p></a>
