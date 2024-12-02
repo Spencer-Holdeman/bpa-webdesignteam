@@ -7,18 +7,17 @@
     href="{{url_for('static',filename='css/output.css')}}"
     rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>{% block title %} Stage Fright {% endblock %}</title>
     <script defer src="../static/js/app.js"></script>
+    <script defer src="../static/js/login.js"></script>
   </head>
-  <body class="scroll-smooth overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white" style="background-image: url(../static/img/background/6.png);">
-    
-    
-    <div class="fixed top-0 left-0">
-      <video src="https://dsuo8ru7qqukg.cloudfront.net/the-cure/thecure/background-video-x.mp4" autoplay="" muted="" loop="" playsinline=""></video>
-    </div>
-
-    
+  <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white backdrop-brightness-75" style="background-image: url(../static/img/member/group.jpg);">    
+    <canvas id="gradient-canvas" class="canvas-main fixed h-screen max-h-screen"></canvas>
     <nav id="navbar" class="flex flex-row items-center transition-all duration-[1.2s] justify-between px-8 py-8">
       <div class="flex flow-row">
         <a href="/"><img class="h-20 transition-all duration-[1.2s]" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
@@ -34,8 +33,8 @@
     </nav>
     {% block header_title %}
     <header class="h-screen w-full bg-fixed">
-      <section class="h-[calc(84%)] flex flex-col items-center justify-center">
-        <img class="scroll-ani scroll-hidden scroll-blur scroll-redo duration-[1.2s] mt-[-144px]" src="../static/img/logo/text.png" alt="">
+      <section class="h-[calc(83%)] flex flex-col items-center justify-center">
+        <img class="scroll-ani scroll-hidden scroll-blur scroll-redo duration-[1.2s] mt-[-144px]" src="../static/img/logo/text2.png" alt="">
       </section>
     </header>
     {% endblock %}
@@ -44,26 +43,26 @@
       <section class="min-h-screen flex flex-col items-center justify-start text-center">
         <div class="mt-2">
           <div>
-            <h2 class="scroll-ani scroll-hidden scroll-up duration-[1.2s] text-4xl">Meet the Band</h2>
-            <p class="scroll-ani scroll-hidden scroll-up duration-[1.2s] py-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus vitae odio rem ut deserunt, totam et debitis labore ullam dolorum, molestias fuga vero dignissimos alias ab! Ratione, molestias nisi.</p>
+            <h2 class="text-4xl" data-aos="fade-up">Meet the Band</h2>
+            <p class="py-8" data-aos="fade-up">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus vitae odio rem ut deserunt, totam et debitis labore ullam dolorum, molestias fuga vero dignissimos alias ab! Ratione, molestias nisi.</p>
           </div>
           <div class="flex flex-row flex-wrap justify-center">
-            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.jpg);">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);">
               <h1>Landon Warren</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Electric Guitarist</p>
             </div>
-            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.jpg);">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.webp);">
               <h1>Spendagr Holdeman</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Drummer</p>
             </div>
-            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.jpg);">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.webp);">
               <h1>Connor Crossley</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Bassist</p>
             </div>
-            <div class="scroll-ani scroll-hidden scroll-up duration-[1.2s] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.jpg);">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.webp);">
               <h1>David Casswell</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Vocalist</p>
@@ -73,8 +72,8 @@
       </section>
       <section class="w-full flex flex-col">
         <div class="text-center">
-          <h2 class="scroll-ani scroll-hidden scroll-up duration-[1.2s] text-4xl">NEW SWAG</h2>
-          <p class="scroll-ani scroll-hidden scroll-up duration-[1.2s] py-8">GET IT NOW</p>
+          <h2 class="text-4xl" data-aos="fade-up">NEW SWAG</h2>
+          <p class="py-8" data-aos="fade-up">GET IT NOW</p>
         </div>
         <div class="min-h-[300vh] w-full flex flex-row">
           <div class="flex flex-col w-[40%]">
@@ -109,5 +108,7 @@
       <section class="h-screen"></section>
     </main>
     {% endblock %}
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script> AOS.init({ duration: 1200 }); </script>
   </body>
 </html>
