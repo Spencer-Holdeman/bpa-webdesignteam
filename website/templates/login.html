@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
     <script defer src="../static/js/login.js"></script>
 </head>
+
 <body class="flex flex-col h-screen bg-fixed bg-center bg-cover text-white">
     <canvas id="gradient-canvas" class="fixed"></canvas>
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -24,13 +25,16 @@
             </div>
         {% endif %}
     {% endwith %}
+<body class="flex flex-col h-screen bg-fixed bg-center bg-cover text-white bg-black">
+    <canvas id="gradient-canvas" class="canvas-login fixed"></canvas>
     {% block form %}
     <main class="h-screen w-full flex flex-col items-center justify-center">
-        <div class="hidden mdh:flex flex-col items-center justify-center z-10">
-            <img src="../static/img/logo/icon.png" alt="" class="h-20">
-            <h1 class="text-4xl text-center font-bold my-6">Sign in to your account</h1>
-            <br>
+        <div class="flex flex-row mdh:flex-col items-center justify-center z-10 my-5 mdh:my-0">
+            <a href="/"><img src="../static/img/logo/icon.png" alt="" class="h-12 mx-2 mdh:mx-0 mdh:h-20"></a>
+            <h1 class="text-2xl mdh:text-4xl text-center font-bold my-2 mdh:my-6">Sign into your account</h1>
+            <br class="hidden md:block">
         </div>
+
         <div class="w-full md:w-[600px] flex flex-col items-center justify-center md:rounded-xl Z-1" style="background-color: #431288;">
             <form action="/login" method="POST" class="w-full flex flex-col justify-center p-10">
                 <label class="my-2 font-medium" for="email-login">Email</label>
@@ -41,9 +45,18 @@
                 <input class="my-2 p-2 rounded-xl text-black" type="password" name="password-login" id="password-login">
                 <p class="w-full my-4 text-right text-purple-400 hover:text-purple-500 duration-200 font-medium">Forgot Password?</p>
                 <button class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-2 my-2 rounded-xl font-medium">Sign In</button>
+        <div class="w-full md:w-[600px] flex flex-col items-center justify-center md:rounded-xl Z-1 bg-opacity-0 md:bg-opacity-100 bg-[#431288]">
+            <form action="/login" method="POST" class="w-full flex flex-col justify-center px-10 py-5 md:py-10">
+                <label class="my-2 font-medium" for="signin-email">Email</label>
+                <input class="p-2 my-2 rounded-xl text-black" type="email" name="" id="signin-email" placeholder="example@example.com">
+                <br class="hidden md:block">
+                <label class="my-2 font-medium" for="signin-pass">Password</label>
+                <input class="my-2 p-2 rounded-xl text-black" type="password" name="" id="signin-pass">
+                <p class="w-full my-2 md:my-4 text-right text-purple-400 hover:text-purple-500 duration-200 font-medium"><a href="">Forgot Password?</a></p>
+                <button class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-1 my-2 rounded-xl font-medium">Sign In</button>
             </form>
         </div>
-        <p class="font-medium py-5">Need an account? <span class="text-purple-400 hover:text-purple-500 duration-200"><a href="/signup">Create one.</a></span></p>
+        <p class="font-medium py-0 md:py-5">Need an account? <span class="text-purple-400 hover:text-purple-500 duration-200"><a href="/signup">Create one.</a></span></p>
     </main>
     {% endblock %}
 </body>
