@@ -554,24 +554,6 @@ video {
   display: none;
 }
 
-html:not([data-scroll='0']) #navbar {
-  position: sticky;
-  top: 0px;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-html:not([data-scroll='0']) #navbar div a img {
-  height: 3rem;
-}
-
-html:not([data-scroll='0']) #navbar div a p {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .static {
   position: static;
 }
@@ -613,6 +595,11 @@ html:not([data-scroll='0']) #navbar div a p {
   margin-right: 0.5rem;
 }
 
+.mx-\[12\.5\%\] {
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -636,11 +623,6 @@ html:not([data-scroll='0']) #navbar div a p {
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-}
-
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
 }
 
 .mt-10 {
@@ -807,18 +789,37 @@ html:not([data-scroll='0']) #navbar div a p {
   border-radius: 0.75rem;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.rounded-\[50\%\] {
+  border-radius: 50%;
+}
+
+.rounded-\[20\%\] {
+  border-radius: 20%;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .border-0 {
   border-width: 0px;
+}
+
+.border-r-8 {
+  border-right-width: 8px;
 }
 
 .bg-\[\#431288\] {
   --tw-bg-opacity: 1;
   background-color: rgb(67 18 136 / var(--tw-bg-opacity));
-}
-
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-indigo-600 {
@@ -841,6 +842,16 @@ html:not([data-scroll='0']) #navbar div a p {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-purple-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 51 234 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-0 {
   --tw-bg-opacity: 0;
 }
@@ -857,12 +868,12 @@ html:not([data-scroll='0']) #navbar div a p {
   background-position: center;
 }
 
-.p-10 {
-  padding: 2.5rem;
-}
-
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-10 {
@@ -1067,6 +1078,18 @@ html:not([data-scroll='0']) body {
   -webkit-backdrop-filter: brightness(45%);
           backdrop-filter: brightness(45%);
 }
+
+/* @layer components {
+    html:not([data-scroll='0']) #navbar {
+        @apply sticky top-0 py-4 px-4;
+    }
+    html:not([data-scroll='0']) #navbar div a img {
+        @apply h-12;
+    }
+    html:not([data-scroll='0']) #navbar div a p {
+        @apply text-sm;
+    }
+} */
 
 /* Scroll Animation Classes */
 
@@ -1278,10 +1301,6 @@ html:not([data-scroll='0']) body {
   .mdh\:my-6 {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-  }
-
-  .mdh\:flex {
-    display: flex;
   }
 
   .mdh\:h-20 {

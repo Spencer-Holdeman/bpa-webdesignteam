@@ -15,6 +15,7 @@
     <title>{% block title %} Stage Fright {% endblock %}</title>
     <script defer src="../static/js/app.js"></script>
     <script defer src="../static/js/login.js"></script>
+    <script src="https://kit.fontawesome.com/26eaa8b1dc.js" crossorigin="anonymous"></script>
   </head>
   <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white backdrop-brightness-75" style="background-image: url(../static/img/member/group.jpg);">      {% with messages = get_flashed_messages(with_categories=true) %}
     <canvas id="gradient-canvas" class="canvas-main fixed h-screen max-h-screen"></canvas>
@@ -28,18 +29,21 @@
             </div>
         {% endif %}
     {% endwith %}
-    <nav id="navbar" class="flex flex-row items-center transition-all duration-[1.2s] justify-between px-8 py-8">
+    <nav id="navbar" class="flex flex-row sticky top-0 items-center transition-all duration-[1.2s] justify-between px-8 py-8 mx-[12.5%] z-100">
       <div class="flex flow-row">
         <a href="/home"><img class="h-20 transition-all duration-[1.2s]" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
       </div>
-      <div class="flex space-x-5 text-xl z-50">
+      <div class="flex space-x-5 text-xl p-5 bg-purple-600 rounded-full">
         <a href="/"><p class="transition-all duration-[1.2s]">Home</p></a>
         <a href="/members"><p class="transition-all duration-[1.2s]">Members</p></a>
         <a href="/members"><p class="transition-all duration-[1.2s]">Tours</p></a>
         <a href="/swag"><p class="transition-all duration-[1.2s]">Swag</p></a>
         <a href="/swag"><p class="transition-all duration-[1.2s]">About</p></a>
-        <a href="/login"><p class="transition-all duration-[1.2s]">Login</p></a>
-        <a href="/"><p class="transition-all duration-[1.2s]">Logout</p></a>
+      </div>
+      <div class="flex space-x-5 text-xl">
+        <!-- <a href="/login"><p class="transition-all duration-[1.2s] text-2xl"><i class="fa-regular fa-user"></i></p></a> -->
+        <a href="/login" class="bg-purple"><p class="transition-all duration-[1.2s]">Login</p></a>
+        <!-- <a href="/"><p class="transition-all duration-[1.2s]">Logout</p></a> -->
       </div>
     </nav>
     {% block header_title %}

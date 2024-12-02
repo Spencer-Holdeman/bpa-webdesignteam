@@ -6,7 +6,7 @@
 html:not([data-scroll='0']) body {
     backdrop-filter: brightness(45%);
 }
-@layer components {
+/* @layer components {
     html:not([data-scroll='0']) #navbar {
         @apply sticky top-0 py-4 px-4;
     }
@@ -16,7 +16,7 @@ html:not([data-scroll='0']) body {
     html:not([data-scroll='0']) #navbar div a p {
         @apply text-sm;
     }
-}
+} */
 
 /* Scroll Animation Classes */
 .scroll-hidden {
