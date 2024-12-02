@@ -638,6 +638,11 @@ html:not([data-scroll='0']) #navbar div a p {
   margin-bottom: 1.25rem;
 }
 
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -850,6 +855,10 @@ html:not([data-scroll='0']) #navbar div a p {
 
 .bg-center {
   background-position: center;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .p-2 {
@@ -1269,6 +1278,10 @@ html:not([data-scroll='0']) body {
   .mdh\:my-6 {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+  }
+
+  .mdh\:flex {
+    display: flex;
   }
 
   .mdh\:h-20 {
