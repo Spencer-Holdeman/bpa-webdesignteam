@@ -66,12 +66,12 @@ html:not([data-scroll='0']) body {
     --gradient-color-2: #7d58b8;
     --gradient-color-3: #553981;
     --gradient-color-4: #240638;
-    z-index: -1;
+    z-index: -10;
     
     --mask: linear-gradient(to bottom, 
-    rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 20%, 
-    rgba(0,0,0, 0) 95%, rgba(0,0,0, 0) 0
-    ) 100% 50% / 20% 100% repeat-x;
+    rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 30%, 
+    rgba(0,0,0, 0) 100%, rgba(0,0,0, 0) 0
+    ) 100% 0% / 20% 50% repeat-x;
     font: 2em/1.6em Arial;
     -webkit-mask: var(--mask); 
     mask: var(--mask);

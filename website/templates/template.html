@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>{% block title %} Stage Fright {% endblock %}</title>
@@ -29,55 +32,64 @@
             </div>
         {% endif %}
     {% endwith %}
-    <nav id="navbar" class="flex flex-row sticky top-0 items-center transition-all duration-[1.2s] justify-between px-8 py-8 mx-[12.5%] z-100">
-      <div class="flex flow-row">
-        <a href="/home"><img class="h-20 transition-all duration-[1.2s]" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
-      </div>
-      <div class="flex space-x-5 text-xl p-5 bg-purple-600 rounded-full">
-        <a href="/"><p class="transition-all duration-[1.2s]">Home</p></a>
-        <a href="/members"><p class="transition-all duration-[1.2s]">Members</p></a>
-        <a href="/members"><p class="transition-all duration-[1.2s]">Tours</p></a>
-        <a href="/swag"><p class="transition-all duration-[1.2s]">Swag</p></a>
-        <a href="/swag"><p class="transition-all duration-[1.2s]">About</p></a>
-      </div>
-      <div class="flex space-x-5 text-xl">
-        <!-- <a href="/login"><p class="transition-all duration-[1.2s] text-2xl"><i class="fa-regular fa-user"></i></p></a> -->
-        <a href="/login" class="bg-purple"><p class="transition-all duration-[1.2s]">Login</p></a>
-        <!-- <a href="/"><p class="transition-all duration-[1.2s]">Logout</p></a> -->
-      </div>
-    </nav>
-    {% block header_title %}
-    <header class="h-screen w-full bg-fixed">
-      <section class="h-[calc(83%)] flex flex-col items-center justify-center">
-        <img class="scroll-ani scroll-hidden scroll-blur scroll-redo duration-[1.2s] mt-[-144px]" src="../static/img/logo/text2.png" alt="">
-      </section>
-    </header>
+    <div class="h-screen flex flex-col">
+      <nav id="navbar" class="flex flex-row items-center justify-between px-8 py-8 mx-[12.5%] font-semibold z-100">
+        <div class="flex flow-row">
+          <a href="/home"><img class="h-20" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
+          <a href="/home"><img class="h-20 ml-5" src="../static/img/logo/text2.png" alt="" draggable="false"></a>
+        </div>
+        <div class="flex space-x-5 text-base bg-purple-900 border-purple-500 border-2 px-2 py-2 rounded-full">
+          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Home</p></a>
+          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Members</p></a>
+          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Tours</p></a>
+          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">About</p></a>
+          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Buy Swag</p></a>
+          <!-- <a href="/swag"><p class="bg-purple-500 hover:bg-purple-700 rounded-full px-3 py-1.5">Buy Swag</p></a> -->
+          <!-- <a href="/login"><p class="bg-purple-900 border-purple-500 border-2 px-3.5 py-2 rounded-full text-2xl"><i class="fa-solid fa-bag-shopping"></i></p></a> -->
+          <a href="/login"><p class="bg-purple-900 rounded-full text-2xl"><i class="fa-solid fa-bag-shopping"></i></p></a>
+          <!-- <a href="/login" class="bg-purple"><p class="">Login</p></a> -->
+          <!-- <a href="/signup" class="bg-purple-500 px-2 py-2 rounded-full"><p class="px-3 py-1.5">Sign Up</p></a> -->
+          <a href="/signup" class="bg-purple-500 px-2 rounded-full"><p class="px-3 py-1.5">Sign Up</p></a>
+          <!-- <a href="/home"><p class="">Logout</p></a> -->
+        </div>
+      </nav>
+      {% block header_title %}
+      <header class="w-full bg-fixed flex flex-col justify-between flex-1">
+        <section class="flex flex-col items-center">
+          <!-- <img class="mt-12" src="../static/img/logo/text2.png" alt=""> -->
+        </section>
+        <section class="flex flex-row items-start justify-center gap-2 mb-12">
+          <a href="" class="px-3.5 py-2 bg-purple-700"><button class="text-2xl uppercase" style='font-family: "Lacquer";'>Buy the new hoodie</button></a>
+          <a href="" class="px-3.5 py-2 bg-purple-700"><button class="text-2xl uppercase" style='font-family: "Lacquer";'>Listen to the new album</button></a>
+        </section>
+      </header>
+    </div>
     {% endblock %}
     {% block content %}
     <main class="w-full">
       <section class="min-h-screen flex flex-col items-center justify-start text-center">
         <div class="mt-2">
-          <div>
+          <div class="font-lacquer">
             <h2 class="text-4xl" data-aos="fade-up">Meet the Band</h2>
             <p class="py-8" data-aos="fade-up">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus vitae odio rem ut deserunt, totam et debitis labore ullam dolorum, molestias fuga vero dignissimos alias ab! Ratione, molestias nisi.</p>
           </div>
           <div class="flex flex-row flex-wrap justify-center">
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900 font-semibold" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);">
               <h1>Landon Warren</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Electric Guitarist</p>
             </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.webp);">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900 font-semibold" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.webp);">
               <h1>Spendagr Holdeman</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Drummer</p>
             </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.webp);">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900 font-semibold" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.webp);">
               <h1>Connor Crossley</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Bassist</p>
             </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.webp);">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900 font-semibold" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.webp);">
               <h1>David Casswell</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Vocalist</p>
@@ -85,7 +97,7 @@
           </div>
         </div>
       </section>
-      <section class="w-full flex flex-col">
+      <section class="w-full flex flex-col font-lacquer">
         <div class="text-center">
           <h2 class="text-4xl" data-aos="fade-up">NEW SWAG</h2>
           <p class="py-8" data-aos="fade-up">GET IT NOW</p>
