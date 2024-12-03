@@ -16,6 +16,7 @@ class User(db.Model):
         
 @base.route('/', methods=['POST', 'GET'])
 def clear_session():
+    print('clear session')
     # db.session.query(User).delete()
     # db.session.commit()
     session.clear()
@@ -51,8 +52,8 @@ def Swag():
 def Login():
     if request.method == 'POST':
         print('login: inside if')
-        email = request.form['email-login']
-        password = request.form['password-login']
+        email = request.form.get('email-login', False)
+        password = request.form.get('password-login', False)
         emails_passwords = db.session.query(User.email, User.password).all()
         database_emails = [email[0] for email in emails_passwords]
         database_passwords = [password[1] for password in emails_passwords]
@@ -75,9 +76,9 @@ def Login():
 def SignUp():
     if request.method == 'POST':
         print('Sign-up: inside if')
-        name = request.form['signup-name']
-        email = request.form['signup-email']
-        password = request.form['signup-password']
+        name = request.form.get('signup-name', False)
+        email = request.form.get('signup-email', False)
+        password = request.form.get('signup-password', False)
         emails_passwords = db.session.query(User.email, User.password).all()
         database_emails = [email[0] for email in emails_passwords]
         if email in database_emails:
