@@ -43,15 +43,14 @@
           <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Members</p></a>
           <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Tours</p></a>
           <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">About</p></a>
-          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Buy Swag</p></a>
-          <!-- <a href="/swag"><p class="bg-purple-500 hover:bg-purple-700 rounded-full px-3 py-1.5">Buy Swag</p></a> -->
-          <!-- <a href="/login"><p class="bg-purple-900 border-purple-500 border-2 px-3.5 py-2 rounded-full text-2xl"><i class="fa-solid fa-bag-shopping"></i></p></a> -->
-          <a href="/login"><p class="bg-purple-900 rounded-full text-2xl"><i class="fa-solid fa-bag-shopping"></i></p></a>
-          <!-- <a href="/login" class="bg-purple"><p class="">Login</p></a> -->
-          <!-- <a href="/signup" class="bg-purple-500 px-2 py-2 rounded-full"><p class="px-3 py-1.5">Sign Up</p></a> -->
-          <a href="/signup" class="bg-purple-500 px-2 rounded-full"><p class="px-3 py-1.5">Sign Up</p></a>
-          <!-- <a href="/home"><p class="">Logout</p></a> -->
+          <!-- <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Buy Swag</p></a> -->
+          <a href="/login"><p class="rounded-full text-2xl hover:brightness-75 transition-all duration-100"><i class="fa-solid fa-bag-shopping"></i></p></a>
+          <a href="/signup" class="px-2 rounded-full bg-purple-500 hover:bg-purple-600 transition-all duration-100"><p class="px-3 py-1.5">Buy Swag</p></a>
         </div>
+        <!-- <div class="flex flex-row gap-4 items-center">
+          <a href="/login"><p class="bg-purple-900 rounded-full text-2xl hover:bg-purple-800 transition-all duration-100"><i class="fa-solid fa-bag-shopping"></i></p></a>
+          <a href="/home" class="bg-purple-500 px-2 rounded-full"><p class="px-4 py-3">Buy Swag</p></a>
+        </div> -->
       </nav>
       {% block header_title %}
       <header class="w-full bg-fixed flex flex-col justify-between flex-1">
@@ -67,11 +66,13 @@
     {% endblock %}
     {% block content %}
     <main class="w-full">
-      <section class="min-h-screen flex flex-col items-center justify-start text-center">
+      <section class="min-h-screen flex flex-col items-center justify-center text-center">
         <div class="mt-2">
-          <div class="font-lacquer">
-            <h2 class="text-4xl uppercase" data-aos="fade-up">Meet the Band</h2>
-            <p class="py-8" data-aos="fade-up">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus vitae odio rem ut deserunt, totam et debitis labore ullam dolorum, molestias fuga vero dignissimos alias ab! Ratione, molestias nisi.</p>
+          <div class="marquee font-lacquer">
+            <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">Meet the Band</h2></span>
+            <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">Meet the Band</h2></span>
+            <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">Meet the Band</h2></span>
+            <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">Meet the Band</h2></span>
           </div>
           <div class="flex flex-row flex-wrap justify-center">
             <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900 font-semibold" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);">
@@ -98,9 +99,11 @@
         </div>
       </section>
       <section class="w-full flex flex-col font-lacquer">
-        <div class="text-center">
-          <h2 class="text-4xl" data-aos="fade-up">NEW SWAG</h2>
-          <p class="py-8" data-aos="fade-up">GET IT NOW</p>
+        <div class="marquee font-lacquer">
+          <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
+          <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
+          <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
+          <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
         </div>
         <div class="min-h-[300vh] w-full flex flex-row">
           <div class="flex flex-col w-[40%]">
@@ -126,7 +129,7 @@
             </div>
           </div>
           <div class="w-[60%]">
-            <div class="h-screen sticky top-0 flex flex-col items-start">
+            <div class="h-screen sticky top-0 flex flex-col justify-center">
               <img id="swagItem" class="w-[60%]" src="../static/img/swag/hat/hat-fr.png" alt="">
             </div>
           </div>
