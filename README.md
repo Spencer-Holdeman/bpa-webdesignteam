@@ -4,7 +4,7 @@ A submission for (435) BPA Web Design Competition, 2024-25.
 ### Team Members
 - Landon W. - Team Lead / Front-End Dev
 - Spencer H. - Back-End Developer (main)
-- Connor C. - Back-End Developer
+- Connor C. - Back-End Developer (support)
 - David C. - Graphic Designer
 
 ### Technologies Used
@@ -15,4 +15,4 @@ A submission for (435) BPA Web Design Competition, 2024-25.
 5. Flask
 6. Jinja
 8. SQLAlchemy
-9. Sqlite
+9. SQLite
