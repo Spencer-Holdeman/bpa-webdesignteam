@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, session, flash, redirect, url_for
 from . import db
+from sqlalchemy import exists, and_
 
 base = Blueprint('base', __name__)
 
@@ -17,8 +18,8 @@ class User(db.Model):
 @base.route('/', methods=['POST', 'GET'])
 def clear_session():
     print('clear session')
-    # db.session.query(User).delete()
-    # db.session.commit()
+    db.session.query(User).delete()
+    db.session.commit()
     session.clear()
     return redirect(url_for('base.Home'))
 
@@ -60,14 +61,19 @@ def Login():
         print(database_emails)
         print(database_passwords)
         if email in database_emails and password in database_passwords:
-            user = User.query.filter_by(email=email).first()
-            session['email'] = email
-            session['password'] = password
-            session['name'] = user.name
-            session['logged_in?'] = True
-            return redirect(url_for('base.Home'))
+            if db.session.query(exists().where(and_(User.email == email, User.password == password))).scalar() == True:
+                user = User.query.filter_by(email=email).first()
+                session['email'] = email
+                session['password'] = password
+                session['name'] = user.name
+                session['logged_in?'] = True
+                return redirect(url_for('base.Home'))
+            else:
+                flash('not logged in cuz you mix matched emails and passwords')
+                return render_template('login.html')
         else:
-            return 'not logged in'
+            flash('not logged in cuz your email or password doesnt exist')
+            return render_template('login.html')
     else:
         print('login: outside if')
         return render_template('login.html')
