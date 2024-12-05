@@ -26,6 +26,7 @@ def clear_session():
 @base.route('/home', methods=['POST', 'GET'])
 def Home():
     print(session.items())
+    
     if 'logged_in?' in session:
         if session['logged_in?'] == True:
             print('home (logged in)')
@@ -58,8 +59,10 @@ def Login():
         emails_passwords = db.session.query(User.email, User.password).all()
         database_emails = [email[0] for email in emails_passwords]
         database_passwords = [password[1] for password in emails_passwords]
+        
         print(database_emails)
         print(database_passwords)
+        
         if email in database_emails and password in database_passwords:
             if db.session.query(exists().where(and_(User.email == email, User.password == password))).scalar() == True:
                 user = User.query.filter_by(email=email).first()
@@ -82,15 +85,19 @@ def Login():
 def SignUp():
     if request.method == 'POST':
         print('Sign-up: inside if')
+        
         name = request.form.get('signup-name', False)
         email = request.form.get('signup-email', False)
         password = request.form.get('signup-password', False)
         emails_passwords = db.session.query(User.email, User.password).all()
         database_emails = [email[0] for email in emails_passwords]
+        
         if email in database_emails:
             flash('email already taken, did you spell it correctly?')
             return redirect(url_for('base.SignUp'))
+        
         new_user = User(name=name, email=email, password=password)
+        
         db.session.add(new_user)
         db.session.commit()
         session['logged_in?'] = False

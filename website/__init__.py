@@ -2,12 +2,12 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
-db_name = 'database.db'
+DB_NAME = 'database.db'
 
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'Skibidi'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_name}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
     
     from .base import base
