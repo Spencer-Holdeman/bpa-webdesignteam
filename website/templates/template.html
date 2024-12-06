@@ -20,7 +20,7 @@
     <script defer src="../static/js/login.js"></script>
     <script src="https://kit.fontawesome.com/26eaa8b1dc.js" crossorigin="anonymous"></script>
   </head>
-  <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white backdrop-brightness-75" style="background-image: url(../static/img/member/group.webp);">      {% with messages = get_flashed_messages(with_categories=true) %}
+  <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white backdrop-brightness-75 bg-crossed">      {% with messages = get_flashed_messages(with_categories=true) %}
     <canvas id="gradient-canvas" class="canvas-main fixed h-screen max-h-screen"></canvas>
         {% if messages %}
             <div>
@@ -66,16 +66,11 @@
     {% endblock %}
     {% block content %}
     <main class="w-full">
-      <section class="min-h-screen flex flex-col items-center justify-center text-center">
+      <section class="min-h-screen mb-[100px] flex flex-col items-center justify-center text-center">
         <div class="mt-2">
-          <div class="marquee font-lacquer">
-            <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">Meet the Band</h2></span>
-            <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">Meet the Band</h2></span>
-            <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">Meet the Band</h2></span>
-            <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">Meet the Band</h2></span>
-          </div>
+            <h2 class="text-[7em] font-lacquer uppercase" data-aos="fade-up">Meet the Band</h2></span>
           <div class="flex flex-row flex-wrap justify-center">
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900 font-semibold" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);">
+            <div class="hover:animate-[member] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900 font-semibold" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);">
               <h1>Landon Warren</h1>
               <div class="h-[2px] w-[90%] m-2 bg-white"></div>
               <p class="pb-3">Electric Guitarist</p>
@@ -98,39 +93,47 @@
           </div>
         </div>
       </section>
-      <section class="w-full flex flex-col font-lacquer">
+      <section class="w-full flex flex-col font-lacquer scroll-target">
         <div class="marquee font-lacquer">
-          <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
-          <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
-          <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
-          <span><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
+          <span class="one"><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
+          <span class="one"><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
+          <span class="one"><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
+          <span class="one"><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
+        </div>
+        <div class="marquee font-lacquer">
+          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
+          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
+          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
+          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
+          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
+          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
         </div>
         <div class="min-h-[300vh] w-full flex flex-row">
           <div class="flex flex-col w-[40%]">
-            <div class="flex flex-col items-end pt-[30%] pb-[30%]">
-              <p class="text-4xl">Merch 1</p>
+            <div class="flex flex-col items-end pt-[60%] pb-[60%] scroll-target">
+              <p class="text-7xl">Merch 1</p>
               <p class="text-2xl">Description</p>
             </div>
-            <div class="flex flex-col items-end pt-[30%] pb-[30%]">
-              <p class="text-4xl">Merch 2</p>
+            <div class="flex flex-col items-end pt-[60%] pb-[60%] scroll-target">
+              <p class="text-7xl">Merch 2</p>
               <p class="text-2xl">Description</p>
             </div>
-            <div class="flex flex-col items-end pt-[30%] pb-[30%]">
-              <p class="text-4xl">Merch 3</p>
+            <div class="flex flex-col items-end pt-[60%] pb-[60%] scroll-target">
+              <p class="text-7xl">Merch 3</p>
               <p class="text-2xl">Description</p>
             </div>
-            <div class="flex flex-col items-end pt-[30%] pb-[30%]">
-              <p class="text-4xl">Merch 4</p>
+            <div class="flex flex-col items-end pt-[60%] pb-[60%] scroll-target">
+              <p class="text-7xl">Merch 4</p>
               <p class="text-2xl">Description</p>
             </div>
-            <div class="flex flex-col items-end pt-[30%] pb-[30%]">
-              <p class="text-4xl">Merch 5</p>
+            <div class="flex flex-col items-end pt-[60%] pb-[60%] scroll-target">
+              <p class="text-7xl">Merch 5</p>
               <p class="text-2xl">Description</p>
             </div>
           </div>
           <div class="w-[60%]">
-            <div class="h-screen sticky top-0 flex flex-col justify-center">
-              <img id="swagItem" class="w-[60%]" src="../static/img/swag/hat/hat-fr.png" alt="">
+            <div class="h-full flex flex-col justify-start">
+              <img id="swagItem" class="w-[60%] pt-[10%] sticky top-0" src="../static/img/swag/hat/hat-fr.png" alt="">
             </div>
           </div>
         </div>

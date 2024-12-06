@@ -12,6 +12,9 @@ module.exports = {
       fontFamily: {
         'sourgummy': ['Sour Gummy', 'sans-serif'],
         'lacquer': ['Lacquer', 'sans-serif'],
+      },
+      backgroundImage: {
+        'crossed': "url(../img/member/group.webp)"
       }
     },
   },
