@@ -4,48 +4,49 @@
 
 /* Scroll Postion Styles  */
 html:not([data-scroll='0']) body {
-    backdrop-filter: brightness(45%);
-}
-@layer components {
-    html:not([data-scroll='0']) #navbar {
-        @apply sticky top-0 py-4 px-4;
-    }
-    html:not([data-scroll='0']) #navbar div a img {
-        @apply h-12;
-    }
-    html:not([data-scroll='0']) #navbar div a p {
-        @apply text-sm;
-    }
+    backdrop-filter: brightness(45%) blur(3px);
 }
 
-/* Scroll Animation Classes */
-.scroll-hidden {
-    opacity: 0;
+/* Marquee */
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-transform: uppercase;
 }
-.scroll-blur {
-    filter: blur(50px);
+.marquee span.one {
+    display: inline-block;
+    animation: marquee-l 10s linear infinite;
 }
-.scroll-up {
-    transform-origin: top;
-    transform: translateY(45px);
+.marquee span.two {
+    transform: translateY(-100%);
+    display: inline-block;
+    animation: marquee-r 10s linear infinite;
 }
-.scroll-down {
-    transform-origin: top;
-    transform: translateY(-45px);
+@keyframes marquee-l {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-100%, 0, 0);
+    }
 }
-.scroll-left {
-    transform-origin: top;
-    transform: translateX(45px);
+@keyframes marquee-r {
+    0% {
+      transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
 }
-.scroll-right {
-    transform-origin: top;
-    transform: translateX(-45px);
-}
-.scroll-show {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-    transform: translateX(0);
+@keyframes member {
+    0% {
+        transform: translate3d(0, 0, 0);
+        transform: rotateZ('0')
+    }
+    100% {
+        transform: rotateZ('360')
+    }
 }
 
 /* ----Animated Backgrounds---- */
@@ -66,16 +67,13 @@ html:not([data-scroll='0']) body {
     --gradient-color-2: #7d58b8;
     --gradient-color-3: #553981;
     --gradient-color-4: #240638;
-    z-index: -1;
+    z-index: -10;
     
     --mask: linear-gradient(to bottom, 
-    rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 20%, 
-    rgba(0,0,0, 0) 95%, rgba(0,0,0, 0) 0
-    ) 100% 50% / 20% 100% repeat-x;
+    rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 30%, 
+    rgba(0,0,0, 0) 100%, rgba(0,0,0, 0) 0
+    ) 100% 0% / 20% 50% repeat-x;
     font: 2em/1.6em Arial;
     -webkit-mask: var(--mask); 
     mask: var(--mask);
-
 }
-
-/* Main Page */

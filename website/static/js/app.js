@@ -1,29 +1,4 @@
-// Create a new IntersectionObserver instance to observe visibility changes of target elements
-const observer = new IntersectionObserver((entries) => {
-  // Loop through each entry (observed element)
-  entries.forEach((entry) => {
-    // If the element is intersecting (visible in the viewport)
-    if (entry.isIntersecting) {
-      // Add the 'scroll-show' class to the element
-      entry.target.classList.add('scroll-show');
-    }
-    // If the element is not intersecting and has the 'scroll-redo' class
-    else if (!entry.isIntersecting && entry.target.classList.contains('scroll-redo')) {
-      // Remove the 'scroll-show' class from the element
-      entry.target.classList.remove('scroll-show');
-    }
-  });
-});
-
-// Select all elements with the 'scroll-ani' class
-const hiddenElements = document.querySelectorAll('.scroll-ani');
-// Observe each selected element with the IntersectionObserver instance
-hiddenElements.forEach((element) => {
-  observer.observe(element);
-});
-
-
-// ----------------- Scroll -----------------
+// ----------------- Background -----------------
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
 
@@ -61,26 +36,25 @@ const debounce = (fn) => {
   // Update scroll position for first time
   storeScroll();
 
+// ----------------- Based on Elements -----------------
+  // Select the target and the element to change styles
+  const targets = document.getElementsByClassName("scroll-target");
+  const background = document.body;
+  console.log(targets[1]);
 
-  // ----------------- Scroll -----------------
-  function scrollFunction() {
-    const SwagItem = document.getElementById('swagItem');
-    if (document.documentElement.dataset.scroll > 2250 && document.documentElement.dataset.scroll < 2700) {
-      console.log('Front Hat');
-      SwagItem.src = '../static/img/swag/hat/hat-f.png';
-    }
-    else if (document.documentElement.dataset.scroll > 2700 && document.documentElement.dataset.scroll < 3000) {
-      console.log('Front Right Hat');
-      SwagItem.src = '../static/img/swag/hat/hat-fr.png';
-    }
-    else if (document.documentElement.dataset.scroll > 3000 && document.documentElement.dataset.scroll < 3300) {
-      console.log('Right Hat');
-      SwagItem.src = '../static/img/swag/hat/hat-r.png';
-    }
-    else if (document.documentElement.dataset.scroll > 3300) {
-      console.log('Back Hat');
-      SwagItem.src = '../static/img/swag/hat/hat-b.png';
-    }
-    setTimeout(scrollFunction, 100);
+  // Create an Intersection Observer
+  const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        background.style.backdropFilter = "brightness(0%)";
+        console.log('In view');
+      }
+      else {
+        background.removeAttribute("style");
+        console.log('Out of view');
+      }
+  });
+
+  // Observe the target
+  for (let target of targets) {
+    observer.observe(target);
   }
-  scrollFunction()

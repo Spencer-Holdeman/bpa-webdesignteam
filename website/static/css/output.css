@@ -554,24 +554,6 @@ video {
   display: none;
 }
 
-html:not([data-scroll='0']) #navbar {
-  position: sticky;
-  top: 0px;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-html:not([data-scroll='0']) #navbar div a img {
-  height: 3rem;
-}
-
-html:not([data-scroll='0']) #navbar div a p {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .static {
   position: static;
 }
@@ -596,10 +578,6 @@ html:not([data-scroll='0']) #navbar div a p {
   z-index: 10;
 }
 
-.z-50 {
-  z-index: 50;
-}
-
 .m-2 {
   margin: 0.5rem;
 }
@@ -613,6 +591,16 @@ html:not([data-scroll='0']) #navbar div a p {
   margin-right: 0.5rem;
 }
 
+.mx-36 {
+  margin-left: 9rem;
+  margin-right: 9rem;
+}
+
+.mx-\[12\.5\%\] {
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -621,6 +609,11 @@ html:not([data-scroll='0']) #navbar div a p {
 .my-0 {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .my-2 {
@@ -638,21 +631,32 @@ html:not([data-scroll='0']) #navbar div a p {
   margin-bottom: 1.25rem;
 }
 
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.mb-\[100px\] {
+  margin-bottom: 100px;
+}
+
+.ml-5 {
+  margin-left: 1.25rem;
+}
+
+.mr-\[140px\] {
+  margin-right: 140px;
 }
 
 .mt-10 {
   margin-top: 2.5rem;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
+.mt-12 {
+  margin-top: 3rem;
 }
 
-.mt-\[-144px\] {
-  margin-top: -144px;
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .block {
@@ -663,8 +667,16 @@ html:not([data-scroll='0']) #navbar div a p {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .hidden {
   display: none;
+}
+
+.h-1 {
+  height: 0.25rem;
 }
 
 .h-10 {
@@ -679,6 +691,14 @@ html:not([data-scroll='0']) #navbar div a p {
   height: 5rem;
 }
 
+.h-28 {
+  height: 7rem;
+}
+
+.h-80 {
+  height: 20rem;
+}
+
 .h-96 {
   height: 24rem;
 }
@@ -687,8 +707,8 @@ html:not([data-scroll='0']) #navbar div a p {
   height: 2px;
 }
 
-.h-\[calc\(83\%\)\] {
-  height: calc(83%);
+.h-auto {
+  height: auto;
 }
 
 .h-full {
@@ -701,6 +721,10 @@ html:not([data-scroll='0']) #navbar div a p {
 
 .max-h-screen {
   max-height: 100vh;
+}
+
+.min-h-96 {
+  min-height: 24rem;
 }
 
 .min-h-\[300vh\] {
@@ -717,6 +741,10 @@ html:not([data-scroll='0']) #navbar div a p {
 
 .w-60 {
   width: 15rem;
+}
+
+.w-80 {
+  width: 20rem;
 }
 
 .w-\[40\%\] {
@@ -737,6 +765,18 @@ html:not([data-scroll='0']) #navbar div a p {
 
 .w-full {
   width: 100%;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.auto-rows-fr {
+  grid-auto-rows: minmax(0, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -779,6 +819,18 @@ html:not([data-scroll='0']) #navbar div a p {
   justify-content: space-between;
 }
 
+.justify-items-center {
+  justify-items: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
 .space-x-5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.25rem * var(--tw-space-x-reverse));
@@ -799,6 +851,10 @@ html:not([data-scroll='0']) #navbar div a p {
   scroll-behavior: smooth;
 }
 
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .rounded-md {
   border-radius: 0.375rem;
 }
@@ -809,6 +865,15 @@ html:not([data-scroll='0']) #navbar div a p {
 
 .border-0 {
   border-width: 0px;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-purple-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(168 85 247 / var(--tw-border-opacity));
 }
 
 .bg-\[\#431288\] {
@@ -831,6 +896,31 @@ html:not([data-scroll='0']) #navbar div a p {
   background-color: rgb(168 85 247 / var(--tw-bg-opacity));
 }
 
+.bg-purple-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 51 234 / var(--tw-bg-opacity));
+}
+
+.bg-purple-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(126 34 206 / var(--tw-bg-opacity));
+}
+
+.bg-purple-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(88 28 135 / var(--tw-bg-opacity));
+}
+
+.bg-purple-dark-raw {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 2 33 / var(--tw-bg-opacity));
+}
+
+.bg-purple-darker-raw {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 2 33 / var(--tw-bg-opacity));
+}
+
 .bg-slate-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
@@ -841,8 +931,17 @@ html:not([data-scroll='0']) #navbar div a p {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-purple-light-raw {
+  --tw-bg-opacity: 1;
+  background-color: rgb(213 194 240 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-0 {
   --tw-bg-opacity: 0;
+}
+
+.bg-crossed {
+  background-image: url(../img/member/group.webp);
 }
 
 .bg-cover {
@@ -857,10 +956,6 @@ html:not([data-scroll='0']) #navbar div a p {
   background-position: center;
 }
 
-.p-10 {
-  padding: 2.5rem;
-}
-
 .p-2 {
   padding: 0.5rem;
 }
@@ -870,9 +965,24 @@ html:not([data-scroll='0']) #navbar div a p {
   padding-right: 2.5rem;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+}
+
+.px-3\.5 {
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .px-6 {
@@ -910,6 +1020,11 @@ html:not([data-scroll='0']) #navbar div a p {
   padding-bottom: 0.5rem;
 }
 
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
@@ -924,12 +1039,16 @@ html:not([data-scroll='0']) #navbar div a p {
   padding-bottom: 0.75rem;
 }
 
-.pb-\[30\%\] {
-  padding-bottom: 30%;
+.pb-\[60\%\] {
+  padding-bottom: 60%;
 }
 
-.pt-\[30\%\] {
-  padding-top: 30%;
+.pt-\[10\%\] {
+  padding-top: 10%;
+}
+
+.pt-\[60\%\] {
+  padding-top: 60%;
 }
 
 .text-center {
@@ -938,6 +1057,10 @@ html:not([data-scroll='0']) #navbar div a p {
 
 .text-right {
   text-align: right;
+}
+
+.font-lacquer {
+  font-family: Lacquer, sans-serif;
 }
 
 .text-2xl {
@@ -950,9 +1073,32 @@ html:not([data-scroll='0']) #navbar div a p {
   line-height: 2.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.text-\[4em\] {
+  font-size: 4em;
+}
+
+.text-\[7em\] {
+  font-size: 7em;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-sm {
@@ -965,11 +1111,6 @@ html:not([data-scroll='0']) #navbar div a p {
   line-height: 1.5rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -980,6 +1121,10 @@ html:not([data-scroll='0']) #navbar div a p {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .tracking-tight {
@@ -1049,12 +1194,12 @@ html:not([data-scroll='0']) #navbar div a p {
   transition-duration: 150ms;
 }
 
-.duration-200 {
-  transition-duration: 200ms;
+.duration-100 {
+  transition-duration: 100ms;
 }
 
-.duration-\[1\.2s\] {
-  transition-duration: 1.2s;
+.duration-200 {
+  transition-duration: 200ms;
 }
 
 .duration-\[1\.5s\] {
@@ -1064,45 +1209,59 @@ html:not([data-scroll='0']) #navbar div a p {
 /* Scroll Postion Styles  */
 
 html:not([data-scroll='0']) body {
-  -webkit-backdrop-filter: brightness(45%);
-          backdrop-filter: brightness(45%);
+  -webkit-backdrop-filter: brightness(45%) blur(3px);
+          backdrop-filter: brightness(45%) blur(3px);
 }
 
-/* Scroll Animation Classes */
+/* Marquee */
 
-.scroll-hidden {
-  opacity: 0;
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-transform: uppercase;
 }
 
-.scroll-blur {
-  filter: blur(50px);
+.marquee span.one {
+  display: inline-block;
+  animation: marquee-l 10s linear infinite;
 }
 
-.scroll-up {
-  transform-origin: top;
-  transform: translateY(45px);
+.marquee span.two {
+  transform: translateY(-100%);
+  display: inline-block;
+  animation: marquee-r 10s linear infinite;
 }
 
-.scroll-down {
-  transform-origin: top;
-  transform: translateY(-45px);
+@keyframes marquee-l {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
 }
 
-.scroll-left {
-  transform-origin: top;
-  transform: translateX(45px);
+@keyframes marquee-r {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
-.scroll-right {
-  transform-origin: top;
-  transform: translateX(-45px);
-}
+@keyframes member {
+  0% {
+    transform: translate3d(0, 0, 0);
+    transform: rotateZ('0')
+  }
 
-.scroll-show {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0);
-  transform: translateX(0);
+  100% {
+    transform: rotateZ('360')
+  }
 }
 
 /* ----Animated Backgrounds---- */
@@ -1126,17 +1285,15 @@ html:not([data-scroll='0']) body {
   --gradient-color-2: #7d58b8;
   --gradient-color-3: #553981;
   --gradient-color-4: #240638;
-  z-index: -1;
+  z-index: -10;
   --mask: linear-gradient(to bottom, 
-    rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 20%, 
-    rgba(0,0,0, 0) 95%, rgba(0,0,0, 0) 0
-    ) 100% 50% / 20% 100% repeat-x;
+    rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 30%, 
+    rgba(0,0,0, 0) 100%, rgba(0,0,0, 0) 0
+    ) 100% 0% / 20% 50% repeat-x;
   font: 2em/1.6em Arial;
   -webkit-mask: var(--mask);
   mask: var(--mask);
 }
-
-/* Main Page */
 
 .placeholder\:text-gray-400::-moz-placeholder {
   --tw-text-opacity: 1;
@@ -1146,6 +1303,10 @@ html:not([data-scroll='0']) body {
 .placeholder\:text-gray-400::placeholder {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.hover\:animate-\[member\]:hover {
+  animation: member;
 }
 
 .hover\:bg-indigo-500:hover {
@@ -1158,6 +1319,11 @@ html:not([data-scroll='0']) body {
   background-color: rgb(147 51 234 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-purple-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 33 168 / var(--tw-bg-opacity));
+}
+
 .hover\:text-indigo-500:hover {
   --tw-text-opacity: 1;
   color: rgb(99 102 241 / var(--tw-text-opacity));
@@ -1166,6 +1332,11 @@ html:not([data-scroll='0']) body {
 .hover\:text-purple-500:hover {
   --tw-text-opacity: 1;
   color: rgb(168 85 247 / var(--tw-text-opacity));
+}
+
+.hover\:brightness-75:hover {
+  --tw-brightness: brightness(.75);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .focus\:ring-2:focus {
@@ -1278,10 +1449,6 @@ html:not([data-scroll='0']) body {
   .mdh\:my-6 {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-  }
-
-  .mdh\:flex {
-    display: flex;
   }
 
   .mdh\:h-20 {
