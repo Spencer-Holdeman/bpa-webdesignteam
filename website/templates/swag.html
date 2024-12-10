@@ -1,13 +1,100 @@
 {% extends 'template.html' %}
+{% block header_title %}{% endblock %}
+{% block page_div %}{% endblock %}
 {% block title %}
     Swag
 {% endblock %}
 
 
-{% block header_title %}
-
+{% block body %}
+<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white backdrop-brightness-75 bg-purple-darker-raw">
 {% endblock %}
 
 {% block content %}
-    
+    <div class="mx-36">
+        <div class="h-1 my-4 bg-white"></div>
+        <div class="h-28 flex flex-row justify-center items-center bg-purple-dark-raw text-white text-5xl">
+            <h1 class="font-lacquer font-semibold uppercase">Vinyls</h1>
+        </div>
+        <div class="h-1 my-4 bg-white"></div>
+    </div>
+    <section class="h-auto">
+        <div class="grid auto-rows-fr grid-cols-3 justify-items-center">
+            <div class="min-h-96 w-80 my-14">
+                <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/hat/hat-fr.png" alt="">
+                <h1 class="my-2 text-lg font-bold">Skull Cap</h2>
+                <h1 class="my-2 text-lg">$9.99</h2>
+                <button class="py-2 w-80 bg-purple-600 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>    
+            <div class="min-h-96 w-80 my-14">
+                <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/hoodie/hoodie-f.png" alt="">
+                <h1 class="my-2 text-lg font-bold">Hoodie</h2>
+                <h1 class="my-2 text-lg">$24.99</h2>
+                <button class="py-2 w-80 bg-purple-600 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>    
+            <div class="min-h-96 w-80 my-14">
+                <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/jacket/jacket-f.png" alt="">
+                <h1 class="my-2 text-lg font-bold">Jacket</h2>
+                <h1 class="my-2 text-lg">$29.99</h2>
+                <button class="py-2 w-80 bg-purple-600 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>    
+    </section>
+    <div class="mx-36">
+        <div class="h-1 my-4 bg-white"></div>
+        <div class="h-28 flex flex-row justify-center items-center bg-purple-dark-raw text-white text-5xl">
+            <h1 class="font-lacquer font-semibold uppercase">Clothing</h1>
+        </div>
+        <div class="h-1 my-4 bg-white"></div>
+    </div>
+    <section class="h-auto">
+        <div class="grid auto-rows-fr grid-cols-3 justify-items-center">
+            <div class="min-h-96 w-80 my-14">
+                <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/hat/hat-fr.png" alt="">
+                <h1 class="my-2 text-lg font-bold">Skull Cap</h2>
+                <h1 class="my-2 text-lg">$9.99</h2>
+                <button class="py-2 w-80 bg-purple-600 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>    
+            <div class="min-h-96 w-80 my-14">
+                <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/hoodie/hoodie-f.png" alt="">
+                <h1 class="my-2 text-lg font-bold">Hoodie</h2>
+                <h1 class="my-2 text-lg">$24.99</h2>
+                <button class="py-2 w-80 bg-purple-600 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>    
+            <div class="min-h-96 w-80 my-14">
+                <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/jacket/jacket-f.png" alt="">
+                <h1 class="my-2 text-lg font-bold">Jacket</h2>
+                <h1 class="my-2 text-lg">$29.99</h2>
+                <button class="py-2 w-80 bg-purple-600 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>    
+            <div class="min-h-96 w-80 my-14">
+                <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/cup/cup-f.png" alt="">
+                <h2 class="my-2 text-lg font-bold">Skull Water Bottle</h2>
+                <h2 class="my-2 text-lg">$14.99</h2>
+                <button class="py-2 w-80 bg-purple-600 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>    
+            <div class="min-h-96 w-80 my-14">
+                <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/hat/hat-fl.png" alt="">
+                <h2 class="my-2 text-lg font-bold">Test Item</h2>
+                <h2 class="my-2 text-lg">$199.99</h2>
+                <button class="py-2 w-80 bg-purple-600 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>    
+        </div>
+    </section>
+</div>
 {% endblock %}

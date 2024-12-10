@@ -40,19 +40,19 @@ const debounce = (fn) => {
   // Select the target and the element to change styles
   const targets = document.getElementsByClassName("scroll-target");
   const background = document.body;
+  console.log(targets[1]);
 
   // Create an Intersection Observer
   const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
-        // Change background when the target is in view
         background.style.backdropFilter = "brightness(0%)";
         console.log('In view');
       }
       else {
-        // Revert background when the target leaves the view
         background.removeAttribute("style");
+        console.log('Out of view');
       }
-  }, { threshold: 0.1 }); // Adjust threshold as needed
+  });
 
   // Observe the target
   for (let target of targets) {
