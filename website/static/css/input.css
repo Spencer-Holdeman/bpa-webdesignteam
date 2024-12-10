@@ -77,3 +77,13 @@ html:not([data-scroll='0']) body {
     -webkit-mask: var(--mask); 
     mask: var(--mask);
 }
+
+/* Cart */
+@keyframes openCart {
+    0% {
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}

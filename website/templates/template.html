@@ -22,6 +22,10 @@
   </head>
   {% block body %}
   <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white backdrop-brightness-75 bg-crossed">{% endblock %}      {% with messages = get_flashed_messages(with_categories=true) %}
+    <div id="cart-blur" class="hidden h-screen w-full absolute top-0 left-0 blur-[4px] bg-black opacity-50 z-50"></div>
+    <div id="shopping-bag" class="hidden h-screen w-[400px] absolute top-0 right-0 bg-purple-700 z-[51]">
+
+    </div>
     <canvas id="gradient-canvas" class="canvas-main fixed h-screen max-h-screen"></canvas>
         {% if messages %}
             <div>
@@ -47,7 +51,7 @@
           <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Tours</p></a>
           <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">About</p></a>
           <!-- <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Buy Swag</p></a> -->
-          <a href="/login"><p class="rounded-full text-2xl hover:brightness-75 transition-all duration-100"><i class="fa-solid fa-bag-shopping"></i></p></a>
+          <a><p class="rounded-full text-2xl hover:brightness-75 transition-all duration-100"><i class="fa-solid fa-bag-shopping" onclick="openShoppingBag()"></i></p></a>
           <a href="/swag" class="px-2 rounded-full bg-purple-500 hover:bg-purple-600 transition-all duration-100"><p class="px-3 py-1.5">Buy Merch</p></a>
         </div>
         <!-- <div class="flex flex-row gap-4 items-center">
