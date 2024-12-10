@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template, request, session, flash, redirect, url_for
 from . import db
+from sqlalchemy import exists, and_
+from flask_mailman import Mail, EmailMessage
 
 base = Blueprint('base', __name__)
 
@@ -8,22 +10,26 @@ class User(db.Model):
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(50))
+    newsletter = db.Column(db.Boolean())
     
-    def __init__(self, name, email, password):
+    def __init__(self, name, email, password, newsletter):
         self.name = name
         self.email = email
         self.password = password
+        self.newsletter = newsletter
         
 @base.route('/', methods=['POST', 'GET'])
 def clear_session():
-    # db.session.query(User).delete()
-    # db.session.commit()
+    print('clear session')
+    db.session.query(User).delete()
+    db.session.commit()
     session.clear()
     return redirect(url_for('base.Home'))
 
 @base.route('/home', methods=['POST', 'GET'])
 def Home():
     print(session.items())
+    
     if 'logged_in?' in session:
         if session['logged_in?'] == True:
             print('home (logged in)')
@@ -51,22 +57,29 @@ def Swag():
 def Login():
     if request.method == 'POST':
         print('login: inside if')
-        email = request.form['email-login']
-        password = request.form['password-login']
+        email = request.form.get('email-login', False)
+        password = request.form.get('password-login', False)
         emails_passwords = db.session.query(User.email, User.password).all()
         database_emails = [email[0] for email in emails_passwords]
         database_passwords = [password[1] for password in emails_passwords]
+        
         print(database_emails)
         print(database_passwords)
+        
         if email in database_emails and password in database_passwords:
-            user = User.query.filter_by(email=email).first()
-            session['email'] = email
-            session['password'] = password
-            session['name'] = user.name
-            session['logged_in?'] = True
-            return redirect(url_for('base.Home'))
+            if db.session.query(exists().where(and_(User.email == email, User.password == password))).scalar() == True:
+                user = User.query.filter_by(email=email).first()
+                session['email'] = email
+                session['password'] = password
+                session['name'] = user.name
+                session['logged_in?'] = True
+                return redirect(url_for('base.Home'))
+            else:
+                flash('not logged in cuz you mix matched emails and passwords')
+                return render_template('login.html')
         else:
-            return 'not logged in'
+            flash('not logged in cuz your email or password doesnt exist')
+            return render_template('login.html')
     else:
         print('login: outside if')
         return render_template('login.html')
@@ -75,15 +88,19 @@ def Login():
 def SignUp():
     if request.method == 'POST':
         print('Sign-up: inside if')
-        name = request.form['signup-name']
-        email = request.form['signup-email']
-        password = request.form['signup-password']
+        
+        name = request.form.get('signup-name', False)
+        email = request.form.get('signup-email', False)
+        password = request.form.get('signup-password', False)
         emails_passwords = db.session.query(User.email, User.password).all()
         database_emails = [email[0] for email in emails_passwords]
+        
         if email in database_emails:
             flash('email already taken, did you spell it correctly?')
             return redirect(url_for('base.SignUp'))
+        
         new_user = User(name=name, email=email, password=password)
+        
         db.session.add(new_user)
         db.session.commit()
         session['logged_in?'] = False
@@ -91,3 +108,15 @@ def SignUp():
     else:
         print('Sign-up: outside if')
         return render_template('signup.html')
+    
+@base.route("/email")
+def index():
+    msg = EmailMessage(
+        "Title",
+        "Body",
+        "stagefright1111@gmail.com",
+        ["spencer.holdeman@cvtechonline.net"]
+    )
+    msg.send()
+    return "sent email"
+      
