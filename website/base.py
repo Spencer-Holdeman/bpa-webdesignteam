@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, session, flash, redirect, url_for
 from . import db
 from sqlalchemy import exists, and_
+from flask_mailman import Mail, EmailMessage
 
 base = Blueprint('base', __name__)
 
@@ -9,11 +10,13 @@ class User(db.Model):
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(50))
+    newsletter = db.Column(db.Boolean())
     
-    def __init__(self, name, email, password):
+    def __init__(self, name, email, password, newsletter):
         self.name = name
         self.email = email
         self.password = password
+        self.newsletter = newsletter
         
 @base.route('/', methods=['POST', 'GET'])
 def clear_session():
@@ -105,3 +108,15 @@ def SignUp():
     else:
         print('Sign-up: outside if')
         return render_template('signup.html')
+    
+@base.route("/email")
+def index():
+    msg = EmailMessage(
+        "Title",
+        "Body",
+        "stagefright1111@gmail.com",
+        ["spencer.holdeman@cvtechonline.net"]
+    )
+    msg.send()
+    return "sent email"
+      
