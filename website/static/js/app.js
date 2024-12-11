@@ -1,3 +1,5 @@
+const background = document.body;
+
 // ----------------- Background -----------------
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
@@ -38,26 +40,40 @@ const debounce = (fn) => {
 
 // ----------------- Based on Elements -----------------
   // Select the target and the element to change styles
-  const targets = document.getElementsByClassName("scroll-target");
-  const background = document.body;
-  console.log(targets[1]);
+  const target = document.getElementsByClassName("scroll-target")[0];
+  const merchItems = document.getElementsByClassName("merch-target");
+  const merchImg = document.getElementById("swagItem");
+  console.log(target);
 
   // Create an Intersection Observer
-  const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        background.style.backdropFilter = "brightness(0%)";
-        console.log('In view');
-      }
-      else {
-        background.removeAttribute("style");
-        console.log('Out of view');
-      }
-  });
+  const scrollObs = new IntersectionObserver((entry) => {
+      if (entry[0].isIntersecting) { background.style.backdropFilter = "brightness(0%)"; }
+      else { background.removeAttribute("style"); }});
+
+  const merchObs1 = new IntersectionObserver((entry) => {
+      if (entry[0].isIntersecting) { merchImg.src = "../static/img/swag/hat/hat-fr.png"; }
+      else { console.log("not visible"); }});
+  const merchObs2 = new IntersectionObserver((entry) => {
+      if (entry[0].isIntersecting) { merchImg.src = "../static/img/swag/hoodie/hoodie-f.png"; }
+      else { console.log("not visible"); }});
+  const merchObs3 = new IntersectionObserver((entry) => {
+      if (entry[0].isIntersecting) { merchImg.src = "../static/img/swag/jacket/jacket-f.png"; }
+      else { console.log("not visible"); }});
+  const merchObs4 = new IntersectionObserver((entry) => {
+      if (entry[0].isIntersecting) { merchImg.src = "../static/img/swag/cup/cup-f.png"; }
+      else { console.log("not visible"); }});
+  const merchObs5 = new IntersectionObserver((entry) => {
+      if (entry[0].isIntersecting) { merchImg.src = "../static/img/swag/hat/hat-l.png"; }
+      else { console.log("not visible"); }});
 
   // Observe the target
-  for (let target of targets) {
-    observer.observe(target);
-  }
+  scrollObs.observe(target);
+  merchObs1.observe(merchItems[0]);
+  merchObs2.observe(merchItems[1]);
+  merchObs3.observe(merchItems[2]);
+  merchObs4.observe(merchItems[3]);
+  merchObs5.observe(merchItems[4]);
+
   // ----------------- Shopping Bag -----------------
   const shoppingBag = document.getElementById("shopping-bag");
   const cartBlur = document.getElementById("cart-blur");

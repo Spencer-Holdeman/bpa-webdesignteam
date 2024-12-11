@@ -51,7 +51,7 @@
           <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Tours</p></a>
           <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">About</p></a>
           <!-- <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Buy Swag</p></a> -->
-          <a><p class="rounded-full text-2xl hover:brightness-75 transition-all duration-100"><i class="fa-solid fa-bag-shopping" onclick="openShoppingBag()"></i></p></a>
+          <a><p class="rounded-full text-2xl hover:brightness-75 transition-all duration-100 cursor-pointer"><i class="fa-solid fa-bag-shopping" onclick="openShoppingBag()"></i></p></a>
           <a href="/swag" class="px-2 rounded-full bg-purple-500 hover:bg-purple-600 transition-all duration-100"><p class="px-3 py-1.5">Buy Merch</p></a>
         </div>
         <!-- <div class="flex flex-row gap-4 items-center">
@@ -118,24 +118,29 @@
         <div class="min-h-[300vh] w-full flex flex-row">
           <div class="flex flex-col w-[40%]">
             <div class="flex flex-col items-end pt-[60%] pb-[60%]">
-              <p class="text-7xl">Merch 1</p>
-              <p class="text-2xl">Description</p>
+              <p class="text-7xl mb-3">Merch 1</p>
+              <p class="text-2xl my-3">Description</p>
+              <button class="w-40 my-3 py-2 bg-purple-600 text-xl merch-target">Add to Cart</button>
             </div>
             <div class="flex flex-col items-end pt-[60%] pb-[60%]">
-              <p class="text-7xl">Merch 2</p>
-              <p class="text-2xl">Description</p>
+              <p class="text-7xl mb-3">Merch 2</p>
+              <p class="text-2xl my-3">Description</p>
+              <button class="w-40 my-3 py-2 bg-purple-600 text-xl merch-target">Add to Cart</button>
             </div>
             <div class="flex flex-col items-end pt-[60%] pb-[60%]">
-              <p class="text-7xl">Merch 3</p>
-              <p class="text-2xl">Description</p>
+              <p class="text-7xl mb-3">Merch 3</p>
+              <p class="text-2xl my-3">Description</p>
+              <button class="w-40 my-3 py-2 bg-purple-600 text-xl merch-target">Add to Cart</button>
             </div>
             <div class="flex flex-col items-end pt-[60%] pb-[60%]">
-              <p class="text-7xl">Merch 4</p>
-              <p class="text-2xl">Description</p>
+              <p class="text-7xl mb-3">Merch 4</p>
+              <p class="text-2xl my-3">Description</p>
+              <button class="w-40 my-3 py-2 bg-purple-600 text-xl merch-target">Add to Cart</button>
             </div>
             <div class="flex flex-col items-end pt-[60%] pb-[60%]">
-              <p class="text-7xl">Merch 5</p>
-              <p class="text-2xl">Description</p>
+              <p class="text-7xl mb-3">Merch 5</p>
+              <p class="text-2xl my-3">Description</p>
+              <button class="w-40 my-3 py-2 bg-purple-600 text-xl merch-target">Add to Cart</button>
             </div>
           </div>
           <div class="w-[60%]">
@@ -146,9 +151,32 @@
         </div>
       </section>
       <section class="h-screen"></section>
-      <section class="h-screen"></section>
     </main>
     {% endblock %}
+    <footer class="border-t-2 border-t-white">
+      <section class="w-full bg-gray-950 px-[12.5%] py-[2%] font-serif">
+        <div class="flex flex-row justify-between">
+          <img class=" h-16" src="../static/img/logo/text2.png" alt="">
+          <div class="flex flex-row justify-center items-center">
+            <a href="/home"><p class="px-3 text-gray-400 hover:text-gray-500">Home</p></a>
+            <a href="/home"><p class="px-3 text-gray-400 hover:text-gray-500">Members</p></a>
+            <a href="/home"><p class="px-3 text-gray-400 hover:text-gray-500">Tours</p></a>
+            <a href="/home"><p class="px-3 text-gray-400 hover:text-gray-500">About</p></a>
+            <a href="/home"><p class="px-3 text-gray-400 hover:text-gray-500">Merch</p></a>
+            <a href="/home"><i class="fa-brands fa-instagram text-lg text-gray-400 hover:text-gray-500 mx-[0.5em]"></i></a>
+            <a href="/home"><i class="fa-brands fa-x-twitter text-lg text-gray-400 hover:text-gray-500 mx-[0.5em]"></i></a>
+            <a href="/home"><i class="fa-brands fa-youtube text-lg text-gray-400 hover:text-gray-500 mx-[0.5em]"></i></a>
+            <a href="/home"><i class="fa-brands fa-spotify text-lg text-gray-400 hover:text-gray-500 mx-[0.5em]"></i></a>
+            <a href="https://github.com/SoftwareNotion/bpa-webdesignteam" target="_blank"><i class="fa-brands fa-github text-gray-400 hover:text-gray-500 mx-[0.5em]"></i></a>
+          </div>
+        </div>
+        <div class="h-[1px] w-full my-4 bg-gray-600"></div>
+        <div class="flex flex-row justify-between items-center">
+          <p>©2024 - Stage Fright</p>
+          <p>BPA Competition | Canadian Valley Technolofy Center, El Reno, OK 73036</a></p>
+        </div>
+      </section>
+    </footer>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script> AOS.init({ duration: 1200 }); </script>
   </body>
