@@ -10,7 +10,7 @@ class User(db.Model):
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(50))
-    newsletter = db.Column(db.Boolean())
+    newsletter = db.Column(db.Boolean , default=False)
     
     def __init__(self, name, email, password, newsletter):
         self.name = name
@@ -92,6 +92,8 @@ def SignUp():
         name = request.form.get('signup-name', False)
         email = request.form.get('signup-email', False)
         password = request.form.get('signup-password', False)
+        newsletter = True if request.form.get('signup-newsletter', False) == 'on' else False
+        print(f'newsletter = {newsletter}')
         emails_passwords = db.session.query(User.email, User.password).all()
         database_emails = [email[0] for email in emails_passwords]
         
@@ -99,7 +101,16 @@ def SignUp():
             flash('email already taken, did you spell it correctly?')
             return redirect(url_for('base.SignUp'))
         
-        new_user = User(name=name, email=email, password=password)
+        new_user = User(name=name, email=email, password=password, newsletter=newsletter)
+        
+        if new_user.newsletter == True:
+            msg = EmailMessage(
+            "Title",
+            "Hello World!",
+            "stagefrightbandokc@gmail.com",
+            [f"{email}"]
+            )
+            msg.send()
         
         db.session.add(new_user)
         db.session.commit()
@@ -108,15 +119,4 @@ def SignUp():
     else:
         print('Sign-up: outside if')
         return render_template('signup.html')
-    
-@base.route("/email")
-def index():
-    msg = EmailMessage(
-        "Title",
-        "Body",
-        "stagefright1111@gmail.com",
-        ["spencer.holdeman@cvtechonline.net"]
-    )
-    msg.send()
-    return "sent email"
       
