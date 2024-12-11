@@ -93,7 +93,6 @@ def SignUp():
         email = request.form.get('signup-email', False)
         password = request.form.get('signup-password', False)
         newsletter = True if request.form.get('signup-newsletter', False) == 'on' else False
-        print(f'newsletter = {newsletter}')
         emails_passwords = db.session.query(User.email, User.password).all()
         database_emails = [email[0] for email in emails_passwords]
         
@@ -106,7 +105,7 @@ def SignUp():
         if new_user.newsletter == True:
             msg = EmailMessage(
             "Title",
-            "Hello World!",
+            f"Hello {name}",
             "stagefrightbandokc@gmail.com",
             [f"{email}"]
             )
