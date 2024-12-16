@@ -20,7 +20,7 @@ module.exports = {
         'lacquer': ['Lacquer', 'sans-serif'],
       },
       backgroundImage: {
-        'crossed': "url(../img/member/group.webp)"
+        'crossed': "url(../img/background/group.webp)"
       }
     },
   },

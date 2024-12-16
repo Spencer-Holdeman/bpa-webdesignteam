@@ -582,6 +582,10 @@ video {
   right: 0px;
 }
 
+.right-\[0\%\] {
+  right: 0%;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -817,6 +821,10 @@ video {
   width: 100%;
 }
 
+.max-w-\[350px\] {
+  max-width: 350px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -895,6 +903,10 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .overflow-x-hidden {
@@ -1004,7 +1016,7 @@ video {
 }
 
 .bg-crossed {
-  background-image: url(../img/member/group.webp);
+  background-image: url(../img/background/group.webp);
 }
 
 .bg-cover {
@@ -1046,6 +1058,11 @@ video {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .px-6 {
@@ -1096,6 +1113,11 @@ video {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .py-8 {
@@ -1278,12 +1300,6 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.backdrop-brightness-75 {
-  --tw-backdrop-brightness: brightness(.75);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1298,16 +1314,40 @@ video {
   transition-duration: 200ms;
 }
 
+.duration-300 {
+  transition-duration: 300ms;
+}
+
 .duration-\[1\.5s\] {
   transition-duration: 1.5s;
 }
 
+.duration-\[1s\] {
+  transition-duration: 1s;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Scroll Postion Styles  */
 
-html:not([data-scroll='0']) body {
-  -webkit-backdrop-filter: brightness(45%) blur(3px);
-          backdrop-filter: brightness(45%) blur(3px);
+html.scroll:not([data-scroll='0']) body {
+  background-image: url(../img/background/test.webp);
 }
+
+/* Backdrop Filter */
+
+/* .backdrop-filter {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: brightness(20%);
+    z-index: -1;
+} */
 
 /* Marquee */
 

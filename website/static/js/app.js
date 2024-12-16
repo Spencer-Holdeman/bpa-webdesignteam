@@ -43,11 +43,10 @@ const debounce = (fn) => {
   const target = document.getElementsByClassName("scroll-target")[0];
   const merchItems = document.getElementsByClassName("merch-target");
   const merchImg = document.getElementById("swagItem");
-  console.log(target);
 
   // Create an Intersection Observer
   const scrollObs = new IntersectionObserver((entry) => {
-      if (entry[0].isIntersecting) { background.style.backdropFilter = "brightness(0%)"; }
+      if (entry[0].isIntersecting) { background.style.backgroundImage = "url(none)"; }
       else { background.removeAttribute("style"); }});
 
   const merchObs1 = new IntersectionObserver((entry) => {
@@ -80,5 +79,15 @@ const debounce = (fn) => {
   function openShoppingBag() {
     shoppingBag.classList.toggle("hidden");
     cartBlur.classList.toggle("hidden");
-    shoppingBag.style.animation = "openCart 0.5s ease-in-out";
+    shoppingBag.style.animation = "openCart 0.5s alternate infinite ease-in-out";
+    setTimeout(() => {
+      shoppingBag.style.animationPlayState = "paused";
+    }, 500);
+  }
+  function closeShoppingBag() {
+    shoppingBag.style.animationPlayState = "running";
+    setTimeout(() => {
+      shoppingBag.classList.toggle("hidden");
+    }, 500);
+    cartBlur.classList.toggle("hidden");
   }

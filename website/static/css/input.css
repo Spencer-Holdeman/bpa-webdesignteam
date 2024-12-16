@@ -3,9 +3,21 @@
 @tailwind utilities;
 
 /* Scroll Postion Styles  */
-html:not([data-scroll='0']) body {
-    backdrop-filter: brightness(45%) blur(3px);
+html.scroll:not([data-scroll='0']) body {
+    background-image: url(../img/background/test.webp);
 }
+
+/* Backdrop Filter */
+/* .backdrop-filter {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: brightness(20%);
+    z-index: -1;
+} */
 
 /* Marquee */
 .marquee {
