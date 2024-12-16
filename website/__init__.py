@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_mailman import Mail
-from flask_migrate import Migrate
 
 db = SQLAlchemy()
 DB_NAME = 'database.db'
@@ -11,7 +10,7 @@ mail = Mail()
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'Skibidi'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///C:/Users/spencer.holdeman/Desktop/BPA/bpa-webdesignteam/instance/{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     app.config["MAIL_SERVER"] = "smtp.gmail.com"
     app.config["MAIL_PORT"] = "465"
     app.config["MAIL_USERNAME"] = "stagefrightbandokc@gmail.com"
@@ -21,13 +20,12 @@ def create_app():
     db.init_app(app)
     mail.init_app(app)
     
-    Migrate(app, db)
     
     from .base import base
     
     app.register_blueprint(base, url_prefix='/')
     
-    with app.app_context():
-        db.create_all()
+    # with app.app_context():
+    #     db.create_all()
     
     return app
