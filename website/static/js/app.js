@@ -46,8 +46,14 @@ const debounce = (fn) => {
 
   // Create an Intersection Observer
   const scrollObs = new IntersectionObserver((entry) => {
-      if (entry[0].isIntersecting) { background.style.backgroundImage = "url(none)"; }
-      else { background.removeAttribute("style"); }});
+      if (entry[0].isIntersecting) { 
+        background.classList.remove("bg-crossed");
+        background.classList.add("bg-none");
+       }
+      else { 
+        background.classList.add("bg-crossed");
+        background.classList.remove("bg-none");
+       }});
 
   const merchObs1 = new IntersectionObserver((entry) => {
       if (entry[0].isIntersecting) { merchImg.src = "../static/img/swag/hat/hat-fr.png"; }
