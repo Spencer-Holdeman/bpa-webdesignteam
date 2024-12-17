@@ -11,7 +11,7 @@ A submission for (435) BPA Web Design Competition, 2024-25.
 1. HTML
 2. CSS
 3. Tailwind CSS
-4. JavaSCript
+4. JavaScript
 5. Python
 6. Flask
 7. Jinja
