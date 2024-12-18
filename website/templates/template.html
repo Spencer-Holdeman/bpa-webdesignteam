@@ -23,12 +23,11 @@
     <script src="https://kit.fontawesome.com/26eaa8b1dc.js" crossorigin="anonymous"></script>
   </head>
   {% block body %}
-  <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-black bg-crossed">{% endblock %}      {% with messages = get_flashed_messages(with_categories=true) %}
-  <div style="background-color: aqua; width: 100px; height: 100px; position: fixed; bottom: 25px; right: 25px"></div>
-    <div onclick="closeShoppingBag()" id="cart-blur" class="hidden h-screen w-full fixed top-0 left-0 blur-[4px] bg-black opacity-50 z-50 transition-all duration-[1s]"></div>
-    <div id="shopping-bag" class="hidden h-screen w-[400px] fixed top-0 right-0 bg-purple-700 z-[51]">
-    </div>
-    <canvas id="gradient-canvas" class="canvas-main absolute h-screen max-h-screen"></canvas>
+  <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-black">{% endblock %}      {% with messages = get_flashed_messages(with_categories=true) %}
+    <div id="background-img" class="h-screen w-full fixed bg-crossed bg-cover bg-center transition-all duration-[1.2s] -z-10"></div>
+    <div onclick="closeShoppingBag()" id="cart-blur" class="hidden h-screen w-full fixed top-0 left-0 blur-[4px] bg-black opacity-50 transition-all duration-[1s] z-50"></div>
+    <div id="shopping-bag" class="hidden h-screen w-[400px] fixed top-0 right-0 bg-purple-700 z-50"></div>
+    <canvas id="gradient-canvas" class="canvas-main absolute h-screen max-h-screen z-10"></canvas>
         {% if messages %}
             <div>
                 {% for category, message in messages %}
@@ -42,7 +41,7 @@
     {% block page_div %}
     <div class="h-screen flex flex-col">
     {% endblock %}
-      <nav id="navbar" class="flex flex-row items-center justify-between px-8 py-8 mx-[12.5%] font-semibold z-100">
+      <nav id="navbar" class="flex flex-row items-center justify-between px-8 py-8 mx-[12.5%] font-semibold">
         <div class="flex flow-row">
           <a href="/home"><img class="h-20" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
           <a href="/home"><img class="h-20 ml-5" src="../static/img/logo/text2.png" alt="" draggable="false"></a>

@@ -590,16 +590,16 @@ video {
   top: 0px;
 }
 
+.-z-10 {
+  z-index: -10;
+}
+
 .z-10 {
   z-index: 10;
 }
 
 .z-50 {
   z-index: 50;
-}
-
-.z-\[51\] {
-  z-index: 51;
 }
 
 .m-2 {
@@ -954,6 +954,11 @@ video {
 .bg-\[\#431288\] {
   --tw-bg-opacity: 1;
   background-color: rgb(67 18 136 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#581C87\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(88 28 135 / var(--tw-bg-opacity));
 }
 
 .bg-black {
@@ -1318,6 +1323,10 @@ video {
   transition-duration: 300ms;
 }
 
+.duration-\[1\.2s\] {
+  transition-duration: 1.2s;
+}
+
 .duration-\[1\.5s\] {
   transition-duration: 1.5s;
 }
@@ -1332,8 +1341,8 @@ video {
 
 /* Scroll Postion Styles  */
 
-html.scroll:not([data-scroll='0']) body {
-  background-image: url(../img/background/test.webp);
+html.scroll:not([data-scroll='0']) body #background-img {
+  filter: brightness(65%) blur(3px);
 }
 
 /* Backdrop Filter */

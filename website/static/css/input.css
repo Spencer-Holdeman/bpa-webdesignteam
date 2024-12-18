@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 /* Scroll Postion Styles  */
-html.scroll:not([data-scroll='0']) body {
-    background-image: url(../img/background/test.webp);
+html.scroll:not([data-scroll='0']) body #background-img {
+    filter: brightness(65%) blur(3px);
 }
 
 /* Backdrop Filter */

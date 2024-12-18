@@ -1,4 +1,4 @@
-const background = document.body;
+const background = document.getElementById("background-img");
 
 // ----------------- Background -----------------
 // The debounce function receives our function as a parameter
@@ -47,17 +47,15 @@ const debounce = (fn) => {
   // Create an Intersection Observer
   const scrollObs = new IntersectionObserver((entry) => {
       if (entry[0].isIntersecting) { 
-        background.classList.remove("bg-crossed");
-        background.classList.add("bg-none");
+        background.style.filter = "brightness(0%)";
        }
       else { 
-        background.classList.add("bg-crossed");
-        background.classList.remove("bg-none");
+        background.removeAttribute("style");
        }});
 
   const merchObs1 = new IntersectionObserver((entry) => {
       if (entry[0].isIntersecting) { merchImg.src = "../static/img/swag/hat/hat-fr.png"; }
-      else { console.log("not visible"); }});
+       else { console.log("not visible"); }});
   const merchObs2 = new IntersectionObserver((entry) => {
       if (entry[0].isIntersecting) { merchImg.src = "../static/img/swag/hoodie/hoodie-f.png"; }
       else { console.log("not visible"); }});
