@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, session, flash, redirect, url_for
 from . import db
 from sqlalchemy import exists, and_
-from flask_mailman import Mail, EmailMessage
+from flask_mailman import EmailMessage
 
 base = Blueprint('base', __name__)
 

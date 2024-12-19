@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_mailman import Mail
-from flask_migrate import Migrate
 
 db = SQLAlchemy()
 DB_NAME = 'database.db'
@@ -20,13 +19,12 @@ def create_app():
     db.init_app(app)
     mail.init_app(app)
     
-    Migrate(app, db)
     
     from .base import base
     
     app.register_blueprint(base, url_prefix='/')
     
-    with app.app_context():
-        db.create_all()
+    # with app.app_context():
+    #     db.create_all()
     
     return app

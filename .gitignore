@@ -2,5 +2,4 @@ website/__pycache__/
 __pycache__
 migrations
 .vercel
-.venv
 instance
