@@ -1,5 +1,6 @@
 website/__pycache__/
-website/migrations
+__pycache__
+migrations
 .vercel
 .venv
 instance
