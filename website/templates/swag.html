@@ -1,4 +1,5 @@
 {% extends 'template.html' %}
+{% block bg_img %}{% endblock %}
 {% block header_title %}{% endblock %}
 {% block page_div %}{% endblock %}
 {% block html %}
@@ -7,14 +8,14 @@
 {% block title %}
     New Merch Out Now!
 {% endblock %}
+{% block js_scripts %}
+    <script defer src="../static/js/cart.js"></script>
+    <script defer src="../static/js/gradient.js"></script>
+{% endblock %}
 
 
 {% block body %}
 <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white bg-purple-dark-raw">
-    <div onclick="closeShoppingBag()" id="cart-blur" class="hidden h-screen w-full sticky top-0 left-0 blur-[4px] bg-black opacity-50 z-50 transition-all duration-[1s]"></div>
-    <div id="shopping-bag" class="h-full flex flex-col items-start w-full bg-white max-w-[350px] px-5 py-6 right-[0%] absolute top-0 transition-all duration-300 ease-in-out overflow-y-auto">
-
-    </div>
 {% endblock %}
 
 {% block content %}

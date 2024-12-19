@@ -90,7 +90,8 @@ html.scroll:not([data-scroll='0']) body #background-img {
     mask: var(--mask);
 }
 
-/* Cart */
+/* -------Cart------- */
+/* Animation */
 @keyframes openCart {
     0% {
         transform: translate3d(100%, 0, 0);
@@ -98,4 +99,24 @@ html.scroll:not([data-scroll='0']) body #background-img {
     100% {
         transform: translate3d(0, 0, 0);
     }
+}
+
+/* Scrollbar */
+.minimal-scrollbar::-webkit-scrollbar{
+	width: 7px;
+}
+
+.minimal-scrollbar::-webkit-scrollbar-track-piece{
+	background-color: transparent;
+}
+
+.minimal-scrollbar::-webkit-scrollbar-thumb{
+	background-color: #7E22CE;
+    border-radius: 10px;
+	/* outline-offset: -2px; */
+	/* border: .1px solid #B7B7B7; */
+}
+
+.minimal-scrollbar::-webkit-scrollbar-thumb:hover{
+	background-color: #909090;
 }
