@@ -8,7 +8,7 @@ Migrate(app,db)
 path = "migrations"
 if not os.path.exists(path):
     with app.app_context():
-        print('running migrations\n\n\n\n\n\n\n')
+        print('running migrations\n\n')
         init()
         migrate()
         upgrade()
