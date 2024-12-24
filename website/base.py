@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template, request, session, flash, redirect, url_for
+from flask import Blueprint, render_template, request, session, flash, redirect, url_for, g, jsonify
 from . import db
 from sqlalchemy import exists, and_
-from flask_mailman import Mail, EmailMessage
+from flask_mailman import EmailMessage
 
 base = Blueprint('base', __name__)
 
@@ -10,7 +10,7 @@ class User(db.Model):
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(50))
-    newsletter = db.Column(db.Boolean())
+    newsletter = db.Column(db.Boolean , default=False)
     
     def __init__(self, name, email, password, newsletter):
         self.name = name
@@ -25,6 +25,17 @@ def clear_session():
     db.session.commit()
     session.clear()
     return redirect(url_for('base.Home'))
+
+num_cart_items = 0
+@base.context_processor
+def inject_variables():
+    return dict(num_cart_items=num_cart_items) # this will be available in all templates
+
+@base.route('/increment', methods=['POST'])
+def increment():
+    global num_cart_items  # Access the global nums variable
+    num_cart_items += 1  # Increment nums
+    return jsonify({'num_cart_items': num_cart_items})
 
 @base.route('/home', methods=['POST', 'GET'])
 def Home():
@@ -92,6 +103,7 @@ def SignUp():
         name = request.form.get('signup-name', False)
         email = request.form.get('signup-email', False)
         password = request.form.get('signup-password', False)
+        newsletter = True if request.form.get('signup-newsletter', False) == 'on' else False
         emails_passwords = db.session.query(User.email, User.password).all()
         database_emails = [email[0] for email in emails_passwords]
         
@@ -99,7 +111,16 @@ def SignUp():
             flash('email already taken, did you spell it correctly?')
             return redirect(url_for('base.SignUp'))
         
-        new_user = User(name=name, email=email, password=password)
+        new_user = User(name=name, email=email, password=password, newsletter=newsletter)
+        
+        if new_user.newsletter == True:
+            msg = EmailMessage(
+            "Title",
+            f"Hello {name}",
+            "stagefrightbandokc@gmail.com",
+            [f"{email}"]
+            )
+            msg.send()
         
         db.session.add(new_user)
         db.session.commit()
@@ -108,15 +129,4 @@ def SignUp():
     else:
         print('Sign-up: outside if')
         return render_template('signup.html')
-    
-@base.route("/email")
-def index():
-    msg = EmailMessage(
-        "Title",
-        "Body",
-        "stagefright1111@gmail.com",
-        ["spencer.holdeman@cvtechonline.net"]
-    )
-    msg.send()
-    return "sent email"
-      
+        

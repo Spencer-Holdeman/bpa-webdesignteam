@@ -1,5 +1,6 @@
 website/__pycache__/
-.vercel
+__pycache__
 .venv
+.vercel
 instance
 requirements.txt.backup
