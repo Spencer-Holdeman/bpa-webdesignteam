@@ -1,13 +1,21 @@
 {% extends 'template.html' %}
+{% block bg_img %}{% endblock %}
 {% block header_title %}{% endblock %}
 {% block page_div %}{% endblock %}
+{% block html %}
+<html lang="en">
+{% endblock %}
 {% block title %}
-    Swag
+    New Merch Out Now!
+{% endblock %}
+{% block js_scripts %}
+    <script defer src="../static/js/cart.js"></script>
+    <script defer src="../static/js/gradient.js"></script>
 {% endblock %}
 
 
 {% block body %}
-<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white backdrop-brightness-75 bg-purple-darker-raw">
+<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white bg-black">
 {% endblock %}
 
 {% block content %}
@@ -96,5 +104,4 @@
             </div>    
         </div>
     </section>
-</div>
 {% endblock %}

@@ -7,8 +7,9 @@ module.exports = {
     extend: {
       colors: {
         'purple-light': {'raw': '#d5c2f0'},
-        'purple-dark': {'raw': '#0f0221'},
+        'purple-dark': {'raw': '#1e0b38'},
         'purple-darker': {'raw': '#0f0221'},
+        'purple-darkest': {'raw': '#0f0221'},
       },
       screens: {
         'smh': {'raw': '(min-height: 600px)'}, 
@@ -19,7 +20,7 @@ module.exports = {
         'lacquer': ['Lacquer', 'sans-serif'],
       },
       backgroundImage: {
-        'crossed': "url(../img/member/group.webp)"
+        'crossed': "url(../img/background/group.webp)"
       }
     },
   },
