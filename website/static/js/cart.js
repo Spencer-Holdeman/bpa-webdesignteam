@@ -18,7 +18,7 @@
   }
 
 // Spencer
-function incrementCartItems() {
+function incrementCartItems(current_node) {
     // Send a POST request to increment the nums variable
     fetch('/increment', {
         method: 'POST',
@@ -31,8 +31,10 @@ function incrementCartItems() {
     .then(data => {
         // Update the displayed value of nums
         var div_element = document.createElement('div');
+        var merch_item = current_node.previousElementSibling.previousElementSibling.innerText;
+        var merch_price = current_node.previousElementSibling.innerText;
         div_element.setAttribute('class', 'cart-item');
-        div_element.innerText = data;
+        div_element.innerText = merch_item + ' - ' + merch_price;
         document.getElementById('nums-value').innerText = data;
         document.getElementById('cart-message').innerText = `you have ${data} items in your cart`;
         document.getElementById('cart-items').appendChild(div_element);
