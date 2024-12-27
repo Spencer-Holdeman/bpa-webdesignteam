@@ -35,7 +35,15 @@ def inject_variables():
 def increment():
     global num_cart_items  # Access the global nums variable
     num_cart_items += 1  # Increment nums
-    return jsonify({'num_cart_items': num_cart_items})
+    print(num_cart_items)
+    return str(num_cart_items)
+
+@base.route('/remove', methods=['POST', 'GET'])
+def remove():
+    global num_cart_items
+    num_cart_items = 0
+    print(num_cart_items)
+    return str(num_cart_items)
 
 @base.route('/home', methods=['POST', 'GET'])
 def Home():

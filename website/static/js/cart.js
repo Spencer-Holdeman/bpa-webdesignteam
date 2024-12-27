@@ -23,13 +23,48 @@ function incrementCartItems() {
     fetch('/increment', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'text/plain'
         }
     })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
         // Update the displayed value of nums
-        document.getElementById('nums-value').innerText = data.num_cart_items;
+        var div_element = document.createElement('div');
+        div_element.setAttribute('class', 'cart-item');
+        div_element.innerText = data;
+        document.getElementById('nums-value').innerText = data;
+        document.getElementById('cart-message').innerText = `you have ${data} items in your cart`;
+        document.getElementById('cart-items').appendChild(div_element);
+        console.log(data)
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function removeCartItems() {
+    // Send a POST request to remove the nums variable
+    fetch('/remove', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'text/plain'
+        }
+    })
+    .then(response => response.text())
+    .then(data => {
+        // Update the displayed value of nums
+        function removeCartItemsByClass(parent_selector, class_name) {
+            var parent_element = document.getElementById(parent_selector);
+            var child_elements = document.getElementsByClassName(class_name);
+            while(child_elements.length > 0) {
+                parent_element.removeChild(child_elements[0]);
+            }
+        }
+        removeCartItemsByClass('cart-items', 'cart-item');
+        document.getElementById('nums-value').innerText = data;
+        document.getElementById('cart-message').innerText = 'You currently have no items in your cart!';
     })
     .catch(error => {
         console.error('Error:', error);
