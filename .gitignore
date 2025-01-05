@@ -2,4 +2,5 @@ website/__pycache__/
 .vercel
 .venv
 instance
+migrations
 requirements.txt.backup
