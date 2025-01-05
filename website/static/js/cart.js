@@ -18,57 +18,100 @@
   }
 
 // Spencer
+current_node_history = {};
+var num_cart_items = () => {
+    var var_value = 0;
+    for (var i = 0; i < Object.keys(current_node_history).length; i++) {
+        var_value += current_node_history[Object.keys(current_node_history)[i]];
+    }
+    return var_value;
+};
+function increment(current_node) {
+    var node_id = current_node.nextElementSibling.id;
+    current_node_history[node_id] += 1;
+    document.getElementById(node_id).innerText = current_node_history[node_id];
+    document.getElementById('nums-value').innerText = num_cart_items();
+    document.getElementById('cart-message').innerText = `you have ${num_cart_items()} items in your cart`;
+}
+
+function decrement(current_node) {
+    var node_id = current_node.previousElementSibling.id;
+    current_node_history[node_id] -= 1;
+    if (current_node_history[node_id] == 0) {
+        var parent_element = current_node.parentElement.parentElement;
+        delete current_node_history[node_id];
+        parent_element.remove();
+    }
+    document.getElementById(node_id).innerText = current_node_history[node_id];
+    document.getElementById('nums-value').innerText = num_cart_items();
+    document.getElementById('cart-message').innerText = `you have ${num_cart_items()} items in your cart`;
+}
+
+
+first_cart_item = -1;
 function incrementCartItems(current_node) {
-    // Send a POST request to increment the nums variable
-    fetch('/increment', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'text/plain'
+    var div_element = document.createElement('div'); // this div contains the entire general cart item 
+    var button_div = document.createElement('div'); // this div contains the buttons 
+    var add_button = document.createElement('button'); // this button adds the item to the cart
+    var item_count = document.createElement('p'); // this p contains the number of items in the cart
+    var remove_button = document.createElement('button'); // this button removes the item from the cart
+    var merch_item = current_node.previousElementSibling.previousElementSibling.innerText;
+    var merch_price = current_node.previousElementSibling.innerText;
+    var node_id = current_node.id;
+    if (!(node_id in current_node_history)) {
+        current_node_history[node_id] = 1;
+        console.log(current_node_history);
+
+        if (first_cart_item < 1) {
+            first_cart_item = 1;
+            openShoppingBag();
         }
-    })
-    .then(response => response.text())
-    .then(data => {
-        // Update the displayed value of nums
-        var div_element = document.createElement('div');
-        var merch_item = current_node.previousElementSibling.previousElementSibling.innerText;
-        var merch_price = current_node.previousElementSibling.innerText;
+    
         div_element.setAttribute('class', 'cart-item');
+        button_div.setAttribute('class', 'cart-item-buttons');
+        button_div.setAttribute('style', 'display: flex; align-items: center;');
+        add_button.setAttribute('onclick', 'increment(this)');
+        add_button.setAttribute('class', 'cart-button');
+        item_count.setAttribute('class', 'cart-item-count');
+        item_count.setAttribute('id', node_id)
+        remove_button.setAttribute('onclick', 'decrement(this)');
+        remove_button.setAttribute('class', 'cart-button');
+    
+        add_button.innerText = '+';
+        item_count.innerText = current_node_history[node_id]
+        remove_button.innerText = '-';
+    
+        button_div.appendChild(add_button);
+        button_div.appendChild(item_count);
+        button_div.appendChild(remove_button);
+    
         div_element.innerText = merch_item + ' - ' + merch_price;
-        document.getElementById('nums-value').innerText = data;
-        document.getElementById('cart-message').innerText = `you have ${data} items in your cart`;
+        document.getElementById('nums-value').innerText = num_cart_items();
+        document.getElementById('cart-message').innerText = `you have ${num_cart_items()} items in your cart`;
+        div_element.appendChild(button_div);
         document.getElementById('cart-items').appendChild(div_element);
-        console.log(data)
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+    
+    } else {
+        current_node_history[node_id] += 1;
+        console.log(current_node_history[node_id]);
+        document.getElementById(node_id).innerText = current_node_history[node_id];
+        document.getElementById('nums-value').innerText = num_cart_items();
+        document.getElementById('cart-message').innerText = `you have ${num_cart_items()} items in your cart`;
+    }
+    // data = {
+    //     num_cart_items: num_cart_items(),
+    //     // first_cart_item: first_cart_item,
+    //     current_node_history: current_node_history
+    // };
+    // console.log(data);
 }
 
 function removeCartItems() {
-    // Send a POST request to remove the nums variable
-    fetch('/remove', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'text/plain'
-        }
-    })
-    .then(response => response.text())
-    .then(data => {
-        // Update the displayed value of nums
-        function removeCartItemsByClass(parent_selector, class_name) {
-            var parent_element = document.getElementById(parent_selector);
-            var child_elements = document.getElementsByClassName(class_name);
-            while(child_elements.length > 0) {
-                parent_element.removeChild(child_elements[0]);
-            }
-        }
-        removeCartItemsByClass('cart-items', 'cart-item');
-        document.getElementById('nums-value').innerText = data;
-        document.getElementById('cart-message').innerText = 'You currently have no items in your cart!';
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+    var cart_element = document.getElementsByClassName('cart-item');
+    while (cart_element.length > 0) {
+        cart_element[0].remove();
+    }
+    current_node_history = {};
+    document.getElementById('nums-value').innerText = num_cart_items();
+    document.getElementById('cart-message').innerText = `you have ${num_cart_items()} items in your cart`;
 }
