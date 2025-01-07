@@ -2,262 +2,137 @@
 {% block html %}
 <html lang="en" class="scroll">
 {% endblock %}
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-    href="{{url_for('static',filename='css/output.css')}}"
-    rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <title>{% block title %} Stage Fright {% endblock %}</title>
-    {% block js_scripts %}
-    <script defer src="../static/js/home.js"></script>
-    <script defer src="../static/js/cart.js"></script>
-    <script defer src="../static/js/gradient.js"></script>
-    {% endblock %}
-    <script src="https://kit.fontawesome.com/26eaa8b1dc.js" crossorigin="anonymous"></script>
-  </head>
-  {% block body %}
-  <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-black">{% endblock %}      {% with messages = get_flashed_messages(with_categories=true) %}
-    {% block bg_img %}
-    <div id="background-img" class="h-screen w-full fixed bg-crossed bg-cover bg-center transition-all duration-[1.2s] -z-10"></div>{% endblock %}
-    <div onclick="closeShoppingBag()" id="cart-blur" class="hidden h-screen w-full fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] transition-all duration-[0.5s] z-50"></div>
-    <div id="shopping-bag" class="hidden h-screen w-[400px] fixed flex flex-col justify-between top-0 right-0 bg-purple-900 z-50">
-      <div class="p-6">
-        <div class="flex flex-row justify-between items-center">
-          <div class="h-[50px] w-[50px] flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-          <h1 class="text-3xl font-lacquer">Your Cart</h1>
-          <img src="../static/img/logo/icon.png" alt="" class="h-[50px]">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <title>{% block title %} Stage Fright {% endblock %}</title>
+
+  {% block js_scripts %}
+  <script defer src="../static/js/home.js"></script>
+  <script defer src="../static/js/cart.js"></script>
+  <script defer src="../static/js/gradient.js"></script>
+  {% endblock %}
+
+  <script src="https://kit.fontawesome.com/26eaa8b1dc.js" crossorigin="anonymous"></script>
+</head>
+
+{% block body %}
+<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-black">
+{% endblock %}
+{% block nav %}
+  <div onclick="closeShoppingBag()" id="cart-blur" class="hidden h-screen w-full fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] transition-all duration-[0.5s] z-50">
+  </div>
+  <div id="shopping-bag" class="hidden h-screen w-[400px] fixed flex flex-col justify-between top-0 right-0 bg-purple-900 z-50">
+    <div class="p-6">
+      <div class="flex flex-row justify-between items-center">
+        <div class="h-[50px] w-[50px] flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
+          <i class="fa-solid fa-xmark"></i>
         </div>
-        <div class="h-[2px] w-full my-4 bg-purple-800"></div>
+        <h1 class="text-3xl font-lacquer">Your Cart</h1>
+        <img src="../static/img/logo/icon.png" alt="" class="h-[50px]">
       </div>
-      <div class="h-full overflow-y-scroll minimal-scrollbar px-4 mx-3">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo minima sed tempora numquam aliquam saepe ea, eos assumenda quasi corrupti temporibus? Reprehenderit doloribus perferendis veniam incidunt. Exercitationem est, aperiam, quo vitae velit quaerat earum laboriosam, at optio assumenda ab illum quibusdam sed dolore. Corrupti deserunt laudantium repudiandae, dolores illo doloribus facilis magni saepe sint minus, quidem, nesciunt ab iusto sed ullam aut repellendus fugit asperiores ducimus quia vitae adipisci praesentium. Exercitationem, enim voluptatum? Cum, numquam dicta! Dolor deserunt explicabo nihil facere repudiandae officia unde quos maiores porro eum voluptas, praesentium aspernatur suscipit libero provident vero ipsa nam est possimus earum magni voluptatum corporis culpa. Tenetur earum expedita esse, beatae voluptatum cumque nisi incidunt hic et ipsum nihil blanditiis? Illo quia incidunt dolor reiciendis accusantium odio suscipit totam, officiis esse impedit nemo rem ea expedita magnam quas. Porro labore vel modi temporibus nemo nihil dolorem accusamus voluptatibus voluptatum, laborum facilis distinctio sunt asperiores eos molestiae fugit earum eius deserunt, inventore necessitatibus tenetur molestias. Dignissimos vitae magni dolorem eius corrupti molestias repellat beatae architecto ea aspernatur! Consectetur reprehenderit, odit architecto in quaerat obcaecati nostrum odio placeat eum ut consequatur earum? Sit, sunt! Doloribus itaque quae, facere quos aperiam quaerat sapiente, vero ducimus mollitia ipsa voluptates? Neque et labore asperiores, dolorum expedita ipsum repellat numquam tempora dicta dolorem exercitationem nemo aliquam quam pariatur est esse laboriosam voluptates. Vero adipisci doloremque magnam! Alias, odit odio. A cupiditate sunt repudiandae odit consequuntur nam repellat illo? Blanditiis, nisi, ea voluptatem quis dignissimos molestias quas praesentium numquam voluptates quasi atque architecto laboriosam quod dolorem veritatis! Quibusdam fugit, adipisci eveniet repellat nemo molestias dolor pariatur illum libero rem commodi atque voluptatibus iste temporibus ea error debitis vel esse rerum consectetur odio corrupti! Impedit inventore pariatur rem! Inventore eaque distinctio repellat molestiae nisi soluta tempore ea delectus, sapiente pariatur voluptatibus earum accusamus unde, eos sequi illum voluptate quibusdam libero fuga est dolore quaerat ad excepturi. Similique illo cupiditate minima vel adipisci velit quae. Sint eaque possimus maxime vel dolores sapiente nemo molestiae aut et voluptatibus modi fugiat, delectus reiciendis totam accusamus, illo quasi. Consequatur natus beatae suscipit fuga quibusdam, error reiciendis assumenda atque reprehenderit dignissimos quaerat explicabo ducimus necessitatibus perspiciatis quod eos quae tempore, veniam eveniet quo aspernatur. Quas corporis necessitatibus facilis cupiditate ullam consectetur, tempora ea doloribus itaque sint veniam saepe voluptate repellendus nihil optio, tenetur recusandae. Ducimus, quia. Velit obcaecati dolore, eveniet maiores in asperiores rem accusantium quas eaque voluptas sint facilis debitis quod, ea tenetur facere blanditiis nobis aperiam quisquam iste, voluptatem reprehenderit. Quasi distinctio accusantium delectus, molestias quod at natus ad aliquid nulla numquam deserunt assumenda autem. At animi voluptatem reprehenderit, fugiat nobis itaque eaque sed velit nulla quam labore maiores. Hic iure, fuga veniam velit nihil sed possimus quisquam dolores dolorum aut exercitationem quidem dignissimos modi! Rem accusantium ipsam libero blanditiis voluptate. Voluptates debitis nesciunt at error adipisci quia, quidem labore pariatur quasi perferendis omnis nisi, ex distinctio saepe atque inventore officia vel placeat reprehenderit molestias repudiandae quas iste cupiditate fugiat. Totam nemo impedit voluptatum eum sequi. Deleniti nemo aperiam quae ab numquam praesentium beatae ipsam itaque quibusdam quasi! Expedita, aperiam. Voluptate quis impedit minima commodi. Laborum amet soluta inventore vero quidem laudantium corrupti in nam repellendus dicta voluptas libero ea aliquid ab enim, incidunt veniam voluptate voluptatibus praesentium non. Perferendis, animi voluptatum? Veritatis maiores veniam magni minima tempore tenetur expedita dolorum sequi amet? Earum placeat, eum laboriosam cumque nisi iusto, deleniti molestias quae nostrum, nobis reiciendis facere? Beatae sequi illo aperiam asperiores blanditiis, totam dignissimos consequuntur similique nisi dolorem, ratione non! Natus minima qui iure temporibus voluptatem sed in saepe, necessitatibus molestiae, illum corrupti nam illo nostrum totam at reiciendis cupiditate sunt! Sequi autem quia totam numquam aliquam suscipit excepturi, sint, consequuntur explicabo sunt magnam saepe quas eveniet earum porro sapiente molestias error? Voluptatibus iusto cum neque explicabo corporis aliquam at optio sequi enim odio reiciendis deserunt provident cumque nulla aliquid dicta ad perspiciatis, hic nam quo nisi rem ullam tempora aperiam! Ab omnis, nulla, libero hic, reiciendis perferendis ea amet nesciunt tempore laborum assumenda rem natus doloremque rerum sit. Sed, ad doloremque numquam veniam architecto molestiae esse nobis sunt accusamus impedit nam quidem voluptate eos, distinctio rerum voluptatum rem similique temporibus est assumenda at a cum nihil? Pariatur, expedita veniam molestiae minima a quod odio officia explicabo debitis, sint quia sed. Nisi quibusdam sit odio? Asperiores at saepe unde odio molestias hic dolor neque alias ex, deserunt laudantium. Id suscipit illo tempore hic optio alias! Repellendus, cupiditate odio recusandae explicabo nemo modi molestias asperiores eius minima soluta aperiam, inventore magnam ea? Esse nesciunt, delectus voluptate nostrum aliquam ipsam accusamus similique doloremque quaerat, deserunt ea, sed a quo quae veritatis commodi tempora odit necessitatibus nobis. Omnis voluptatem ullam repudiandae amet molestias quis ex aut qui tenetur asperiores tempore provident, nihil, deleniti nam dicta officiis praesentium, accusamus commodi sit dignissimos. Debitis voluptatibus ea labore at ducimus odit iste magnam similique dolores voluptates recusandae provident totam odio mollitia, accusamus inventore praesentium temporibus soluta dolorem corporis! Dolorem velit consectetur tempore sequi explicabo autem harum repellat maiores enim ipsam obcaecati, alias qui optio rerum rem porro perferendis. Fugiat perspiciatis nostrum nemo deserunt culpa quam odio numquam voluptatum cum maxime. Eum maiores a, officiis ipsum voluptas dicta nulla cum consectetur beatae nesciunt totam incidunt fugiat quidem, provident sequi! Veritatis atque dolore magni ea laudantium cum autem quia, fugiat doloribus ipsam facere voluptatibus vitae quos quod odit nihil qui optio? At dignissimos, est recusandae aspernatur veniam rerum quod facilis pariatur neque perferendis repudiandae natus porro, a optio. Magnam commodi nisi eos unde, quidem excepturi dignissimos vitae, ratione, consequatur ipsam sequi reprehenderit distinctio necessitatibus nostrum similique temporibus nobis fugit amet ipsa maxime ullam dolorem! Ad consectetur, modi id corporis eaque sequi quam numquam quaerat corrupti suscipit tempora harum nemo, obcaecati praesentium delectus dolorum aut hic. Distinctio enim ipsam non quae, fugiat magnam molestias, minus nihil sed quos voluptatem voluptatibus quia ipsum minima eaque fuga voluptatum consectetur officiis. Tempora voluptas asperiores excepturi eius, maxime ducimus illum vel consectetur blanditiis autem illo?</p>
-      </div>
-      <div class="p-6">
-        <div class="h-[2px] w-full my-4 bg-purple-800"></div>
-        <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-800 rounded-md" onclick="closeShoppingBag()">
-          Clear Items
-        </button>
-        <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-700 rounded-md" onclick="closeShoppingBag()">
+      <div class="h-[2px] w-full my-4 bg-purple-800"></div>
+    </div>
+    <div class="h-full overflow-y-scroll minimal-scrollbar px-4 mx-3">
+      <p>Test</p>
+    </div>
+    <div class="p-6">
+      <div class="h-[2px] w-full my-4 bg-purple-800"></div>
+      <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-800 rounded-md" onclick="closeShoppingBag()">
+        Clear Items
+      </button>
+      <a href="/checkout">
+        <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-700 rounded-md">
           Checkout
         </button>
+      </a>
+    </div>
+  </div><canvas id="gradient-canvas" class="canvas-main absolute h-screen max-h-screen z-10"></canvas>
+  <div class="h-screen flex flex-col">
+    <nav id="navbar" class="flex flex-row items-center justify-between px-8 py-8 font-semibold">
+      <div class="flex flow-row">
+        <a href="/home"><img class="h-20" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
+        <a href="/home"><img class="h-20 ml-5" src="../static/img/logo/text2.png" alt="" draggable="false"></a>
       </div>
-    </div>
-    <canvas id="gradient-canvas" class="canvas-main absolute h-screen max-h-screen z-10"></canvas>
-        {% if messages %}
-            <div>
-                {% for category, message in messages %}
-                    <div>
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-    {% endwith %}
-    {% block page_div %}
-    <div class="h-screen flex flex-col">
-    {% endblock %}
-      <nav id="navbar" class="flex flex-row items-center justify-between px-8 py-8 font-semibold">
-        <div class="flex flow-row">
-          <a href="/home"><img class="h-20" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
-          <a href="/home"><img class="h-20 ml-5" src="../static/img/logo/text2.png" alt="" draggable="false"></a>
-        </div>
-        <div class="flex space-x-5 text-base bg-purple-900 border-purple-500 border-2 px-2 py-2 rounded-full">
-          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Home</p></a>
-          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Members</p></a>
-          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Tours</p></a>
-          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">About</p></a>
-          <!-- <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Buy Swag</p></a> -->
-          <a><p onclick="openShoppingBag()" class="rounded-full text-2xl hover:brightness-75 transition-all duration-100 cursor-pointer"><i class="fa-solid fa-bag-shopping"></i></i><span id="nums-value">{{ num_cart_items }}</span></p></a>
-          <a href="/swag" class="px-2 rounded-full bg-purple-500 hover:bg-purple-600 transition-all duration-100"><p class="px-3 py-1.5">Buy Merch</p></a>
-        </div>
-        <!-- <div class="flex flex-row gap-4 items-center">
-          <a href="/login"><p class="bg-purple-900 rounded-full text-2xl hover:bg-purple-800 transition-all duration-100"><i class="fa-solid fa-bag-shopping"></i></p></a>
-          <a href="/home" class="bg-purple-500 px-2 rounded-full"><p class="px-4 py-3">Buy Swag</p></a>
-        </div> -->
-      </nav>
-      {% block header_title %}
-      <header class="w-full bg-fixed flex flex-col justify-between flex-1">
-        <section class="flex flex-col items-center">
-          <!-- <img class="mt-12" src="../static/img/logo/text2.png" alt=""> -->
-        </section>
-        <section class="flex flex-row items-start justify-center gap-2 mb-12">
-          <a href="" class="px-3.5 py-2 bg-purple-700"><button class="text-2xl uppercase" style='font-family: "Lacquer";'>Buy the new hoodie</button></a>
-          <a href="" class="px-3.5 py-2 bg-purple-700"><button class="text-2xl uppercase" style='font-family: "Lacquer";'>Listen to the new album</button></a>
-          <a href="" class="px-3.5 py-2 bg-purple-800 opacity-60"><button class="text-2xl uppercase">Test</button></a>
-        </section>
-      </header>
-    </div>
-    {% endblock %}
-    {% block content %}
-    <main class="w-full">
-      <!-- Tours -->
-      <section class="my-[20vh] pt-20 pb-40 w-full flex flex-col justify-center items-center bg-black"
-      style="clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);">
-        <h1 class="text-[7em] my-7 font-lacquer uppercase">Tour Dates</h1>
-        <table class="w-[80%] bg-purple-dark-raw text-white text-center table-fixed rounded-2xl">
-          <tr class="border-purple-950 border-b-2">
-            <td>
-              <p class="text-xl font-bold p-7">Month 1th, 2024</p>
-            </td>
-            <td>
-              <p class="font-bold">City, State</p>
-            </td>
-            <td>
-              <p class="font-bold">Address</p>
-            </td>
-            <td>
-              <button class="bg-purple-700 px-6 py-3 rounded-3xl">Buy a ticket</button>
-            </td>
-          </tr>
-          <tr class="border-purple-950 border-b-2">
-            <td>
-              <p class="text-xl font-bold p-7">Month 1th, 2024</p>
-            </td>
-            <td>
-              <p class="font-bold">City, State</p>
-            </td>
-            <td>
-              <p class="font-bold">Address</p>
-            </td>
-            <td>
-              <button class="bg-purple-700 px-6 py-3 rounded-3xl">Buy a ticket</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p class="text-xl font-bold p-7">Month 1th, 2024</p>
-            </td>
-            <td>
-              <p class="font-bold">City, State</p>
-            </td>
-            <td>
-              <p class="font-bold">Address</p>
-            </td>
-            <td>
-              <button class="bg-purple-700 px-6 py-3 rounded-3xl">Buy a ticket</button>
-            </td>
-          </tr>
-        </table>
-      </section>
+      <div class="flex space-x-5 text-base bg-purple-900 border-purple-500 border-2 px-2 py-2 rounded-full">
+        <a href="/home">
+          <p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Home</p>
+        </a>
+        <a href="/home">
+          <p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Members</p>
+        </a>
+        <a href="/home">
+          <p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Tours</p>
+        </a>
+        <a href="/home">
+          <p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">About</p>
+        </a>
+        <!-- <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Buy Swag</p></a> -->
+        <a>
+          <p onclick="openShoppingBag()"
+            class="rounded-full text-2xl hover:brightness-75 transition-all duration-100 cursor-pointer"><i
+              class="fa-solid fa-bag-shopping"></i></i><span id="nums-value">{{ num_cart_items }}</span></p>
+        </a>
+        <a href="/swag" class="px-2 rounded-full bg-purple-500 hover:bg-purple-600 transition-all duration-100">
+          <p class="px-3 py-1.5">Buy Merch</p>
+        </a>
+      </div>
+    </nav>
+{% endblock %}
 
-      <!-- Merch -->
-      <section class="w-full flex flex-col font-lacquer scroll-target">
-        <div class="marquee font-lacquer">
-          <span class="one"><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
-          <span class="one"><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
-          <span class="one"><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
-          <span class="one"><h2 class="text-[7em] mr-[140px] uppercase" data-aos="fade-up">New Swag</h2></span>
+  <!-- Main Content -->
+  {% block content %}
+  {% endblock %}
+
+  <!-- Footer -->
+  <footer class="border-t-2 border-t-white">
+    <section class="w-full bg-gray-950 px-[12.5%] py-[2%] font-serif">
+      <div class="flex flex-row justify-between">
+        <img class=" h-16" src="../static/img/logo/text2.png" alt="">
+        <div class="flex flex-row justify-center items-center text-gray-400">
+          <a href="/home">
+            <p class="px-3 hover:text-gray-500">Home</p>
+          </a>
+          <a href="/home">
+            <p class="px-3 hover:text-gray-500">Members</p>
+          </a>
+          <a href="/home">
+            <p class="px-3 hover:text-gray-500">Tours</p>
+          </a>
+          <a href="/home">
+            <p class="px-3 hover:text-gray-500">About</p>
+          </a>
+          <a href="/home">
+            <p class="px-3 hover:text-gray-500">Merch</p>
+          </a>
+          <a href="/home"><i class="fa-brands fa-instagram text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
+          <a href="/home"><i class="fa-brands fa-x-twitter text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
+          <a href="/home"><i class="fa-brands fa-youtube text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
+          <a href="/home"><i class="fa-brands fa-spotify text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
+          <a href="https://github.com/SoftwareNotion/bpa-webdesignteam" target="_blank"><i
+              class="fa-brands fa-github hover:text-gray-500 mx-[0.5em]"></i></a>
         </div>
-        <div class="marquee font-lacquer">
-          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
-          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
-          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
-          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
-          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
-          <span class="two"><h2 class="text-[4em] mr-[140px] uppercase" data-aos="fade-up">Out Now</h2></span>
-        </div>
-        <div class="min-h-[300vh] w-full flex flex-row">
-          <div class="flex flex-col w-[40%]">
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">Merch 1</p>
-              <p class="text-2xl my-3">Description</p>
-              <button class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">Merch 2</p>
-              <p class="text-2xl my-3">Description</p>
-              <button class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">Merch 3</p>
-              <p class="text-2xl my-3">Description</p>
-              <button class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">Merch 4</p>
-              <p class="text-2xl my-3">Description</p>
-              <button class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">Merch 5</p>
-              <p class="text-2xl my-3">Description</p>
-              <button class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-          </div>
-          <div class="w-[60%]">
-            <div class="h-full flex flex-col justify-start">
-              <img id="swagItem" class="w-[60%] pt-[10%] sticky top-0" src="../static/img/swag/hat/hat-fr.png" alt="">
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="min-h-screen mb-[100px] flex flex-col items-center justify-center text-center">
-        <div class="mt-2">
-            <h2 class="text-[7em] font-lacquer uppercase" data-aos="fade-up">Meet the Band</h2></span>
-          <div class="flex flex-row flex-wrap justify-center">
-            <div class="hover:animate-[member] h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900 font-semibold" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);">
-              <h1>Landon Warren</h1>
-              <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Electric Guitarist</p>
-            </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900 font-semibold" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.webp);">
-              <h1>Spendagr Holdeman</h1>
-              <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Drummer</p>
-            </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900 font-semibold" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.webp);">
-              <h1>Connor Crossley</h1>
-              <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Bassist</p>
-            </div>
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-slate-900 font-semibold" data-aos="fade-up" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.webp);">
-              <h1>David Casswell</h1>
-              <div class="h-[2px] w-[90%] m-2 bg-white"></div>
-              <p class="pb-3">Vocalist</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="h-screen"></section>
-    </main>
-    {% endblock %}
-    <footer class="border-t-2 border-t-white">
-      <section class="w-full bg-gray-950 px-[12.5%] py-[2%] font-serif">
-        <div class="flex flex-row justify-between">
-          <img class=" h-16" src="../static/img/logo/text2.png" alt="">
-          <div class="flex flex-row justify-center items-center text-gray-400">
-            <a href="/home"><p class="px-3 hover:text-gray-500">Home</p></a>
-            <a href="/home"><p class="px-3 hover:text-gray-500">Members</p></a>
-            <a href="/home"><p class="px-3 hover:text-gray-500">Tours</p></a>
-            <a href="/home"><p class="px-3 hover:text-gray-500">About</p></a>
-            <a href="/home"><p class="px-3 hover:text-gray-500">Merch</p></a>
-            <a href="/home"><i class="fa-brands fa-instagram text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
-            <a href="/home"><i class="fa-brands fa-x-twitter text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
-            <a href="/home"><i class="fa-brands fa-youtube text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
-            <a href="/home"><i class="fa-brands fa-spotify text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
-            <a href="https://github.com/SoftwareNotion/bpa-webdesignteam" target="_blank"><i class="fa-brands fa-github hover:text-gray-500 mx-[0.5em]"></i></a>
-          </div>
-        </div>
-        <div class="h-[1px] w-full my-4 bg-gray-600"></div>
-        <div class="flex flex-row justify-between items-center">
-          <p>©2024 - Stage Fright. All Rights Reserved.</p>
-          <p>BPA Competition | Canadian Valley Technolofy Center, El Reno, OK 73036</a></p>
-        </div>
-      </section>
-    </footer>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script> AOS.init({ duration: 1200 }); </script>
-  </body>
+      </div>
+      <div class="h-[1px] w-full my-4 bg-gray-600"></div>
+      <div class="flex flex-row justify-between items-center">
+        <p>©2024 - Stage Fright. All Rights Reserved.</p>
+        <p>BPA Competition | Canadian Valley Technolofy Center, El Reno, OK 73036</a></p>
+      </div>
+    </section>
+  </footer>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script> AOS.init({ duration: 1200 }); </script>
+</body>
 </html>

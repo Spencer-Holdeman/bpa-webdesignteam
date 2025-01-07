@@ -64,6 +64,11 @@ def Swag():
     print('Swag')
     return render_template('swag.html')
 
+@base.route('/checkout', methods=['POST', 'GET'])
+def Checkout():
+    print('Chechout')
+    return render_template('checkout.html')
+
 @base.route('/login', methods=['POST', 'GET'])
 def Login():
     if request.method == 'POST':
