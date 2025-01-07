@@ -41,7 +41,7 @@ function decrement(current_node) {
         var parent_element = current_node.parentElement.parentElement;
         delete current_node_history[node_id];
         parent_element.remove();
-    }
+    } else {document.getElementById(node_id).innerText = current_node_history[node_id];}
     document.getElementById('nums-value').innerText = num_cart_items();
     document.getElementById('cart-message').innerText = `you have ${num_cart_items()} items in your cart`;
 }
@@ -73,7 +73,7 @@ function incrementCartItems(current_node) {
         add_button.setAttribute('onclick', 'increment(this)');
         add_button.setAttribute('class', 'cart-button');
         item_count.setAttribute('class', 'cart-item-count');
-        item_count.setAttribute('id', node_id)
+        item_count.setAttribute('id', node_id);
         remove_button.setAttribute('onclick', 'decrement(this)');
         remove_button.setAttribute('class', 'cart-button');
     
