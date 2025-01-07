@@ -42,7 +42,6 @@ function decrement(current_node) {
         delete current_node_history[node_id];
         parent_element.remove();
     }
-    document.getElementById(node_id).innerText = current_node_history[node_id];
     document.getElementById('nums-value').innerText = num_cart_items();
     document.getElementById('cart-message').innerText = `you have ${num_cart_items()} items in your cart`;
 }
@@ -58,6 +57,7 @@ function incrementCartItems(current_node) {
     var merch_item = current_node.previousElementSibling.previousElementSibling.innerText;
     var merch_price = current_node.previousElementSibling.innerText;
     var node_id = current_node.id;
+
     if (!(node_id in current_node_history)) {
         current_node_history[node_id] = 1;
         console.log(current_node_history);
@@ -114,4 +114,18 @@ function removeCartItems() {
     current_node_history = {};
     document.getElementById('nums-value').innerText = num_cart_items();
     document.getElementById('cart-message').innerText = `you have ${num_cart_items()} items in your cart`;
+}
+
+function sendData() {
+    fetch('/cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(current_node_history),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
 }
