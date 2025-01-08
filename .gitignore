@@ -3,4 +3,5 @@ __pycache__
 .venv
 .vercel
 instance
+migrations
 requirements.txt.backup
