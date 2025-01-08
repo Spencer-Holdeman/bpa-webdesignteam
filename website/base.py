@@ -26,17 +26,6 @@ def clear_session():
     session.clear()
     return redirect(url_for('base.Home'))
 
-num_cart_items = 0
-@base.context_processor
-def inject_variables():
-    return dict(num_cart_items=num_cart_items) # this will be available in all templates
-
-@base.route('/increment', methods=['POST'])
-def increment():
-    global num_cart_items  # Access the global nums variable
-    num_cart_items += 1  # Increment nums
-    return jsonify({'num_cart_items': num_cart_items})
-
 @base.route('/home', methods=['POST', 'GET'])
 def Home():
     print(session.items())
