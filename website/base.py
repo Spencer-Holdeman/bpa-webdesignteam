@@ -48,6 +48,11 @@ def Members():
     print('Members')
     return render_template('members.html')
 
+@base.route('/about', methods=['POST', 'GET'])
+def About():
+    print('About')
+    return render_template('about.html')
+
 @base.route('/swag', methods=['POST', 'GET'])
 def Swag():
     print('Swag')
