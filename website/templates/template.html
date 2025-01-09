@@ -45,12 +45,12 @@
       </div>
       <div class="h-[2px] w-full my-4 bg-purple-800"></div>
     </div>
-    <div class="h-full overflow-y-scroll minimal-scrollbar px-4 mx-3">
-      <p>Test</p>
+    <div id="cart-items" class="h-full overflow-y-scroll minimal-scrollbar px-4 mx-3">
+      <p id="cart-message">You currently have no items in your cart!</p>
     </div>
     <div class="p-6">
       <div class="h-[2px] w-full my-4 bg-purple-800"></div>
-      <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-800 rounded-md" onclick="closeShoppingBag()">
+      <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-800 rounded-md" onclick="removeCartItems()">
         Clear Items
       </button>
       <a href="/checkout">
