@@ -1,9 +1,12 @@
 // Fetch the current value of num from the Python backend
-function fetchNum() {
-    return fetch('get_num')
-        .then(response => response.json())
-        .then(data => data.num)
-        .catch(error => console.error('Error fetching num:', error));
+async function fetchNum() {
+    try {
+        const response = await fetch('get_num');
+        const data = await response.json();
+        return data.num;
+    } catch (error) {
+        return console.error('Error fetching num:', error);
+    }
 }
 
 // Increment num and send the updated value back to Python

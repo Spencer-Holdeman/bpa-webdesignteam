@@ -18,6 +18,132 @@
   }
 
 // Spencer
-function fetchVars() {
-    return fetch()
+async function fetchVars() {
+    try {
+        const response = await fetch('get_vars');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        return console.error('Error fetching vars:', error);
+    }
+}
+
+function incrementCartItems(current_node) {
+    var div_element = document.createElement('div'); // this div contains the entire general cart item 
+    var button_div = document.createElement('div'); // this div contains the buttons 
+    var add_button = document.createElement('button'); // this button adds the item to the cart
+    var item_count = document.createElement('p'); // this p contains the number of items in the cart
+    var remove_button = document.createElement('button'); // this button removes the item from the cart
+    var merch_item = current_node.previousElementSibling.previousElementSibling.innerText;
+    var merch_price = current_node.previousElementSibling.innerText;
+    var node_id = current_node.id;
+    fetchVars().then(data => {
+        if (!(node_id in data.current_node_history)) {
+            data.current_node_history[node_id] = 1;
+            console.log(data.current_node_history);
+
+            // Update the num in Python
+            fetch('/update_vars', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ current_node_history: data.current_node_history }),  // Send the updated num value
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('nums-value').innerText = data.num_cart_items;
+                document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+            })
+            .catch(error => console.error('Error updating num:', error));
+            // end fetch
+
+            div_element.setAttribute('class', 'cart-item');
+            button_div.setAttribute('class', 'cart-item-buttons');
+            button_div.setAttribute('style', 'display: flex; align-items: center;');
+            add_button.setAttribute('onclick', 'increment(this)');
+            add_button.setAttribute('class', 'cart-button');
+            item_count.setAttribute('class', 'cart-item-count');
+            item_count.setAttribute('id', node_id);
+            remove_button.setAttribute('onclick', 'decrement(this)');
+            remove_button.setAttribute('class', 'cart-button');
+
+            add_button.innerText = '+';
+            item_count.innerText = data.current_node_history[node_id]
+            remove_button.innerText = '-';
+
+            button_div.appendChild(add_button);
+            button_div.appendChild(item_count);
+            button_div.appendChild(remove_button);
+
+            div_element.innerText = merch_item + ' - ' + merch_price;
+            div_element.appendChild(button_div);
+            document.getElementById('cart-items').appendChild(div_element);
+        } else {
+            data.current_node_history[node_id] += 1;
+
+             // Update the num in Python
+             fetch('/update_vars', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ current_node_history: data.current_node_history }),  // Send the updated num value
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('nums-value').innerText = data.num_cart_items;
+                document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+            })
+            .catch(error => console.error('Error updating num:', error));
+            // end fetch
+
+            console.log(data.current_node_history[node_id]);
+            document.getElementById(node_id).innerText = data.current_node_history[node_id];
+        }
+
+        console.log(data);
+    }).catch(error => console.error('Error fetching vars:', error));
+}
+
+window.onload = function() {
+    fetchVars().then(data => {
+        document.getElementById('nums-value').innerText = data.num_cart_items;
+        document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+        for(var i=0; i < Object.keys(data.current_node_history).length; i++) {
+            var div_element = document.createElement('div'); // this div contains the entire general cart item 
+            var button_div = document.createElement('div'); // this div contains the buttons 
+            var add_button = document.createElement('button'); // this button adds the item to the cart
+            var item_count = document.createElement('p'); // this p contains the number of items in the cart
+            var remove_button = document.createElement('button'); // this button removes the item from the cart
+            console.log(`data.current_node_history = ${data.current_node_history}`);
+            var current_node = document.getElementById(Object.keys(data.current_node_history)[i]);
+            console.log(`current_node = ${current_node}`);
+            var merch_item = current_node.previousElementSibling.previousElementSibling.innerText;
+            var merch_price = current_node.previousElementSibling.innerText;
+            var node_id = current_node.id;
+
+            div_element.setAttribute('class', 'cart-item');
+            button_div.setAttribute('class', 'cart-item-buttons');
+            button_div.setAttribute('style', 'display: flex; align-items: center;');
+            add_button.setAttribute('onclick', 'increment(this)');
+            add_button.setAttribute('class', 'cart-button');
+            item_count.setAttribute('class', 'cart-item-count');
+            item_count.setAttribute('id', node_id);
+            remove_button.setAttribute('onclick', 'decrement(this)');
+            remove_button.setAttribute('class', 'cart-button');
+
+            add_button.innerText = '+';
+            item_count.innerText = data.current_node_history[node_id]
+            remove_button.innerText = '-';
+
+            button_div.appendChild(add_button);
+            button_div.appendChild(item_count);
+            button_div.appendChild(remove_button);
+
+            div_element.innerText = merch_item + ' - ' + merch_price;
+            div_element.appendChild(button_div);
+            document.getElementById('cart-items').appendChild(div_element);
+        }
+    }).catch(error => console.error('Error displaying num on load:', error));
 }

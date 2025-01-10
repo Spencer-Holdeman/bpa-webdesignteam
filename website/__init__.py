@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_mailman import Mail
+from flask_cors import CORS
 
 db = SQLAlchemy()
 DB_NAME = 'database.db'
@@ -8,6 +9,7 @@ mail = Mail()
 
 def create_app():
     app = Flask(__name__)
+    
     app.config['SECRET_KEY'] = 'Skibidi'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     app.config["MAIL_SERVER"] = "smtp.gmail.com"
@@ -18,6 +20,7 @@ def create_app():
     app.config["MAIL_USE_SSL"] = True
     db.init_app(app)
     mail.init_app(app)
+    CORS(app)
     
     
     from .base import base

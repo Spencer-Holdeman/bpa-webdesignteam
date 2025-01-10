@@ -26,6 +26,35 @@ def clear_session():
     session.clear()
     return redirect(url_for('base.Home'))
 
+current_node_history = {}
+first_cart_item = -1
+num_cart_items = sum(current_node_history.values())
+@base.route('/get_vars', methods=['GET'])
+def get_vars():
+    global current_node_history
+    global first_cart_item
+    global num_cart_items
+
+    data = {
+        'current_node_history': current_node_history,
+        'first_cart_item': first_cart_item,
+        'num_cart_items': num_cart_items
+    }
+
+    return jsonify(data)
+
+@base.route('/update_vars', methods=['POST'])
+def update_vars():
+    global current_node_history
+    global first_cart_item
+    global num_cart_items
+
+    data = request.get_json()
+    current_node_history = data.get('current_node_history')
+    first_cart_item = data.get('first_cart_item')
+    num_cart_items = sum(current_node_history.values())
+    return jsonify({'message': 'vars updated', 'num_cart_items': num_cart_items})
+
 @base.route('/home', methods=['POST', 'GET'])
 def Home():
     print(session.items())
