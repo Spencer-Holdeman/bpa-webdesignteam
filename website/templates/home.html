@@ -1,28 +1,9 @@
 {% extends 'template.html' %}
 {% block body %}
   <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-black">
-    <div id="background-img" class="h-screen w-full fixed bg-crossed bg-cover bg-center transition-all duration-[1.2s] -z-10"></div>
+    <div id="background-img" class="h-screen w-full fixed bg-crossed bg-cover bg-center brightness-[75%] transition-all duration-[1.2s] -z-10"></div>
 {% endblock %}
-      <nav id="navbar" class="flex flex-row items-center justify-between px-8 py-8 font-semibold">
-        <div class="flex flow-row">
-          <a href="/home"><img class="h-20" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
-          <a href="/home"><img class="h-20 ml-5" src="../static/img/logo/text2.png" alt="" draggable="false"></a>
-        </div>
-        <div class="flex space-x-5 text-base bg-purple-900 border-purple-500 border-2 px-2 py-2 rounded-full">
-          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Home</p></a>
-          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Members</p></a>
-          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Tours</p></a>
-          <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">About</p></a>
-          <!-- <a href="/home"><p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Buy Swag</p></a> -->
-          <a><p onclick="openShoppingBag()" class="rounded-full text-2xl hover:brightness-75 transition-all duration-100 cursor-pointer"><i class="fa-solid fa-bag-shopping"></i></i><span id="nums-value">{{ num_cart_items }}</span></p></a>
-          <a href="/swag" class="px-2 rounded-full bg-purple-500 hover:bg-purple-600 transition-all duration-100"><p class="px-3 py-1.5">Buy Merch</p></a>
-        </div>
-        <!-- <div class="flex flex-row gap-4 items-center">
-          <a href="/login"><p class="bg-purple-900 rounded-full text-2xl hover:bg-purple-800 transition-all duration-100"><i class="fa-solid fa-bag-shopping"></i></p></a>
-          <a href="/home" class="bg-purple-500 px-2 rounded-full"><p class="px-4 py-3">Buy Swag</p></a>
-        </div> -->
-      </nav>
-      {% block header_title %}
+    {% block header_title %}
       <header class="w-full bg-fixed flex flex-col justify-between flex-1">
         <section class="flex flex-col items-center">
           <!-- <img class="mt-12" src="../static/img/logo/text2.png" alt=""> -->
@@ -33,7 +14,6 @@
           <a href="" class="px-3.5 py-2 bg-purple-800 opacity-60"><button class="text-2xl uppercase">Test</button></a>
         </section>
       </header>
-    </div>
     {% endblock %}
     {% block content %}
     <header class="w-full bg-fixed flex flex-col justify-between flex-1">

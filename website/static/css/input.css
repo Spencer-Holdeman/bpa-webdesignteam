@@ -4,20 +4,8 @@
 
 /* Scroll Postion Styles  */
 html.scroll:not([data-scroll='0']) body #background-img {
-    filter: brightness(65%) blur(3px);
+    filter: brightness(40%) blur(3px);
 }
-
-/* Backdrop Filter */
-/* .backdrop-filter {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: brightness(20%);
-    z-index: -1;
-} */
 
 /* Marquee */
 .marquee {

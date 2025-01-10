@@ -43,13 +43,13 @@
         <h1 class="text-3xl font-lacquer">Your Cart</h1>
         <img src="../static/img/logo/icon.png" alt="" class="h-[50px]">
       </div>
-      <div class="h-[2px] w-full my-4 bg-purple-800"></div>
+      <div class="h-[2px] w-full mt-4 bg-purple-800"></div>
     </div>
     <div id="cart-items" class="h-full overflow-y-scroll minimal-scrollbar px-4 mx-3">
       <p id="cart-message">You currently have no items in your cart!</p>
     </div>
     <div class="p-6">
-      <div class="h-[2px] w-full my-4 bg-purple-800"></div>
+      <div class="h-[2px] w-full m-4 bg-purple-800"></div>
       <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-800 rounded-md" onclick="removeCartItems()">
         Clear Items
       </button>
@@ -63,38 +63,35 @@
   <!-- <canvas id="gradient-canvas" class="canvas-main absolute h-screen max-h-screen z-10"></canvas> -->
   <nav id="navbar" class="w-full flex flex-row items-center justify-between fixed top-0 px-5 py-5 font-semibold z-40">
     <div class="w-[30%] flex flow-row">
-      <a href="/home"><img class="h-20" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
-      <a href="/home"><img class="h-20 ml-5" src="../static/img/logo/text2.png" alt="" draggable="false"></a>
+      <a href="/home"><img class="h-12" src="../static/img/logo/icon.png" alt="" draggable="false"></a>
+      <a href="/home"><img class="h-12 ml-5" src="../static/img/logo/text2.png" alt="" draggable="false"></a>
     </div>
-    <div class="flex space-x-5 text-base px-2 py-2 rounded-full">
+    <div class="flex space-x-5 text-lg px-2 py-2 bg-dark-raw/60 backdrop-blur-md rounded-full">
       <a href="/home">
-        <p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Home</p>
+        <p class="px-3 py-1 rounded-full hover:underline">Home</p>
       </a>
-      <a href="/home">
-        <p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Members</p>
-      </a>
-      <a href="/home">
-        <p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">Tours</p>
+      <a href="/tours">
+        <p class="px-3 py-1 rounded-full hover:underline">Tours</p>
       </a>
       <a href="/about">
-        <p class="px-3 py-1.5 rounded-full hover:bg-purple-800 transition-all duration-100">About</p>
+        <p class="px-3 py-1 rounded-full hover:underline">About</p>
+      </a>
+      <a href="/home">
+        <p class="px-3 py-1 rounded-full hover:underline">Contact Us</p>
       </a>
     </div>
-    <div class="w-[30%] flex justify-end space-x-5 text-base px-2 py-2 rounded-full">
-      <a class="px-2 rounded-full transition-all duration-100">
-        <p onclick="openShoppingBag()"
-          class="rounded-full text-2xl hover:brightness-75 transition-all duration-100 cursor-pointer">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span id="nums-value">{{ num_cart_items }}</span>
-        </p>
+    <div class="w-[30%] flex flex-row justify-end items-center space-x-5 text-base rounded-full">
+      <a onclick="openShoppingBag()" class="flex flex-row space-x-3 px-4 py-2 hover:brightness-75 bg-dark-raw/60 backdrop-blur-md rounded-full cursor-pointer">
+        <i class="fa-solid fa-bag-shopping text-2xl"></i>
+        <p class="text-lg">Cart (<span id="nums-value">0{{ num_cart_items }}</span>)</p>
       </a>
       <a href="/swag" class="px-2 rounded-full bg-purple-500 hover:bg-purple-600 transition-all duration-100">
-        <p class="px-3 py-1.5">Buy Merch</p>
+        <p class="px-3 py-1.5 text-lg">Buy Merch</p>
       </a>
     </div>
   </nav>
   <div class="h-screen flex flex-col">
-{% endblock %}
+  {% endblock %}
 
   <!-- Main Content -->
   {% block content %}
