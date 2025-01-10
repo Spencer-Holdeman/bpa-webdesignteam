@@ -3,20 +3,8 @@
   <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-black">
     <div id="background-img" class="h-screen w-full fixed bg-crossed bg-cover bg-center brightness-[75%] transition-all duration-[1.2s] -z-10"></div>
 {% endblock %}
-    {% block header_title %}
-      <header class="w-full bg-fixed flex flex-col justify-between flex-1">
-        <section class="flex flex-col items-center">
-          <!-- <img class="mt-12" src="../static/img/logo/text2.png" alt=""> -->
-        </section>
-        <section class="flex flex-row items-start justify-center gap-2 mb-12">
-          <a href="" class="px-3.5 py-2 bg-purple-700"><button class="text-2xl uppercase" style='font-family: "Lacquer";'>Buy the new hoodie</button></a>
-          <a href="" class="px-3.5 py-2 bg-purple-700"><button class="text-2xl uppercase" style='font-family: "Lacquer";'>Listen to the new album</button></a>
-          <a href="" class="px-3.5 py-2 bg-purple-800 opacity-60"><button class="text-2xl uppercase">Test</button></a>
-        </section>
-      </header>
-    {% endblock %}
-    {% block content %}
-    <header class="w-full bg-fixed flex flex-col justify-between flex-1">
+{% block content %}
+    <header class="h-screen w-full bg-fixed flex flex-col justify-between flex-1">
       <section class="flex flex-col items-center">
         <!-- <img class="mt-12" src="../static/img/logo/text2.png" alt=""> -->
       </section>
@@ -28,7 +16,6 @@
         <a href="" class="px-3.5 py-2 bg-purple-800 opacity-60"><button class="text-2xl uppercase">Test</button></a>
       </section>
     </header>
-  </div>
     <main class="w-full">
       <!-- Tours -->
       <section class="my-[20vh] pt-20 pb-40 w-full flex flex-col justify-center items-center bg-black"
@@ -160,7 +147,7 @@
       </section>
       <section class="h-screen"></section>
     </main>
-    {% endblock %}
+{% endblock %}
     <footer class="border-t-2 border-t-white">
       <section class="w-full bg-gray-950 px-[12.5%] py-[2%] font-serif">
         <div class="flex flex-row justify-between">
