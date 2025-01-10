@@ -10,6 +10,7 @@ module.exports = {
         'purple-dark': {'raw': '#1e0b38'},
         'purple-darker': {'raw': '#0f0221'},
         'purple-darkest': {'raw': '#0f0221'},
+        'dark': {'raw': '#121117'},
       },
       screens: {
         'smh': {'raw': '(min-height: 600px)'}, 
@@ -21,7 +22,7 @@ module.exports = {
       },
       backgroundImage: {
         'crossed': "url(../img/background/group.webp)",
-        'purp': "url(../img/background/purple.webp)"
+        'purp': "url(../img/background/purp.jpg)"
       }
     },
   },
