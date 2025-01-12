@@ -53,6 +53,11 @@ def About():
     print('About')
     return render_template('about.html')
 
+@base.route('/contact', methods=['POST', 'GET'])
+def Contact():
+    print('Contact')
+    return render_template('contact.html')
+
 @base.route('/swag', methods=['POST', 'GET'])
 def Swag():
     print('Swag')
