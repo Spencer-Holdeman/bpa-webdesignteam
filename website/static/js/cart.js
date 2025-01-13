@@ -41,7 +41,7 @@ function increment(current_node) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ current_node_history: data.current_node_history }),  // Send the updated num value
+                body: JSON.stringify({ current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
             })
                 .then(response => response.json())
                 .then(data => {
@@ -66,7 +66,7 @@ function decrement(current_node) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ current_node_history: data.current_node_history }),  // Send the updated num value
+            body: JSON.stringify({ current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
         })
             .then(response => response.json())
             .then(data => {
@@ -85,7 +85,7 @@ function decrement(current_node) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ current_node_history: data.current_node_history }),  // Send the updated num value
+                body: JSON.stringify({ current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
             })
                 .then(response => response.json())
                 .then(data => {
@@ -116,13 +116,30 @@ function incrementCartItems(current_node) {
             data.current_node_history[node_id] = 1;
             console.log(data.current_node_history);
 
+            if (data.first_cart_item < 1) {
+                openShoppingBag();
+                data.first_cart_item = 1;
+                fetch('/update_vars', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.first_cart_item);
+                    })
+                    .catch(error => console.error('Error updating num:', error));
+            }
+
             // Update the num in Python
             fetch('/update_vars', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ current_node_history: data.current_node_history }),  // Send the updated num value
+                body: JSON.stringify({ current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
             })
                 .then(response => response.json())
                 .then(data => {
@@ -165,7 +182,7 @@ function incrementCartItems(current_node) {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ current_node_history: data.current_node_history }),  // Send the updated num value
+                    body: JSON.stringify({ current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
                 })
                     .then(response => response.json())
                     .then(data => {
@@ -198,7 +215,7 @@ function removeCartItems() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ current_node_history: data.current_node_history }),  // Send the updated num value
+            body: JSON.stringify({ current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
         })
             .then(response => response.json())
             .then(data => {
