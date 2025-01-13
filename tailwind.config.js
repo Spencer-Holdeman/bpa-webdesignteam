@@ -19,6 +19,8 @@ module.exports = {
       fontFamily: {
         'sourgummy': ['Sour Gummy', 'sans-serif'],
         'lacquer': ['Lacquer', 'sans-serif'],
+        'marker': ['Permanent Marker', 'sans-serif'],
+        'rowdies': ['Rowdies', 'sans-serif'],
       },
       backgroundImage: {
         'crossed': "url(../img/background/group.webp)",
