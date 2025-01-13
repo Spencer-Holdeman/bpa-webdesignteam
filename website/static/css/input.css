@@ -3,12 +3,46 @@
 @tailwind utilities;
 
 /* Scroll Postion Styles  */
-html.scroll:not([data-scroll='0']) body #background-img {
+/* html.scroll:not([data-scroll='0']) body #background-img {
     filter: brightness(40%) blur(3px);
-}
+    transform: scale(90%);
+} */
 
 /* Marquee */
 .marquee {
+    display: flex;
+    overflow: hidden;
+    gap: 1rem;
+}
+.marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: 1rem;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% - 1rem));
+    }
+}
+
+.marquee-text-scroll {
+    animation: marquee-scroll 15s linear infinite
+}
+.marquee-item-scroll {
+    animation: marquee-scroll 25s linear infinite
+}
+
+.marquee-scroll:hover {
+    animation-play-state: paused;
+}
+
+/* .marquee {
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
@@ -22,8 +56,8 @@ html.scroll:not([data-scroll='0']) body #background-img {
     transform: translateY(-100%);
     display: inline-block;
     animation: marquee-r 10s linear infinite;
-}
-@keyframes marquee-l {
+} */
+/* @keyframes marquee-l {
     0% {
       transform: translate3d(0, 0, 0);
     }
@@ -47,7 +81,7 @@ html.scroll:not([data-scroll='0']) body #background-img {
     100% {
         transform: rotateZ('360')
     }
-}
+} */
 
 /* ----Animated Backgrounds---- */
 /* Sign In/Up */
