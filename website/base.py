@@ -72,10 +72,20 @@ def Home():
         print('Home (logged out)')
         return render_template('index.html')
 
-@base.route('/members', methods=['POST', 'GET'])
-def Members():
-    print('Members')
-    return render_template('members.html')
+@base.route('/tours', methods=['POST', 'GET'])
+def Tours():
+    print('Tours')
+    return render_template('tours.html')
+
+@base.route('/about', methods=['POST', 'GET'])
+def About():
+    print('About')
+    return render_template('about.html')
+
+@base.route('/contact', methods=['POST', 'GET'])
+def Contact():
+    print('Contact')
+    return render_template('contact.html')
 
 @base.route('/swag', methods=['POST', 'GET'])
 def Swag():
