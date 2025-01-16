@@ -18,7 +18,7 @@
   <title>{% block title %} Stage Fright {% endblock %}</title>
 
   {% block js_scripts %}
-  <script defer src="../static/js/home.js"></script>
+  <script defer src="../static/js/navbar.js"></script>
   <script defer src="../static/js/cart.js"></script>
   <script defer src="../static/js/gradient.js"></script>
   {% endblock %}
@@ -30,26 +30,26 @@
 <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-black">
 {% endblock %}
 {% block nav %}
-<!-- <div id="mobile-menu" class="md:hidden h-screen w-full fixed top-0 bg-black z-[60]">
-      <i class="absolute top-7 right-7 fa-solid fa-xmark text-purple-600 cursor-pointer text-5xl"></i>
-      <div class="relative text-center text-3xl font-semibold">
-        <a href="/home">
-          <p class="px-3 my-6 rounded-full hover:underline">Home</p>
-        </a>
-        <a href="/tours">
-          <p class="px-3 my-6 rounded-full hover:underline">Tours</p>
-        </a>
-        <a href="/about">
-          <p class="px-3 my-6 rounded-full hover:underline">About</p>
-        </a>
-        <a href="/home">
-          <p class="px-3 my-6 rounded-full hover:underline">Contact Us</p>
-        </a>
-        <a href="/swag">
-          <p class="px-3 py-1 my-6 rounded-full hover:underline bg-purple-500 hover:bg-purple-600">Merch</p>
-        </a>
-      </div>
-    </div> -->
+  <div id="mobile-menu" class="md:hidden h-screen w-full fixed top-0 right-0 transition-all duration-[1.3s] z-[60]" style="background-color: rgba(1, 1, 1, 0.8); backdrop-filter: blur(10px);">
+    <i onclick="closeMenu()" class="absolute top-6 right-7 fa-solid fa-xmark cursor-pointer text-5xl"></i>
+    <div class="inline-block mx-5 text-left text-4xl font-semibold">
+      <a href="/home">
+        <p class="px-3 my-6 rounded-full hover:underline">Home</p>
+      </a>
+      <a href="/tours">
+        <p class="px-3 my-6 rounded-full hover:underline">Tours</p>
+      </a>
+      <a href="/about">
+        <p class="px-3 my-6 rounded-full hover:underline">About</p>
+      </a>
+      <a href="/home">
+        <p class="px-3 my-6 rounded-full hover:underline">Contact Us</p>
+      </a>
+      <a href="/swag">
+        <p class="px-3 py-1 my-6 rounded-full hover:underline">Merch</p>
+      </a>
+    </div>
+  </div>
   <div onclick="closeShoppingBag()" id="cart-blur" class="hidden h-screen w-full fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] transition-all duration-[0.5s] z-50"></div>
   <div id="shopping-bag" class="h-screen w-[400px] fixed hidden flex flex-col justify-between top-0 right-0 bg-dark-raw z-50">
     <div class="p-6">
