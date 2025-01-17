@@ -20,7 +20,6 @@
   {% block js_scripts %}
   <script defer src="../static/js/navbar.js"></script>
   <script defer src="../static/js/cart.js"></script>
-  <script defer src="../static/js/gradient.js"></script>
   {% endblock %}
 
   <script src="https://kit.fontawesome.com/26eaa8b1dc.js" crossorigin="anonymous"></script>
@@ -30,22 +29,22 @@
 <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-black">
 {% endblock %}
 {% block nav %}
-  <div id="mobile-menu" class="md:hidden h-screen w-full fixed top-0 right-0 transition-all duration-[1.3s] z-[60]" style="background-color: rgba(1, 1, 1, 0.8); backdrop-filter: blur(10px);">
-    <i onclick="closeMenu()" class="absolute top-6 right-7 fa-solid fa-xmark cursor-pointer text-5xl"></i>
+  <div id="mobile-menu" class="md:hidden h-screen fixed top-0 right-0 transition-all duration-[1.3s] z-[60]" style="background-color: rgba(1, 1, 1, 0.8); backdrop-filter: blur(10px); width: 0%;">
+    <i onclick="closeMenu()" id="mobile-menu-x" class="absolute top-6 right-7 fa-solid fa-xmark cursor-pointer text-5xl transition-all duration-[0.5s]" style="display: none; opacity: 0;"></i>
     <div class="inline-block mx-5 text-left text-4xl font-semibold">
-      <a href="/home">
+      <a href="/home" class="transition-all duration-[0.5s]" style="opacity: 0;">
         <p class="px-3 my-6 rounded-full hover:underline">Home</p>
       </a>
-      <a href="/tours">
+      <a href="/tours" class="transition-all duration-[0.2s]"  style="opacity: 0;">
         <p class="px-3 my-6 rounded-full hover:underline">Tours</p>
       </a>
-      <a href="/about">
+      <a href="/about" class="transition-all duration-[0.2s]"  style="opacity: 0;">
         <p class="px-3 my-6 rounded-full hover:underline">About</p>
       </a>
-      <a href="/home">
-        <p class="px-3 my-6 rounded-full hover:underline">Contact Us</p>
+      <a href="/contact" class="transition-all duration-[0.2s]"  style="opacity: 0;">
+        <p class="px-3 my-6 rounded-full hover:underline">Contact</p>
       </a>
-      <a href="/swag">
+      <a href="/swag" class="transition-all duration-[0.2s]"  style="opacity: 0;">
         <p class="px-3 py-1 my-6 rounded-full hover:underline">Merch</p>
       </a>
     </div>
@@ -105,7 +104,7 @@
         <i class="fa-solid fa-bag-shopping text-2xl"></i>
         <p class="text-lg">Cart (<span id="nums-value">0{{ num_cart_items }}</span>)</p>
       </a>
-      <a onclick="openShoppingBag()" class="md:hidden flex flex-row space-x-3 px-4 py-2 hover:brightness-75 bg-dark-raw/60 backdrop-blur-md rounded-full cursor-pointer">
+      <a onclick="openMenu()" class="md:hidden flex flex-row space-x-3 px-4 py-2 hover:brightness-75 bg-dark-raw/60 backdrop-blur-md rounded-full cursor-pointer">
         <i class="fa-solid fa-bars text-2xl"></i>
       </a>
       <a href="/swag" class="hidden lg:block px-2 rounded-full bg-purple-500 hover:bg-purple-600 transition-all duration-100">
