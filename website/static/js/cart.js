@@ -172,6 +172,7 @@ function decrement(current_node) {
             .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
             // Remove the item from the UI
+            parent_element.previousElementSibling.remove();
             parent_element.remove();
         } else {
             // Update the displayed quantity of the current item
@@ -209,7 +210,12 @@ function incrementCartItems(current_node) {
     var item_count = document.createElement('p'); // this p contains the number of items in the cart
     var decrement_button = document.createElement('button'); // this button removes the item from the cart
     var remove_item_button = document.createElement('button'); // this button removes the item from the cart
-    var merch_item = current_node.previousElementSibling == null ? current_node.parentElement.previousElementSibling.previousElementSibling.innerText : current_node.previousElementSibling.previousElementSibling.innerText;
+    var item_image = document.createElement('img'); // this img contains the image of the item
+    var item_description = document.createElement('p'); // this p contains the description of the item
+    var div_element2 = document.createElement('div'); // this div contains the item description and the buttons
+
+    var img_source = current_node.previousElementSibling.previousElementSibling.previousElementSibling.src;
+    var merch_item = current_node.previousElementSibling.previousElementSibling.innerText;
     var merch_price = current_node.previousElementSibling.innerText;
     var node_id = current_node.id;
 
@@ -256,7 +262,7 @@ function incrementCartItems(current_node) {
             .catch(error => console.error('Error updating num:', error));
 
             // Set attributes and inner text for the new cart item elements
-            div_element.setAttribute('class', 'cart-item');
+            div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
             button_div.setAttribute('class', 'cart-item-buttons');
             button_div.setAttribute('style', 'display: flex; align-items: center;');
             add_button.setAttribute('onclick', 'increment(this)');
@@ -267,6 +273,8 @@ function incrementCartItems(current_node) {
             decrement_button.setAttribute('class', 'cart-button');
             remove_item_button.setAttribute('onclick', 'removeCartItem(this)');
             remove_item_button.setAttribute('class', 'cart-button');
+            item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
+            item_image.setAttribute('src', img_source);
 
             add_button.innerText = '+';
             item_count.innerText = data.current_node_history[node_id];
@@ -279,8 +287,11 @@ function incrementCartItems(current_node) {
             button_div.appendChild(decrement_button);
             button_div.appendChild(remove_item_button);
 
-            div_element.innerText = merch_item + ' - ' + merch_price;
-            div_element.appendChild(button_div);
+            item_description.innerText = merch_item + ' - ' + merch_price;
+            div_element.appendChild(item_image);
+            div_element2.appendChild(item_description);
+            div_element2.appendChild(button_div);
+            div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
         } else {
             // Check if the item quantity has reached the maximum limit of 99
@@ -361,7 +372,7 @@ window.onload = function () {
             document.getElementById('nums-value').innerText = data.num_cart_items;
             document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
         } catch (error) {
-            console.error('Error displaying num on load:', error);
+            console.error('this is a "good" error!', error);
         }
 
         // Loop through each item in the cart and create UI elements for them
@@ -371,36 +382,50 @@ window.onload = function () {
             var button_div = document.createElement('div'); // this div contains the buttons 
             var add_button = document.createElement('button'); // this button adds the item to the cart
             var item_count = document.createElement('p'); // this p contains the number of items in the cart
-            var remove_button = document.createElement('button'); // this button removes the item from the cart
+            var decrement_button = document.createElement('button'); // this button removes the item from the cart
+            var remove_item_button = document.createElement('button'); // this button removes the item from the cart
+            var item_image = document.createElement('img'); // this img contains the image of the item
+            var item_description = document.createElement('p'); // this p contains the description of the item
+            var div_element2 = document.createElement('div'); // this div contains the item description and the buttons
 
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.current_node_history)[i]);
+            var img_source = current_node.previousElementSibling.previousElementSibling.previousElementSibling.src;
             var merch_item = current_node.previousElementSibling.previousElementSibling.innerText;
             var merch_price = current_node.previousElementSibling.innerText;
             var node_id = current_node.id;
 
             // Set attributes and inner text for the new cart item elements
-            div_element.setAttribute('class', 'cart-item');
+            div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
             button_div.setAttribute('class', 'cart-item-buttons');
             button_div.setAttribute('style', 'display: flex; align-items: center;');
             add_button.setAttribute('onclick', 'increment(this)');
             add_button.setAttribute('class', 'cart-button');
             item_count.setAttribute('class', 'cart-item-count');
             item_count.setAttribute('id', node_id);
-            remove_button.setAttribute('onclick', 'decrement(this)');
-            remove_button.setAttribute('class', 'cart-button');
+            decrement_button.setAttribute('onclick', 'decrement(this)');
+            decrement_button.setAttribute('class', 'cart-button');
+            remove_item_button.setAttribute('onclick', 'removeCartItem(this)');
+            remove_item_button.setAttribute('class', 'cart-button');
+            item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
+            item_image.setAttribute('src', img_source);
 
             add_button.innerText = '+';
             item_count.innerText = data.current_node_history[node_id];
-            remove_button.innerText = '-';
+            decrement_button.innerText = '-';
+            remove_item_button.innerText = 'Remove';
 
             // Append the new elements to the cart item div
             button_div.appendChild(add_button);
             button_div.appendChild(item_count);
-            button_div.appendChild(remove_button);
+            button_div.appendChild(decrement_button);
+            button_div.appendChild(remove_item_button);
 
-            div_element.innerText = merch_item + ' - ' + merch_price;
-            div_element.appendChild(button_div);
+            item_description.innerText = merch_item + ' - ' + merch_price;
+            div_element.appendChild(item_image);
+            div_element2.appendChild(item_description);
+            div_element2.appendChild(button_div);
+            div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
         }
     }).catch(error => console.error('Error displaying num on load:', error)); // Log any errors during data fetching
