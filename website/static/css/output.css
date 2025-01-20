@@ -570,10 +570,6 @@ video {
   position: relative;
 }
 
-.sticky {
-  position: sticky;
-}
-
 .left-0 {
   left: 0px;
 }
@@ -588,14 +584,6 @@ video {
 
 .top-0 {
   top: 0px;
-}
-
-.top-7 {
-  top: 1.75rem;
-}
-
-.right-5 {
-  right: 1.25rem;
 }
 
 .top-6 {
@@ -624,6 +612,10 @@ video {
 
 .col-span-2 {
   grid-column: span 2 / span 2;
+}
+
+.float-left {
+  float: left;
 }
 
 .m-6 {
@@ -668,11 +660,6 @@ video {
 .mx-\[0\.5em\] {
   margin-left: 0.5em;
   margin-right: 0.5em;
-}
-
-.my-0 {
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 
 .my-14 {
@@ -720,9 +707,9 @@ video {
   margin-bottom: 60%;
 }
 
-.mx-7 {
-  margin-left: 1.75rem;
-  margin-right: 1.75rem;
+.mx-32 {
+  margin-left: 8rem;
+  margin-right: 8rem;
 }
 
 .mb-10 {
@@ -873,6 +860,26 @@ video {
   height: 100vh;
 }
 
+.h-\[2em\] {
+  height: 2em;
+}
+
+.h-\[20em\] {
+  height: 20em;
+}
+
+.h-\[40em\] {
+  height: 40em;
+}
+
+.h-\[30em\] {
+  height: 30em;
+}
+
+.h-auto {
+  height: auto;
+}
+
 .max-h-screen {
   max-height: 100vh;
 }
@@ -887,10 +894,6 @@ video {
 
 .min-h-\[110vh\] {
   min-height: 110vh;
-}
-
-.min-h-\[300vh\] {
-  min-height: 300vh;
 }
 
 .min-h-screen {
@@ -969,12 +972,24 @@ video {
   width: 100%;
 }
 
+.w-\[30em\] {
+  width: 30em;
+}
+
+.w-\[50em\] {
+  width: 50em;
+}
+
 .min-w-80 {
   min-width: 20rem;
 }
 
 .min-w-\[100px\] {
   min-width: 100px;
+}
+
+.max-w-\[50\%\] {
+  max-width: 50%;
 }
 
 .flex-1 {
@@ -1023,10 +1038,6 @@ video {
 
 .items-center {
   align-items: center;
-}
-
-.justify-start {
-  justify-content: flex-start;
 }
 
 .justify-end {
@@ -1342,10 +1353,6 @@ video {
   padding-top: 0.75rem;
 }
 
-.pt-\[10\%\] {
-  padding-top: 10%;
-}
-
 .text-left {
   text-align: left;
 }
@@ -1417,11 +1424,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
 }
 
 .font-bold {
@@ -1527,6 +1529,10 @@ video {
   transition-duration: 200ms;
 }
 
+.duration-\[0\.2s\] {
+  transition-duration: 0.2s;
+}
+
 .duration-\[0\.5s\] {
   transition-duration: 0.5s;
 }
@@ -1535,20 +1541,16 @@ video {
   transition-duration: 1.2s;
 }
 
+.duration-\[1\.3s\] {
+  transition-duration: 1.3s;
+}
+
 .duration-\[1\.5s\] {
   transition-duration: 1.5s;
 }
 
 .duration-\[1s\] {
   transition-duration: 1s;
-}
-
-.duration-\[3s\] {
-  transition-duration: 3s;
-}
-
-.duration-\[1\.3s\] {
-  transition-duration: 1.3s;
 }
 
 /* Scroll Postion Styles  */
@@ -1847,11 +1849,6 @@ video {
   .mdh\:my-0 {
     margin-top: 0px;
     margin-bottom: 0px;
-  }
-
-  .mdh\:my-5 {
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
   }
 
   .mdh\:my-6 {
