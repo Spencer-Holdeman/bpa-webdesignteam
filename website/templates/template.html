@@ -26,7 +26,7 @@
 </head>
 
 {% block body %}
-<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-black">
+<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
 {% endblock %}
 {% block nav %}
   <div id="mobile-menu" class="md:hidden h-screen fixed top-0 right-0 transition-all duration-[1.3s] z-[60]" style="background-color: rgba(1, 1, 1, 0.8); backdrop-filter: blur(10px); width: 0%;">
@@ -155,52 +155,16 @@
       </div>
     </section>
   </footer>
-  <div class="hidden flex flex-col w-[0%] h-[0%]">
-    <div class="flex flex-col items-end my-[60%] merch-target">
-      <p class="text-7xl mb-3">vinyl 1</p>
-      <p class="text-2xl my-3">$9.99</p>
-      <button id="vinyl 1" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-    </div>
-    <div class="flex flex-col items-end my-[60%] merch-target">
-      <p class="text-7xl mb-3">vinyl 2</p>
-      <p class="text-2xl my-3">$24.99</p>
-      <button id="vinyl 2" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-    </div>
-    <div class="flex flex-col items-end my-[60%] merch-target">
-      <p class="text-7xl mb-3">vinyl 3</p>
-      <p class="text-2xl my-3">$29.99</p>
-      <button id="vinyl 3" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-    </div>
-    <div class="flex flex-col items-end my-[60%] merch-target">
-      <p class="text-7xl mb-3">Test Item</p>
-      <p class="text-2xl my-3">$199.99</p>
-      <button id="Test Item" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-    </div>
-    <div class="flex flex-col items-end my-[60%] merch-target">
-      <p class="text-7xl mb-3">Skull Cap</p>
-      <p class="text-2xl my-3">$9.99</p>
-      <button id="Skull Cap" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-    </div>
-    <div class="flex flex-col items-end my-[60%] merch-target">
-      <p class="text-7xl mb-3">Hoodie</p>
-      <p class="text-2xl my-3">$24.99</p>
-      <button id="Hoodie" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-    </div>
-    <div class="flex flex-col items-end my-[60%] merch-target">
-      <p class="text-7xl mb-3">Jacket</p>
-      <p class="text-2xl my-3">$29.99</p>
-      <button id="Jacket" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-    </div>
-    <div class="flex flex-col items-end my-[60%] merch-target">
-      <p class="text-7xl mb-3">Skull Bottle</p>
-      <p class="text-2xl my-3">$14.99</p>
-      <button id="Skull Bottle" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-    </div>
-    <div class="flex flex-col items-end my-[60%] merch-target">
-      <p class="text-7xl mb-3">Skull Cap</p>
-      <p class="text-2xl my-3">$9.99</p>
-      <button id="Skull Cap" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-    </div>
+  <div class="hidden">
+    <div><p>vinyl 1</p><p>$9.99</p><button id="vinyl 1" onclick="incrementCartItems(this)"></button></div>
+    <div><p>vinyl 2</p><p>$24.99</p><button id="vinyl 2" onclick="incrementCartItems(this)"></button></div>
+    <div><p>vinyl 3</p><p>$29.99</p><button id="vinyl 3" onclick="incrementCartItems(this)"></button></div>
+    <div><p>Test Item</p><p>$199.99</p><button id="Test Item" onclick="incrementCartItems(this)"></button></div>
+    <div><p>Skull Cap</p><p>$9.99</p><button id="Skull Cap" onclick="incrementCartItems(this)"></button></div>
+    <div><p>Hoodie</p><p>$24.99</p><button id="Hoodie" onclick="incrementCartItems(this)"></button></div>
+    <div><p>Jacket</p><p>$29.99</p><button id="Jacket" onclick="incrementCartItems(this)"></button></div>
+    <div><p>Skull Bottle</p><p>$14.99</p><button id="Skull Bottle" onclick="incrementCartItems(this)"></button></div>
+    <div><p>Skull Cap</p><p>$9.99</p><button id="Skull Cap" onclick="incrementCartItems(this)"></button></div>
   </div>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script> AOS.init({ duration: 1200 }); </script>
