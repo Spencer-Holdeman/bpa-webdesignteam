@@ -795,6 +795,10 @@ video {
   height: 24rem;
 }
 
+.h-\[0\%\] {
+  height: 0%;
+}
+
 .h-\[100px\] {
   height: 100px;
 }
@@ -859,8 +863,16 @@ video {
   width: 20rem;
 }
 
+.w-\[0\%\] {
+  width: 0%;
+}
+
 .w-\[30\%\] {
   width: 30%;
+}
+
+.w-\[400px\] {
+  width: 400px;
 }
 
 .w-\[50\%\] {
@@ -1112,8 +1124,8 @@ video {
   --tw-bg-opacity: 0;
 }
 
-.bg-new {
-  background-image: url(../img/background/group.jpg);
+.bg-skatepark {
+  background-image: url(../img/background/group.webp);
 }
 
 .bg-cover {
@@ -1694,10 +1706,6 @@ video {
     display: none;
   }
 
-  .md\:w-\[400px\] {
-    width: 400px;
-  }
-
   .md\:w-\[500px\] {
     width: 500px;
   }
@@ -1779,10 +1787,6 @@ video {
     display: grid;
   }
 
-  .xl\:w-\[250px\] {
-    width: 250px;
-  }
-
   .xl\:w-\[30\%\] {
     width: 30%;
   }
@@ -1793,14 +1797,6 @@ video {
 
   .xl\:w-\[60em\] {
     width: 60em;
-  }
-
-  .xl\:w-\[20empx\] {
-    width: 20empx;
-  }
-
-  .xl\:w-\[20em\] {
-    width: 20em;
   }
 
   .xl\:grid-flow-row {

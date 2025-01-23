@@ -24,10 +24,9 @@ module.exports = {
         'rowdies': ['Rowdies', 'sans-serif'],
       },
       backgroundImage: {
-        'crossed': "url(../img/background/group.webp)",
-        'new': "url(../img/background/group.jpg)"
+        'skatepark': "url(../img/background/group.webp)"
       }
-    },
+    }
   },
   plugins: [],
 }
