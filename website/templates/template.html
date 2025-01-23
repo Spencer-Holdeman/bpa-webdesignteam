@@ -50,14 +50,20 @@
     </div>
   </div>
   <div onclick="closeShoppingBag()" id="cart-blur" class="hidden h-screen w-full fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] transition-all duration-[0.5s] z-50"></div>
-  <div id="shopping-bag" class="h-screen w-[400px] fixed hidden flex flex-col justify-between top-0 right-0 bg-dark-raw z-50">
+  <div id="shopping-bag" class="h-screen w-full md:w-[400px] fixed hidden flex flex-col justify-between top-0 right-0 bg-dark-raw z-50">
     <div class="p-6">
       <div class="flex flex-row justify-between items-center">
-        <div class="h-[50px] w-[50px] flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
+        <div class="h-[50px] w-[50px] hidden md:flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
           <i class="fa-solid fa-xmark"></i>
         </div>
+        <img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-[50px] md:hidden">
+        
         <h1 class="text-3xl font-lacquer">Your Cart</h1>
-        <img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-[50px]">
+        
+        <img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-[50px] md:block hidden">
+        <div class="h-[50px] w-[50px] md:hidden flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
       </div>
       <div class="h-[2px] w-full mt-4 bg-purple-800"></div>
     </div>
