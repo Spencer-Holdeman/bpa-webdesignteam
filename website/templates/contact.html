@@ -10,44 +10,51 @@
         <h1 class="text-7xl font-semibold uppercase">Contact Us</h1>
         <h2 class="text-4xl font-lacquer">Inquiries & Support</h2>
       </div>
-      <div class="w-full flex flex-row justify-center">
-        <div class="w-[40%] grid grid-flow-row grid-cols-2 grid-rows-2">
-          <div class="flex flex-row justify-center items-center text-purple-500">
+      <div class="w-full flex flex-col xl:flex-row justify-center">
+        <!-- <div class="w-full flex flex-row justify-center xl:w-[40%] xl:grid xl:grid-flow-row xl:grid-cols-2 xl:grid-rows-2">
+          <div class="flex flex-row items-center text-purple-500">
             <i class="fa-solid fa-envelope text-5xl"></i>
             <div class="mx-4">
               <h3 class="text-xl font-semibold">Email</h3>
               <p class="text-white">general@stagefright.com</p>
             </div>
           </div>
-          <div class="flex flex-row justify-center items-center text-purple-500">
+          <div class="flex flex-row items-center text-purple-500">
             <i class="fa-solid fa-phone text-5xl"></i>
             <div class="mx-4">
               <h3 class="text-xl font-semibold">Phone Number</h3>
               <p class="text-white">+1 (405) 123-4567</p>
             </div>
           </div>
-          <div class="col-span-2 flex flex-row justify-center items-center text-purple-500">
+          <div class="flex flex-row items-center text-purple-500">
             <i class="fa-solid fa-location-dot text-5xl"></i>
             <div class="mx-4">
               <h3 class="text-xl font-semibold">Location</h3>
               <p class="text-white">6505 E Hwy 66, El Reno, OK 73036</p>
             </div>
           </div>
-        </div>
-        <div class="w-[40%] p-5 rounded-lg">
-          <form>
+          <div class="hidden xl:flex flex-row items-center text-purple-500">
+            <i class="fa-solid fa-circle-question text-5xl"></i>
+            <div class="mx-4">
+              <h3 class="text-xl font-semibold">FAQs</h3>
+              <p class="text-white">Scroll down</p>
+            </div>
+          </div>
+        </div> -->
+        <div class="w-full flex justify-center">
+          <form class="w-[80%] xl:w-[40%] p-5 rounded-lg">
             <div class="flex flex-row pb-4">
               <div class="w-[50%] mr-2">
                 <label for="contact-name" class="block font-semibold mb-2">Name</label>
-                <input name="contact-name" type="text" class="w-full p-2 bg-gray-800 rounded-lg">
+                <input required name="contact-name" type="text" class="w-full p-2 bg-gray-800 rounded-lg outline-none focus:outline-purple-500">
               </div>
               <div class="w-[50%] ml-2">
                 <label for="contact-name" class="block font-semibold mb-2">Email</label>
-                <input type="text" class="w-full p-2 bg-gray-800 rounded-lg">
+                <input required type="text" class="w-full p-2 bg-gray-800 rounded-lg outline-none focus:outline-purple-500">
               </div>
             </div>
             <label for="contact-subject" class="block font-semibold mb-2">Subject</label>
-            <select name="contact-subject" id="contact-subject" class="w-full p-2 mb-4 bg-gray-800 rounded-lg">
+            <select required name="contact-subject" id="contact-subject" class="w-full p-2 mb-4 bg-gray-800 rounded-lg outline-none focus:outline-purple-500">
               <option value="0">Select an option</option>
               <option value="1">Customer Support</option>
               <option value="2">Booking Inquiry</option>
@@ -56,9 +63,12 @@
               <option value="5">Other</option>
             </select>
             <label for="contact-message" class="block font-semibold mb-2">Message</label>
-            <textarea name="contact-message" id="contact-message" class="min-h-10 h-40 w-full p-2 mb-4 bg-gray-800 rounded-lg"></textarea>
+            <textarea required name="contact-message" id="contact-message" class="min-h-10 h-40 w-full p-2 mb-4 bg-gray-800 rounded-lg outline-none focus:outline-purple-500"></textarea>
             <button type="submit" class="w-full py-2 font-semibold bg-purple-500 rounded-lg">Submit Message</button>
           </form>
+          <div class="">
+
+          </div>
         </div>
       </div>
     </main>

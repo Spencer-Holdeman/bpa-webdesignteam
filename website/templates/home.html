@@ -1,12 +1,10 @@
 {% extends 'template.html' %}
 {% block body %}
   <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
-    <!-- <div id="background-img" class="h-screen w-full fixed bg-crossed bg-cover bg-center brightness-[75%] transition-all duration-[1.2s] -z-10"></div> -->
 {% endblock %}
 {% block content %}
-    <header class="h-screen w-full flex flex-1 flex-col justify-between bg-crossed bg-cover bg-center backdrop-brightness-[75%]">
+    <header class="h-screen w-full flex flex-1 flex-col justify-between bg-new bg-cover bg-center backdrop-brightness-[75%]">
       <section class="flex flex-col items-center">
-        <!-- <img class="mt-12" src="../static/img/logo/text2.png" alt=""> -->
       </section>
       <section class="flex flex-row items-start justify-center gap-2 mb-12">
         <a href="/swag" class="px-3.5 py-2 bg-purple-700">
@@ -23,34 +21,34 @@
         <h1 class="text-7xl my-7 font-lacquer uppercase">Upcoming Tours</h1>
         <table class="w-[80%] text-white text-center table-fixed rounded-2xl" style="-webkit-mask-image: linear-gradient(black, transparent); mask-image: linear-gradient(black, transparent);">
           <tr class="border-gray-700 border-y-[1px]">
-            <td><p class="text-xl font-bold py-6">Month 1th, 2024</p></td>
-            <td><p class="font-semibold">City, State</p></td>
-            <td><p>Address</p></td>
-            <td><button class="bg-purple-700 px-10 py-3 rounded-lg">Tickets</button></td>
+            <td><p class="text-xl font-bold py-6">May 7th, 2025</p></td>
+            <td><p class="font-semibold">Oklahoma City, OK</p></td>
+            <td><p>Blue Door</p></td>
+            <td><button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
           </tr>
           <tr class="border-gray-700 border-y-[1px]">
-            <td><p class="text-xl font-bold py-6">Month 1th, 2024</p></td>
-            <td><p class="font-semibold">City, State</p></td>
-            <td><p>Address</p></td>
-            <td><button class="bg-purple-700 px-10 py-3 rounded-lg">Tickets</button></td>
+            <td><p class="text-xl font-bold py-6">May 9th, 2025</p></td>
+            <td><p class="font-semibold">Little Rock, AR</p></td>
+            <td><p>The Hall</p></td>
+            <td><button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
           </tr>
           <tr class="border-gray-700 border-y-[1px]">
-            <td><p class="text-xl font-bold py-6">Month 1th, 2024</p></td>
-            <td><p class="font-semibold">City, State</p></td>
-            <td><p>Address</p></td>
-            <td><button class="bg-purple-700 px-10 py-3 rounded-lg">Tickets</button></td>
+            <td><p class="text-xl font-bold py-6">May 12th, 2025</p></td>
+            <td><p class="font-semibold">Nashville, TN</p></td>
+            <td><p>The Bluebird Cafe</p></td>
+            <td><button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
           </tr>
           <tr class="border-gray-700 border-y-[1px]">
-            <td><p class="text-xl font-bold py-6">Month 1th, 2024</p></td>
-            <td><p class="font-semibold">City, State</p></td>
-            <td><p>Address</p></td>
-            <td><button class="bg-purple-700 px-10 py-3 rounded-lg">Tickets</button></td>
+            <td><p class="text-xl font-bold py-6">May 15th, 2025</p></td>
+            <td><p class="font-semibold">Asheville, NC</p></td>
+            <td><p>The Orange Peel</p></td>
+            <td><button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
           </tr>
           <tr class="border-gray-700 border-y-[1px]">
-            <td><p class="text-xl font-bold py-6">Month 1th, 2024</p></td>
-            <td><p class="font-semibold">City, State</p></td>
-            <td><p>Address</p></td>
-            <td><button class="bg-purple-700 px-10 py-3 rounded-lg">Tickets</button></td>
+            <td><p class="text-xl font-bold py-6">May 17th, 2025</p></td>
+            <td><p class="font-semibold">Alexandria, VA</p></td>
+            <td><p>The Birchmere</p></td>
+            <td><button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
           </tr>
         </table>
         <a href="/tours"><p class="my-2 text-purple-500">View More Tour Dates</p></a>
@@ -165,82 +163,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="marquee font-lacquer">
-          <span class="one">
-            <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
-              <img class="h-80 w-80 mb-4 bg-white rounded-xl" src="../static/img/swag/vinyl/vinyl.webp" alt="">
-              <h2 class="my-2 text-lg font-bold">vinyl 2</h2>
-              <h2 class="my-2 text-lg">$19.99</h2>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl">
-                  Add to Cart    
-              </button>
-            </div>
-          </span>
-          <span class="one">
-            <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
-              <img class="h-80 w-80 mb-4 bg-white rounded-xl" src="../static/img/swag/vinyl/vinyl.webp" alt="">
-              <h2 class="my-2 text-lg font-bold">vinyl 2</h2>
-              <h2 class="my-2 text-lg">$19.99</h2>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl">
-                  Add to Cart    
-              </button>
-            </div>
-          </span>
-        </div> -->
-        <!-- <div class="min-h-[300vh] w-full flex flex-row">
-          <div class="flex flex-col w-[40%]">
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">vinyl 1</p>
-              <p class="text-2xl my-3">$9.99</p>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">vinyl 2</p>
-              <p class="text-2xl my-3">$24.99</p>
-              <button id="vinyl 2" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">vinyl 3</p>
-              <p class="text-2xl my-3">$29.99</p>
-              <button id="vinyl 3" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">Test Item</p>
-              <p class="text-2xl my-3">$199.99</p>
-              <button id="Test Item" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">Skull Cap</p>
-              <p class="text-2xl my-3">$9.99</p>
-              <button id="Skull Cap" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">Hoodie</p>
-              <p class="text-2xl my-3">$24.99</p>
-              <button id="Hoodie" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">Jacket</p>
-              <p class="text-2xl my-3">$29.99</p>
-              <button id="Jacket" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">Skull Bottle</p>
-              <p class="text-2xl my-3">$14.99</p>
-              <button id="Skull Bottle" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div>
-            <div class="flex flex-col items-end my-[60%] merch-target">
-              <p class="text-7xl mb-3">Skull Cap</p>
-              <p class="text-2xl my-3">$9.99</p>
-              <button id="Skull Cap" onclick="incrementCartItems(this)" class="w-40 my-3 py-2 bg-purple-600 text-xl">Add to Cart</button>
-            </div> 
-          </div>
-          <div class="w-[60%]">
-            <div class="h-full flex flex-col justify-start">
-              <img id="swagItem" class="w-[60%] pt-[10%] sticky top-0" src="../static/img/swag/hat/hat-fr.png" alt="">
-            </div>
-          </div>
-        </div> -->
       </section>
 
       <!-- Latest Album -->
@@ -291,13 +213,13 @@
           </table>
         </div>
         <div class="h-full w-[50%] flex justify-center items-center">
-          <img id="spinning-vinyl" src="../static/img/swag/vinyl/vinyl.webp" alt="" class="w-[85%] mb-20 vinyl-spin">
+          <img id="spinning-vinyl" src="../static/img/swag/vinyl/vinyl.webp" alt="Spinning vinyl record" class="w-[85%] mb-20 vinyl-spin">
         </div>
       </section>
 
       <!-- Contact -->
-       <section>
+      <section class="w-full ">
         
-       </section>
+      </section>
     </main>
 {% endblock %}

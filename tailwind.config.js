@@ -15,6 +15,7 @@ module.exports = {
       screens: {
         'smh': {'raw': '(min-height: 600px)'}, 
         'mdh': {'raw': '(min-height: 800px)'},
+        'mxl': {'raw': '(max-height: 1280px)'},
       },
       fontFamily: {
         'sourgummy': ['Sour Gummy', 'sans-serif'],
@@ -24,7 +25,7 @@ module.exports = {
       },
       backgroundImage: {
         'crossed': "url(../img/background/group.webp)",
-        'purp': "url(../img/background/purp.jpg)"
+        'new': "url(../img/background/group.jpg)"
       }
     },
   },

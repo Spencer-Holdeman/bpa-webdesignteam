@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" data-scroll='0'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} Sign In {% endblock %}</title>
-    <link
-    href="{{url_for('static',filename='css/output.css')}}"
-    rel="stylesheet"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Permanent+Marker&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
-    <script defer src="../static/js/login.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>{% block title %} Sign In {% endblock %}</title>
+    <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
+    <script defer src="../static/js/gradient.js"></script>
 </head>
 
 <body class="flex flex-col h-screen bg-fixed bg-center bg-cover bg-black text-white">
@@ -39,8 +43,9 @@
                 <br class="hidden md:block">
                 <label class="my-2 font-medium" for="password-login">Password</label>
                 <input class="my-2 p-2 rounded-xl text-black" type="password" name="password-login" id="password-login">
-                <p class="w-full my-2 md:my-4 text-right text-purple-400 hover:text-purple-500 duration-200 font-medium"><a href="">Forgot Password?</a></p>
-                <button class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-1 my-2 rounded-xl font-medium">Sign In</button>
+                <br class="hidden md:block">
+                <!-- <p class="w-full my-2 md:my-4 text-right text-purple-400 hover:text-purple-500 duration-200 font-medium"><a href="">Forgot Password?</a></p> -->
+                <button class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-2 my-2 rounded-xl font-medium">Sign In</button>
             </form>
         </div>
         <p class="font-medium py-0 md:py-5">Need an account? <span class="text-purple-400 hover:text-purple-500 duration-200"><a href="/signup">Create one.</a></span></p>
