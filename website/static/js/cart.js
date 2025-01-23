@@ -87,13 +87,13 @@ function increment(current_node) {
                     num_cart_items: data.num_cart_items
                 }),
             })
-            .then(response => response.json()) // Parse the server response as JSON
-            .then(data => {
-                // Update the UI with the new number of items in the cart
-                document.getElementById('nums-value').innerText = data.num_cart_items;
-                document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
-            })
-            .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
+                .then(response => response.json()) // Parse the server response as JSON
+                .then(data => {
+                    // Update the UI with the new number of items in the cart
+                    document.getElementById('nums-value').innerText = data.num_cart_items;
+                    document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+                })
+                .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
             // Update the displayed quantity of the current item
             document.getElementById(node_id).innerText = data.current_node_history[node_id];
@@ -134,13 +134,13 @@ function decrement(current_node) {
                 num_cart_items: data.num_cart_items
             }),
         })
-        .then(response => response.json()) // Parse the server response as JSON
-        .then(data => {
-            // Update the UI with the new number of items in the cart
-            document.getElementById('nums-value').innerText = data.num_cart_items;
-            document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
-        })
-        .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
+            .then(response => response.json()) // Parse the server response as JSON
+            .then(data => {
+                // Update the UI with the new number of items in the cart
+                document.getElementById('nums-value').innerText = data.num_cart_items;
+                document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+            })
+            .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
         // Check if the item quantity has reached zero
         if (data.current_node_history[node_id] == 0) {
@@ -163,13 +163,13 @@ function decrement(current_node) {
                     num_cart_items: data.num_cart_items
                 }),
             })
-            .then(response => response.json()) // Parse the server response as JSON
-            .then(data => {
-                // Update the UI with the new number of items in the cart
-                document.getElementById('nums-value').innerText = data.num_cart_items;
-                document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
-            })
-            .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
+                .then(response => response.json()) // Parse the server response as JSON
+                .then(data => {
+                    // Update the UI with the new number of items in the cart
+                    document.getElementById('nums-value').innerText = data.num_cart_items;
+                    document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+                })
+                .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
             // Remove the item from the UI
             parent_element.previousElementSibling.remove();
@@ -189,7 +189,7 @@ function removeCartItem(current_node) {
         console.log(num_cart_items)
         decrement(current_node.previousElementSibling);
         num_cart_items -= 1;
-    } 
+    }
 }
 
 /**
@@ -240,11 +240,11 @@ function incrementCartItems(current_node) {
                     },
                     body: JSON.stringify({ current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
                 })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data.first_cart_item);
-                })
-                .catch(error => console.error('Error updating num:', error));
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.first_cart_item);
+                    })
+                    .catch(error => console.error('Error updating num:', error));
             }
 
             // Update the server with the new cart data
@@ -255,12 +255,12 @@ function incrementCartItems(current_node) {
                 },
                 body: JSON.stringify({ current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
             })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('nums-value').innerText = data.num_cart_items;
-                document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
-            })
-            .catch(error => console.error('Error updating num:', error));
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('nums-value').innerText = data.num_cart_items;
+                    document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+                })
+                .catch(error => console.error('Error updating num:', error));
 
             // Set attributes and inner text for the new cart item elements
             div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
@@ -310,12 +310,12 @@ function incrementCartItems(current_node) {
                     },
                     body: JSON.stringify({ current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
                 })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('nums-value').innerText = data.num_cart_items;
-                    document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
-                })
-                .catch(error => console.error('Error updating num:', error));
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('nums-value').innerText = data.num_cart_items;
+                        document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+                    })
+                    .catch(error => console.error('Error updating num:', error));
 
                 // Update the displayed quantity of the current item
                 document.getElementById(node_id).innerText = data.current_node_history[node_id];
@@ -336,12 +336,12 @@ function removeCartItems() {
     fetchVars().then(data => {
         // Get all elements with the class 'cart-item'
         var cart_element = document.getElementsByClassName('cart-item');
-        
+
         // Remove each cart item element from the UI
         while (cart_element.length > 0) {
             cart_element[0].remove();
         }
-        
+
         // Clear the cart data
         data.current_node_history = {};
 
@@ -353,13 +353,13 @@ function removeCartItems() {
             },
             body: JSON.stringify({ current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
         })
-        .then(response => response.json())
-        .then(data => {
-            // Update the UI with the new number of items in the cart
-            document.getElementById('nums-value').innerText = data.num_cart_items;
-            document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
-        })
-        .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
+            .then(response => response.json())
+            .then(data => {
+                // Update the UI with the new number of items in the cart
+                document.getElementById('nums-value').innerText = data.num_cart_items;
+                document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+            })
+            .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
 /**
@@ -394,7 +394,7 @@ window.onload = function () {
             var img_source = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.src : current_node.previousElementSibling.previousElementSibling.previousElementSibling.src;
             var merch_item = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.innerText : current_node.previousElementSibling.previousElementSibling.innerText;
             var merch_price = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.innerText : current_node.previousElementSibling.innerText;
-    
+
             var node_id = current_node.id;
 
             // Set attributes and inner text for the new cart item elements
