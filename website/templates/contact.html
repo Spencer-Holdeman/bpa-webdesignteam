@@ -10,32 +10,39 @@
         <h1 class="text-7xl font-semibold uppercase">Contact Us</h1>
         <h2 class="text-4xl font-lacquer">Inquiries & Support</h2>
       </div>
-      <div class="w-full flex flex-row justify-center">
-        <div class="w-[40%] grid grid-flow-row grid-cols-2 grid-rows-2">
-          <div class="flex flex-row justify-center items-center text-purple-500">
+      <div class="w-full flex flex-col xl:flex-row justify-center">
+        <div class="w-full flex flex-row justify-center xl:w-[40%] xl:grid xl:grid-flow-row xl:grid-cols-2 xl:grid-rows-2">
+          <div class="flex flex-row items-center text-purple-500">
             <i class="fa-solid fa-envelope text-5xl"></i>
             <div class="mx-4">
               <h3 class="text-xl font-semibold">Email</h3>
               <p class="text-white">general@stagefright.com</p>
             </div>
           </div>
-          <div class="flex flex-row justify-center items-center text-purple-500">
+          <div class="flex flex-row items-center text-purple-500">
             <i class="fa-solid fa-phone text-5xl"></i>
             <div class="mx-4">
               <h3 class="text-xl font-semibold">Phone Number</h3>
               <p class="text-white">+1 (405) 123-4567</p>
             </div>
           </div>
-          <div class="col-span-2 flex flex-row justify-center items-center text-purple-500">
+          <div class="flex flex-row items-center text-purple-500">
             <i class="fa-solid fa-location-dot text-5xl"></i>
             <div class="mx-4">
               <h3 class="text-xl font-semibold">Location</h3>
               <p class="text-white">6505 E Hwy 66, El Reno, OK 73036</p>
             </div>
           </div>
+          <div class="hidden xl:flex flex-row items-center text-purple-500">
+            <i class="fa-solid fa-circle-question text-5xl"></i>
+            <div class="mx-4">
+              <h3 class="text-xl font-semibold">FAQs</h3>
+              <p class="text-white">Scroll down</p>
+            </div>
+          </div>
         </div>
-        <div class="w-[40%] p-5 rounded-lg">
-          <form>
+        <div class="w-full flex justify-center">
+          <form class="w-[80%] xl:w-[40%] p-5 rounded-lg">
             <div class="flex flex-row pb-4">
               <div class="w-[50%] mr-2">
                 <label for="contact-name" class="block font-semibold mb-2">Name</label>
