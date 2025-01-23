@@ -82,10 +82,34 @@ def About():
     print('About')
     return render_template('about.html')
 
-@base.route('/contact', methods=['POST', 'GET'])
-def Contact():
-    print('Contact')
-    return render_template('contact.html')
+@base.route('/contact', methods=["GET", "POST"])
+def form():
+    if request.method == 'POST':
+        print('contact: inside if')
+        name = request.form.get("contact-name" )
+        email = request.form.get("contact-email")
+        message = request.form.get("contact-message")
+        subject = request.form.get("contact-subject")
+        log = f'{subject}  {name}  {email}  {message}'
+        print(log)
+        print (subject)
+        msg = EmailMessage(
+            subject,
+            log,
+            "stagefrightbandokc@gmail.com",
+            ["stagefrightbandokc@gmail.com"]
+            )
+        
+        try:
+            msg.send()
+            print("Email sent successfully!")
+        except Exception as e:
+            print(f"Error sending email: {e}")
+        
+        return render_template("contact.html")
+    else:
+        print('contact: outside if')
+        return render_template("contact.html")
 
 @base.route('/swag', methods=['POST', 'GET'])
 def Swag():
