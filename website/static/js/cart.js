@@ -214,15 +214,10 @@ function incrementCartItems(current_node) {
     var item_description = document.createElement('p'); // this p contains the description of the item
     var div_element2 = document.createElement('div'); // this div contains the item description and the buttons
 
-    var img_source;
-    if (!current_node.previousElementSibling) {
-        img_source = current_node.parentElement.lastElementChild.src;
-    } else {
-        img_source = current_node.previousElementSibling.previousElementSibling.previousElementSibling.src;
-    }
-    // var img_source = current_node.previousElementSibling.previousElementSibling.previousElementSibling.src;
-    var merch_item = current_node.previousElementSibling.previousElementSibling.innerText;
-    var merch_price = current_node.previousElementSibling.innerText;
+    // Get the current node and its details
+    var img_source = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.src : current_node.previousElementSibling.previousElementSibling.previousElementSibling.src;
+    var merch_item = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.innerText : current_node.previousElementSibling.previousElementSibling.innerText;
+    var merch_price = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.innerText : current_node.previousElementSibling.innerText;
     var node_id = current_node.id;
 
     // Fetch variables from the server
@@ -396,9 +391,10 @@ window.onload = function () {
 
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.current_node_history)[i]);
-            var img_source = current_node.previousElementSibling.previousElementSibling.previousElementSibling.src;
-            var merch_item = current_node.previousElementSibling.previousElementSibling.innerText;
-            var merch_price = current_node.previousElementSibling.innerText;
+            var img_source = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.src : current_node.previousElementSibling.previousElementSibling.previousElementSibling.src;
+            var merch_item = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.innerText : current_node.previousElementSibling.previousElementSibling.innerText;
+            var merch_price = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.innerText : current_node.previousElementSibling.innerText;
+    
             var node_id = current_node.id;
 
             // Set attributes and inner text for the new cart item elements
