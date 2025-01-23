@@ -25,7 +25,7 @@ module.exports = {
       },
       backgroundImage: {
         'crossed': "url(../img/background/group.webp)",
-        'purp': "url(../img/background/purp.jpg)"
+        'new': "url(../img/background/group.jpg)"
       }
     },
   },
