@@ -362,6 +362,11 @@ function removeCartItems() {
             .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
+
+function incrementTicketItems(current_node) {
+    console.log(current_node.innerText)
+}
+
 /**
  * loads all current cart items (if any) when the window loads
  */
