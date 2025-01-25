@@ -16,7 +16,7 @@
       </section>
     </header>
     <main class="w-full">
-      <!-- Tours -->
+      <!---------- Tours ---------->
       <section class="min-h-screen w-full flex flex-col justify-center items-center">
         <h1 class="text-7xl my-7 font-lacquer uppercase">Upcoming Tours</h1>
         <table class="w-[80%] text-white text-center table-fixed rounded-2xl" style="-webkit-mask-image: linear-gradient(black, transparent); mask-image: linear-gradient(black, transparent);">
@@ -54,7 +54,7 @@
         <a href="/tours"><p class="my-2 text-purple-500">View More Tour Dates</p></a>
       </section>
 
-      <!-- Merch -->
+      <!---------- Merch ---------->
       <section class="min-h-[110vh] w-full flex flex-col justify-center font-lacquer">
         <div class="marquee font-lacquer">
           <div class="marquee-content marquee-text-scroll">
@@ -165,13 +165,14 @@
         </div>
       </section>
 
-      <!-- Latest Album -->
-      <section class="h-screen w-full flex flex-row bg-purple-700 font-lacquer" style="clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);">
-        <div class="h-full w-[50%] mt-16 flex justify-center items-center">
-          <table class="w-[65%] font-marker text-[2.5em] tracking-widest">
+      <!---------- Latest Album ---------->
+      <!-- Computer (XL+) -->
+      <section class="h-screen w-full hidden xl:flex flex-row bg-gray-700 font-lacquer" style="clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);">
+        <div class="h-full w-[50%] my-12 flex justify-center items-center">
+          <table class="w-[65%] font-marker text-[2em] tracking-widest">
             <tr>
               <td colspan="2">
-                <p>Failure to Cope</p>
+                <p class="font-bold">Failure to Cope</p>
               </td>
             </tr>
             <tr>
@@ -212,13 +213,25 @@
             </tr>
           </table>
         </div>
-        <div class="h-full w-[50%] flex justify-center items-center">
-          <img id="spinning-vinyl" src="../static/img/misc/ftc.png" alt="Spinning vinyl record" class="w-[60%] mb-20 vinyl-spin">
+        <div class="h-full w-[50%] xl:flex justify-center items-center">
+          <div class="mb-24">
+            <img id="spinning-vinyl" src="../static/img/misc/ftc.png" alt="Spinning vinyl record" class="vinyl-spin">
+          </div>
         </div>
       </section>
 
-      <!-- Contact -->
-      <section class="w-full ">
+      <!-- Mobile (-XL) -->
+      <section class="w-full p-20 xl:hidden flex flex-col md:flex-row justify-center items-center bg-gray-700">
+        <img src="../static/img/albums/ftc.webp" class="w-64 mx-8 mb-8 md:mb-0 rounded-lg" alt="">
+        <div class="space-y-4 text-center md:text-left">
+          <h1 class="text-4xl font-lacquer">Failure to Cope</h1>
+          <p>Our latest released album. "Failure to Cope" contains 9 tracks that are bound to catch your attention.</p>
+          <button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Listen Now</button>
+        </div>
+      </section>
+
+      <!---------- Contact ---------->
+      <section>
         
       </section>
     </main>
