@@ -111,6 +111,11 @@ def form():
         print('contact: outside if')
         return render_template("contact.html")
 
+@base.route('/bpa', methods=['POST', 'GET'])
+def BPA():
+    print('BPA')
+    return render_template('bpa.html')
+
 @base.route('/swag', methods=['POST', 'GET'])
 def Swag():
     print('Swag')

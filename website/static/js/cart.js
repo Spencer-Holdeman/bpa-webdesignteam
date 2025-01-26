@@ -8,8 +8,8 @@ const cartBlur = document.getElementById("cart-blur");
  * After the animation completes, pauses the animation.
  */
 function openShoppingBag() {
-    shoppingBag.classList.toggle("hidden");
-    cartBlur.classList.toggle("hidden");
+    shoppingBag.classList.remove("hidden");
+    cartBlur.classList.remove("hidden");
     shoppingBag.style.animation = "openCart 0.3s alternate infinite ease-in-out";
     setTimeout(() => {
         shoppingBag.style.animationPlayState = "paused";
@@ -18,8 +18,8 @@ function openShoppingBag() {
 function closeShoppingBag() {
     shoppingBag.style.animationPlayState = "running";
     setTimeout(() => {
-        shoppingBag.classList.toggle("hidden");
-        cartBlur.classList.toggle("hidden");
+        shoppingBag.classList.add("hidden");
+        cartBlur.classList.add("hidden");
     }, 300);
 }
 

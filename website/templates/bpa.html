@@ -1,0 +1,48 @@
+{% extends 'template.html' %}
+{% block title %}
+    BPA Info | Stage Fright
+{% endblock %}
+{% block body %}
+  <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
+{% endblock %}
+{% block js_scripts %}
+  <script defer src="../static/js/navbar.js"></script>
+  <script defer src="../static/js/cart.js"></script>
+{% endblock %}
+{% block content %}
+    <main class="w-full">
+      <div class="min-h-screen flex flex-col justify-center items-center">
+        <p class="py-8 mt-24 text-lg font-semibold">━━━━ Team ID: 00117209 ━━━━</h1>
+        <div class="flex flex-row flex-wrap justify-center mb-16 text-center">
+          <div class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);" alt="Landon Warren, Electric Guitarist"></div>
+            <h1 class="text-xl font-bold">Landon Warren</h1>
+            <p>Front-End Developer</p>
+            <p class="pb-6">ID: 00117209</p>
+          </div>
+          <div class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.webp);" alt="Spencer Holdeman, Drummer"></div>
+            <h1 class="text-xl font-bold">Spencer Holdeman</h1>
+            <p>Back-End Developer</p>
+            <p class="pb-6">ID: 00117175</p>
+          </div>
+          <div class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.webp);" alt="Connor Crossley, Bassist"></div>
+            <h1 class="text-xl font-bold">Connor Crossley</h1>
+            <p>Communications Developer</p>
+            <p class="pb-6">ID: 00117157</p>
+          </div>
+          <div class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl">
+            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.webp);" alt="David Casswell, Vocalist"></div>
+            <h1 class="text-xl font-bold">David Casswell</h1>
+            <p>Media Specialist</p>
+            <p class="pb-6">ID: 00117152</p>
+          </div>
+        </div>
+      </div>
+      <p class="py-8 mt-24 text-lg text-center font-semibold">━━━━ Works Cited | Attributions ━━━━</h1>
+      <div class="w-full flex justify-center">
+        <iframe src="../static/pdf/works_cited.pdf" class="h-screen w-[80%] lg:w-[755px]" frameborder="0"></iframe>
+      </div>
+    </main>
+{% endblock %}

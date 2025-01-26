@@ -11,8 +11,9 @@
   <script defer src="../static/js/about.js"></script>
 {% endblock %}
 {% block content %}
-    <section id="member-menu" class="hidden h-screen w-full flex justify-center items-center fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] z-[70]">
-      <div class="p-5 lg:p-20 lg:pt-10 bg-gray-700 rounded-lg">
+    <section id="member-menu" class="hidden h-screen w-full flex justify-center items-center fixed top-0 left-0">
+      <div onclick="closeAboutMember()" class="h-screen w-full fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] z-[69]"></div>
+      <div class="p-5 lg:p-20 lg:pt-10 bg-gray-700 rounded-lg z-[70]">
         <div class="w-full flex justify-end">
           <div onclick="closeAboutMember()" class="h-[50px] w-[50px] top-0 right-0 flex flex-row justify-center items-center text-2xl text-white border-white border-2 rounded-full cursor-pointer">
             <i class="fa-solid fa-xmark"></i>

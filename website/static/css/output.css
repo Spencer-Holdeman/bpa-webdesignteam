@@ -610,6 +610,10 @@ video {
   z-index: 70;
 }
 
+.z-\[69\] {
+  z-index: 69;
+}
+
 .float-left {
   float: left;
 }
@@ -1028,6 +1032,10 @@ video {
 
 .w-36 {
   width: 9rem;
+}
+
+.w-\[755px\] {
+  width: 755px;
 }
 
 .min-w-80 {
@@ -2016,6 +2024,10 @@ video {
 
   .lg\:w-72 {
     width: 18rem;
+  }
+
+  .lg\:w-\[755px\] {
+    width: 755px;
   }
 
   .lg\:flex-row {
