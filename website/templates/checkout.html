@@ -19,10 +19,17 @@
   {% endblock %}
 
   {% block content %}
-  <section class="w-full h-screen py-20 px-[20em] bg-purple-500">
-    <div class="h-full bg-gray-800  p-5 text-lg rounded-xl">
-      <div class="flex justify-between"><h1 class="text-xl font-semibold"></i>Shopping Cart</h1><i class="fa-solid fa-xmark"></i></div>
-      <div id="cart-items" class="h-[2px] w-full my-4 bg-gray-700"></div>
+  <section class="h-screen w-full flex justify-center items-center bg-purple-500">
+    <div class="h-[80%] w-[80em] bg-gray-800 p-5 text-lg rounded-xl">
+      <div class="flex justify-between items-center">
+        <h1 class="text-3xl font-semibold">Shopping Cart</h1>
+        <a href="/home">
+          <div class="h-[50px] w-[50px] hidden md:flex flex-row justify-center items-center text-2xl text-white border-white border-2 rounded-full cursor-pointer">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </a>
+      </div>
+      <div id="cart-items" class="h-[90%] w-full my-4 overflow-y-scroll"></div>
     </div>
   </section>
   <section class="mx-20">

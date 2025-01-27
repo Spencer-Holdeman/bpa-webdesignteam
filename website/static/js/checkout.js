@@ -17,7 +17,7 @@ async function fetchVars() {
     }
 }
 
-window.addEventListener('load', function () {
+function constCart() {
     console.log('checkout.js loaded');
     fetchVars().then(data => {
         console.log(data);
@@ -100,4 +100,4 @@ window.addEventListener('load', function () {
             document.getElementById('const-cart').appendChild(div_element);
         }
     });
-});
+}
