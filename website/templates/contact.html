@@ -59,6 +59,23 @@
               </div>
             </div>
           </div>
+          <label for="contact-subject" class="block font-semibold mb-2">Subject</label>
+          <select required name="contact-subject" id="contact-subject"
+            class="w-full p-2 mb-4 bg-gray-800 rounded-lg outline-none focus:outline-purple-500">
+            <option value="0">Select an option</option>
+            <option value="1">Customer Support</option>
+            <option value="2">Booking Inquiry</option>
+            <option value="3">Business Inquiry</option>
+            <option value="4">Fan Mail</option>
+            <option value="5">Other</option>
+          </select>
+          <label for="contact-message" class="block font-semibold mb-2">Message</label>
+          <textarea required name="contact-message" id="contact-message"
+            class="min-h-10 h-40 w-full p-2 mb-4 bg-gray-800 rounded-lg outline-none focus:outline-purple-500"></textarea>
+          <button type="submit" class="w-full py-2 font-semibold bg-purple-500 rounded-lg">Submit Message</button>
+        </form>
+        <div class="">
+
         </div>
       </div>
       <div class="w-full flex flex-col justify-center items-center my-20">
