@@ -1188,6 +1188,11 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.border-purple-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(168 85 247 / var(--tw-border-opacity));
+}
+
 .bg-\[\#431288\] {
   --tw-bg-opacity: 1;
   background-color: rgb(67 18 136 / var(--tw-bg-opacity));
@@ -1415,6 +1420,11 @@ video {
   padding-bottom: 2.5rem;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -1534,6 +1544,14 @@ video {
 
 .text-\[1\.5em\] {
   font-size: 1.5em;
+}
+
+.text-\[3em\] {
+  font-size: 3em;
+}
+
+.text-\[1em\] {
+  font-size: 1em;
 }
 
 .font-bold {
@@ -1843,6 +1861,10 @@ video {
 
 .vinyl-spin {
   animation: vinyl-spin 5s linear infinite;
+}
+
+.invalid\:outline-red-500:invalid {
+  outline-color: #ef4444;
 }
 
 .hover\:border-purple-500:hover {

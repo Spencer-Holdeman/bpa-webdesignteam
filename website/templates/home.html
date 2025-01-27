@@ -7,10 +7,10 @@
       <section class="flex flex-col items-center">
       </section>
       <section class="flex flex-row items-start justify-center gap-2 mb-12">
-        <a href="/swag" class="px-3.5 py-2 bg-purple-700">
+        <a href="/swag" class="px-3.5 py-2 bg-purple-500">
           <button class="text-2xl uppercase"style='font-family: "Lacquer";'>Buy the new vinyls</button>
         </a>
-        <a href="" class="px-3.5 py-2 bg-purple-700">
+        <a href="" class="px-3.5 py-2 bg-purple-500">
           <button class="text-2xl uppercase" style='font-family: "Lacquer";'>Listen to the new album</button>
         </a>
       </section>
@@ -18,7 +18,7 @@
     <main class="w-full">
       <!---------- Tours ---------->
       <section class="min-h-screen w-full flex flex-col justify-center items-center">
-        <h1 class="text-7xl my-7 font-lacquer uppercase">Upcoming Tours</h1>
+        <h1 class="text-7xl my-7 font-semibold font-lacquer uppercase">Upcoming Tours</h1>
         <table class="w-[80%] text-white text-center table-fixed rounded-2xl" style="-webkit-mask-image: linear-gradient(black, transparent); mask-image: linear-gradient(black, transparent);">
           <tr class="border-gray-700 border-y-[1px]">
             <td><p class="text-xl font-bold py-6">May 7th, 2025</p></td>
@@ -58,12 +58,12 @@
       <section class="min-h-[110vh] w-full flex flex-col justify-center font-lacquer">
         <div class="marquee font-lacquer">
           <div class="marquee-content marquee-text-scroll">
-            <h1 class="text-7xl font-lacquer">NEW SWAG</h1>
-            <h1 class="text-7xl font-lacquer">NEW SWAG</h1>
+            <h1 class="text-7xl font-semibold font-lacquer">NEW SWAG</h1>
+            <h1 class="text-7xl font-semibold font-lacquer">NEW SWAG</h1>
           </div>
           <div class="marquee-content marquee-text-scroll">
-            <h1 class="text-7xl font-lacquer">NEW SWAG</h1>
-            <h1 class="text-7xl font-lacquer">NEW SWAG</h1>
+            <h1 class="text-7xl font-semibold font-lacquer">NEW SWAG</h1>
+            <h1 class="text-7xl font-semibold font-lacquer">NEW SWAG</h1>
           </div>
         </div>
         <div class="marquee font-lacquer">
@@ -172,7 +172,7 @@
           <table class="w-[65%] font-marker text-[2em] tracking-widest">
             <tr>
               <td colspan="2">
-                <p class="font-bold">Failure to Cope</p>
+                <p class="text-[1.5em] font-bold">Failure to Cope</p>
               </td>
             </tr>
             <tr>
@@ -231,8 +231,9 @@
       </section>
 
       <!---------- Contact ---------->
-      <section>
-        
+      <section class="w-full my-20 flex flex-col justify-center items-center">
+        <h2 class="text-7xl my-5 font-lacquer font-semibold">Want to keep up with us?</h2>
+        <a href="/signup"><button class="py-3 px-6 font-purple-500 text-2xl font-medium border-2 border-purple-500">Join the Newsletter</button></a>
       </section>
     </main>
 {% endblock %}
