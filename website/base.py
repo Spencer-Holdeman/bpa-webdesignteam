@@ -26,16 +26,19 @@ def clear_session():
     session.clear()
     return redirect(url_for('base.Home'))
 
+ticket_node_history = {}
 current_node_history = {}
 first_cart_item = -1
-num_cart_items = sum(current_node_history.values())
+num_cart_items = sum(current_node_history.values()) + sum(ticket_node_history.values())
 @base.route('/get_vars', methods=['GET'])
 def get_vars():
+    global ticket_node_history
     global current_node_history
     global first_cart_item
     global num_cart_items
 
     data = {
+        'ticket_node_history': ticket_node_history,
         'current_node_history': current_node_history,
         'first_cart_item': first_cart_item,
         'num_cart_items': num_cart_items
@@ -45,14 +48,16 @@ def get_vars():
 
 @base.route('/update_vars', methods=['POST'])
 def update_vars():
+    global ticket_node_history
     global current_node_history
     global first_cart_item
     global num_cart_items
 
     data = request.get_json()
+    ticket_node_history = data.get('ticket_node_history')
     current_node_history = data.get('current_node_history')
     first_cart_item = data.get('first_cart_item')
-    num_cart_items = sum(current_node_history.values())
+    num_cart_items = sum(current_node_history.values()) + sum(ticket_node_history.values())
     return jsonify({'message': 'vars updated', 'num_cart_items': num_cart_items})
 
 @base.route('/home', methods=['POST', 'GET'])
