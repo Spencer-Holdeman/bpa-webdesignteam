@@ -786,6 +786,10 @@ video {
   margin-top: 2rem;
 }
 
+.mt-16 {
+  margin-top: 4rem;
+}
+
 .block {
   display: block;
 }
@@ -956,6 +960,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[85\%\] {
+  width: 85%;
 }
 
 .min-w-80 {
@@ -1426,6 +1434,10 @@ video {
   line-height: 1.75rem;
 }
 
+.text-\[2\.5em\] {
+  font-size: 2.5em;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1816,6 +1828,10 @@ video {
 
   .md\:w-auto {
     width: auto;
+  }
+
+  .md\:w-\[400px\] {
+    width: 400px;
   }
 
   .md\:flex-row {

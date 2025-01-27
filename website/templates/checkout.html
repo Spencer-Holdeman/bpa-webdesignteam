@@ -9,41 +9,20 @@
 {% block js_scripts %}
 <script src="../static/js/cart.js"></script>
 <script src="../static/js/checkout.js"></script>
-<!-- <script src="../static/js/navbar.js"></script> -->
-{% endblock %}
-
-{% block css %}
 {% endblock %}
 
 {% block body %}
-<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white bg-black overflow-y-hidden">
+<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white bg-dark-raw overflow-y-hidden">
 {% endblock %}
 
   {% block nav %}
   {% endblock %}
 
   {% block content %}
-  <section class="w-full h-screen py-20 px-[20em]">
-    <div class="h-full bg-slate-800 p-5 text-lg rounded-xl">
-      <h1 class="text-xl font-semibold"><i class="fa-solid fa-user pr-4"></i>Cart</h1>
-      <div id="cart-items" class="h-[2px] w-full my-4 bg-slate-900"></div>
-
-      <!-- <div id="cart-message"></div>
-      <div id="nums-value"></div> -->
-
-      <!-- <div class="flex flex-row items-center my-4">
-          <div class="h-[100px] min-w-[100px] bg-white bg-cover bg-center rounded-lg" style="background-image: url(../static/img/swag/hat/hat-fr.png);"></div> 
-          <div class="w-full flex flex-col ml-4">
-            <h2 class="text-3xl font-semibold">Item Name</h2>
-          </div>
-          <div class="flex flex-row justify-center items-center">
-            <input type="number" name="" id="" class="w-20 py-2 mx-4 bg-slate-900 text-center rounded-2xl">
-            <p class="mx-4">$1.99</p>
-            <div class="h-[50px] w-[50px] flex flex-row justify-center items-center text-2xl cursor-pointer">
-              <i class="fa-solid fa-xmark"></i>
-            </div>
-          </div>
-        </div> -->
+  <section class="w-full h-screen py-20 px-[20em] bg-purple-500">
+    <div class="h-full bg-gray-800  p-5 text-lg rounded-xl">
+      <div class="flex justify-between"><h1 class="text-xl font-semibold"></i>Shopping Cart</h1><i class="fa-solid fa-xmark"></i></div>
+      <div id="cart-items" class="h-[2px] w-full my-4 bg-gray-700"></div>
     </div>
   </section>
   <section class="mx-20">
@@ -59,37 +38,26 @@
         <div class="bg-slate-800 p-5 mb-10 text-lg rounded-xl">
           <h1 class="text-xl font-semibold"><i class="fa-solid fa-truck pr-4"></i>Shipping Address</h1>
           <div class="flex flex-row my-5 text-lg">
-            <input type="text" name="billing-fname" id="billing-fname" placeholder="First name"
-              class="w-[50%] py-1 px-3 mr-4 bg-black rounded-lg">
-            <input type="text" name="billing-lname" id="billing-fname" placeholder="Last name"
-              class="w-[50%] py-1 px-3 bg-black rounded-lg">
+            <input type="text" name="billing-fname" id="billing-fname" placeholder="First name" class="w-[50%] py-1 px-3 mr-4 bg-black rounded-lg">
+            <input type="text" name="billing-lname" id="billing-fname" placeholder="Last name" class="w-[50%] py-1 px-3 bg-black rounded-lg">
           </div>
-          <input type="text" name="billing-company" id="billing-company" placeholder="Company name (optional)"
-            class="w-full py-1 px-3 mb-5 bg-black rounded-lg">
-          <input type="text" name="billing-address" id="billing-address" placeholder="Address"
-            class="w-full py-1 px-3 mb-5 bg-black rounded-lg">
+          <input type="text" name="billing-company" id="billing-company" placeholder="Company name (optional)" class="w-full py-1 px-3 mb-5 bg-black rounded-lg">
+          <input type="text" name="billing-address" id="billing-address" placeholder="Address" class="w-full py-1 px-3 mb-5 bg-black rounded-lg">
           <input type="text" name="billing-apartment" id="billing-apartment"
             placeholder="Apartment, suite, etc. (optional)" class="w-full py-1 px-3 mb-5 bg-black rounded-lg">
           <div class="flex flex-row mb-5 text-lg">
-            <input type="text" name="billing-city" id="billing-city" placeholder="City"
-              class="w-[70%] py-1 px-3 mr-4 bg-black rounded-lg">
-            <input type="text" name="billing-city" id="billing-state" placeholder="State"
-              class="w-[30%] py-1 px-3 bg-black rounded-lg">
+            <input type="text" name="billing-city" id="billing-city" placeholder="City" class="w-[70%] py-1 px-3 mr-4 bg-black rounded-lg">
+            <input type="text" name="billing-city" id="billing-state" placeholder="State" class="w-[30%] py-1 px-3 bg-black rounded-lg">
           </div>
-          <input type="text" name="billing-zip" id="billing-zip" placeholder="Zip code" maxlength="5"
-            class="w-full py-1 px-3 bg-black rounded-lg">
+          <input type="text" name="billing-zip" id="billing-zip" placeholder="Zip code" maxlength="5" class="w-full py-1 px-3 bg-black rounded-lg">
         </div>
         <div class="bg-slate-800 p-5 mb-10 text-lg rounded-xl">
           <h1 class="text-xl font-semibold"><i class="fa-solid fa-credit-card pr-4"></i>Payment Method</h1>
-          <input type="text" name="payment-name" id="payment-name" placeholder="Name on card"
-            class="w-full py-1 px-3 my-5 bg-black rounded-lg">
-          <input type="text" name="payment-name" id="payment-name" placeholder="Card number" maxlength="19"
-            class="w-full py-1 px-3 mb-5 bg-black rounded-lg">
+          <input type="text" name="payment-name" id="payment-name" placeholder="Name on card" class="w-full py-1 px-3 my-5 bg-black rounded-lg">
+          <input type="text" name="payment-name" id="payment-name" placeholder="Card number" maxlength="19" class="w-full py-1 px-3 mb-5 bg-black rounded-lg">
           <div class="flex flex-row text-lg">
-            <input type="text" name="payment-expire" id="payment-expire" placeholder="Expiration date" maxlength="4"
-              class="w-[50%] py-1 px-3 mr-4 bg-black rounded-lg">
-            <input type="text" name="payment-cvc" id="payment-cvc" placeholder="Security code" maxlength="4"
-              class="w-[50%] py-1 px-3 bg-black rounded-lg">
+            <input type="text" name="payment-expire" id="payment-expire" placeholder="Expiration date" maxlength="4" class="w-[50%] py-1 px-3 mr-4 bg-black rounded-lg">
+            <input type="text" name="payment-cvc" id="payment-cvc" placeholder="Security code" maxlength="4" class="w-[50%] py-1 px-3 bg-black rounded-lg">
           </div>
         </div>
       </div>
