@@ -1,60 +1,62 @@
 {% extends 'template.html' %}
+{% block title %}
+    Contact | Stage Fright
+{% endblock %}
 {% block body %}
-
-<body
-  class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
-  {% endblock %}
-  {% block header_title %}
-  {% endblock %}
-  {% block content %}
-  <main class="w-full mb-20 flex flex-col items-center">
-    <div class="flex flex-col mt-40 mb-20 justify-center items-center">
-      <h1 class="text-7xl font-semibold uppercase">Contact Us</h1>
-      <h2 class="text-4xl font-lacquer">Inquiries & Support</h2>
-    </div>
-    <div class="w-full flex flex-col xl:flex-row justify-center">
-      <!-- <div class="w-full flex flex-row justify-center xl:w-[40%] xl:grid xl:grid-flow-row xl:grid-cols-2 xl:grid-rows-2">
-          <div class="flex flex-row items-center text-purple-500">
-            <i class="fa-solid fa-envelope text-5xl"></i>
-            <div class="mx-4">
-              <h3 class="text-xl font-semibold">Email</h3>
-              <p class="text-white">general@stagefright.com</p>
+  <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
+{% endblock %}
+{% block header_title %}
+{% endblock %}
+{% block content %}
+    <main class="w-full mb-20 flex flex-col items-center">
+      <div class="flex flex-col mt-40 mb-20 justify-center items-center">
+        <h1 class="text-7xl font-semibold uppercase">Contact Us</h1>
+        <h2 class="text-4xl font-lacquer">Inquiries & Support</h2>
+      </div>
+      <div class="w-full flex flex-col xl:flex-row justify-center">
+        <div class="w-full flex justify-center flex-wrap">
+          <form method="post" class="w-[500px] xl:w-[40%] p-5 rounded-lg">
+            <div class="flex flex-row pb-4">
+              <div class="w-[50%] mr-2">
+                <label for="contact-name" class="block font-semibold mb-2">Name</label>
+                <input required name="contact-name" type="text" class="w-full p-2 bg-gray-800 rounded-lg outline-none focus:outline-purple-500">
+              </div>
+              <div class="w-[50%] ml-2">
+                <label for="contact-email" class="block font-semibold mb-2">Email</label>
+                <input required type="text" name="contact-email" class="w-full p-2 bg-gray-800 rounded-lg">
+              </div>
             </div>
-          </div>
-          <div class="flex flex-row items-center text-purple-500">
-            <i class="fa-solid fa-phone text-5xl"></i>
-            <div class="mx-4">
-              <h3 class="text-xl font-semibold">Phone Number</h3>
-              <p class="text-white">+1 (405) 123-4567</p>
-            </div>
-          </div>
-          <div class="flex flex-row items-center text-purple-500">
-            <i class="fa-solid fa-location-dot text-5xl"></i>
-            <div class="mx-4">
-              <h3 class="text-xl font-semibold">Location</h3>
-              <p class="text-white">6505 E Hwy 66, El Reno, OK 73036</p>
-            </div>
-          </div>
-          <div class="hidden xl:flex flex-row items-center text-purple-500">
-            <i class="fa-solid fa-circle-question text-5xl"></i>
-            <div class="mx-4">
-              <h3 class="text-xl font-semibold">FAQs</h3>
-              <p class="text-white">Scroll down</p>
-            </div>
-          </div>
-        </div> -->
-      <div class="w-full flex justify-center">
-        <form class="w-[80%] xl:w-[40%] p-5 rounded-lg">
-          <div class="flex flex-row pb-4">
-            <div class="w-[50%] mr-2">
-              <label for="contact-name" class="block font-semibold mb-2">Name</label>
-              <input required name="contact-name" type="text"
-                class="w-full p-2 bg-gray-800 rounded-lg outline-none focus:outline-purple-500">
-            </div>
-            <div class="w-[50%] ml-2">
-              <label for="contact-name" class="block font-semibold mb-2">Email</label>
-              <input required type="text"
-                class="w-full p-2 bg-gray-800 rounded-lg outline-none focus:outline-purple-500">
+            <label for="contact-subject" class="block font-semibold mb-2">Subject</label>
+            <select name="contact-subject" id="contact-subject" class="w-full p-2 mb-4 bg-gray-800 rounded-lg" required>
+              <option value="" hidden selected>Select an option</option>
+              <option value="Customer Support">Customer Support</option>
+              <option value="Booking Inquiries">Booking Inquiry</option>
+              <option value="Business Inquiries">Business Inquiry</option>
+              <option value="Fan Mail">Fan Mail</option>
+              <option value="Other">Other</option>
+            </select>
+            <label for="contact-message" class="block font-semibold mb-2">Message</label>
+            <textarea required name="contact-message" id="contact-message" class="min-h-10 h-40 w-full p-2 mb-4 bg-gray-800 rounded-lg outline-none focus:outline-purple-500"></textarea>
+            <button type="submit" class="w-full py-2 font-semibold bg-purple-500 rounded-lg">Submit Message</button>
+          </form>
+          <div class="w-[480px] xl:w-[30%]">
+            <div class="w-full p-4 bg-gray-800 rounded-lg">
+              <div class="mb-4">
+                <h1 class="text-purple-500 font-semibold"><i class="fa-solid fa-envelope pr-2"></i>Email</h1>
+                <p class="text-xl text-white">stagefrightbandokc@gmail.com</p>
+              </div>
+              <div class="mb-4">
+                <h1 class="text-purple-500 font-semibold"><i class="fa-solid fa-phone pr-2"></i>Phone Number</h1>
+                <p class="text-xl text-white">+1 (405) 123-4567</p>
+              </div>
+              <div class="mb-4">
+                <h1 class="text-purple-500 font-semibold"><i class="fa-solid fa-clock pr-2"></i>Phone Hours</h1>
+                <p class="text-xl text-white">9am - 5pm (Mon - Fri)</p>
+              </div>
+              <div>
+                <h1 class="text-purple-500 font-semibold"><i class="fa-solid fa-location-dot pr-2"></i>Location</h1>
+                <p class="text-xl text-white">6505 E Hwy 66, El Reno, OK 73036</p>
+              </div>
             </div>
           </div>
           <label for="contact-subject" class="block font-semibold mb-2">Subject</label>
@@ -76,6 +78,20 @@
 
         </div>
       </div>
-    </div>
-  </main>
-  {% endblock %}
+      <div class="w-full flex flex-col justify-center items-center my-20">
+        <h2 class="text-3xl sm:text-5xl text-center font-bold">Frequently Asked Questions</h2>
+        <div class="w-[90%] lg:w-[60%] p-4 mt-8 bg-gray-800 rounded-lg">
+          <h3 class="text-xl pb-2 text-purple-500 font-semibold">How can I go about booking Stage Fright?</h3>
+          <p>You can select the "Booking Inquiry" option as the subject when filling out the contact form. We will contact you again as soon as possible for further information.</p>
+        </div>
+        <div class="w-[90%] lg:w-[60%] p-4 mt-8 bg-gray-800 rounded-lg">
+          <h3 class="text-xl pb-2 text-purple-500 font-semibold">Something went wrong with my order, who do I talk to?</h3>
+          <p>Please contact us through our phone number or by selecting the "Customer Support" as the subject in the contact form.</p>
+        </div>
+        <div class="w-[90%] lg:w-[60%] p-4 mt-8 bg-gray-800 rounded-lg">
+          <h3 class="text-xl pb-2 text-purple-500 font-semibold">How can I recieve updates on upcoming Stage Fright events?</h3>
+          <p>You can sign up for our newsletter with selecting the newletter link in the footer section of the website.</p>
+        </div>
+      </div>
+    </main>
+{% endblock %}

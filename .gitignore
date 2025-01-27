@@ -5,3 +5,4 @@ __pycache__
 instance
 migrations
 requirements.txt.backup
+node_modules
