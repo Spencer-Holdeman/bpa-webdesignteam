@@ -1,69 +1,118 @@
 {% extends 'template.html' %}
 {% block body %}
-  <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
-{% endblock %}
-{% block content %}
-    <header class="h-screen w-full flex flex-1 flex-col justify-between bg-skatepark bg-cover bg-center backdrop-brightness-[75%]">
-      <section class="flex flex-col items-center">
-      </section>
-      <section class="flex flex-row items-start justify-center gap-2 mb-12">
-        <a href="/swag" class="px-3.5 py-2 bg-purple-500">
-          <button class="text-2xl uppercase"style='font-family: "Lacquer";'>Buy the new vinyls</button>
-        </a>
-        <a href="" class="px-3.5 py-2 bg-purple-500">
-          <button class="text-2xl uppercase" style='font-family: "Lacquer";'>Listen to the new album</button>
-        </a>
-      </section>
-    </header>
-    <main class="w-full">
-      <!---------- Tours ---------->
-      <section class="min-h-screen w-full flex flex-col justify-center items-center">
-        <h1 class="text-7xl my-7 font-semibold font-lacquer uppercase">Upcoming Tours</h1>
-        <table class="w-[80%] text-white text-center table-fixed rounded-2xl" style="-webkit-mask-image: linear-gradient(black, transparent); mask-image: linear-gradient(black, transparent);">
-          <tr class="border-gray-700 border-y-[1px]">
-            <td><p class="text-xl font-bold py-6">May 7th, 2025</p></td>
-            <td><p class="font-semibold">Oklahoma City, OK</p></td>
-            <td><p>Blue Door</p></td>
-            <td><button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
-          </tr>
-          <tr class="border-gray-700 border-y-[1px]">
-            <td><p class="text-xl font-bold py-6">May 9th, 2025</p></td>
-            <td><p class="font-semibold">Little Rock, AR</p></td>
-            <td><p>The Hall</p></td>
-            <td><button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
-          </tr>
-          <tr class="border-gray-700 border-y-[1px]">
-            <td><p class="text-xl font-bold py-6">May 12th, 2025</p></td>
-            <td><p class="font-semibold">Nashville, TN</p></td>
-            <td><p>The Bluebird Cafe</p></td>
-            <td><button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
-          </tr>
-          <tr class="border-gray-700 border-y-[1px]">
-            <td><p class="text-xl font-bold py-6">May 15th, 2025</p></td>
-            <td><p class="font-semibold">Asheville, NC</p></td>
-            <td><p>The Orange Peel</p></td>
-            <td><button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
-          </tr>
-          <tr class="border-gray-700 border-y-[1px]">
-            <td><p class="text-xl font-bold py-6">May 17th, 2025</p></td>
-            <td><p class="font-semibold">Alexandria, VA</p></td>
-            <td><p>The Birchmere</p></td>
-            <td><button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
-          </tr>
-        </table>
-        <a href="/tours"><p class="my-2 text-purple-500">View More Tour Dates</p></a>
-      </section>
+
+<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
+  {% endblock %}
+  {% block content %}
+  <header class="h-screen w-full flex flex-1 flex-col justify-between bg-skatepark bg-cover bg-center backdrop-brightness-[75%]">
+    <section class="flex flex-col items-center">
+    </section>
+    <section class="flex flex-row items-start justify-center gap-2 mb-12">
+      <a href="/swag" class="px-3.5 py-2 bg-purple-500">
+        <button class="text-2xl uppercase" style='font-family: "Lacquer";'>Buy the new vinyls</button>
+      </a>
+      <a href="" class="px-3.5 py-2 bg-purple-500">
+        <button class="text-2xl uppercase" style='font-family: "Lacquer";'>Listen to the new album</button>
+      </a>
+    </section>
+  </header>
+  <main class="w-full">
+    <!-- Tours -->
+    <section class="min-h-screen w-full flex flex-col justify-center items-center">
+      <h1 class="text-7xl my-7 font-semibold font-lacquer uppercase">Upcoming Tours</h1>
+      <table class="w-[80%] text-white text-center table-fixed rounded-2xl"
+        style="-webkit-mask-image: linear-gradient(black, transparent); mask-image: linear-gradient(black, transparent);">
+        <tr class="border-gray-700 border-y-[1px]">
+          <td>
+            <p class="text-xl font-bold py-6">May 7th, 2025</p>
+          </td>
+          <td>
+            <p class="font-semibold">Oklahoma City, OK</p>
+          </td>
+          <td>
+            <p>Blue Door</p>
+          </td>
+          <td>
+            <p class="font-semibold">$29.99</p>
+          </td>
+          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+        </tr>
+        <tr class="border-gray-700 border-y-[1px]">
+          <td>
+            <p class="text-xl font-bold py-6">May 9th, 2025</p>
+          </td>
+          <td>
+            <p class="font-semibold">Little Rock, AR</p>
+          </td>
+          <td>
+            <p>The Hall</p>
+          </td>
+          <td>
+            <p class="font-semibold">$29.99</p>
+          </td>
+          <td><button id="little-rock" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+        </tr>
+        <tr class="border-gray-700 border-y-[1px]">
+          <td>
+            <p class="text-xl font-bold py-6">May 12th, 2025</p>
+          </td>
+          <td>
+            <p class="font-semibold">Nashville, TN</p>
+          </td>
+          <td>
+            <p>The Bluebird Cafe</p>
+          </td>
+          <td>
+            <p class="font-semibold">$29.99</p>
+          </td>
+          <td><button id="nashville"  onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+        </tr>
+        <tr class="border-gray-700 border-y-[1px]">
+          <td>
+            <p class="text-xl font-bold py-6">May 15th, 2025</p>
+          </td>
+          <td>
+            <p class="font-semibold">Asheville, NC</p>
+          </td>
+          <td>
+            <p>The Orange Peel</p>
+          </td>
+          <td>
+            <p class="font-semibold">$29.99</p>
+          </td>
+          <td><button id="asheville" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+        </tr>
+        <tr class="border-gray-700 border-y-[1px]">
+          <td>
+            <p class="text-xl font-bold py-6">May 17th, 2025</p>
+          </td>
+          <td>
+            <p class="font-semibold">Alexandria, VA</p>
+          </td>
+          <td>
+            <p>The Birchmere</p>
+          </td>
+          <td>
+            <p class="font-semibold">$29.99</p>
+          </td>
+          <td><button id="alexandria" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+        </tr>
+      </table>
+      <a href="/tours">
+        <p class="my-2 text-purple-500">View More Tour Dates</p>
+      </a>
+    </section>
 
       <!---------- Merch ---------->
       <section class="min-h-[110vh] w-full flex flex-col justify-center font-lacquer">
         <div class="marquee font-lacquer">
           <div class="marquee-content marquee-text-scroll">
-            <h1 class="text-7xl font-semibold font-lacquer">NEW SWAG</h1>
-            <h1 class="text-7xl font-semibold font-lacquer">NEW SWAG</h1>
+            <h1 class="text-7xl font-lacquer">NEW SWAG</h1>
+            <h1 class="text-7xl font-lacquer">NEW SWAG</h1>
           </div>
           <div class="marquee-content marquee-text-scroll">
-            <h1 class="text-7xl font-semibold font-lacquer">NEW SWAG</h1>
-            <h1 class="text-7xl font-semibold font-lacquer">NEW SWAG</h1>
+            <h1 class="text-7xl font-lacquer">NEW SWAG</h1>
+            <h1 class="text-7xl font-lacquer">NEW SWAG</h1>
           </div>
         </div>
         <div class="marquee font-lacquer">
@@ -228,12 +277,13 @@
           <p>Our latest released album. "Failure to Cope" contains 9 tracks that are bound to catch your attention.</p>
           <button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Listen Now</button>
         </div>
-      </section>
+      </div>
+      </div>
+    </section>
 
       <!---------- Contact ---------->
-      <section class="w-full my-20 flex flex-col justify-center items-center">
-        <h2 class="text-7xl my-5 font-lacquer font-semibold">Want to keep up with us?</h2>
-        <a href="/signup"><button class="py-3 px-6 font-purple-500 text-2xl font-medium border-2 border-purple-500">Join the Newsletter</button></a>
+      <section>
+        
       </section>
     </main>
 {% endblock %}
