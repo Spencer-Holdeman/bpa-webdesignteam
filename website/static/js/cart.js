@@ -458,44 +458,44 @@ function incrementTicketItems(current_node) {
  * from the UI, clears the cart data, updates the server with the new empty cart data,
  * and updates the UI to reflect the empty cart.
  */
-// function removeCartItems() {
-//     // Fetch variables from the server
-//     fetchVars().then(data => {
-//         // Get all elements with the class 'cart-item'
-//         var cart_element = document.getElementsByClassName('cart-item');
+function removeCartItems() {
+    // Fetch variables from the server
+    fetchVars().then(data => {
+        // Get all elements with the class 'cart-item'
+        var cart_element = document.getElementsByClassName('cart-item');
 
-//         // Remove each cart item element from the UI
-//         while (cart_element.length > 0) {
-//             cart_element[0].remove();
-//         }
+        // Remove each cart item element from the UI
+        while (cart_element.length > 0) {
+            cart_element[0].remove();
+        }
 
-//         // Clear the cart data
-//         data.current_node_history = {};
-//         data.ticket_node_history = {};
+        // Clear the cart data
+        data.current_node_history = {};
+        data.ticket_node_history = {};
 
-//         // Update the server with the new empty cart data
-//         fetch('/update_vars', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify({ ticket_node_history: data.ticket_node_history, current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
-//         })
-//             .then(response => response.json())
-//             .then(data => {
-//                 // Update the UI with the new number of items in the cart
-//                 document.getElementById('nums-value').innerText = data.num_cart_items;
-//                 document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
-//             })
-//             .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
-//     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
-// }
+        // Update the server with the new empty cart data
+        fetch('/update_vars', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ ticket_node_history: data.ticket_node_history, current_node_history: data.current_node_history, first_cart_item: data.first_cart_item, num_cart_items: data.num_cart_items }),  // Send the updated num value
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Update the UI with the new number of items in the cart
+                document.getElementById('nums-value').innerText = data.num_cart_items;
+                document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+            })
+            .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
+    }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
+}
 
 
 /**
  * loads all current cart items (if any) when the window loads
  */
-window.onload = function cartItems() {
+window.addEventListener('load', function cartItems() {
     // Fetch variables from the server when the window loads
     fetchVars().then(data => {
         // Update the UI with the number of items in the cart
@@ -616,4 +616,4 @@ window.onload = function cartItems() {
             document.getElementById('cart-items').appendChild(div_element);
         }
     }).catch(error => console.error('Error displaying num on load:', error)); // Log any errors during data fetching
-}
+});
