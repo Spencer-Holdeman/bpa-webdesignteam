@@ -7,7 +7,7 @@ function openMenu() {
     hamburgerClose.style.display = 'block'
     setTimeout(() => {
         hamburgerClose.style.opacity = '1'
-        
+
         // Links
         hamburgerLinks[0].style.opacity = '1'
         setTimeout(() => {
