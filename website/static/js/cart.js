@@ -102,6 +102,46 @@ function increment(current_node) {
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
 
+function ticketIncrement(current_node) {
+    // Get the ID of the next sibling element of the current node
+    var node_id = current_node.nextElementSibling.id;
+
+    // Fetch variables from the server
+    fetchVars().then(data => {
+        // Check if the item quantity has reached the maximum limit of 99
+        if (data.ticket_node_history[node_id] == 99) {
+            return; // Exit the function if the limit is reached
+        } else {
+            // Increment the quantity of the current item in the data object
+            data.ticket_node_history[node_id] += 1;
+
+            // Send the updated data to the server
+            fetch('/update_vars', {
+                method: 'POST', // Specify HTTP POST method
+                headers: {
+                    'Content-Type': 'application/json', // Set content type to JSON
+                },
+                // Send updated data including current item quantities and cart information
+                body: JSON.stringify({
+                    ticket_node_history: data.ticket_node_history,
+                    current_node_history: data.current_node_history,
+                    first_cart_item: data.first_cart_item,
+                    num_cart_items: data.num_cart_items
+                }),
+            })
+                .then(response => response.json()) // Parse the server response as JSON
+                .then(data => {
+                    // Update the UI with the new number of items in the cart
+                    document.getElementById('nums-value').innerText = data.num_cart_items;
+                    document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+                })
+                .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
+
+            // Update the displayed quantity of the current item
+            document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
+        }
+    }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
+}
 
 /**
  * Decrements the quantity of a cart item.
@@ -130,6 +170,7 @@ function decrement(current_node) {
             },
             // Send updated data including current item quantities and cart information
             body: JSON.stringify({
+                ticket_node_history: data.ticket_node_history,
                 current_node_history: data.current_node_history,
                 first_cart_item: data.first_cart_item,
                 num_cart_items: data.num_cart_items
@@ -146,7 +187,7 @@ function decrement(current_node) {
         // Check if the item quantity has reached zero
         if (data.current_node_history[node_id] == 0) {
             // Get the parent element of the current node
-            var parent_element = current_node.parentElement.parentElement;
+            var parent_element = current_node.parentElement.parentElement.parentElement;
 
             // Remove the item from the data object
             delete data.current_node_history[node_id];
@@ -174,7 +215,6 @@ function decrement(current_node) {
                 .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
             // Remove the item from the UI
-            // parent_element.previousElementSibling.remove();
             parent_element.remove();
         } else {
             // Update the displayed quantity of the current item
@@ -183,16 +223,86 @@ function decrement(current_node) {
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
 
-function removeCartItem(current_node) {
-    var node_id = current_node.previousElementSibling.previousElementSibling.id;
-    var num_cart_items = document.getElementById(node_id).innerText * 2;
+function ticketDecrement(current_node) {
+    // Fetch variables from the server
+    fetchVars().then(data => {
+        // Get the ID of the previous sibling element of the current node
+        var node_id = current_node.previousElementSibling.id;
 
-    while (num_cart_items > 0) {
-        console.log(num_cart_items)
-        decrement(current_node.previousElementSibling);
-        num_cart_items -= 1;
-    }
+        // Decrement the quantity of the current item in the data object
+        data.ticket_node_history[node_id] -= 1;
+
+        // Send the updated data to the server
+        fetch('/update_vars', {
+            method: 'POST', // Specify HTTP POST method
+            headers: {
+                'Content-Type': 'application/json', // Set content type to JSON
+            },
+            // Send updated data including current item quantities and cart information
+            body: JSON.stringify({
+                ticket_node_history: data.ticket_node_history,
+                current_node_history: data.current_node_history,
+                first_cart_item: data.first_cart_item,
+                num_cart_items: data.num_cart_items
+            }),
+        })
+            .then(response => response.json()) // Parse the server response as JSON
+            .then(data => {
+                // Update the UI with the new number of items in the cart
+                document.getElementById('nums-value').innerText = data.num_cart_items;
+                document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+            })
+            .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
+
+        // Check if the item quantity has reached zero
+        if (data.ticket_node_history[node_id] == 0) {
+            // Get the parent element of the current node
+            var parent_element = current_node.parentElement.parentElement.parentElement;
+
+            // Remove the item from the data object
+            delete data.ticket_node_history[node_id];
+
+            // Send the updated data to the server
+            fetch('/update_vars', {
+                method: 'POST', // Specify HTTP POST method
+                headers: {
+                    'Content-Type': 'application/json', // Set content type to JSON
+                },
+                // Send updated data including current item quantities and cart information
+                body: JSON.stringify({
+                    ticket_node_history: data.ticket_node_history,
+                    current_node_history: data.current_node_history,
+                    first_cart_item: data.first_cart_item,
+                    num_cart_items: data.num_cart_items
+                }),
+            })
+                .then(response => response.json()) // Parse the server response as JSON
+                .then(data => {
+                    // Update the UI with the new number of items in the cart
+                    document.getElementById('nums-value').innerText = data.num_cart_items;
+                    document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+                })
+                .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
+
+            // Remove the item from the UI
+            parent_element.remove();
+        } else {
+            // Update the displayed quantity of the current item
+            document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
+        }
+    }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
+
+// function removeCartItem(current_node) {
+//     var node_id = current_node.previousElementSibling.previousElementSibling.id;
+//     var num_cart_items = document.getElementById(node_id).innerText * 2;
+
+//     while (num_cart_items > 0) {
+//         console.log(num_cart_items)
+//         decrement(current_node.previousElementSibling);
+//         num_cart_items -= 1;
+//     }
+// }
 
 /**
  * Increments the quantity of a cart item or adds a new item to the cart.
@@ -392,11 +502,11 @@ function incrementTicketItems(current_node) {
             div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
             button_div.setAttribute('class', 'cart-item-buttons');
             button_div.setAttribute('style', 'display: flex; align-items: center;');
-            add_button.setAttribute('onclick', 'increment(this)');
+            add_button.setAttribute('onclick', 'ticketIncrement(this)');
             add_button.setAttribute('class', 'cart-button');
             item_count.setAttribute('class', 'cart-item-count');
             item_count.setAttribute('id', node_id);
-            decrement_button.setAttribute('onclick', 'decrement(this)');
+            decrement_button.setAttribute('onclick', 'ticketDecrement(this)');
             decrement_button.setAttribute('class', 'cart-button');
             remove_item_button.setAttribute('onclick', 'removeCartItem(this)');
             remove_item_button.setAttribute('class', 'cart-button');
@@ -586,11 +696,11 @@ window.addEventListener('load', function cartItems() {
             div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
             button_div.setAttribute('class', 'cart-item-buttons');
             button_div.setAttribute('style', 'display: flex; align-items: center;');
-            add_button.setAttribute('onclick', 'increment(this)');
+            add_button.setAttribute('onclick', 'ticketIncrement(this)');
             add_button.setAttribute('class', 'cart-button');
             item_count.setAttribute('class', 'cart-item-count');
             item_count.setAttribute('id', node_id);
-            decrement_button.setAttribute('onclick', 'decrement(this)');
+            decrement_button.setAttribute('onclick', 'ticketDecrement(this)');
             decrement_button.setAttribute('class', 'cart-button');
             remove_item_button.setAttribute('onclick', 'removeCartItem(this)');
             remove_item_button.setAttribute('class', 'cart-button');
