@@ -65,7 +65,6 @@ function increment(current_node) {
     // Get the ID of the next sibling element of the current node
     var node_id = current_node.nextElementSibling.id;
     var merch_price = current_node.dataset.price;
-
     // Fetch variables from the server
     fetchVars().then(data => {
         // Check if the item quantity has reached the maximum limit of 99
@@ -103,6 +102,7 @@ function increment(current_node) {
             // Update the displayed quantity of the current item
             document.getElementById(node_id).innerText = data.current_node_history[node_id];
             document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
+            calculatePrice();
         }
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
@@ -110,6 +110,7 @@ function increment(current_node) {
 function ticketIncrement(current_node) {
     // Get the ID of the next sibling element of the current node
     var node_id = current_node.nextElementSibling.id;
+    var merch_price = current_node.dataset.price;
 
     // Fetch variables from the server
     fetchVars().then(data => {
@@ -120,6 +121,9 @@ function ticketIncrement(current_node) {
             // Increment the quantity of the current item in the data object
             data.ticket_node_history[node_id] += 1;
 
+            var total_price = parseFloat(merch_price) * data.ticket_node_history[node_id];
+            console.log(`${merch_price} * ${data.ticket_node_history[node_id]} = ${total_price}`);
+            
             // Send the updated data to the server
             fetch('/update_vars', {
                 method: 'POST', // Specify HTTP POST method
@@ -144,6 +148,8 @@ function ticketIncrement(current_node) {
 
             // Update the displayed quantity of the current item
             document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
+            document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
+            calculatePrice();
         }
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
@@ -163,9 +169,13 @@ function decrement(current_node) {
     fetchVars().then(data => {
         // Get the ID of the previous sibling element of the current node
         var node_id = current_node.previousElementSibling.id;
+        var merch_price = current_node.dataset.price;
 
         // Decrement the quantity of the current item in the data object
         data.current_node_history[node_id] -= 1;
+
+        var total_price = parseFloat(merch_price) * data.current_node_history[node_id];
+        console.log(`${merch_price} * ${data.current_node_history[node_id]} = ${total_price}`);
 
         // Send the updated data to the server
         fetch('/update_vars', {
@@ -221,9 +231,12 @@ function decrement(current_node) {
 
             // Remove the item from the UI
             parent_element.remove();
+            calculatePrice();
         } else {
             // Update the displayed quantity of the current item
             document.getElementById(node_id).innerText = data.current_node_history[node_id];
+            document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
+            calculatePrice();
         }
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
@@ -233,9 +246,13 @@ function ticketDecrement(current_node) {
     fetchVars().then(data => {
         // Get the ID of the previous sibling element of the current node
         var node_id = current_node.previousElementSibling.id;
+        var merch_price = current_node.dataset.price;
 
         // Decrement the quantity of the current item in the data object
         data.ticket_node_history[node_id] -= 1;
+
+        var total_price = parseFloat(merch_price) * data.ticket_node_history[node_id];
+        console.log(`${merch_price} * ${data.ticket_node_history[node_id]} = ${total_price}`);
 
         // Send the updated data to the server
         fetch('/update_vars', {
@@ -291,9 +308,12 @@ function ticketDecrement(current_node) {
 
             // Remove the item from the UI
             parent_element.remove();
+            calculatePrice();
         } else {
             // Update the displayed quantity of the current item
             document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
+            document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
+            calculatePrice();
         }
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
@@ -326,7 +346,6 @@ function incrementCartItems(current_node) {
     var add_button = document.createElement('button'); // this button adds the item to the cart
     var item_count = document.createElement('p'); // this p contains the number of items in the cart
     var decrement_button = document.createElement('button'); // this button removes the item from the cart
-    var remove_item_button = document.createElement('button'); // this button removes the item from the cart
     var item_image = document.createElement('img'); // this img contains the image of the item
     var item_description = document.createElement('p'); // this p contains the description of the item
     var div_element2 = document.createElement('div'); // this div contains the item description and the buttons
@@ -388,12 +407,13 @@ function incrementCartItems(current_node) {
             button_div.setAttribute('style', 'display: flex; align-items: center;');
             add_button.setAttribute('onclick', 'increment(this)');
             add_button.setAttribute('class', 'cart-button');
+            add_button.setAttribute('data-price', merch_price.split('$').join(''));
             item_count.setAttribute('class', 'cart-item-count');
             item_count.setAttribute('id', node_id);
+            item_count.setAttribute('data-price', merch_price.split('$').join(''));
             decrement_button.setAttribute('onclick', 'decrement(this)');
             decrement_button.setAttribute('class', 'cart-button');
-            remove_item_button.setAttribute('onclick', 'removeCartItem(this)');
-            remove_item_button.setAttribute('class', 'cart-button');
+            decrement_button.setAttribute('data-price', merch_price.split('$').join(''));
             item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
             total_price_element.setAttribute('id', `total-price-item-${node_id}`);
@@ -401,14 +421,12 @@ function incrementCartItems(current_node) {
             add_button.innerText = '+';
             item_count.innerText = data.current_node_history[node_id];
             decrement_button.innerText = '-';
-            total_price_element.innerText = 'Item Total: $' + total_price.toFixed(2);
-            // remove_item_button.innerText = 'Remove';
+            total_price_element.innerText = 'Item Total: $' + total_price.toFixed(2);;
 
             // Append the new elements to the cart item div
             button_div.appendChild(add_button);
             button_div.appendChild(item_count);
             button_div.appendChild(decrement_button);
-            button_div.appendChild(remove_item_button);
 
             item_description.innerText = merch_item + ' - ' + merch_price;
             div_element.appendChild(item_image);
@@ -417,6 +435,7 @@ function incrementCartItems(current_node) {
             div_element2.appendChild(total_price_element);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
+            calculatePrice();
         } else {
             // Check if the item quantity has reached the maximum limit of 99
             if (data.current_node_history[node_id] == 99) {
@@ -446,6 +465,7 @@ function incrementCartItems(current_node) {
                 // Update the displayed quantity of the current item
                 document.getElementById(node_id).innerText = data.current_node_history[node_id];
                 document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
+                calculatePrice();
             }
         }
         console.log(data.current_node_history);
@@ -459,7 +479,6 @@ function incrementTicketItems(current_node) {
     var add_button = document.createElement('button'); // this button adds the item to the cart
     var item_count = document.createElement('p'); // this p contains the number of items in the cart
     var decrement_button = document.createElement('button'); // this button removes the item from the cart
-    var remove_item_button = document.createElement('button'); // this button removes the item from the cart
     var item_image = document.createElement('img'); // this img contains the image of the item
     var item_description = document.createElement('p'); // this p contains the description of the item
     var div_element2 = document.createElement('div'); // this div contains the item description and the buttons
@@ -524,12 +543,13 @@ function incrementTicketItems(current_node) {
             button_div.setAttribute('style', 'display: flex; align-items: center;');
             add_button.setAttribute('onclick', 'ticketIncrement(this)');
             add_button.setAttribute('class', 'cart-button');
+            add_button.setAttribute('data-price', merch_price.split('$').join(''));
             item_count.setAttribute('class', 'cart-item-count');
             item_count.setAttribute('id', node_id);
+            item_count.setAttribute('data-price', merch_price.split('$').join(''));
             decrement_button.setAttribute('onclick', 'ticketDecrement(this)');
             decrement_button.setAttribute('class', 'cart-button');
-            remove_item_button.setAttribute('onclick', 'removeCartItem(this)');
-            remove_item_button.setAttribute('class', 'cart-button');
+            decrement_button.setAttribute('data-price', merch_price.split('$').join(''));
             item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
             total_price_element.setAttribute('id', `total-price-item-${node_id}`);
@@ -544,7 +564,6 @@ function incrementTicketItems(current_node) {
             button_div.appendChild(add_button);
             button_div.appendChild(item_count);
             button_div.appendChild(decrement_button);
-            button_div.appendChild(remove_item_button);
 
             item_description.innerText = merch_item + ' - ' + merch_price;
             div_element.appendChild(item_image);
@@ -553,12 +572,13 @@ function incrementTicketItems(current_node) {
             div_element2.appendChild(total_price_element);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
+            calculatePrice();
         } else {
             // Check if the item quantity has reached the maximum limit of 99
             if (data.ticket_node_history[node_id] == 99) {
                 return;
             } else {
-                // Increment the quantity of the current item in the data object
+                // Increment the quantity of the current item in the data object 
                 data.ticket_node_history[node_id] += 1;
 
                 var total_price = parseFloat(merch_price.split('$').join('')) * data.ticket_node_history[node_id];
@@ -582,6 +602,7 @@ function incrementTicketItems(current_node) {
                 // Update the displayed quantity of the current item
                 document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
                 document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
+                calculatePrice();
             }
         }
         console.log(data.ticket_node_history);
@@ -625,6 +646,7 @@ function removeCartItems() {
                 document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
             })
             .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
+            calculatePrice();
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
 
@@ -651,7 +673,6 @@ window.addEventListener('load', function cartItems() {
             var add_button = document.createElement('button'); // this button adds the item to the cart
             var item_count = document.createElement('p'); // this p contains the number of items in the cart
             var decrement_button = document.createElement('button'); // this button removes the item from the cart
-            var remove_item_button = document.createElement('button'); // this button removes the item from the cart
             var item_image = document.createElement('img'); // this img contains the image of the item
             var item_description = document.createElement('p'); // this p contains the description of the item
             var div_element2 = document.createElement('div'); // this div contains the item description and the buttons
@@ -674,12 +695,13 @@ window.addEventListener('load', function cartItems() {
             button_div.setAttribute('style', 'display: flex; align-items: center;');
             add_button.setAttribute('onclick', 'increment(this)');
             add_button.setAttribute('class', 'cart-button');
+            add_button.setAttribute('data-price', merch_price.split('$').join(''));
             item_count.setAttribute('class', 'cart-item-count');
             item_count.setAttribute('id', node_id);
+            item_count.setAttribute('data-price', merch_price.split('$').join(''));
             decrement_button.setAttribute('onclick', 'decrement(this)');
             decrement_button.setAttribute('class', 'cart-button');
-            remove_item_button.setAttribute('onclick', 'removeCartItem(this)');
-            remove_item_button.setAttribute('class', 'cart-button');
+            decrement_button.setAttribute('data-price', merch_price.split('$').join(''));
             item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
             total_price_element.setAttribute('id', `total-price-item-${node_id}`);
@@ -688,13 +710,11 @@ window.addEventListener('load', function cartItems() {
             item_count.innerText = data.current_node_history[node_id];
             decrement_button.innerText = '-';
             total_price_element.innerText = 'Item Total: $' + (parseFloat(merch_price.split('$').join('')) * data.current_node_history[node_id]).toFixed(2);
-            // remove_item_button.innerText = 'Remove';
 
             // Append the new elements to the cart item div
             button_div.appendChild(add_button);
             button_div.appendChild(item_count);
             button_div.appendChild(decrement_button);
-            button_div.appendChild(remove_item_button);
 
             item_description.innerText = merch_item + ' - ' + merch_price;
             div_element.appendChild(item_image);
@@ -703,6 +723,7 @@ window.addEventListener('load', function cartItems() {
             div_element2.appendChild(total_price_element);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
+            calculatePrice();
         }
         for (var i = 0; i < Object.keys(data.ticket_node_history).length; i++) {
             // Create elements for the new cart item
@@ -711,7 +732,6 @@ window.addEventListener('load', function cartItems() {
             var add_button = document.createElement('button'); // this button adds the item to the cart
             var item_count = document.createElement('p'); // this p contains the number of items in the cart
             var decrement_button = document.createElement('button'); // this button removes the item from the cart
-            var remove_item_button = document.createElement('button'); // this button removes the item from the cart
             var item_image = document.createElement('img'); // this img contains the image of the item
             var item_description = document.createElement('p'); // this p contains the description of the item
             var div_element2 = document.createElement('div'); // this div contains the item description and the buttons
@@ -736,12 +756,13 @@ window.addEventListener('load', function cartItems() {
             button_div.setAttribute('style', 'display: flex; align-items: center;');
             add_button.setAttribute('onclick', 'ticketIncrement(this)');
             add_button.setAttribute('class', 'cart-button');
+            add_button.setAttribute('data-price', merch_price.split('$').join(''));
             item_count.setAttribute('class', 'cart-item-count');
             item_count.setAttribute('id', node_id);
+            item_count.setAttribute('data-price', merch_price.split('$').join(''));
             decrement_button.setAttribute('onclick', 'ticketDecrement(this)');
             decrement_button.setAttribute('class', 'cart-button');
-            remove_item_button.setAttribute('onclick', 'removeCartItem(this)');
-            remove_item_button.setAttribute('class', 'cart-button');
+            decrement_button.setAttribute('data-price', merch_price.split('$').join(''));
             item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
             total_price_element.setAttribute('id', `total-price-item-${node_id}`);
@@ -750,13 +771,11 @@ window.addEventListener('load', function cartItems() {
             item_count.innerText = data.ticket_node_history[node_id];
             decrement_button.innerText = '-';
             total_price_element.innerText = 'Item Total: $' + (parseFloat(merch_price.split('$').join('')) * data.ticket_node_history[node_id]).toFixed(2);
-            // remove_item_button.innerText = 'Remove';
 
             // Append the new elements to the cart item div
             button_div.appendChild(add_button);
             button_div.appendChild(item_count);
             button_div.appendChild(decrement_button);
-            button_div.appendChild(remove_item_button);
 
             item_description.innerText = merch_item + ' - ' + merch_price;
             div_element.appendChild(item_image);
@@ -765,6 +784,36 @@ window.addEventListener('load', function cartItems() {
             div_element2.appendChild(total_price_element);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
+            calculatePrice();
         }
     }).catch(error => console.error('Error displaying num on load:', error)); // Log any errors during data fetching
 });
+
+function calculatePrice() {
+    fetchVars().then(data => {
+        var totals = [];
+
+        for (var i = 0; i < Object.keys(data.current_node_history).length; i++) {
+            var current_node = document.getElementById(Object.keys(data.current_node_history)[i]);
+            console.log(current_node)
+            var merch_price = current_node.dataset.price;
+            var node_id = current_node.id;
+            var total_price = parseFloat(merch_price) * data.current_node_history[node_id];
+            totals.push(total_price);
+        }
+        for (var i = 0; i < Object.keys(data.ticket_node_history).length; i++) {
+            var current_node = document.getElementById(Object.keys(data.ticket_node_history)[i]);
+            var merch_price = current_node.dataset.price;
+            var node_id = current_node.id;
+            var total_price = parseFloat(merch_price.split('$').join('')) * data.ticket_node_history[node_id];
+            totals.push(total_price);
+        }
+        
+        var total_price = 0;
+        for (var i = 0; i < totals.length; i++) {
+            total_price += totals[i];
+        }
+
+        document.getElementById('total-price-cart').innerText = 'Total Price: $' + total_price.toFixed(2);
+    })
+}
