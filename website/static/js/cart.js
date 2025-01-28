@@ -64,6 +64,7 @@ async function fetchVars() {
 function increment(current_node) {
     // Get the ID of the next sibling element of the current node
     var node_id = current_node.nextElementSibling.id;
+    var merch_price = current_node.dataset.price;
 
     // Fetch variables from the server
     fetchVars().then(data => {
@@ -73,6 +74,9 @@ function increment(current_node) {
         } else {
             // Increment the quantity of the current item in the data object
             data.current_node_history[node_id] += 1;
+
+            var total_price = parseFloat(merch_price) * data.current_node_history[node_id];
+            console.log(`${merch_price} * ${data.current_node_history[node_id]} = ${total_price}`);
 
             // Send the updated data to the server
             fetch('/update_vars', {
@@ -98,6 +102,7 @@ function increment(current_node) {
 
             // Update the displayed quantity of the current item
             document.getElementById(node_id).innerText = data.current_node_history[node_id];
+            document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
         }
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
@@ -325,6 +330,7 @@ function incrementCartItems(current_node) {
     var item_image = document.createElement('img'); // this img contains the image of the item
     var item_description = document.createElement('p'); // this p contains the description of the item
     var div_element2 = document.createElement('div'); // this div contains the item description and the buttons
+    var total_price_element = document.createElement('p'); // this p contains the total price of the item
 
     // Get the current node and its details
     var img_source = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.src : current_node.previousElementSibling.previousElementSibling.previousElementSibling.src;
@@ -338,6 +344,9 @@ function incrementCartItems(current_node) {
         if (!(node_id in data.current_node_history)) {
             // Add the item to the cart with a quantity of 1
             data.current_node_history[node_id] = 1;
+
+            var total_price = parseFloat(merch_price.split('$').join('')) * data.current_node_history[node_id];
+            console.log(`${merch_price.split('$').join('')} * ${data.current_node_history[node_id]} = ${total_price}`);
 
             // Check if this is the first item in the cart
             if (data.first_cart_item < 1) {
@@ -387,10 +396,12 @@ function incrementCartItems(current_node) {
             remove_item_button.setAttribute('class', 'cart-button');
             item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
+            total_price_element.setAttribute('id', `total-price-item-${node_id}`);
 
             add_button.innerText = '+';
             item_count.innerText = data.current_node_history[node_id];
             decrement_button.innerText = '-';
+            total_price_element.innerText = 'Item Total: $' + total_price.toFixed(2);
             // remove_item_button.innerText = 'Remove';
 
             // Append the new elements to the cart item div
@@ -403,6 +414,7 @@ function incrementCartItems(current_node) {
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
             div_element2.appendChild(button_div);
+            div_element2.appendChild(total_price_element);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
         } else {
@@ -412,6 +424,9 @@ function incrementCartItems(current_node) {
             } else {
                 // Increment the quantity of the current item in the data object
                 data.current_node_history[node_id] += 1;
+
+                var total_price = parseFloat(merch_price.split('$').join('')) * data.current_node_history[node_id];
+                console.log(`${merch_price.split('$').join('')} * ${data.current_node_history[node_id]} = ${total_price}`);
 
                 // Update the server with the new cart data
                 fetch('/update_vars', {
@@ -430,6 +445,7 @@ function incrementCartItems(current_node) {
 
                 // Update the displayed quantity of the current item
                 document.getElementById(node_id).innerText = data.current_node_history[node_id];
+                document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
             }
         }
         console.log(data.current_node_history);
@@ -447,6 +463,7 @@ function incrementTicketItems(current_node) {
     var item_image = document.createElement('img'); // this img contains the image of the item
     var item_description = document.createElement('p'); // this p contains the description of the item
     var div_element2 = document.createElement('div'); // this div contains the item description and the buttons
+    var total_price_element = document.createElement('p'); // this p contains the total price of the item
 
     // Get the current node and its details
     var img_source = '../static/img/misc/download.png'
@@ -463,6 +480,9 @@ function incrementTicketItems(current_node) {
         if (!(node_id in data.ticket_node_history)) {
             // Add the item to the cart with a quantity of 1
             data.ticket_node_history[node_id] = 1;
+
+            var total_price = parseFloat(merch_price.split('$').join('')) * data.ticket_node_history[node_id];
+            console.log(`${merch_price.split('$').join('')} * ${data.ticket_node_history[node_id]} = ${total_price}`);
 
             // Check if this is the first item in the cart
             if (data.first_cart_item < 1) {
@@ -512,10 +532,12 @@ function incrementTicketItems(current_node) {
             remove_item_button.setAttribute('class', 'cart-button');
             item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
+            total_price_element.setAttribute('id', `total-price-item-${node_id}`);
 
             add_button.innerText = '+';
             item_count.innerText = data.ticket_node_history[node_id];
             decrement_button.innerText = '-';
+            total_price_element.innerText = 'Item Total: $' + total_price.toFixed(2);
             // remove_item_button.innerText = 'Remove';
 
             // Append the new elements to the cart item div
@@ -528,6 +550,7 @@ function incrementTicketItems(current_node) {
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
             div_element2.appendChild(button_div);
+            div_element2.appendChild(total_price_element);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
         } else {
@@ -537,6 +560,9 @@ function incrementTicketItems(current_node) {
             } else {
                 // Increment the quantity of the current item in the data object
                 data.ticket_node_history[node_id] += 1;
+
+                var total_price = parseFloat(merch_price.split('$').join('')) * data.ticket_node_history[node_id];
+                console.log(`${merch_price.split('$').join('')} * ${data.ticket_node_history[node_id]} = ${total_price}`);
 
                 // Update the server with the new cart data
                 fetch('/update_vars', {
@@ -555,6 +581,7 @@ function incrementTicketItems(current_node) {
 
                 // Update the displayed quantity of the current item
                 document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
+                document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
             }
         }
         console.log(data.ticket_node_history);
@@ -628,6 +655,7 @@ window.addEventListener('load', function cartItems() {
             var item_image = document.createElement('img'); // this img contains the image of the item
             var item_description = document.createElement('p'); // this p contains the description of the item
             var div_element2 = document.createElement('div'); // this div contains the item description and the buttons
+            var total_price_element = document.createElement('p'); // this p contains the total price of the item
 
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.current_node_history)[i]);
@@ -636,6 +664,9 @@ window.addEventListener('load', function cartItems() {
             var merch_price = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.innerText : current_node.previousElementSibling.innerText;
 
             var node_id = current_node.id;
+
+            var total_price = parseFloat(merch_price.split('$').join('')) * data.current_node_history[node_id];
+            console.log(`${merch_price.split('$').join('')} * ${data.current_node_history[node_id]} = ${total_price}`);
 
             // Set attributes and inner text for the new cart item elements
             div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
@@ -651,10 +682,12 @@ window.addEventListener('load', function cartItems() {
             remove_item_button.setAttribute('class', 'cart-button');
             item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
+            total_price_element.setAttribute('id', `total-price-item-${node_id}`);
 
             add_button.innerText = '+';
             item_count.innerText = data.current_node_history[node_id];
             decrement_button.innerText = '-';
+            total_price_element.innerText = 'Item Total: $' + (parseFloat(merch_price.split('$').join('')) * data.current_node_history[node_id]).toFixed(2);
             // remove_item_button.innerText = 'Remove';
 
             // Append the new elements to the cart item div
@@ -667,6 +700,7 @@ window.addEventListener('load', function cartItems() {
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
             div_element2.appendChild(button_div);
+            div_element2.appendChild(total_price_element);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
         }
@@ -681,6 +715,7 @@ window.addEventListener('load', function cartItems() {
             var item_image = document.createElement('img'); // this img contains the image of the item
             var item_description = document.createElement('p'); // this p contains the description of the item
             var div_element2 = document.createElement('div'); // this div contains the item description and the buttons
+            var total_price_element = document.createElement('p'); // this p contains the total price of the item
 
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.ticket_node_history)[i]);
@@ -691,6 +726,9 @@ window.addEventListener('load', function cartItems() {
             var merch_price = current_node.parentElement.previousElementSibling.firstElementChild.innerText;
             var merch_item = `Ticket ${venue}, ${city} - ${date}`;
             var node_id = current_node.id;
+
+            var total_price = parseFloat(merch_price.split('$').join('')) * data.current_node_history[node_id];
+            console.log(`${merch_price.split('$').join('')} * ${data.current_node_history[node_id]} = ${total_price}`);
 
             // Set attributes and inner text for the new cart item elements
             div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
@@ -706,10 +744,12 @@ window.addEventListener('load', function cartItems() {
             remove_item_button.setAttribute('class', 'cart-button');
             item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
+            total_price_element.setAttribute('id', `total-price-item-${node_id}`);
 
             add_button.innerText = '+';
             item_count.innerText = data.ticket_node_history[node_id];
             decrement_button.innerText = '-';
+            total_price_element.innerText = 'Item Total: $' + (parseFloat(merch_price.split('$').join('')) * data.ticket_node_history[node_id]).toFixed(2);
             // remove_item_button.innerText = 'Remove';
 
             // Append the new elements to the cart item div
@@ -722,6 +762,7 @@ window.addEventListener('load', function cartItems() {
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
             div_element2.appendChild(button_div);
+            div_element2.appendChild(total_price_element);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
         }
