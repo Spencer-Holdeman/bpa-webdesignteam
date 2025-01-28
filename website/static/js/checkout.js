@@ -101,3 +101,18 @@ function constCart() {
         }
     });
 }
+
+// Landon
+function moveOn() {
+    const fullCart = document.getElementById('fullCart');
+    const checkout = document.getElementById('checkoutSummary');
+    fullCart.style.animation = "slideUpCheckout 500ms forwards ease-in-out";
+    setTimeout(() => {
+        fullCart.classList.toggle('hidden');
+        checkout.style.width = '55%';
+        checkout.children[0].classList.toggle('hidden');
+    }, 600);
+    setTimeout(() => {
+        checkout.children[1].style.opacity = '1';
+    }, 1200);
+}

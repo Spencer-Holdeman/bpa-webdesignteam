@@ -12,15 +12,15 @@
 {% endblock %}
 
 {% block body %}
-<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white bg-dark-raw overflow-y-hidden">
+<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] text-white bg-fixed bg-center bg-cover bg-purple-500 overflow-y-hidden">
 {% endblock %}
 
   {% block nav %}
   {% endblock %}
 
   {% block content %}
-  <section class="h-screen w-full flex justify-center items-center bg-purple-500">
-    <div class="h-[80%] w-[80em] bg-gray-800 p-5 text-lg rounded-xl">
+  <section id="fullCart" class="h-screen w-full flex justify-center items-center">
+    <div class="h-[80%] w-[80em] mx-4 flex flex-col justify-between bg-dark-raw p-5 text-lg rounded-lg">
       <div class="flex justify-between items-center">
         <h1 class="text-3xl font-semibold">Shopping Cart</h1>
         <a href="/home">
@@ -29,12 +29,18 @@
           </div>
         </a>
       </div>
-      <div id="cart-items" class="h-[90%] w-full my-4 overflow-y-scroll"></div>
+      <hr class="mt-4 mt-b border-1 border-white">
+      <div id="cart-items" class="h-full w-full my-4 overflow-y-scroll minimal-scrollbar"></div>
+      <hr class="mt-2 mb-4 border-1 border-white">
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl">Total: $0.00</h1>
+        <button onclick="moveOn()" class="py-2 px-10 bg-purple-500 rounded-lg">Checkout</button>
+      </div>
     </div>
   </section>
-  <section class="mx-20">
-    <div class="w-full flex flex-row">
-      <div class="w-[50%] p-7">
+  <section class="h-screen w-full">
+    <div id="checkoutSummary" class="h-full bg-dark-raw transition-all duration-500 ease-in-out" style="width: 0%;">
+      <div class="w-[500px] p-7 hidden" style="opacity: 0;">
         <div class="bg-slate-800 p-5 mb-10 text-lg rounded-xl">
           <h1 class="text-xl font-semibold"><i class="fa-solid fa-user pr-4"></i>Account</h1>
           <div class="flex flex-row mt-5 text-lg">
@@ -68,6 +74,10 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+  <!-- <section class="mx-20">
+    <div class="w-full flex flex-row">
       <div class="w-[50%] p-7">
         <div class="bg-slate-800 p-5 mb-10 text-lg rounded-xl">
           <div class="h-[2px] w-full my-4 bg-slate-900"></div>
@@ -78,5 +88,8 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+  {% endblock %}
+
+  {% block footer %}
   {% endblock %}

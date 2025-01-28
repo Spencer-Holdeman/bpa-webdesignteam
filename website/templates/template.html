@@ -30,8 +30,7 @@
 
 {% block body %}
 
-<body
-  class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
+<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
   {% endblock %}
   {% block nav %}
   <div id="mobile-menu" class="md:hidden h-screen fixed top-0 right-0 transition-all duration-[1.3s] z-[60]" style="background-color: rgba(1, 1, 1, 0.8); backdrop-filter: blur(10px); width: 0%;">
@@ -65,8 +64,7 @@
         <img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-[50px] md:hidden">
         <h1 class="text-3xl font-lacquer">Your Cart</h1>
         <img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-[50px] md:block hidden">
-        <div class="h-[50px] w-[50px] md:hidden flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer"
-          onclick="closeShoppingBag()">
+        <div class="h-[50px] w-[50px] md:hidden flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
           <i class="fa-solid fa-xmark"></i>
         </div>
       </div>
@@ -128,6 +126,7 @@
   {% block content %}
   {% endblock %}
 
+  {% block footer %}
   <!-- Footer -->
   <footer>
     <section class="w-full px-10 py-[2%] font-serif">
@@ -165,6 +164,7 @@
       </div>
     </section>
   </footer>
+  {% endblock %}
   <!-- hidden cart + hidden tickets -->
   <table class="w-[0%] h-[0%] hidden text-white text-center table-fixed rounded-2xl">
     <tr class="border-gray-700 border-y-[1px]">
@@ -318,7 +318,7 @@
       <td><button id="hollywood" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
     </tr>
   </table>
-  <div class=" hidden flex flex-col w-[0%] h-[0%]">
+  <div class="hidden flex flex-col w-[0%] h-[0%]">
     <div class="w-full flex flex-col items-center bg-purple-950">
       <h2 class="w-[60%] py-5 mt-14 font-lacquer font-semibold uppercase text-4xl text-center bg-dark-raw rounded-xl">New Vinyls</h2>
         <div class="w-full flex flex-row justify-evenly">
@@ -405,7 +405,7 @@
           </button>
         </div>
       </div>
-      <div class="hidden h-20 w-20"></div>
+      <div class="hidden h-20 w-20"><div class="w-[55%]"></div></div>
   </div>
   </div>
   </div>

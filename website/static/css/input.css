@@ -156,3 +156,13 @@
 .vinyl-spin {
     animation: vinyl-spin 5s linear infinite;
 }
+
+/* Checkout */
+@keyframes slideUpCheckout {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, -100%, 0);
+    }
+}
