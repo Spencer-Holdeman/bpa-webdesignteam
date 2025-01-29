@@ -21,7 +21,6 @@ class User(db.Model):
         
 @base.route('/', methods=['POST', 'GET'])
 def clear_session():
-    print('clear session')
     db.session.query(User).delete()
     db.session.commit()
     session.clear()
@@ -63,42 +62,34 @@ def update_vars():
 
 @base.route('/home', methods=['POST', 'GET'])
 def Home():
-    print(session.items())
-    
     if 'logged_in?' in session:
         if session['logged_in?'] == True:
-            print('home (logged in)')
             name = session['name']
             flash(f'Hello {name}, you have logged in!', 'success')
             return render_template('index.html')
         else:
-            print('Home (session[logged_in?] is false)')
-        return render_template('index.html')
+            return render_template('index.html')
     else:
-        print('Home (logged out)')
         return render_template('index.html')
 
 @base.route('/tours', methods=['POST', 'GET'])
 def Tours():
-    print('Tours')
+
     return render_template('tours.html')
 
 @base.route('/about', methods=['POST', 'GET'])
 def About():
-    print('About')
+
     return render_template('about.html')
 
 @base.route('/contact', methods=["GET", "POST"])
 def form():
     if request.method == 'POST':
-        print('contact: inside if')
         name = request.form.get("contact-name" )
         email = request.form.get("contact-email")
         message = request.form.get("contact-message")
         subject = request.form.get("contact-subject")
         log = f'{subject}  {name}  {email}  {message}'
-        print(log)
-        print (subject)
         msg = EmailMessage(
             subject,
             log,
@@ -114,36 +105,31 @@ def form():
         
         return render_template("contact.html")
     else:
-        print('contact: outside if')
         return render_template("contact.html")
 
 @base.route('/bpa', methods=['POST', 'GET'])
 def BPA():
-    print('BPA')
+
     return render_template('bpa.html')
 
 @base.route('/swag', methods=['POST', 'GET'])
 def Swag():
-    print('Swag')
+
     return render_template('swag.html')
 
 @base.route('/checkout', methods=['POST', 'GET'])
 def Checkout():
-    print('Chechout')
+
     return render_template('checkout.html')
 
 @base.route('/login', methods=['POST', 'GET'])
 def Login():
     if request.method == 'POST':
-        print('login: inside if')
         email = request.form.get('email-login', False)
         password = request.form.get('password-login', False)
         emails_passwords = db.session.query(User.email, User.password).all()
         database_emails = [email[0] for email in emails_passwords]
         database_passwords = [password[1] for password in emails_passwords]
-        
-        print(database_emails)
-        print(database_passwords)
         
         if email in database_emails and password in database_passwords:
             if db.session.query(exists().where(and_(User.email == email, User.password == password))).scalar() == True:
@@ -160,14 +146,11 @@ def Login():
             flash('not logged in cuz your email or password doesnt exist')
             return render_template('login.html')
     else:
-        print('login: outside if')
         return render_template('login.html')
 
 @base.route('/signup', methods=['POST', 'GET'])
 def SignUp():
     if request.method == 'POST':
-        print('Sign-up: inside if')
-        
         name = request.form.get('signup-name', False)
         email = request.form.get('signup-email', False)
         password = request.form.get('signup-password', False)
@@ -182,7 +165,7 @@ def SignUp():
         new_user = User(name=name, email=email, password=password, newsletter=newsletter)
         
         if new_user.newsletter == True:
-             # Render MJML template and convert to HTML
+            # Render MJML template and convert to HTML
             mjml_content = render_template('mjml/signup.mjml', name=name)
             html_content = mjml.mjml2html(mjml_content)  # Convert MJML to HTML
 
@@ -203,6 +186,5 @@ def SignUp():
         session['logged_in?'] = False
         return redirect(url_for('base.Login'))
     else:
-        print('Sign-up: outside if')
         return render_template('signup.html')
         
