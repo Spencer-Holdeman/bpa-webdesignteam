@@ -1,0 +1,70 @@
+<mjml>
+  <mj-head>
+    <mj-breakpoint width="480px" />
+
+    <!-- Define general styles using mj-style or mj-attributes -->
+    <mj-attributes>
+      <mj-all font-family="Lucida Grande, Verdana, Microsoft YaHei" font-size="14px" line-height="1.7" />
+      <mj-text color="#000000" />
+    </mj-attributes>
+
+    <!-- Optional: Add custom CSS if needed -->
+    <mj-style>
+      .easy-email {
+        color: #000000;
+        font-family: Lucida Grande, Verdana, Microsoft YaHei;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body width="600px" background-color="#9b9b9b">
+    <!-- Header -->
+
+    <!-- Header Section -->
+    <mj-section border="none" padding="20px 0px 0px 0px" direction="ltr" text-align="center" background-color="#121117">
+      <mj-column width="100%" border="none" padding="0px">
+        <mj-image src="http://stagefright.pythonanywhere.com/static/img/logo/icon.png" align="center" width="50px" height="auto" padding="10px 25px"></mj-image>
+        <mj-divider align="center" padding="10px 0px 0px 0px" border-color="#f8f8f8" border-style="solid" border-width="0"></mj-divider>
+      </mj-column>
+    </mj-section>
+
+    <!-- Main Section -->
+    <mj-section border="none" padding="10px 0px 0px 0px" direction="ltr" text-align="center" background-color="#1f2937">
+      <mj-column width="100%" border="none" padding="0px">
+        <mj-text align="center" color="#FFFFFF" padding="10px 25px" font-size="20px" font-family="Helvetica Neue" font-weight="200">
+          Hello {{ name }}!
+        </mj-text>
+        <mj-divider align="center" padding="10px 0px 0px 0px" border-color="#f8f8f8" border-style="solid" border-width="0"></mj-divider>
+      </mj-column>
+    </mj-section>
+
+    <!-- Article Section -->
+    <mj-section border="none" padding="20px 0px 20px 0px" direction="ltr" text-align="center" background-color="#121117">
+      <mj-column width="350px" border="none" padding="0px">
+        <mj-text align="left" color="#FFFFFF" padding="10px 10px" font-size="20px">
+          Welcome to The Official Stage Fright Newsletter.
+        </mj-text>
+        <mj-text align="left" color="#9b9b9b" padding="10px 10px">
+          You will now receive emails containing the latest news and updates pertaining to the Stage Fright band. Thank you!
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Editor Section -->
+    <mj-section border="none" padding="20px 0px 20px 0px" direction="ltr" text-align="center" background-color="#1f2937">
+      <mj-column border="none" padding="0px">
+        <mj-text align="center" color="#FFFFFF" padding="10px 25px">
+          Find us elsewhere:
+        </mj-text>
+        <mj-social mode="horizontal" align="center" color="#9b9b9b" padding="10px 25px" font-size="13px" icon-size="20px" font-weight="normal" line-height="22px" icon-padding="0px" text-padding="4px 4px 4px 0px" border-radius="3px" inner-padding="4px 4px 4px 4px">
+          <mj-social-element src="http://stagefright.pythonanywhere.com/static/img/logo/icon.png" href="http://stagefright.pythonanywhere.com/" target="_blank">Main Website</mj-social-element>
+          <mj-social-element src="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png" href="https://www.instagram.com/stage_frightband/" target="_blank">Instagram</mj-social-element>
+          <mj-social-element src="//abs.twimg.com/favicons/twitter.3.ico" href="x.com" target="_blank">X (Twitter)</mj-social-element>
+          <mj-social-element src="https://img.icons8.com/ios11/512/FFFFFF/github.png" href="https://github.com/SoftwareNotion/bpa-webdesignteam" target="_blank">Github</mj-social-element>
+        </mj-social>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
