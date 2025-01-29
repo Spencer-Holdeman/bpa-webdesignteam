@@ -115,7 +115,7 @@ function moveOn() {
             summary.parentElement.style.opacity = '1';
         }
         else {
-            summary.classList.add('hidden');
+            summary.parentElement.classList.add('hidden');
         }
         fullCart.classList.toggle('hidden');
         info.style.width = '110%';

@@ -42,8 +42,8 @@
 
   <!---------- Checkout ---------->
   <!-- User Information -->
-  <section class="min-h-screen w-full flex">
-    <div id="checkoutInfo" class="h-full flex justify-center lg:justify-end bg-dark-raw transition-all duration-500 ease-in-out" style="width: 0%;">
+  <section class="min-h-screen w-full flex ">
+    <div id="checkoutInfo" class="min-h-full flex justify-center lg:justify-end bg-dark-raw transition-all duration-500 ease-in-out" style="width: 0%;">
       <div class="w-[98%] md:w-[80%] lg:w-[500px] p-7 transition-all duration-500 hidden" style="opacity: 0;">
         <div class="block lg:hidden p-5">
           <button onclick="openMobileCart()" class="w-full py-3 px-3 my-3 text-lg font-semibold bg-purple-500 rounded-lg">View Cart</button>
@@ -96,7 +96,7 @@
           <input type="text" name="billing-zip" id="billing-zip" placeholder="Zip code" maxlength="5" class="w-full py-1 px-3 bg-gray-800 rounded-lg">
         </div>
         <div class="p-5 flex flex-row justify-between items-center">
-          <a href="/home"><p class="text-lg text-purple-500">< Return to home</p></a>
+          <p onclick="location.reload()" class="text-lg text-purple-500 cursor-pointer">< Return to home</p>
           <button class="w-auto py-3 px-3 my-3 text-lg font-semibold bg-purple-500 rounded-lg">Complete Payment</button>
         </div>
       </div>
