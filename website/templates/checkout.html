@@ -19,6 +19,7 @@
   {% endblock %}
 
   {% block content %}
+  <!---------- Fullscreen Cart ---------->
   <section id="fullCart" class="h-screen w-full flex justify-center items-center">
     <div class="h-[80%] w-[80em] mx-4 flex flex-col justify-between bg-dark-raw p-5 text-lg rounded-lg">
       <div class="flex justify-between items-center">
@@ -34,61 +35,105 @@
       <hr class="mt-2 mb-4 border-1 border-white">
       <div class="flex justify-between items-center">
         <h1 class="text-2xl">Total: $0.00</h1>
-        <button onclick="moveOn()" class="py-2 px-10 bg-purple-500 rounded-lg">Checkout</button>
+        <button onclick="moveOn()" class="py-2 px-10 font-semibold bg-purple-500 rounded-lg">Checkout</button>
       </div>
     </div>
   </section>
-  <section class="h-screen w-full">
-    <div id="checkoutSummary" class="h-full bg-dark-raw transition-all duration-500 ease-in-out" style="width: 0%;">
-      <div class="w-[500px] p-7 hidden" style="opacity: 0;">
-        <div class="bg-slate-800 p-5 mb-10 text-lg rounded-xl">
+
+  <!---------- Checkout ---------->
+  <!-- User Information -->
+  <section class="min-h-screen w-full flex">
+    <div id="checkoutInfo" class="h-full flex justify-center lg:justify-end bg-dark-raw transition-all duration-500 ease-in-out" style="width: 0%;">
+      <div class="w-[98%] md:w-[80%] lg:w-[500px] p-7 transition-all duration-500 hidden" style="opacity: 0;">
+        <div class="block lg:hidden p-5">
+          <button onclick="openMobileCart()" class="w-full py-3 px-3 my-3 text-lg font-semibold bg-purple-500 rounded-lg">View Cart</button>
+        </div>
+        <div class="p-5 text-lg rounded-xl">
           <h1 class="text-xl font-semibold"><i class="fa-solid fa-user pr-4"></i>Account</h1>
           <div class="flex flex-row mt-5 text-lg">
-            <button class="w-[50%] py-1 px-3 mr-4 bg-purple-600 rounded-lg text-white">Log In</button>
-            <button class="w-[50%] py-1 px-3 bg-purple-600 rounded-lg text-white">Sign Up</button>
+            <button class="w-[50%] py-1 px-3 mr-4 font-semibold bg-purple-500 rounded-lg text-white">Log In</button>
+            <button class="w-[50%] py-1 px-3 font-semibold bg-purple-500 rounded-lg text-white">Sign Up</button>
           </div>
         </div>
-        <div class="bg-slate-800 p-5 mb-10 text-lg rounded-xl">
+        <div id="shipping" class="p-5 text-lg rounded-xl">
           <h1 class="text-xl font-semibold"><i class="fa-solid fa-truck pr-4"></i>Shipping Address</h1>
           <div class="flex flex-row my-5 text-lg">
-            <input type="text" name="billing-fname" id="billing-fname" placeholder="First name" class="w-[50%] py-1 px-3 mr-4 bg-black rounded-lg">
-            <input type="text" name="billing-lname" id="billing-fname" placeholder="Last name" class="w-[50%] py-1 px-3 bg-black rounded-lg">
+            <input type="text" name="shipping-fname" id="shipping-fname" placeholder="First name" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
+            <input type="text" name="shipping-lname" id="shipping-lname" placeholder="Last name" class="w-[50%] py-1 px-3 bg-gray-800 rounded-lg">
           </div>
-          <input type="text" name="billing-company" id="billing-company" placeholder="Company name (optional)" class="w-full py-1 px-3 mb-5 bg-black rounded-lg">
-          <input type="text" name="billing-address" id="billing-address" placeholder="Address" class="w-full py-1 px-3 mb-5 bg-black rounded-lg">
-          <input type="text" name="billing-apartment" id="billing-apartment"
-            placeholder="Apartment, suite, etc. (optional)" class="w-full py-1 px-3 mb-5 bg-black rounded-lg">
+          <input type="text" name="shipping-company" id="shipping-company" placeholder="Company name (optional)" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
+          <input type="text" name="shipping-address" id="shipping-address" placeholder="Address" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
+          <input type="text" name="shipping-apartment" id="shipping-apartment" placeholder="Apartment, suite, etc. (optional)" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
           <div class="flex flex-row mb-5 text-lg">
-            <input type="text" name="billing-city" id="billing-city" placeholder="City" class="w-[70%] py-1 px-3 mr-4 bg-black rounded-lg">
-            <input type="text" name="billing-city" id="billing-state" placeholder="State" class="w-[30%] py-1 px-3 bg-black rounded-lg">
+            <input type="text" name="shipping-city" id="shipping-city" placeholder="City" class="w-[70%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
+            <input type="text" name="shipping-city" id="shipping-state" placeholder="State" class="w-[30%] py-1 px-3 bg-gray-800 rounded-lg">
           </div>
-          <input type="text" name="billing-zip" id="billing-zip" placeholder="Zip code" maxlength="5" class="w-full py-1 px-3 bg-black rounded-lg">
+          <input type="text" name="shipping-zip" id="shipping-zip" placeholder="Zip code" maxlength="5" class="w-full py-1 px-3 bg-gray-800 rounded-lg">
         </div>
-        <div class="bg-slate-800 p-5 mb-10 text-lg rounded-xl">
+        <div class="p-5 text-lg rounded-xl">
           <h1 class="text-xl font-semibold"><i class="fa-solid fa-credit-card pr-4"></i>Payment Method</h1>
-          <input type="text" name="payment-name" id="payment-name" placeholder="Name on card" class="w-full py-1 px-3 my-5 bg-black rounded-lg">
-          <input type="text" name="payment-name" id="payment-name" placeholder="Card number" maxlength="19" class="w-full py-1 px-3 mb-5 bg-black rounded-lg">
+          <input type="text" name="payment-name" id="payment-name" placeholder="Name on card" class="w-full py-1 px-3 my-5 bg-gray-800 rounded-lg">
+          <input type="text" name="payment-name" id="payment-name" placeholder="Card number" maxlength="19" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
           <div class="flex flex-row text-lg">
-            <input type="text" name="payment-expire" id="payment-expire" placeholder="Expiration date" maxlength="4" class="w-[50%] py-1 px-3 mr-4 bg-black rounded-lg">
-            <input type="text" name="payment-cvc" id="payment-cvc" placeholder="Security code" maxlength="4" class="w-[50%] py-1 px-3 bg-black rounded-lg">
+            <input type="text" name="payment-expire" id="payment-expire" placeholder="Expiration date" maxlength="4" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
+            <input type="text" name="payment-cvc" id="payment-cvc" placeholder="Security code" maxlength="4" class="w-[50%] py-1 px-3 bg-gray-800 rounded-lg">
           </div>
+        </div>
+        <div id="billing" class="p-5 text-lg rounded-xl">
+          <h1 class="text-xl font-semibold"><i class="fa-solid fa-money-bill-wave pr-4"></i>Billing Address</h1>
+          <button onclick="shipToBill()" class="w-full py-1 px-3 my-5 font-semibold bg-purple-500 rounded-lg text-white">Make Same as Shipping</button>
+          <div class="flex flex-row mb-5 text-lg">
+            <input type="text" name="billing-fname" id="billing-fname" placeholder="First name" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
+            <input type="text" name="billing-lname" id="billing-lname" placeholder="Last name" class="w-[50%] py-1 px-3 bg-gray-800 rounded-lg">
+          </div>
+          <input type="text" name="billing-company" id="billing-company" placeholder="Company name (optional)" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
+          <input type="text" name="billing-address" id="billing-address" placeholder="Address" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
+          <input type="text" name="billing-apartment" id="billing-apartment" placeholder="Apartment, suite, etc. (optional)" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
+          <div class="flex flex-row mb-5 text-lg">
+            <input type="text" name="billing-city" id="billing-city" placeholder="City" class="w-[70%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
+            <input type="text" name="billing-city" id="billing-state" placeholder="State" class="w-[30%] py-1 px-3 bg-gray-800 rounded-lg">
+          </div>
+          <input type="text" name="billing-zip" id="billing-zip" placeholder="Zip code" maxlength="5" class="w-full py-1 px-3 bg-gray-800 rounded-lg">
+        </div>
+        <div class="p-5 flex flex-row justify-between items-center">
+          <a href="/home"><p class="text-lg text-purple-500">< Return to home</p></a>
+          <button class="w-auto py-3 px-3 my-3 text-lg font-semibold bg-purple-500 rounded-lg">Complete Payment</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Cart -->
+    <div class="w-full flex justify-center lg:justify-start absolute lg:static bg-purple-500 lg:bg-transparent transition-all duration-100" style="opacity: 0;">
+      <div id="checkoutSummary" class="w-[98%] md:w-[80%] lg:w-[500px] p-7 transition-all duration-500 hidden" style="opacity: 0;">
+        <div class="w-full px-5 flex justify-end">
+          <div onclick="closeMobileCart()" class="h-[50px] w-[50px] lg:hidden flex flex-row justify-center items-center text-2xl text-white border-white border-2 rounded-full cursor-pointer">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <div class="p-5 text-lg font-semibold rounded-xl">
+          <h1 class="text-xl font-semibold"><i class="fa-solid fa-scroll pr-4"></i>Order Summary</h1>
+          <hr class="my-4 border-1 border-white">
+          <div id="const-cart">
+
+          </div>
+          <hr class="my-4 flex flex-col text-lg border-1 border-white">
+          <div class="flex justify-between">
+            <h1>Subtotal • {?} Items</h1>
+            <p>$0.00</p>
+          </div>
+          <div class="flex justify-between">
+            <h1>Shipping</h1>
+            <p>Free!</p> <!-- # This must stay free. -->
+          </div>
+          <div class="flex justify-between text-2xl">
+            <h1>Total</h1>
+            <p>$0.00</p>
+          </div>
+        </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- <section class="mx-20">
-    <div class="w-full flex flex-row">
-      <div class="w-[50%] p-7">
-        <div class="bg-slate-800 p-5 mb-10 text-lg rounded-xl">
-          <div class="h-[2px] w-full my-4 bg-slate-900"></div>
-            <div id="const-cart">
-
-            </div>
-          <div class="h-[2px] w-full my-4 bg-slate-900"></div>
-        </div>
-      </div>
-    </div>
-  </section> -->
   {% endblock %}
 
   {% block footer %}

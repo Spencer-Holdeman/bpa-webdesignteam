@@ -104,15 +104,59 @@ function constCart() {
 
 // Landon
 function moveOn() {
+    const body = document.getElementsByTagName('body')[0];
     const fullCart = document.getElementById('fullCart');
-    const checkout = document.getElementById('checkoutSummary');
+    const info = document.getElementById('checkoutInfo');
+    const summary = document.getElementById('checkoutSummary');
+    body.classList.remove('overflow-y-hidden')
     fullCart.style.animation = "slideUpCheckout 500ms forwards ease-in-out";
     setTimeout(() => {
+        if (document.documentElement.clientWidth > 1024) {
+            summary.parentElement.style.opacity = '1';
+        }
+        else {
+            summary.classList.add('hidden');
+        }
         fullCart.classList.toggle('hidden');
-        checkout.style.width = '55%';
-        checkout.children[0].classList.toggle('hidden');
+        info.style.width = '110%';
+        info.children[0].classList.toggle('hidden');
+        summary.classList.toggle('hidden');
+        constCart()
     }, 600);
     setTimeout(() => {
-        checkout.children[1].style.opacity = '1';
+        info.children[0].style = 'opacity: 1;';
+        summary.style = 'opacity: 1;';
     }, 1200);
+}
+
+function shipToBill() {
+    const shipping = document.getElementById('shipping');
+    const billing = document.getElementById('billing');
+    billing.children[2].children[0].value = shipping.children[1].children[0].value;
+    billing.children[2].children[1].value = shipping.children[1].children[1].value;
+    billing.children[3].value = shipping.children[2].value;
+    billing.children[4].value = shipping.children[3].value;
+    billing.children[5].value = shipping.children[4].value;
+    billing.children[6].children[0].value = shipping.children[5].children[0].value;
+    billing.children[6].children[1].value = shipping.children[5].children[1].value;
+    billing.children[7].value = shipping.children[6].value;
+}
+
+function openMobileCart() {
+    const info = document.getElementById('checkoutInfo');
+    const checkoutCart = document.getElementById('checkoutSummary').parentElement;
+    info.classList.add('hidden');
+    checkoutCart.classList.remove('hidden');
+    setTimeout(() => {
+        checkoutCart.style = 'opacity: 1;';
+    }, 100);
+}
+function closeMobileCart() {
+    const info = document.getElementById('checkoutInfo');
+    const checkoutCart = document.getElementById('checkoutSummary').parentElement;
+    info.classList.remove('hidden');
+    checkoutCart.style = 'opacity: 0;';
+    setTimeout(() => {
+        checkoutCart.classList.add('hidden');
+    }, 100);
 }
