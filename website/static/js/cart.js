@@ -123,7 +123,7 @@ function ticketIncrement(current_node) {
 
             var total_price = parseFloat(merch_price) * data.ticket_node_history[node_id];
             console.log(`${merch_price} * ${data.ticket_node_history[node_id]} = ${total_price}`);
-            
+
             // Send the updated data to the server
             fetch('/update_vars', {
                 method: 'POST', // Specify HTTP POST method
@@ -646,7 +646,7 @@ function removeCartItems() {
                 document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
             })
             .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
-            calculatePrice();
+        calculatePrice();
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
 
@@ -654,7 +654,7 @@ function removeCartItems() {
 /**
  * loads all current cart items (if any) when the window loads
  */
-window.addEventListener('load', function cartItems() {
+window.addEventListener('load', function () {
     // Fetch variables from the server when the window loads
     fetchVars().then(data => {
         // Update the UI with the number of items in the cart
@@ -787,7 +787,7 @@ window.addEventListener('load', function cartItems() {
     }).catch(error => console.error('Error displaying num on load:', error)); // Log any errors during data fetching
 });
 
-function calculatePrice() {
+function calculatePrice(chekcout2) {
     fetchVars().then(data => {
         var totals = [];
 
@@ -806,12 +806,17 @@ function calculatePrice() {
             var total_price = parseFloat(merch_price.split('$').join('')) * data.ticket_node_history[node_id];
             totals.push(total_price);
         }
-        
+
         var total_price = 0;
         for (var i = 0; i < totals.length; i++) {
             total_price += totals[i];
         }
-
-        document.getElementById('total-price-cart').innerText = 'Total Price: $' + total_price.toFixed(2);
+        if (chekcout2 == true) {
+            document.getElementById('total-price-cart').innerText = `$${total_price.toFixed(2)}`;
+            document.getElementById('tax').innerText = `$${(total_price * 0.045).toFixed(2)}`;
+            document.getElementById('total-price').innerText = `$${(total_price * 1.045).toFixed(2)}`;
+        } else {
+            document.getElementById('total-price-cart').innerText = 'Total Price: $' + total_price.toFixed(2);
+        }
     })
 }
