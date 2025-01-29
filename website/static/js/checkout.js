@@ -39,7 +39,6 @@ function constCart() {
             // var merch_price = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.innerText : current_node.previousElementSibling.innerText;
 
             var node_id = current_node.id;
-            console.log(`Current node: ${current_node.id}, img source: ${img_source}, merch item: ${merch_item}`);
 
             // Set attributes and inner text for the new cart item elements
             div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
@@ -87,7 +86,7 @@ function constCart() {
             item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
 
-            item_count.innerText = data.ticket_node_history[node_id];
+            item_count.innerText = `Item count: ${data.ticket_node_history[node_id]}`;
 
             // Append the new elements to the cart item div
             button_div.appendChild(item_count);
