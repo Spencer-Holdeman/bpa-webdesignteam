@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, session, flash, redirect,
 from . import db
 from sqlalchemy import exists, and_
 from flask_mailman import EmailMessage
+import mjml
 
 base = Blueprint('base', __name__)
 
@@ -181,12 +182,20 @@ def SignUp():
         new_user = User(name=name, email=email, password=password, newsletter=newsletter)
         
         if new_user.newsletter == True:
+             # Render MJML template and convert to HTML
+            mjml_content = render_template('mj.mjml', name=name)
+            html_content = mjml.mjml2html(mjml_content)  # Convert MJML to HTML
+
+            # Create the email
             msg = EmailMessage(
-            "Title",
-            f"Hello {name}",
-            "stagefrightbandokc@gmail.com",
-            [f"{email}"]
+                subject="Welcome to Our Newsletter!",
+                body=html_content,
+                to=[email]
             )
+
+            # Send the email
+            msg.content_subtype = 'html'
+            msg.html = html_content
             msg.send()
         
         db.session.add(new_user)
