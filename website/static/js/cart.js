@@ -740,11 +740,9 @@ window.addEventListener('load', function cartItems() {
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.ticket_node_history)[i]);
             var img_source = '../static/img/misc/download.png'
-            var venue = current_node.parentElement.previousElementSibling.previousElementSibling.firstElementChild.innerText;
-            var city = current_node.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerText;
             var date = current_node.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerText;
             var merch_price = current_node.parentElement.previousElementSibling.firstElementChild.innerText;
-            var merch_item = `Ticket ${venue}, ${city} - ${date}`;
+            var merch_item = `Ticket - ${date}`;
             var node_id = current_node.id;
 
             var total_price = parseFloat(merch_price.split('$').join('')) * data.current_node_history[node_id];

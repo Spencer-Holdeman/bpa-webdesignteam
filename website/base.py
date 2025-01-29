@@ -183,7 +183,7 @@ def SignUp():
         
         if new_user.newsletter == True:
              # Render MJML template and convert to HTML
-            mjml_content = render_template('mj.mjml', name=name)
+            mjml_content = render_template('mjml/signup.mjml', name=name)
             html_content = mjml.mjml2html(mjml_content)  # Convert MJML to HTML
 
             # Create the email
