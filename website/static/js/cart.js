@@ -95,7 +95,7 @@ function increment(current_node) {
                 .then(data => {
                     // Update the UI with the new number of items in the cart
                     document.getElementById('nums-value').innerText = data.num_cart_items;
-                    document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+                    document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
                 })
                 .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
@@ -142,7 +142,7 @@ function ticketIncrement(current_node) {
                 .then(data => {
                     // Update the UI with the new number of items in the cart
                     document.getElementById('nums-value').innerText = data.num_cart_items;
-                    document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+                    document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
                 })
                 .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
@@ -195,7 +195,7 @@ function decrement(current_node) {
             .then(data => {
                 // Update the UI with the new number of items in the cart
                 document.getElementById('nums-value').innerText = data.num_cart_items;
-                document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+                document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
             })
             .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
@@ -225,7 +225,7 @@ function decrement(current_node) {
                 .then(data => {
                     // Update the UI with the new number of items in the cart
                     document.getElementById('nums-value').innerText = data.num_cart_items;
-                    document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+                    document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
                 })
                 .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
@@ -272,7 +272,7 @@ function ticketDecrement(current_node) {
             .then(data => {
                 // Update the UI with the new number of items in the cart
                 document.getElementById('nums-value').innerText = data.num_cart_items;
-                document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+                document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
             })
             .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
@@ -302,7 +302,7 @@ function ticketDecrement(current_node) {
                 .then(data => {
                     // Update the UI with the new number of items in the cart
                     document.getElementById('nums-value').innerText = data.num_cart_items;
-                    document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+                    document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
                 })
                 .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
@@ -397,7 +397,7 @@ function incrementCartItems(current_node) {
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('nums-value').innerText = data.num_cart_items;
-                    document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+                    document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
                 })
                 .catch(error => console.error('Error updating num:', error));
 
@@ -428,11 +428,11 @@ function incrementCartItems(current_node) {
             button_div.appendChild(item_count);
             button_div.appendChild(decrement_button);
 
-            item_description.innerText = merch_item + ' - ' + merch_price;
+            item_description.innerText = merch_item;
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
-            div_element2.appendChild(button_div);
             div_element2.appendChild(total_price_element);
+            div_element2.appendChild(button_div);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
             calculatePrice();
@@ -458,7 +458,7 @@ function incrementCartItems(current_node) {
                     .then(response => response.json())
                     .then(data => {
                         document.getElementById('nums-value').innerText = data.num_cart_items;
-                        document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+                        document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
                     })
                     .catch(error => console.error('Error updating num:', error));
 
@@ -486,11 +486,9 @@ function incrementTicketItems(current_node) {
 
     // Get the current node and its details
     var img_source = '../static/img/misc/download.png'
-    var venue = current_node.parentElement.previousElementSibling.previousElementSibling.firstElementChild.innerText;
-    var city = current_node.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerText;
     var date = current_node.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerText;
     var merch_price = current_node.parentElement.previousElementSibling.firstElementChild.innerText;
-    var merch_item = `Ticket ${venue}, ${city} - ${date}`;
+    var merch_item = `Ticket - ${date}`;
     var node_id = current_node.id;
 
     // Fetch variables from the server
@@ -533,7 +531,7 @@ function incrementTicketItems(current_node) {
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('nums-value').innerText = data.num_cart_items;
-                    document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+                    document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
                 })
                 .catch(error => console.error('Error updating num:', error));
 
@@ -565,11 +563,11 @@ function incrementTicketItems(current_node) {
             button_div.appendChild(item_count);
             button_div.appendChild(decrement_button);
 
-            item_description.innerText = merch_item + ' - ' + merch_price;
+            item_description.innerText = merch_item;
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
-            div_element2.appendChild(button_div);
             div_element2.appendChild(total_price_element);
+            div_element2.appendChild(button_div);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
             calculatePrice();
@@ -595,7 +593,7 @@ function incrementTicketItems(current_node) {
                     .then(response => response.json())
                     .then(data => {
                         document.getElementById('nums-value').innerText = data.num_cart_items;
-                        document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+                        document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
                     })
                     .catch(error => console.error('Error updating num:', error));
 
@@ -643,7 +641,7 @@ function removeCartItems() {
             .then(data => {
                 // Update the UI with the new number of items in the cart
                 document.getElementById('nums-value').innerText = data.num_cart_items;
-                document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+                document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
             })
             .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
             calculatePrice();
@@ -660,7 +658,7 @@ window.addEventListener('load', function cartItems() {
         // Update the UI with the number of items in the cart
         try {
             document.getElementById('nums-value').innerText = data.num_cart_items;
-            document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+            document.getElementById('cart-message').innerText = `(${data.num_cart_items}) Items`;
         } catch (error) {
             console.error('this is a "good" error!', error);
         }
@@ -716,11 +714,11 @@ window.addEventListener('load', function cartItems() {
             button_div.appendChild(item_count);
             button_div.appendChild(decrement_button);
 
-            item_description.innerText = merch_item + ' - ' + merch_price;
+            item_description.innerText = merch_item;
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
-            div_element2.appendChild(button_div);
             div_element2.appendChild(total_price_element);
+            div_element2.appendChild(button_div);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
             calculatePrice();
@@ -775,11 +773,11 @@ window.addEventListener('load', function cartItems() {
             button_div.appendChild(item_count);
             button_div.appendChild(decrement_button);
 
-            item_description.innerText = merch_item + ' - ' + merch_price;
+            item_description.innerText = merch_item;
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
-            div_element2.appendChild(button_div);
             div_element2.appendChild(total_price_element);
+            div_element2.appendChild(button_div);
             div_element.appendChild(div_element2);
             document.getElementById('cart-items').appendChild(div_element);
             calculatePrice();
