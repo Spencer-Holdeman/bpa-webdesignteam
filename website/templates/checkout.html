@@ -34,7 +34,7 @@
       <div id="cart-items" class="h-full w-full my-4 overflow-y-scroll minimal-scrollbar"></div>
       <hr class="mt-2 mb-4 border-1 border-white">
       <div class="flex justify-between items-center">
-        <h1 class="text-2xl">Total: $0.00</h1>
+        <h1 id="total-price-cart" class="text-2xl">Total: $0.00</h1>
         <button onclick="moveOn()" class="py-2 px-10 font-semibold bg-purple-500 rounded-lg">Checkout</button>
       </div>
     </div>
@@ -97,7 +97,9 @@
         </div>
         <div class="p-5 flex flex-row justify-between items-center">
           <p onclick="location.reload()" class="text-lg text-purple-500 cursor-pointer">< Return to home</p>
-          <button class="w-auto py-3 px-3 my-3 text-lg font-semibold bg-purple-500 rounded-lg">Complete Payment</button>
+          <form action="/home" method="POST">
+          <button onclick="removeCartItems()" class="w-auto py-3 px-3 my-3 text-lg font-semibold bg-purple-500 rounded-lg">Complete Payment</button>
+          </form>
         </div>
       </div>
     </div>
@@ -118,16 +120,20 @@
           </div>
           <hr class="my-4 flex flex-col text-lg border-1 border-white">
           <div class="flex justify-between">
-            <h1>Subtotal • {?} Items</h1>
-            <p>$0.00</p>
+            <h1>Subtotal:</h1>
+            <p id="total-price-cart">$0.00</p>
           </div>
           <div class="flex justify-between">
-            <h1>Shipping</h1>
+            <h1>Tax</h1>
+            <p id="tax">$0.00</p>
+          </div>
+          <div class="flex justify-between">
+            <h1>Shipping:</h1>
             <p>Free!</p> <!-- # This must stay free. -->
           </div>
           <div class="flex justify-between text-2xl">
             <h1>Total</h1>
-            <p>$0.00</p>
+            <p id="total-price">$0.00</p>
           </div>
         </div>
         </div>

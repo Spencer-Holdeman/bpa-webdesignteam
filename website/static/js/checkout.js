@@ -98,6 +98,7 @@ function constCart() {
             div_element.appendChild(div_element2);
             document.getElementById('const-cart').appendChild(div_element);
         }
+        calculatePrice(true);
     });
 }
 
@@ -120,7 +121,8 @@ function moveOn() {
         info.style.width = '110%';
         info.children[0].classList.toggle('hidden');
         summary.classList.toggle('hidden');
-        constCart()
+        document.getElementById('total-price-cart').removeAttribute('id');
+        constCart();
     }, 600);
     setTimeout(() => {
         info.children[0].style = 'opacity: 1;';

@@ -21,9 +21,6 @@ class User(db.Model):
         
 @base.route('/', methods=['POST', 'GET'])
 def clear_session():
-    print('clear session')
-    db.session.query(User).delete()
-    db.session.commit()
     session.clear()
     return redirect(url_for('base.Home'))
 
@@ -129,7 +126,7 @@ def Swag():
 
 @base.route('/checkout', methods=['POST', 'GET'])
 def Checkout():
-    print('Chechout')
+    
     return render_template('checkout.html')
 
 @base.route('/login', methods=['POST', 'GET'])
