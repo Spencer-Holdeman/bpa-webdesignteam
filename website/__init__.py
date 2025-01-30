@@ -9,7 +9,7 @@ mail = Mail()
 def create_app():
     app = Flask(__name__)
     
-    app.config['SECRET_KEY'] = 'Skibidi'
+    app.config['SECRET_KEY'] = 'd4dd621babd4585700345cc578091183'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     app.config["MAIL_SERVER"] = "smtp.gmail.com"
     app.config["MAIL_PORT"] = "465"

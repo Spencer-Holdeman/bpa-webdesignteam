@@ -158,7 +158,7 @@ def Login():
                 session['name'] = user.name
                 session['logged_in?'] = True
                 name = session['name']
-                flash(f'Hello {name}, you have logged in! If you have made any purchases, they have been saved and will shipped out shortly! If not, consider checking out our merch page!')
+                flash(f'Hello {name}, you have logged in! If you have made any purchases, they have been saved and will be shipped out shortly! If not, consider checking out our merch page!')
                 return redirect(url_for('base.Home'))
             else:
                 flash('your email or password is incorrect')
