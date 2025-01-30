@@ -73,7 +73,7 @@ function constCart() {
 
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.ticket_node_history)[i]);
-            var img_source = '../static/img/misc/download.png'
+            var img_source = '../static/img/swag/ticket.png'
             var merch_item = current_node.parentElement.previousElementSibling.innerText
             var node_id = current_node.id;
 

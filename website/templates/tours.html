@@ -3,167 +3,167 @@
     Tours | Stage Fright
 {% endblock %}
 {% block body %}
+<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
+{% endblock %}
 
-<body
-  class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
-  {% endblock %}
-  {% block header_title %}
-  {% endblock %}
+{% block header_title %}
+{% endblock %}
+
   {% block content %}
   <main class="w-full flex flex-col">
     <div class="flex flex-col my-40 justify-center items-center">
-      <h1 class="text-7xl text-center font-semibold uppercase">Stage Fright</h1>
-      <h2 class="text-4xl text-center font-lacquer mb-20">Tour Dates & Locations</h2>
-      <table class="w-[80%] text-white text-center table-fixed rounded-2xl">
+      <h1 class="text-4xl md:text-7xl text-center font-semibold uppercase">Stage Fright</h1>
+      <h2 class="text-3xl md:text-5xl text-center font-lacquer mb-20">Tour Dates & Locations</h2>
+      <table class="w-[100%] md:w-[80%] text-white text-center table-fixed rounded-2xl">
         <tr class="border-gray-700 border-y-[1px]">
           <td>
-            <p class="md:text-xl font-bold py-6">May 7th, 2025</p>
+            <p class="text-sm md:text-xl font-bold py-6">May 7th, 2025</p>
           </td>
           <td>
-            <p class="font-semibold">Oklahoma City, OK</p>
+            <p class="text-sm md:text-base font-semibold">Oklahoma City, OK</p>
           </td>
           <td>
-            <p>Blue Door</p>
+            <p class="text-sm md:text-base">Blue Door</p>
           </td>
           <td>
-            <p class="font-semibold">$29.99</p>
+            <p class="text-sm md:text-base font-semibold">$29.99</p>
           </td>
-          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to cart</button></td>
+          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
-            <p class="md:text-xl font-bold py-6">May 9th, 2025</p>
+            <p class="text-sm md:text-xl font-bold py-6">May 9th, 2025</p>
           </td>
           <td>
-            <p class="font-semibold">Little Rock, AR</p>
+            <p class="text-sm md:text-base font-semibold">Little Rock, AR</p>
           </td>
           <td>
-            <p>The Hall</p>
+            <p class="text-sm md:text-base">The Hall</p>
           </td>
           <td>
-            <p class="font-semibold">$29.99</p>
+            <p class="text-sm md:text-base font-semibold">$29.99</p>
           </td>
-          <td><button id="little-rock" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to cart</button></td>
+          <td><button id="little-rock" class="text-sm md:text-base bg-gray-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg">Sold Out</button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
-            <p class="md:text-xl font-bold py-6">May 12th, 2025</p>
+            <p class="text-sm md:text-xl font-bold py-6">May 12th, 2025</p>
           </td>
           <td>
-            <p class="font-semibold">Nashville, TN</p>
+            <p class="text-sm md:text-base font-semibold">Nashville, TN</p>
           </td>
           <td>
-            <p>The Bluebird Cafe</p>
+            <p class="text-sm md:text-base">The Bluebird Cafe</p>
           </td>
           <td>
-            <p class="font-semibold">$29.99</p>
+            <p class="text-sm md:text-base font-semibold">$29.99</p>
           </td>
-          <td><button id="nashville" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to cart</button></td>
+          <td><button id="little-rock" class="text-sm md:text-base bg-gray-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg">Sold Out</button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
-            <p class="md:text-xl font-bold py-6">May 15th, 2025</p>
+            <p class="text-sm md:text-xl font-bold py-6">May 15th, 2025</p>
           </td>
           <td>
-            <p class="font-semibold">Asheville, NC</p>
+            <p class="text-sm md:text-base font-semibold">Asheville, NC</p>
           </td>
           <td>
-            <p>The Orange Peel</p>
+            <p class="text-sm md:text-base">The Orange Peel</p>
           </td>
           <td>
-            <p class="font-semibold">$29.99</p>
+            <p class="text-sm md:text-base font-semibold">$29.99</p>
           </td>
-          <td><button id="asheville" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to cart</button></td>
+          <td><button id="asheville" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
-            <p class="md:text-xl font-bold py-6">May 17th, 2025</p>
+            <p class="text-sm md:text-xl font-bold py-6">May 17th, 2025</p>
           </td>
           <td>
-            <p class="font-semibold">Alexandria, VA</p>
+            <p class="text-sm md:text-base font-semibold">Alexandria, VA</p>
           </td>
           <td>
-            <p>The Birchmere</p>
+            <p class="text-sm md:text-base">The Birchmere</p>
           </td>
           <td>
-            <p class="font-semibold">$29.99</p>
+            <p class="text-sm md:text-base font-semibold">$29.99</p>
           </td>
-          <td><button id="alexandria" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to cart</button></td>
+          <td><button id="alexandria" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
-            <p class="md:text-xl font-bold py-6">May 19th, 2025</p>
+            <p class="text-sm md:text-xl font-bold py-6">May 19th, 2025</p>
           </td>
           <td>
-            <p class="font-semibold">Philadelphia, PA</p>
+            <p class="text-sm md:text-base font-semibold">Philadelphia, PA</p>
           </td>
           <td>
-            <p>Franklin Music Hall</p>
+            <p class="text-sm md:text-base">Franklin Music Hall</p>
           </td>
           <td>
-            <p class="font-semibold">$29.99</p>
+            <p class="text-sm md:text-base font-semibold">$29.99</p>
           </td>
-          <td><button id="philadelpia" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to cart</button></td>
+          <td><button id="philadelpia" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
-            <p class="md:text-xl font-bold py-6">May 22nd, 2025</p>
+            <p class="text-sm md:text-xl font-bold py-6">May 22nd, 2025</p>
           </td>
           <td>
-            <p class="font-semibold">Manhattan, NY</p>
+            <p class="text-sm md:text-base font-semibold">Manhattan, NY</p>
           </td>
           <td>
-            <p>Radio City Music Hall</p>
+            <p class="text-sm md:text-base">Radio City Music Hall</p>
           </td>
           <td>
-            <p class="font-semibold">$29.99</p>
+            <p class="text-sm md:text-base font-semibold">$29.99</p>
           </td>
-          <td><button id="manhattan" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to cart</button></td>
+          <td><button id="clarkston" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
-            <p class="md:text-xl font-bold py-6">May 25th, 2025</p>
+            <p class="text-sm md:text-xl font-bold py-6">May 25th, 2025</p>
           </td>
           <td>
-            <p class="font-semibold">Clarkston, MI</p>
+            <p class="text-sm md:text-base font-semibold">Clarkston, MI</p>
           </td>
           <td>
-            <p>Pine Knob Music Theatre</p>
+            <p class="text-sm md:text-base">Pine Knob Music Theatre</p>
           </td>
           <td>
-            <p class="font-semibold">$29.99</p>
+            <p class="text-sm md:text-base font-semibold">$29.99</p>
           </td>
-          <td><button id="clarkston" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to cart</button></td>
+          <td><button id="clarkston" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
-            <p class="md:text-xl font-bold py-6">May 28th, 2025</p>
+            <p class="text-sm md:text-xl font-bold py-6">May 28th, 2025</p>
           </td>
           <td>
-            <p class="font-semibold">Denver, CO</p>
+            <p class="text-sm md:text-base font-semibold">Denver, CO</p>
           </td>
           <td>
-            <p>Ogden Theatre</p>
+            <p class="text-sm md:text-base">Ogden Theatre</p>
           </td>
           <td>
-            <p class="font-semibold">$29.99</p>
+            <p class="text-sm md:text-base font-semibold">$29.99</p>
           </td>
-          <td><button id="denver" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to cart</button></td>
+          <td><button id="denver" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
-            <p class="md:text-xl font-bold py-6">June 1st, 2025</p>
+            <p class="text-sm md:text-xl font-bold py-6">June 1st, 2025</p>
           </td>
           <td>
-            <p class="font-semibold">Hollywood, CA</p>
+            <p class="text-sm md:text-base font-semibold">Hollywood, CA</p>
           </td>
           <td>
-            <p>Hotel California</p>
+            <p class="text-sm md:text-base">Hotel California</p>
           </td>
           <td>
-            <p class="font-semibold">$29.99</p>
+            <p class="text-sm md:text-base font-semibold">$29.99</p>
           </td>
-          <td><button id="hollywood" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to cart</button></td>
+          <td><button id="little-rock" class="text-sm md:text-base bg-gray-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg">Sold Out</button></td>
         </tr>
       </table>
     </div>
