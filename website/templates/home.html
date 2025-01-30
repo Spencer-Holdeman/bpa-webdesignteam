@@ -32,7 +32,7 @@
     <!-- Tours -->
     <section class="min-h-screen w-full flex flex-col justify-center items-center">
       <h1 class="text-7xl text-center my-7 font-semibold font-lacquer uppercase">Upcoming Tours</h1>
-      <table class="w-[80%] text-white text-center table-fixed rounded-2xl"
+      <table class="w-[100%] md:w-[80%] text-white text-center table-fixed rounded-2xl"
         style="-webkit-mask-image: linear-gradient(black, transparent); mask-image: linear-gradient(black, transparent);">
         <tr class="border-gray-700 border-y-[1px]">
           <td>
@@ -47,7 +47,7 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
@@ -62,7 +62,7 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="little-rock" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+          <td><button id="little-rock" class="text-sm md:text-base bg-gray-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg">Sold Out</button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
@@ -77,7 +77,7 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="nashville"  onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+          <td><button id="little-rock" class="text-sm md:text-base bg-gray-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg">Sold Out</button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
@@ -92,7 +92,7 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="asheville" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
@@ -107,14 +107,15 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="alexandria" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+          <td><button id="alexandria" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to Cart</button></td>
         </tr>
       </table>
       <a href="/tours"><button class="my-5 py-2 px-4 text-lg font-medium border-purple-500 border-2 rounded-lg">View More Tours</button></a>
     </section>
 
       <!---------- Merch ---------->
-      <section class="min-h-[110vh] w-full flex flex-col justify-center font-lacquer">
+      <!-- Computer (LG+) -->
+      <section class="min-h-screen w-full hidden lg:flex flex-col justify-center font-lacquer">
         <div class="marquee font-lacquer">
           <div class="marquee-content marquee-text-scroll">
             <h1 class="text-7xl font-lacquer">NEW SWAG</h1>
@@ -224,6 +225,17 @@
         </div>
       </section>
 
+      <!-- Mobile (-LG) -->
+      <section class="w-full mb-40 p-5 sm:p-20 xl:hidden flex flex-col justify-center items-center">
+        <h1 class="text-4xl md:text-7xl text-center my-7 font-semibold font-lacquer uppercase">New Vinyls</h1>
+        <div class="w-full flex flex-row justify-center sm:justify-between items-center flex-wrap">
+          <img src="../static/img/swag/vinyl/autumn.webp" alt="" class="w-[45%] m-2 sm:m-0 sm:w-[30%] bg-gray-800 rounded-xl">
+          <img src="../static/img/swag/vinyl/ftc.webp" alt="" class="w-[45%] m-2 sm:m-0 sm:w-[30%] bg-gray-800 rounded-xl">
+          <img src="../static/img/swag/vinyl/vexed.webp" alt="" class="w-[45%] m-2 sm:m-0 sm:w-[30%] bg-gray-800 rounded-xl">
+        </div>
+        <a href="/swag"><button class="my-5 py-2 px-4 text-lg font-medium border-purple-500 border-2 rounded-lg">Check Out</button></a>
+    </section>
+
       <!---------- Latest Album ---------->
       <!-- Computer (XL+) -->
       <section id="anchor-latest-album" class="h-screen w-full hidden xl:flex flex-row bg-gray-700 font-lacquer" style="clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);">
@@ -280,12 +292,12 @@
       </section>
 
       <!-- Mobile (-XL) -->
-      <section id="anchor-mobile-latest-album" class="w-full p-20 xl:hidden flex flex-col md:flex-row justify-center items-center bg-gray-700">
+      <section id="anchor-mobile-latest-album" class="w-full p-20 xl:hidden flex flex-col md:flex-row justify-center items-center bg-gray-800">
         <img src="../static/img/albums/ftc.webp" class="w-64 mx-8 mb-8 md:mb-0 rounded-lg" alt="">
         <div class="space-y-4 text-center md:text-left">
           <h1 class="text-4xl font-lacquer">Failure to Cope</h1>
           <p>Our latest released album. "Failure to Cope" contains 9 tracks that are bound to catch your attention.</p>
-          <button class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Listen Now</button>
+          <button class="bg-purple-500 px-5 md:px-10 py-2 md:py-3 rounded-lg">Listen Now</button>
         </div>
       </div>
       </div>
@@ -293,8 +305,10 @@
 
       <!---------- Newseltter ---------->
       <section class="min-h-[30vh] w-full flex flex-col justify-center items-center">
-        <h1 class="text-5xl text-center font-lacquer font-semibold">Want the latest Stage Fright news and updates?</h1>
-        <a href="/signup"><button class="my-5 py-2 px-4 text-3xl font-medium border-purple-500 border-2 rounded-lg">Join The Newsletter</button></a>
+        <h1 class="hidden lg:block text-4xl text-center font-lacquer font-semibold">Want the latest Stage Fright news and updates?</h1>
+        <h1 class="lg:hidden block text-4xl text-center font-lacquer font-semibold">Join our Newsletter!</h1>
+        <a href="/signup"><button class="hidden lg:block my-5 py-2 px-4 text-2xl font-medium border-purple-500 border-2 rounded-lg">Join The Newsletter</button></a>
+        <a href="/signup"><button class="lg:hidden block my-5 py-2 px-4 text-lg font-medium border-purple-500 border-2 rounded-lg">Sign Up</button></a>
       </section>
     </main>
 {% endblock %}

@@ -485,7 +485,7 @@ function incrementTicketItems(current_node) {
     var total_price_element = document.createElement('p'); // this p contains the total price of the item
 
     // Get the current node and its details
-    var img_source = '../static/img/misc/download.png'
+    var img_source = '../static/img/swag/ticket.png'
     var date = current_node.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerText;
     var merch_price = current_node.parentElement.previousElementSibling.firstElementChild.innerText;
     var merch_item = `Ticket - ${date}`;
@@ -737,7 +737,7 @@ window.addEventListener('load', function cartItems() {
 
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.ticket_node_history)[i]);
-            var img_source = '../static/img/misc/download.png'
+            var img_source = '../static/img/swag/ticket.png'
             var date = current_node.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerText;
             var merch_price = current_node.parentElement.previousElementSibling.firstElementChild.innerText;
             var merch_item = `Ticket - ${date}`;
