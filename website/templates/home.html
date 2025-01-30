@@ -5,13 +5,15 @@
   {% endblock %}
   {% block content %}
   <header class="h-screen w-full flex flex-1 flex-col justify-between bg-skatepark bg-cover bg-center backdrop-brightness-[75%]">
-    <section class="flex flex-col items-center">
-    </section>
-    <section class="flex flex-row items-start justify-center gap-2 mb-12">
-      <a href="/swag" class="px-3.5 py-2 bg-purple-500">
+    <div class="flex flex-col items-center"></div>
+    <section class="flex flex-row items-start justify-center gap-2 flex-wrap mb-12">
+      <a href="/swag" class="px-3.5 py-2 bg-purple-500 rounded-lg shadow-2xl">
         <button class="text-2xl uppercase" style='font-family: "Lacquer";'>Buy the new vinyls</button>
       </a>
-      <a href="" class="px-3.5 py-2 bg-purple-500">
+      <a href="#anchor-latest-album" class="hidden xl:block px-3.5 py-2 bg-purple-500 rounded-lg shadow-2xl">
+        <button class="text-2xl uppercase" style='font-family: "Lacquer";'>Listen to the new album</button>
+      </a>
+      <a href="#anchor-mobile-latest-album" class="block xl:hidden px-3.5 py-2 bg-purple-500 rounded-lg shadow-2xl">
         <button class="text-2xl uppercase" style='font-family: "Lacquer";'>Listen to the new album</button>
       </a>
     </section>
@@ -19,7 +21,7 @@
   <main class="w-full">
     <!-- Tours -->
     <section class="min-h-screen w-full flex flex-col justify-center items-center">
-      <h1 class="text-7xl my-7 font-semibold font-lacquer uppercase">Upcoming Tours</h1>
+      <h1 class="text-7xl text-center my-7 font-semibold font-lacquer uppercase">Upcoming Tours</h1>
       <table class="w-[80%] text-white text-center table-fixed rounded-2xl"
         style="-webkit-mask-image: linear-gradient(black, transparent); mask-image: linear-gradient(black, transparent);">
         <tr class="border-gray-700 border-y-[1px]">
@@ -98,9 +100,7 @@
           <td><button id="alexandria" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
         </tr>
       </table>
-      <a href="/tours">
-        <p class="my-2 text-purple-500">View More Tour Dates</p>
-      </a>
+      <a href="/tours"><button class="my-5 py-2 px-4 text-lg font-medium border-purple-500 border-2 rounded-lg">View More Tours</button></a>
     </section>
 
       <!---------- Merch ---------->
@@ -216,7 +216,7 @@
 
       <!---------- Latest Album ---------->
       <!-- Computer (XL+) -->
-      <section class="h-screen w-full hidden xl:flex flex-row bg-gray-700 font-lacquer" style="clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);">
+      <section id="anchor-latest-album" class="h-screen w-full hidden xl:flex flex-row bg-gray-700 font-lacquer" style="clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);">
         <div class="h-full w-[50%] my-12 flex justify-center items-center">
           <table class="w-[65%] font-marker text-[2em] tracking-widest">
             <tr>
@@ -270,7 +270,7 @@
       </section>
 
       <!-- Mobile (-XL) -->
-      <section class="w-full p-20 xl:hidden flex flex-col md:flex-row justify-center items-center bg-gray-700">
+      <section id="anchor-mobile-latest-album" class="w-full p-20 xl:hidden flex flex-col md:flex-row justify-center items-center bg-gray-700">
         <img src="../static/img/albums/ftc.webp" class="w-64 mx-8 mb-8 md:mb-0 rounded-lg" alt="">
         <div class="space-y-4 text-center md:text-left">
           <h1 class="text-4xl font-lacquer">Failure to Cope</h1>
@@ -281,9 +281,10 @@
       </div>
     </section>
 
-      <!---------- Contact ---------->
-      <section>
-        
+      <!---------- Newseltter ---------->
+      <section class="min-h-[30vh] w-full flex flex-col justify-center items-center">
+        <h1 class="text-5xl text-center font-lacquer font-semibold">Want the latest Stage Fright news and updates?</h1>
+        <a href="/signup"><button class="my-5 py-2 px-4 text-3xl font-medium border-purple-500 border-2 rounded-lg">Join The Newsletter</button></a>
       </section>
     </main>
 {% endblock %}

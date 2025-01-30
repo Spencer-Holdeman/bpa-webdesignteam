@@ -25,7 +25,7 @@
       <div class="flex justify-between items-center">
         <h1 class="text-3xl font-semibold">Shopping Cart</h1>
         <a href="/home">
-          <div class="h-[50px] w-[50px] hidden md:flex flex-row justify-center items-center text-2xl text-white border-white border-2 rounded-full cursor-pointer">
+          <div class="h-[50px] w-[50px] flex flex-row justify-center items-center text-2xl text-white border-white border-2 rounded-full cursor-pointer">
             <i class="fa-solid fa-xmark"></i>
           </div>
         </a>
@@ -42,11 +42,11 @@
 
   <!---------- Checkout ---------->
   <!-- User Information -->
-  <section class="min-h-screen w-full flex ">
+  <section class="min-h-screen w-full flex hidden">
     <div id="checkoutInfo" class="min-h-full flex justify-center lg:justify-end bg-dark-raw transition-all duration-500 ease-in-out" style="width: 0%;">
       <div class="w-[98%] md:w-[80%] lg:w-[500px] p-7 transition-all duration-500 hidden" style="opacity: 0;">
         <div class="block lg:hidden p-5">
-          <button onclick="openMobileCart()" class="w-full py-3 px-3 my-3 text-lg font-semibold bg-purple-500 rounded-lg">View Cart</button>
+          <button onclick="openMobileCart()" class="w-full py-3 px-3 my-3 text-lg font-semibold bg-purple-500 rounded-lg">View Summary</button>
         </div>
         <div class="p-5 text-lg rounded-xl">
           <h1 class="text-xl font-semibold"><i class="fa-solid fa-user pr-4"></i>Account</h1>
@@ -72,15 +72,15 @@
         </div>
         <div class="p-5 text-lg rounded-xl">
           <h1 class="text-xl font-semibold"><i class="fa-solid fa-credit-card pr-4"></i>Payment Method</h1>
-          <input type="text" name="payment-name" id="payment-name" placeholder="Name on card" class="w-full py-1 px-3 my-5 bg-gray-800 rounded-lg">
-          <input type="text" name="payment-name" id="payment-name" placeholder="Card number" maxlength="19" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
+          <input type="text" name="payment-fname" id="payment-fname" placeholder="Name on card" class="w-full py-1 px-3 my-5 bg-gray-800 rounded-lg">
+          <input type="text" name="payment-lname" id="payment-lname" placeholder="Card number" maxlength="19" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
           <div class="flex flex-row text-lg">
-            <input type="text" name="payment-expire" id="payment-expire" placeholder="Expiration date" maxlength="4" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
+            <input type="text" name="payment-expire" id="payment-expire" placeholder="Expiration date" maxlength="5" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
             <input type="text" name="payment-cvc" id="payment-cvc" placeholder="Security code" maxlength="4" class="w-[50%] py-1 px-3 bg-gray-800 rounded-lg">
           </div>
         </div>
         <div id="billing" class="p-5 text-lg rounded-xl">
-          <h1 class="text-xl font-semibold"><i class="fa-solid fa-money-bill-wave pr-4"></i>Billing Address</h1>
+          <h1 class="text-xl font-semibold"><i class="fa-solid fa-money-check-dollar pr-4"></i>Billing Address</h1>
           <button onclick="shipToBill()" class="w-full py-1 px-3 my-5 font-semibold bg-purple-500 rounded-lg text-white">Make Same as Shipping</button>
           <div class="flex flex-row mb-5 text-lg">
             <input type="text" name="billing-fname" id="billing-fname" placeholder="First name" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
@@ -96,7 +96,7 @@
           <input type="text" name="billing-zip" id="billing-zip" placeholder="Zip code" maxlength="5" class="w-full py-1 px-3 bg-gray-800 rounded-lg">
         </div>
         <div class="p-5 flex flex-row justify-between items-center">
-          <p onclick="location.reload()" class="text-lg text-purple-500 cursor-pointer">< Return to home</p>
+          <p onclick="location.reload()" class="text-purple-500 cursor-pointer">< Return to cart</p>
           <form action="/home" method="POST">
           <button onclick="removeCartItems()" class="w-auto py-3 px-3 my-3 text-lg font-semibold bg-purple-500 rounded-lg">Complete Payment</button>
           </form>
@@ -124,7 +124,7 @@
             <p id="total-price-cart">$0.00</p>
           </div>
           <div class="flex justify-between">
-            <h1>Tax</h1>
+            <h1>Tax:</h1>
             <p id="tax">$0.00</p>
           </div>
           <div class="flex justify-between">

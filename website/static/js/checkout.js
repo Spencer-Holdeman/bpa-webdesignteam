@@ -105,9 +105,11 @@ function constCart() {
 // Landon
 function moveOn() {
     const body = document.getElementsByTagName('body')[0];
+    const checkout = document.getElementById('checkoutInfo').parentElement;
     const fullCart = document.getElementById('fullCart');
     const info = document.getElementById('checkoutInfo');
     const summary = document.getElementById('checkoutSummary');
+    checkout.classList.remove('hidden')
     body.classList.remove('overflow-y-hidden')
     fullCart.style.animation = "slideUpCheckout 500ms forwards ease-in-out";
     setTimeout(() => {
