@@ -28,12 +28,14 @@ ticket_node_history = {}
 current_node_history = {}
 first_cart_item = -1
 num_cart_items = sum(current_node_history.values()) + sum(ticket_node_history.values())
+checked_out = False
 @base.route('/get_vars', methods=['GET'])
 def get_vars():
     global ticket_node_history
     global current_node_history
     global first_cart_item
     global num_cart_items
+    global checked_out
 
     data = {
         'ticket_node_history': ticket_node_history,
@@ -65,8 +67,6 @@ def Home():
     if 'logged_in?' in session:
         if session['logged_in?'] == True:
             print('home (logged in)')
-            name = session['name']
-            flash(f'Hello {name}, you have logged in!', 'success')
             return render_template('index.html')
         else:
             print('Home (session[logged_in?] is false)')
@@ -126,11 +126,19 @@ def Swag():
 
 @base.route('/checkout', methods=['POST', 'GET'])
 def Checkout():
-    
-    return render_template('checkout.html')
+    if request.method == 'POST':
+        if 'logged_in?' not in session:
+            flash('Please log in to purchase items')
+            return redirect(url_for('base.SignUp'))
+        else:
+            flash('Purchase Complete! Thanks for shopping!')
+            return redirect(url_for('base.Home'))
+    else:
+        return render_template('checkout.html')
 
 @base.route('/login', methods=['POST', 'GET'])
 def Login():
+
     if request.method == 'POST':
         print('login: inside if')
         email = request.form.get('email-login', False)
@@ -149,12 +157,14 @@ def Login():
                 session['password'] = password
                 session['name'] = user.name
                 session['logged_in?'] = True
+                name = session['name']
+                flash(f'Hello {name}, you have logged in! If you have made any purchases, they have been saved and will shipped out shortly! If not, consider checking out our merch page!')
                 return redirect(url_for('base.Home'))
             else:
-                flash('not logged in cuz you mix matched emails and passwords')
+                flash('your email or password is incorrect')
                 return render_template('login.html')
         else:
-            flash('not logged in cuz your email or password doesnt exist')
+            flash('your email or password is incorrect')
             return render_template('login.html')
     else:
         print('login: outside if')
@@ -179,7 +189,7 @@ def SignUp():
         new_user = User(name=name, email=email, password=password, newsletter=newsletter)
         
         if new_user.newsletter == True:
-             # Render MJML template and convert to HTML
+            # Render MJML template and convert to HTML
             mjml_content = render_template('mjml/signup.mjml', name=name)
             html_content = mjml.mjml2html(mjml_content)  # Convert MJML to HTML
 
