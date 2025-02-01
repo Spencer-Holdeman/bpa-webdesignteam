@@ -129,7 +129,7 @@ def Checkout():
     if request.method == 'POST':
         if 'logged_in?' not in session:
             flash('Please log in to purchase items')
-            return redirect(url_for('base.SignUp'))
+            return redirect(url_for('base.Login'))
         else:
             flash('Purchase Complete! Thanks for shopping!')
             return redirect(url_for('base.Home'))

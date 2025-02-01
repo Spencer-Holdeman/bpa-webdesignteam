@@ -44,12 +44,12 @@ function constCart() {
             div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
             button_div.setAttribute('class', 'cart-item-buttons');
             button_div.setAttribute('style', 'display: flex; align-items: center;');
-            item_count.setAttribute('class', 'cart-item-count');
+            item_count.setAttribute('class', 'cart-item-count font-normal');
             item_count.setAttribute('id', node_id);
-            item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
+            item_image.setAttribute('class', 'h-20 w-20 mr-2 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
 
-            item_count.innerText = `item count: ${data.current_node_history[node_id]}`;
+            item_count.innerText = `Count: ${data.current_node_history[node_id]}`;
             // remove_item_button.innerText = 'Remove';
 
             // Append the new elements to the cart item div
@@ -81,12 +81,12 @@ function constCart() {
             div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
             button_div.setAttribute('class', 'cart-item-buttons');
             button_div.setAttribute('style', 'display: flex; align-items: center;');
-            item_count.setAttribute('class', 'cart-item-count');
+            item_count.setAttribute('class', 'cart-item-count font-normal');
             item_count.setAttribute('id', node_id);
-            item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
+            item_image.setAttribute('class', 'h-20 w-20 mr-2 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
 
-            item_count.innerText = `Item count: ${data.ticket_node_history[node_id]}`;
+            item_count.innerText = `Count: ${data.ticket_node_history[node_id]}`;
 
             // Append the new elements to the cart item div
             button_div.appendChild(item_count);

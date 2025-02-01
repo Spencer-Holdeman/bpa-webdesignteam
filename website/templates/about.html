@@ -1,6 +1,6 @@
 {% extends 'template.html' %}
 {% block title %}
-    About the Band | Stage Fright
+  About the Band | Stage Fright
 {% endblock %}
 {% block body %}
   <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
@@ -11,102 +11,101 @@
   <script defer src="../static/js/about.js"></script>
 {% endblock %}
 {% block content %}
-    <section id="member-menu" class="hidden h-screen w-full flex justify-center items-center fixed top-0 left-0">
-      <div onclick="closeAboutMember()" class="h-screen w-full fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] z-[69]"></div>
-      <div class="p-5 lg:p-20 lg:pt-10 bg-gray-700 rounded-lg z-[70]">
-        <div class="w-full flex justify-end">
-          <div onclick="closeAboutMember()" class="h-[50px] w-[50px] top-0 right-0 flex flex-row justify-center items-center text-2xl text-white border-white border-2 rounded-full cursor-pointer">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-center items-center">
-          <div class="w-36 lg:w-72">
-            <img id="member-menu-pic" src="../static/img/member/landon.webp" alt="" class="w-full rounded-lg">
-          </div>
-          <div class="lg:h-96 w-96 px-5 lg:px-10 flex flex-col justify-between">
-            <div id="member-menu-info">
-              <h1 class="pt-2 text-3xl font-bold">Stage Fright</h1>
-              <p class="text-lg">Rock Band</p>
-              <hr class="my-2">
-              <p class="text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore enim accusamus error iusto dolores est at tempora dolorum facilis amet modi optio minus a fugiat, eligendi suscipit aliquam magni vel?</p>
-            </div>
-          </div>
-        </div>
+  <section id="member-menu" class="hidden h-screen w-full flex justify-center items-center fixed top-0 left-0" aria-label="Member Menu">
+    <div onclick="closeAboutMember()" class="h-screen w-full fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] z-[70]" aria-label="Close Member Menu"></div>
+    <div class="p-5 lg:p-20 lg:pt-10 bg-gray-700 rounded-lg z-[71]">
+    <div class="w-full flex justify-end">
+      <div onclick="closeAboutMember()" class="h-[50px] w-[50px] top-0 right-0 flex flex-row justify-center items-center text-2xl text-white border-white border-2 rounded-full cursor-pointer" aria-label="Close Button">
+      <i class="fa-solid fa-xmark"></i>
       </div>
-    </section>
-    <main class="w-full">
-      <div class="min-h-screen flex flex-col justify-center items-center">
-        <p class="hidden md:block py-8 mt-24 text-lg font-lacquer font-semibold">━━━━ Click on a member to view more info about them! ━━━━</h1>
-        <p class="md:hidden block py-8 mt-24 text-lg text-center font-lacquer font-semibold">Click on a member to view<br>more info about them!</h1>
-        <div class="flex flex-row flex-wrap justify-center mb-16 text-center">
-          <div onclick="openAboutMember(this)" data-id="0" data-picture="../static/img/member/landon.webp" class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl cursor-pointer">
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);" alt="Landon Warren, Electric Guitarist"></div>
-            <h1 class="text-xl font-bold">Landon Warren</h1>
-            <p class="pb-6">Electric Guitarist</p>
-          </div>
-          <div onclick="openAboutMember(this)" data-id="1" data-picture="../static/img/member/spencer.webp" class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl cursor-pointer">
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.webp);" alt="Spencer Holdeman, Drummer"></div>
-            <h1 class="text-xl font-bold">Spencer Holdeman</h1>
-            <p class="pb-6">Drummer</p>
-          </div>
-          <div onclick="openAboutMember(this)" data-id="2" data-picture="../static/img/member/connor.webp" class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl cursor-pointer">
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.webp);" alt="Connor Crossley, Bassist"></div>
-            <h1 class="text-xl font-bold">Connor Crossley</h1>
-            <p class="pb-6">Bassist</p>
-          </div>
-          <div onclick="openAboutMember(this)" data-id="3" data-picture="../static/img/member/david.webp" class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl cursor-pointer">
-            <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.webp);" alt="David Casswell, Vocalist"></div>
-            <h1 class="text-xl font-bold">David Casswell</h1>
-            <p class="pb-6">Vocalist</p>
-          </div>
-        </div>
+    </div>
+    <div class="flex flex-col lg:flex-row justify-center items-center">
+      <div class="w-36 lg:w-72">
+      <img id="member-menu-pic" src="../static/img/member/landon.webp" alt="Member Picture" class="w-full rounded-lg">
       </div>
-    <div class="min-h-screen w-full flex flex-col justify-center items-center">
-      <div class="flex flex-row flex-wrap justify-center items-center">
-        <img src="../static/img/member/group2.JPG" data-aos="fade-right" data-aos-once="true"
-          alt="Group photo of the band" class="w-[80%] md:w-[600px] float-left rounded-2xl">
-        <div data-aos="fade-left" data-aos-once="true"
-          class="w-[80%] md:w-auto flex flex-col justify-center px-0 md:px-10 py-5">
-          <h1 class="text-3xl sm:text-5xl font-bold pb-4">How it started.</h1>
-          <p class="w-full md:w-[500px] text-lg">
-            Four teenage friends spent their afternoons at the local skate park, bonding over skateboarding and music.
-            They all shared a love for rock and punk music and would often play together during breaks from skating.
-            Over time, they realized they had a strong connection and began talking about starting a band.
-          </p>
-          <br>
-          <p class="w-full md:w-[500px] text-lg">
-            They decided to name their band Stage Fright, inspired by their shared fear of performing in front of
-            others. Each of them had their own role in the band: Landon played guitar, Spencer was on drums, Connor
-            handled the bass, and David was the lead singer. They started practicing regularly, writing songs about
-            their lives and experiences. What started as a fun hobby quickly became a serious project, and soon they
-            were preparing for their first live show at a local venue.
-          </p>
-        </div>
+      <div class="lg:h-96 w-96 px-5 lg:px-10 flex flex-col justify-between">
+      <div id="member-menu-info">
+        <h1 class="pt-2 text-3xl font-bold">Stage Fright</h1>
+        <p class="text-lg">Rock Band</p>
+        <hr class="my-2">
+        <p class="text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore enim accusamus error iusto dolores est at tempora dolorum facilis amet modi optio minus a fugiat, eligendi suscipit aliquam magni vel?</p>
       </div>
-      <div class="min-h-screen mb-20 flex flex-col justify-center items-center">
-        <h1 data-aos="fade-up" data-aos-once="true" class="w-[80%] md:w-auto text-3xl sm:text-5xl font-bold mb-4 md:mb-12">What we sound like.</h1>
-        <div class="hidden md:flex flex-row">
-          <div data-aos="fade-up" data-aos-once="true" class="flex flex-col p-4 mx-5 bg-gray-800 rounded-2xl">
-            <img src="../static/img/albums/autumn.webp" alt="Album cover for 'Regret'" class="w-56 rounded-2xl">
-            <p class="pt-4 text-xl text-center font-medium">
-              The Fall of Autumn
-            </p>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true" class="flex flex-col p-4 mx-5 bg-gray-800 rounded-2xl">
-            <img src="../static/img/albums/ftc.webp" alt="Album cover for 'Regret'" class="w-56 rounded-2xl">
-            <p class="pt-4 text-xl text-center font-medium">
-              Failure to Cope
-            </p>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="600" data-aos-once="true" class="flex flex-col p-4 mx-5 bg-gray-800 rounded-2xl">
-            <img src="../static/img/albums/vexed.webp" alt="Album cover for 'Regret'" class="w-56 rounded-2xl">
-            <p class="pt-4 text-xl text-center font-medium">
-              Vexed
-            </p>
-          </div>
-        </div>
-        <p data-aos="fade-up" data-aos-delay="400" data-aos-once="true" class="w-[80%] xl:w-[60em] md:mt-12 text-lg">
-          Our three albums take you through a range of emotions, each from a different perspective, leaving you shocked and amazed. The Fall of Autumn leans more towards melodic rock, offering a smoother sound compared to our more aggressive work. That’s where Vexed comes in—this album is for those craving intensity and the extreme. If you’re looking for that next level, Vexed will make you want to jump up and down while screaming along. Meanwhile, our most recent album, Failure to Cope, is calmer and more relaxed than the other two. However, this album will still take you on an emotional rollercoaster, challenging your emotions in a way that only music can.
-        </div>
-    </main>
+      </div>
+    </div>
+    </div>
+  </section>
+  <main class="w-full">
+    <div class="min-h-screen flex flex-col justify-center items-center">
+    <p class="hidden md:block py-8 mt-24 text-lg font-lacquer font-semibold" aria-label="Click on a member to view more info about them!">━━━━ Click on a member to view more info about them! ━━━━</p>
+    <p class="md:hidden block py-8 mt-24 text-lg text-center font-lacquer font-semibold" aria-label="Click on a member to view more info about them!">Click on a member to view<br>more info about them!</p>
+    <div class="flex flex-row flex-wrap justify-center mb-16 text-center">
+      <div onclick="openAboutMember(this)" data-id="0" data-picture="../static/img/member/landon.webp" class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl cursor-pointer" aria-label="Landon Warren, Electric Guitarist">
+      <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);" alt="Landon Warren, Electric Guitarist"></div>
+      <h1 class="text-xl font-bold">Landon Warren</h1>
+      <p class="pb-6">Electric Guitarist</p>
+      </div>
+      <div onclick="openAboutMember(this)" data-id="1" data-picture="../static/img/member/spencer.webp" class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl cursor-pointer" aria-label="Spencer Holdeman, Drummer">
+      <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.webp);" alt="Spencer Holdeman, Drummer"></div>
+      <h1 class="text-xl font-bold">Spencer Holdeman</h1>
+      <p class="pb-6">Drummer</p>
+      </div>
+      <div onclick="openAboutMember(this)" data-id="2" data-picture="../static/img/member/connor.webp" class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl cursor-pointer" aria-label="Connor Crossley, Bassist">
+      <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.webp);" alt="Connor Crossley, Bassist"></div>
+      <h1 class="text-xl font-bold">Connor Crossley</h1>
+      <p class="pb-6">Bassist</p>
+      </div>
+      <div onclick="openAboutMember(this)" data-id="3" data-picture="../static/img/member/david.webp" class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl cursor-pointer" aria-label="David Casswell, Vocalist">
+      <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.webp);" alt="David Casswell, Vocalist"></div>
+      <h1 class="text-xl font-bold">David Casswell</h1>
+      <p class="pb-6">Vocalist</p>
+      </div>
+    </div>
+    </div>
+  <div class="min-h-screen w-full mt-40 lg:mt-0 flex flex-col justify-center items-center">
+    <div class="flex flex-row flex-wrap justify-center items-center">
+    <img src="../static/img/member/group2.JPG" data-aos="fade-right" data-aos-once="true" alt="Group photo of the band" class="w-[80%] md:w-[600px] float-left rounded-2xl" aria-label="Group photo of the band">
+    <div data-aos="fade-left" data-aos-once="true" class="w-[80%] md:w-auto flex flex-col justify-center px-0 md:px-10 py-5">
+      <h1 class="text-3xl sm:text-5xl font-bold pb-4">How it started.</h1>
+      <p class="w-full md:w-[500px] text-lg">
+      Four teenage friends spent their afternoons at the local skate park, bonding over skateboarding and music.
+      They all shared a love for rock and punk music and would often play together during breaks from skating.
+      Over time, they realized they had a strong connection and began talking about starting a band.
+      </p>
+      <br>
+      <p class="w-full md:w-[500px] text-lg">
+      They decided to name their band Stage Fright, inspired by their shared fear of performing in front of
+      others. Each of them had their own role in the band: Landon played guitar, Spencer was on drums, Connor
+      handled the bass, and David was the lead singer. They started practicing regularly, writing songs about
+      their lives and experiences. What started as a fun hobby quickly became a serious project, and soon they
+      were preparing for their first live show at a local venue.
+      </p>
+    </div>
+    </div>
+    <div class="min-h-screen mt-40 lg:mt-0 mb-20 flex flex-col justify-center items-center">
+    <h1 data-aos="fade-up" data-aos-once="true" class="w-[80%] md:w-auto text-3xl sm:text-5xl font-bold mb-4 md:mb-12">What we sound like.</h1>
+    <div class="hidden md:flex flex-row">
+      <div data-aos="fade-up" data-aos-once="true" class="flex flex-col p-4 mx-5 bg-gray-800 rounded-2xl" aria-label="Album cover for 'The Fall of Autumn'">
+      <img src="../static/img/albums/autumn.webp" alt="Album cover for 'The Fall of Autumn'" class="w-56 rounded-2xl">
+      <p class="pt-4 text-xl text-center font-medium">
+        The Fall of Autumn
+      </p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true" class="flex flex-col p-4 mx-5 bg-gray-800 rounded-2xl" aria-label="Album cover for 'Failure to Cope'">
+      <img src="../static/img/albums/ftc.webp" alt="Album cover for 'Failure to Cope'" class="w-56 rounded-2xl">
+      <p class="pt-4 text-xl text-center font-medium">
+        Failure to Cope
+      </p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="600" data-aos-once="true" class="flex flex-col p-4 mx-5 bg-gray-800 rounded-2xl" aria-label="Album cover for 'Vexed'">
+      <img src="../static/img/albums/vexed.webp" alt="Album cover for 'Vexed'" class="w-56 rounded-2xl">
+      <p class="pt-4 text-xl text-center font-medium">
+        Vexed
+      </p>
+      </div>
+    </div>
+    <p data-aos="fade-up" data-aos-delay="400" data-aos-once="true" class="w-[80%] xl:w-[60em] md:mt-12 text-lg">
+      Our three albums take you through a range of emotions, each from a different perspective, leaving you shocked and amazed. The Fall of Autumn leans more towards melodic rock, offering a smoother sound compared to our more aggressive work. That’s where Vexed comes in—this album is for those craving intensity and the extreme. If you’re looking for that next level, Vexed will make you want to jump up and down while screaming along. Meanwhile, our most recent album, Failure to Cope, is calmer and more relaxed than the other two. However, this album will still take you on an emotional rollercoaster, challenging your emotions in a way that only music can.
+    </p>
+    </div>
+  </main>
 {% endblock %}

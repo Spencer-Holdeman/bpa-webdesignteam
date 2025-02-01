@@ -606,24 +606,24 @@ video {
   z-index: 60;
 }
 
-.z-\[69\] {
-  z-index: 69;
-}
-
 .z-\[70\] {
   z-index: 70;
+}
+
+.z-\[71\] {
+  z-index: 71;
 }
 
 .float-left {
   float: left;
 }
 
-.m-6 {
-  margin: 1.5rem;
-}
-
 .m-2 {
   margin: 0.5rem;
+}
+
+.m-6 {
+  margin: 1.5rem;
 }
 
 .mx-2 {
@@ -701,6 +701,10 @@ video {
   margin-bottom: 1.75rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -727,6 +731,10 @@ video {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mb-40 {
+  margin-bottom: 10rem;
 }
 
 .mb-5 {
@@ -779,10 +787,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mb-40 {
-  margin-bottom: 10rem;
 }
 
 .block {
@@ -841,8 +845,16 @@ video {
   height: 2px;
 }
 
+.h-\[32px\] {
+  height: 32px;
+}
+
 .h-\[50px\] {
   height: 50px;
+}
+
+.h-\[52px\] {
+  height: 52px;
 }
 
 .h-\[80\%\] {
@@ -867,10 +879,6 @@ video {
 
 .min-h-96 {
   min-height: 24rem;
-}
-
-.min-h-\[110vh\] {
-  min-height: 110vh;
 }
 
 .min-h-\[30vh\] {
@@ -917,20 +925,32 @@ video {
   width: 0%;
 }
 
+.w-\[100\%\] {
+  width: 100%;
+}
+
 .w-\[30\%\] {
   width: 30%;
 }
 
-.w-\[480px\] {
-  width: 480px;
+.w-\[32px\] {
+  width: 32px;
+}
+
+.w-\[40\%\] {
+  width: 40%;
+}
+
+.w-\[40px\] {
+  width: 40px;
+}
+
+.w-\[45\%\] {
+  width: 45%;
 }
 
 .w-\[50\%\] {
   width: 50%;
-}
-
-.w-\[500px\] {
-  width: 500px;
 }
 
 .w-\[50px\] {
@@ -977,18 +997,6 @@ video {
   width: 100%;
 }
 
-.w-\[45\%\] {
-  width: 45%;
-}
-
-.w-\[100\%\] {
-  width: 100%;
-}
-
-.w-\[40\%\] {
-  width: 40%;
-}
-
 .min-w-80 {
   min-width: 20rem;
 }
@@ -1021,16 +1029,8 @@ video {
   align-items: flex-start;
 }
 
-.items-end {
-  align-items: flex-end;
-}
-
 .items-center {
   align-items: center;
-}
-
-.justify-start {
-  justify-content: flex-start;
 }
 
 .justify-end {
@@ -1085,10 +1085,6 @@ video {
 
 .scroll-smooth {
   scroll-behavior: smooth;
-}
-
-.text-wrap {
-  text-wrap: wrap;
 }
 
 .break-words {
@@ -1365,6 +1361,10 @@ video {
   padding-bottom: 1.5rem;
 }
 
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
 .pr-2 {
   padding-right: 0.5rem;
 }
@@ -1381,10 +1381,6 @@ video {
   padding-top: 1rem;
 }
 
-.pb-8 {
-  padding-bottom: 2rem;
-}
-
 .pt-8 {
   padding-top: 2rem;
 }
@@ -1399,10 +1395,6 @@ video {
 
 .text-right {
   text-align: right;
-}
-
-.text-justify {
-  text-align: justify;
 }
 
 .font-lacquer {
@@ -1470,17 +1462,16 @@ video {
   line-height: 1.75rem;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
 .font-bold {
   font-weight: 700;
 }
 
 .font-medium {
   font-weight: 500;
+}
+
+.font-normal {
+  font-weight: 400;
 }
 
 .font-semibold {
@@ -1632,6 +1623,8 @@ video {
 }
 
 .marquee-content {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
   flex-shrink: 0;
   display: flex;
   justify-content: space-around;
@@ -1650,58 +1643,22 @@ video {
 }
 
 .marquee-text-scroll {
-  animation: marquee-scroll 15s linear infinite
+  animation: marquee-scroll 15s linear infinite;
 }
 
 .marquee-item-scroll {
-  animation: marquee-scroll 25s linear infinite
+  animation: marquee-scroll 25s linear infinite;
 }
 
-.marquee-scroll:hover {
-  animation-play-state: paused;
-}
+@media (prefers-reduced-motion) {
+  .marquee-text-scroll {
+    animation: marquee-scroll 60s linear infinite;
+  }
 
-/* .marquee {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-transform: uppercase;
+  .marquee-item-scroll {
+    animation: marquee-scroll 95s linear infinite;
+  }
 }
-.marquee span.one {
-    display: inline-block;
-    animation: marquee-l 10s linear infinite;
-}
-.marquee span.two {
-    transform: translateY(-100%);
-    display: inline-block;
-    animation: marquee-r 10s linear infinite;
-} */
-
-/* @keyframes marquee-l {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(-100%, 0, 0);
-    }
-}
-@keyframes marquee-r {
-    0% {
-      transform: translate3d(-100%, 0, 0);
-    }
-    100% {
-      transform: translate3d(0, 0, 0);
-    }
-}
-@keyframes member {
-    0% {
-        transform: translate3d(0, 0, 0);
-        transform: rotateZ('0')
-    }
-    100% {
-        transform: rotateZ('360')
-    }
-} */
 
 /* ----Animated Backgrounds---- */
 
@@ -1830,6 +1787,20 @@ video {
   outline-color: #a855f7;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .motion-reduce\:block {
+    display: block;
+  }
+
+  .motion-reduce\:hidden {
+    display: none;
+  }
+
+  .motion-reduce\:duration-\[3\.3s\] {
+    transition-duration: 3.3s;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:m-0 {
     margin: 0px;
@@ -1864,11 +1835,6 @@ video {
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .sm\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 }
 
@@ -1922,20 +1888,8 @@ video {
     width: auto;
   }
 
-  .md\:w-\[480px\] {
-    width: 480px;
-  }
-
-  .md\:w-\[30\%\] {
-    width: 30%;
-  }
-
   .md\:flex-row {
     flex-direction: row;
-  }
-
-  .md\:justify-between {
-    justify-content: space-between;
   }
 
   .md\:rounded-xl {
@@ -1970,9 +1924,9 @@ video {
     text-align: left;
   }
 
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 
   .md\:text-7xl {
@@ -1980,40 +1934,24 @@ video {
     line-height: 1;
   }
 
-  .md\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  .md\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
-  }
-
-  .md\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
-  .md\:text-6xl {
-    font-size: 3.75rem;
-    line-height: 1;
-  }
-
-  .md\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
   .md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
 @media (min-width: 1024px) {
   .lg\:static {
     position: static;
+  }
+
+  .lg\:mt-0 {
+    margin-top: 0px;
   }
 
   .lg\:block {
@@ -2046,10 +1984,6 @@ video {
 
   .lg\:w-\[755px\] {
     width: 755px;
-  }
-
-  .lg\:w-\[480px\] {
-    width: 480px;
   }
 
   .lg\:w-\[80\%\] {
@@ -2091,21 +2025,6 @@ video {
 
   .lg\:pt-10 {
     padding-top: 2.5rem;
-  }
-
-  .lg\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
-  .lg\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
-  }
-
-  .lg\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
   }
 }
 
