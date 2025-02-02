@@ -5,7 +5,19 @@
 {% block body %}
   <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
 {% endblock %}
-{% block header_title %}
+{% block header_title %}{% endblock %}
+{% block meta_tags %}
+<meta name="description" content="Contact Stage Fright for inquiries, support, and more. Get in touch with us through our contact form." />
+<meta name="keywords" content="Stage Fright, contact, support, inquiries, booking, customer service" />
+<meta name="author" content="Stage Fright Band" />
+<meta property="og:title" content="Contact Stage Fright" />
+<meta property="og:description" content="Get in touch with Stage Fright for inquiries, support, and more. Use our contact form to reach us." />
+<meta property="og:image" content="../static/img/logo/icon.png" />
+<meta property="og:url" content="https://stagefright.pythonanywhere.com/contact" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact Stage Fright" />
+<meta name="twitter:description" content="Get in touch with Stage Fright for inquiries, support, and more. Use our contact form to reach us." />
+<meta name="twitter:image" content="../static/img/logo/icon.png" />
 {% endblock %}
 {% block content %}
   <main class="w-full mb-20 flex flex-col items-center">
@@ -37,7 +49,7 @@
       </select>
       <label for="contact-message" class="block font-semibold mb-2">Message</label>
       <textarea required name="contact-message" id="contact-message" class="min-h-10 h-40 w-full p-2 mb-4 bg-gray-800 rounded-lg outline-none focus:outline-purple-500" aria-label="Message"></textarea>
-      <button type="submit" class="w-full py-2 font-semibold bg-purple-500 rounded-lg" aria-label="Submit Message">Submit Message</button>
+      <button type="submit" class="w-full py-2 font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg" aria-label="Submit Message">Submit Message</button>
       </form>
       <div class="w-[90%] lg:w-[80%] xl:w-[30%]">
       <div class="w-full p-4 bg-gray-800 rounded-lg" aria-label="Contact Information">
@@ -47,11 +59,11 @@
         </div>
         <div class="mb-4">
         <h1 class="text-purple-500 font-semibold"><i class="fa-solid fa-envelope pr-2"></i>Booking Email</h1>
-        <p class="text-xl text-white break-words">booking.stagefrightbandokc@gmail.com</p>
+        <p class="text-xl text-white break-words">booking.stagefrightband@gmail.com</p>
         </div>
         <div class="mb-4">
         <h1 class="text-purple-500 font-semibold"><i class="fa-solid fa-envelope pr-2"></i>Customer Support Email</h1>
-        <p class="text-xl text-white break-words">support.stagefrightbandokc@gmail.com</p>
+        <p class="text-xl text-white break-words">support.stagefrightband@gmail.com</p>
         </div>
         <div class="mb-4">
         <h1 class="text-purple-500 font-semibold"><i class="fa-solid fa-phone pr-2"></i>Phone Number</h1>

@@ -3,6 +3,20 @@
     Sign Up | Stage Fright
 {% endblock %}
 
+{% block meta_tags %}
+    <meta name="description" content="Sign up for Stage Fright to create a new account and join our community." />
+    <meta name="keywords" content="Stage Fright, sign up, register, music, band" />
+    <meta name="author" content="Stage Fright Band" />
+    <meta property="og:title" content="Sign Up for Stage Fright" />
+    <meta property="og:description" content="Sign up for Stage Fright to create a new account and join our community." />
+    <meta property="og:image" content="../static/img/logo/icon.png" />
+    <meta property="og:url" content="https://stagefright.pythonanywhere.com/signup" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sign Up for Stage Fright" />
+    <meta name="twitter:description" content="Sign up for Stage Fright to create a new account and join our community." />
+    <meta name="twitter:image" content="../static/img/logo/icon.png" />
+{% endblock %}
+
 {% block form %}
 <main class="h-screen w-full flex flex-col items-center justify-center">
     <div class="flex flex-row mdh:flex-col items-center justify-center z-10 my-5 mdh:my-0">
@@ -25,6 +39,15 @@
                 <input class="my-4" type="checkbox" name="signup-newsletter" id="signup-newsletter" checked aria-label="Newsletter Signup">
                 <label for="signup-newsletter">I would like to receive emails from the <i>Stage Fright</i> newsletter.</label>
             </span>
+            <p class="w-full my-2 text-red-500 font-medium">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </p>
             <button class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-2 my-2 rounded-xl font-medium" aria-label="Create Account">Create Account</button>
         </form>
     </div>

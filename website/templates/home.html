@@ -1,14 +1,17 @@
 {% extends 'template.html' %}
 {% block body %}
 
+{% block js_scripts %}
+<script defer src="../static/js/navbar.js"></script>
+<script defer src="../static/js/cart.js"></script>
+<script defer src="../static/js/popup.js"></script>
+{% endblock %}
+
 <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
   {% with messages = get_flashed_messages() %}
       {% if messages %}
           {% for message in messages %}
-              <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-                  {{ message }}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
+              {{ message | safe }}
           {% endfor %}
       {% endif %}
   {% endwith %}
@@ -17,13 +20,13 @@
   <header class="h-screen w-full flex flex-1 flex-col justify-between bg-skatepark bg-cover bg-center backdrop-brightness-[75%]">
     <div class="flex flex-col items-center"></div>
     <section class="flex flex-row items-start justify-center gap-2 flex-wrap mb-12">
-      <a href="/swag" class="px-3.5 py-2 bg-purple-500 rounded-lg shadow-2xl">
+      <a href="/swag" class="px-3.5 py-2 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg shadow-2xl">
         <button class="text-2xl uppercase" style='font-family: "Lacquer";'>Buy the new vinyls</button>
       </a>
-      <a href="#anchor-latest-album" class="hidden xl:block px-3.5 py-2 bg-purple-500 rounded-lg shadow-2xl">
+      <a href="#anchor-latest-album" class="hidden xl:block px-3.5 py-2 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg shadow-2xl">
         <button class="text-2xl uppercase" style='font-family: "Lacquer";'>Listen to the new album</button>
       </a>
-      <a href="#anchor-mobile-latest-album" class="block xl:hidden px-3.5 py-2 bg-purple-500 rounded-lg shadow-2xl">
+      <a href="#anchor-mobile-latest-album" class="block xl:hidden px-3.5 py-2 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg shadow-2xl">
         <button class="text-2xl uppercase" style='font-family: "Lacquer";'>Listen to the new album</button>
       </a>
     </section>
@@ -47,7 +50,7 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
+          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-500 hover:bg-purple-700 transition-all duration-200 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
@@ -92,7 +95,7 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
+          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-500 hover:bg-purple-700 transition-all duration-200 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
@@ -107,10 +110,10 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="alexandria" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Add to Cart</button></td>
+          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="text-sm md:text-base bg-purple-500 hover:bg-purple-700 transition-all duration-200 px-3 lg:px-10 py-2 md:py-3 rounded-lg"><div class="block md:hidden "><i class="fa-solid fa-cart-plus"></i></div><p class="hidden md:block">Add to Cart</p></button></td>
         </tr>
       </table>
-      <a href="/tours"><button class="my-5 py-2 px-4 text-lg font-medium border-purple-500 border-2 rounded-lg">View More Tours</button></a>
+      <a href="/tours"><button class="my-5 py-2 px-4 text-lg font-medium border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">View More Tours</button></a>
     </section>
 
       <!---------- Merch ---------->
@@ -134,7 +137,7 @@
                 <h2 class="my-2 text-lg font-bold">Fall of Autumn Vinyl</h2>
                 <h2 class="my-2 text-lg">$19.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-xl">
                 Add to Cart    
               </button>
             </div>
@@ -144,7 +147,7 @@
                 <h2 class="my-2 text-lg font-bold">Failure to Cope Vinyl</h2>
                 <h2 class="my-2 text-lg">$19.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -154,7 +157,7 @@
                 <h2 class="my-2 text-lg font-bold">Vexed Vinyl</h2>
                 <h2 class="my-2 text-lg">$19.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -164,7 +167,7 @@
                 <h2 class="my-2 text-lg font-bold">Skull Cap</h2>
                 <h2 class="my-2 text-lg">$9.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -176,7 +179,7 @@
                 <h2 class="my-2 text-lg font-bold">Stage Fright Hoodie</h2>
                 <h2 class="my-2 text-lg">$24.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -186,7 +189,7 @@
                 <h2 class="my-2 text-lg font-bold">Jacket</h2>
                 <h2 class="my-2 text-lg">$29.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -196,7 +199,7 @@
                 <h2 class="my-2 text-lg font-bold">Socks</h2>
                 <h2 class="my-2 text-lg">$12.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -206,7 +209,7 @@
                 <h2 class="my-2 text-lg font-bold">Skull Water Bottle</h2>
                 <h2 class="my-2 text-lg">$14.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-xl">
                 Add to Cart
               </button>
             </div>
@@ -217,7 +220,7 @@
                 <h2 class="my-2 text-lg font-bold">Airpod Case</h2>
                 <h2 class="my-2 text-lg">$6.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-xl">
                 Add to Cart
               </button>
             </div>
@@ -233,7 +236,7 @@
           <img src="../static/img/swag/vinyl/ftc.webp" alt="" class="w-[45%] m-2 sm:m-0 sm:w-[30%] bg-gray-800 rounded-xl">
           <img src="../static/img/swag/vinyl/vexed.webp" alt="" class="w-[45%] m-2 sm:m-0 sm:w-[30%] bg-gray-800 rounded-xl">
         </div>
-        <a href="/swag"><button class="my-5 py-2 px-4 text-lg font-medium border-purple-500 border-2 rounded-lg">Check Out</button></a>
+        <a href="/swag"><button class="my-5 py-2 px-4 text-lg font-medium border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">Check Out</button></a>
     </section>
 
       <!---------- Latest Album ---------->
@@ -298,7 +301,7 @@
         <div class="space-y-4 text-center md:text-left">
           <h1 class="text-4xl font-lacquer">Failure to Cope</h1>
           <p>Our latest released album. "Failure to Cope" contains 9 tracks that are bound to catch your attention.</p>
-          <button class="bg-purple-500 px-5 md:px-10 py-2 md:py-3 rounded-lg">Listen Now</button>
+          <button class="bg-purple-500 hover:bg-purple-700 transition-all duration-200 px-5 md:px-10 py-2 md:py-3 rounded-lg">Listen Now</button>
         </div>
       </div>
       </div>
@@ -308,8 +311,8 @@
       <section class="min-h-[30vh] w-full flex flex-col justify-center items-center">
         <h1 class="hidden lg:block text-4xl text-center font-lacquer font-semibold">Want the latest Stage Fright news and updates?</h1>
         <h1 class="lg:hidden block text-4xl text-center font-lacquer font-semibold">Join our Newsletter!</h1>
-        <a href="/signup"><button class="hidden lg:block my-5 py-2 px-4 text-2xl font-medium border-purple-500 border-2 rounded-lg">Join The Newsletter</button></a>
-        <a href="/signup"><button class="lg:hidden block my-5 py-2 px-4 text-lg font-medium border-purple-500 border-2 rounded-lg">Sign Up</button></a>
+        <a href="/signup"><button class="hidden lg:block my-5 py-2 px-4 text-2xl font-medium border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">Join The Newsletter</button></a>
+        <a href="/signup"><button class="lg:hidden block my-5 py-2 px-4 text-lg font-medium border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">Sign Up</button></a>
       </section>
     </main>
 {% endblock %}

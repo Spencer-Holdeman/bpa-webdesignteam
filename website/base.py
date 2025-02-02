@@ -128,10 +128,12 @@ def Swag():
 def Checkout():
     if request.method == 'POST':
         if 'logged_in?' not in session:
-            flash('Please log in to purchase items')
+            popup = ('<div id="popup" class="h-full w-full flex justify-center items-center fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] z-[1000]"><div class="w-[620px] p-5 flex flex-col justify-center items-center bg-gray-700 rounded-lg"><i class="fa-solid fa-circle-exclamation py-3 text-6xl font-semibold"></i><h1 class="py-3 text-4xl font-semibold">Sign In Required</h1><p class="py-3 text-gray-300">You must sign into an account to continue checking out your items.</p><div class="w-full py-3 flex flex-row"><button onclick="understand()" class="w-[50%] px-4 py-2 mr-2 bg-purple-500 font-medium rounded-lg">I understand.</button><a href="/signup" class="w-[50%] ml-2"><button class="w-full px-4 py-2 bg-purple-500 font-medium rounded-lg">I don\'t have an account.</button></a></div></div></div>')
+            flash(popup, 'info')
             return redirect(url_for('base.Login'))
         else:
-            flash('Purchase Complete! Thanks for shopping!')
+            popup = ('<div id="popup" class="h-full w-full flex justify-center items-center fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] z-[1000]"><div class="w-[620px] p-5 flex flex-col justify-center items-center bg-gray-700 rounded-lg"><i class="fa-solid fa-truck-fast py-3 text-6xl font-semibold"></i><h1 class="py-3 text-4xl font-semibold">Your order has been sent!</h1><p class="py-3 text-gray-300">We have confirmed your order and it will be shipped soon. Thank you!</p><div class="w-full py-3 flex flex-row"><button onclick="understand()" class="w-full px-4 py-2 mr-2 bg-purple-500 font-medium rounded-lg">I understand.</button></div></div></div>')
+            flash(popup, 'info')
             return redirect(url_for('base.Home'))
     else:
         return render_template('checkout.html')
@@ -158,13 +160,14 @@ def Login():
                 session['name'] = user.name
                 session['logged_in?'] = True
                 name = session['name']
-                flash(f'Hello {name}, you have logged in! If you have made any purchases, they have been saved and will be shipped out shortly! If not, consider checking out our merch page!')
+                popup = (f'<div id="popup" class="h-full w-full flex justify-center items-center fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] z-[1000]"><div class="w-[620px] p-5 flex flex-col justify-center items-center bg-gray-700 rounded-lg"><i class="fa-solid fa-square-check py-3 text-6xl font-semibold"></i><h1 class="py-3 text-4xl font-semibold">Hello {name}!</h1><p class="py-3 text-gray-300 text-center">You have been succesfully logged in.<br>Feel free to to look around for some merch.</p><div class="w-full py-3 flex flex-row"><button onclick="understand()" class="w-full px-4 py-2 mr-2 bg-purple-500 font-medium rounded-lg">Got it!</button></div></div></div>')
+                flash(popup, 'info')
                 return redirect(url_for('base.Home'))
             else:
-                flash('your email or password is incorrect')
+                flash('Incorrect Email or Password, Try again.', 'error')
                 return render_template('login.html')
         else:
-            flash('your email or password is incorrect')
+            flash('Incorrect Email or Password, Try again.', 'error')
             return render_template('login.html')
     else:
         print('login: outside if')
@@ -183,7 +186,7 @@ def SignUp():
         database_emails = [email[0] for email in emails_passwords]
         
         if email in database_emails:
-            flash('email already taken, did you spell it correctly?')
+            flash('Email is Already Taken.')
             return redirect(url_for('base.SignUp'))
         
         new_user = User(name=name, email=email, password=password, newsletter=newsletter)

@@ -5,9 +5,18 @@
 {% block body %}
   <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
 {% endblock %}
-{% block js_scripts %}
-  <script defer src="../static/js/navbar.js"></script>
-  <script defer src="../static/js/cart.js"></script>
+{% block meta_tags %}
+<meta name="description" content="BPA Info - Learn more about the BPA team and their roles." />
+<meta name="keywords" content="BPA, Business Professionals of America, team, roles, members" />
+<meta name="author" content="BPA Team" />
+<meta property="og:title" content="BPA Info" />
+<meta property="og:description" content="Learn more about the BPA team and their roles." />
+<meta property="og:image" content="../static/img/logo/bpa_logo.png" />
+<meta property="og:url" content="https://stagefright.pythonanywhere.com/bpa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BPA Info" />
+<meta name="twitter:description" content="Learn more about the BPA team and their roles." />
+<meta name="twitter:image" content="../static/img/logo/bpa_logo.png" />
 {% endblock %}
 {% block content %}
     <main class="w-full">

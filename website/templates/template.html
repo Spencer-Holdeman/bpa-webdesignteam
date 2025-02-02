@@ -14,9 +14,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet"/>
   <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon"/>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="(min-width: 550px)"/>
-
   <title>{% block title %} Stage Fright {% endblock %}</title>
-
+  {% block meta_tags %}
   <meta name="description" content="Stage Fright - Official website of the band. Check out our latest tours, merch, and more." />
   <meta name="keywords" content="Stage Fright, band, music, tours, merch, concerts" />
   <meta name="author" content="Stage Fright Band" />
@@ -27,13 +26,12 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Stage Fright" />
   <meta name="twitter:description" content="Official website of Stage Fright. Discover our music, tours, and merchandise." />
-  <meta name="twitter:image" content="../static/img/logo/icon.png" />
-
+  <meta name="twitter:image" content="../static/img/logo" />
+  {% endblock %}
   {% block js_scripts %}
   <script defer src="../static/js/navbar.js"></script>
   <script defer src="../static/js/cart.js"></script>
   {% endblock %}
-
   <script src="https://kit.fontawesome.com/26eaa8b1dc.js" crossorigin="anonymous"></script>
 </head>
 
@@ -67,13 +65,13 @@
   <div id="shopping-bag" class="h-screen w-full md:w-[400px] fixed hidden flex flex-col justify-between top-0 right-0 bg-dark-raw z-50">
     <div id="total-price" class="p-6">
       <div class="flex flex-row justify-between items-center">
-        <div class="h-[50px] w-[50px] hidden md:flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
+        <div class="h-[50px] w-[50px] hidden md:flex flex-row justify-center items-center text-2xl text-purple-500 hover:text-purple-700 border-purple-500 hover:border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
           <i class="fa-solid fa-xmark"></i>
         </div>
         <img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-[50px] md:hidden">
         <h1 class="text-3xl font-lacquer">Your Cart</h1>
         <img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-[50px] md:block hidden">
-        <div class="h-[50px] w-[50px] md:hidden flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
+        <div class="h-[50px] w-[50px] md:hidden flex flex-row justify-center items-center text-2xl text-purple-500 hover:text-purple-700 border-purple-500 hover:border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
           <i class="fa-solid fa-xmark"></i>
         </div>
       </div>
@@ -85,11 +83,11 @@
     <div class="p-6">
       <div class="h-[2px] w-full mb-4 bg-purple-800"></div>
       <p id="total-price-cart" class="text-lg font-semibold">Total $0.00</p>
-      <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-900 rounded-md" onclick="removeCartItems()">
+      <button class="h-10 w-full my-2 text-xl font-lacquer text-white bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-md" onclick="removeCartItems()">
         Clear Items
       </button>
       <a href="/checkout">
-        <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-700 rounded-md">
+        <button class="h-10 w-full my-2 text-xl font-lacquer text-white bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-md">
           Checkout
         </button>
       </a>
@@ -102,19 +100,19 @@
     </div>
     <div class="h-[52px] hidden md:flex space-x-5 text-lg px-2 py-2 bg-dark-raw/60 backdrop-blur-md rounded-full">
       <a href="/home">
-        <p class="px-3 py-1 rounded-full hover:underline">Home</p>
+        <p class="hover:brightness-75 px-3 py-1 rounded-full hover:underline">Home</p>
       </a>
       <a href="/tours">
-        <p class="px-3 py-1 rounded-full hover:underline">Tours</p>
+        <p class="hover:brightness-75 px-3 py-1 rounded-full hover:underline">Tours</p>
       </a>
       <a href="/about">
-        <p class="px-3 py-1 rounded-full hover:underline">About</p>
+        <p class="hover:brightness-75 px-3 py-1 rounded-full hover:underline">About</p>
       </a>
       <a href="/contact">
-        <p class="px-3 py-1 rounded-full hover:underline">Contact Us</p>
+        <p class="hover:brightness-75 px-3 py-1 rounded-full hover:underline">Contact Us</p>
       </a>
       <a href="/swag" class="block lg:hidden ">
-        <p class="px-3 py-1 rounded-full hover:underline bg-purple-500 hover:bg-purple-600">Merch</p>
+        <p class="hover:brightness-75 px-3 py-1 rounded-full hover:underline">Merch</p>
       </a>
     </div>
     <div class="h-[52px] xl:w-[30%] flex flex-row justify-end items-center space-x-5 text-base rounded-full">
