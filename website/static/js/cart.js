@@ -809,7 +809,7 @@ function calculatePrice(checkoutPage) {
             var current_node = document.getElementById(Object.keys(data.ticket_node_history)[i]);
             var merch_price = current_node.dataset.price;
             var node_id = current_node.id;
-            var total_price = parseFloat(merch_price.split('$').join('')) * data.ticket_node_history[node_id];
+            var total_price = parseFloat(merch_price) * data.ticket_node_history[node_id];
             totals.push(total_price);
         }
 
