@@ -34,7 +34,6 @@ def get_vars():
     global current_node_history
     global first_cart_item
     global num_cart_items
-    global checked_out
 
     data = {
         'ticket_node_history': ticket_node_history,
@@ -125,6 +124,11 @@ def Swag():
 
 @base.route('/checkout', methods=['POST', 'GET'])
 def Checkout():
+    global ticket_node_history
+    global current_node_history
+    global first_cart_item
+    global num_cart_items
+
     if request.method == 'POST':
         if 'logged_in?' not in session:
             popup = ('<div id="popup" class="h-full w-full flex justify-center items-center fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] z-[1000]"><div class="w-[620px] p-5 flex flex-col justify-center items-center bg-gray-700 rounded-lg"><i class="fa-solid fa-circle-exclamation py-3 text-6xl font-semibold"></i><h1 class="py-3 text-4xl font-semibold">Sign In Required</h1><p class="py-3 text-gray-300">You must sign into an account to continue checking out your items.</p><div class="w-full py-3 flex flex-row"><button onclick="understand()" class="w-[50%] px-4 py-2 mr-2 bg-purple-500 font-medium rounded-lg">I understand.</button><a href="/signup" class="w-[50%] ml-2"><button class="w-full px-4 py-2 bg-purple-500 font-medium rounded-lg">I don\'t have an account.</button></a></div></div></div>')
@@ -133,6 +137,10 @@ def Checkout():
         else:
             popup = ('<div id="popup" class="h-full w-full flex justify-center items-center fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] z-[1000]"><div class="w-[620px] p-5 flex flex-col justify-center items-center bg-gray-700 rounded-lg"><i class="fa-solid fa-truck-fast py-3 text-6xl font-semibold"></i><h1 class="py-3 text-4xl font-semibold">Your order has been sent!</h1><p class="py-3 text-gray-300">We have confirmed your order and it will be shipped soon. Thank you!</p><div class="w-full py-3 flex flex-row"><button onclick="understand()" class="w-full px-4 py-2 mr-2 bg-purple-500 font-medium rounded-lg">I understand.</button></div></div></div>')
             flash(popup, 'info')
+            ticket_node_history = {}
+            current_node_history = {}
+            first_cart_item = -1
+            num_cart_items = sum(current_node_history.values()) + sum(ticket_node_history.values())
             return redirect(url_for('base.Home'))
     else:
         return render_template('checkout.html')
