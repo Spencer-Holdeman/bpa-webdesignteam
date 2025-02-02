@@ -35,7 +35,7 @@ function constCart() {
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.current_node_history)[i]);
             var img_source = current_node.parentElement.parentElement.previousElementSibling.src;
-            var merch_item = current_node.parentElement.previousElementSibling.innerText
+            var merch_item = current_node.parentElement.previousElementSibling.previousElementSibling.innerText + '<br>' + current_node.parentElement.previousElementSibling.innerText
             // var merch_price = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.innerText : current_node.previousElementSibling.innerText;
 
             var node_id = current_node.id;
@@ -55,7 +55,7 @@ function constCart() {
             // Append the new elements to the cart item div
             button_div.appendChild(item_count);
 
-            item_description.innerText = merch_item;
+            item_description.innerHTML = merch_item;
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
             div_element2.appendChild(button_div);
@@ -74,7 +74,7 @@ function constCart() {
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.ticket_node_history)[i]);
             var img_source = '../static/img/swag/ticket.png'
-            var merch_item = current_node.parentElement.previousElementSibling.innerText
+            var merch_item = current_node.parentElement.previousElementSibling.previousElementSibling.innerText + '<br>' + current_node.parentElement.previousElementSibling.innerText 
             var node_id = current_node.id;
 
             // Set attributes and inner text for the new cart item elements
@@ -91,7 +91,7 @@ function constCart() {
             // Append the new elements to the cart item div
             button_div.appendChild(item_count);
 
-            item_description.innerText = merch_item;
+            item_description.innerHTML = merch_item;
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
             div_element2.appendChild(button_div);
