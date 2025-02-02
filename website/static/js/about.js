@@ -6,14 +6,19 @@ const memberDesriptions = [
     "David is an electrifying singer with a voice that can silence a room in awe or ignite the energy of a thousand people. His performances leave audiences stunned, captivated by his incredible vocal range and the sheer power he brings to every note, as each one resonates and bounces off the walls, leaving a lasting impression."
 ]
 function openAboutMember(member) {
+    const body = document.querySelector("body");
     let memberPic = document.querySelector("#member-menu-pic");
     let memberInfo = document.querySelector("#member-menu-info");
+    body.classList.add("overflow-y-hidden");
     memberPic.src = member.getAttribute("data-picture");
     memberInfo.children[0].innerText = member.children[1].innerText;
     memberInfo.children[1].innerText = member.children[2].innerText;
     memberInfo.children[3].innerText = memberDesriptions[member.getAttribute("data-id")];
     memberMenu.classList.toggle("hidden");
+    window.scrollTo({ top: 0 });
 }
 function closeAboutMember() {
+    const body = document.querySelector("body");
+    body.classList.remove("overflow-y-hidden");
     memberMenu.classList.toggle("hidden");
 }

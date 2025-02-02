@@ -21,8 +21,8 @@
 {% block content %}
     <main class="w-full">
       <div class="min-h-screen flex flex-col justify-center items-center">
-        <p class="pt-8 mt-24 text-lg font-semibold">━━━━ Canadian Valley Technology Center, El Reno, OK 73036 ━━━━</p>
-        <p class="pb-8 text-lg font-semibold">━━━━ Local Team ID: 1 ━━━━</h1>
+        <p class="hidden md:block pt-8 mt-24 text-lg font-semibold">━━━━ Canadian Valley Technology Center, El Reno, OK 73036 ━━━━</p>
+        <p class="pb-8 mt-24 md:mt-0 text-lg font-semibold">━━━━ Local Team ID: 1 ━━━━</h1>
         <div class="flex flex-row flex-wrap justify-center mb-16 text-center">
           <div class="border-transparent border-dashed border-[1px] rounded-2xl">
             <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);" alt="Landon Warren, Electric Guitarist"></div>
@@ -51,15 +51,19 @@
         </div>
       </div>
       <p class="py-8 mt-24 text-lg text-center font-semibold">━━━━ Works Cited | Accessibility ━━━━</p>
-      <div class="flex flex-row justify-evenly">
-        <div class="w-[40%] flex flex-col">
+      <div class="flex flex-row flex-wrap justify-evenly">
+        <div class="w-[800px] mb-20 flex flex-col items-center">
           <div class="w-full mb-10 flex justify-center underline">
             <a href="https://www.flaticon.com/free-icons/ticket" title="ticket icons">Ticket icons created by Freepik - Flaticon</a>
           </div>
-          <iframe src="../static/pdf/works_cited.pdf" zoom="89" class="h-screen w-[80%] lg:w-[755px]" frameborder="0"></iframe>
+          <iframe src="../static/pdf/works_cited.pdf" zoom="89" class="h-screen w-[80%] lg:w-full" frameborder="0"></iframe>
         </div>
-        <div class="w-[40%] flex flex-col">
-
+        <div class="w-[80%] lg:w-[800px] mb-10 flex flex-col text-center">
+          <h1 class="mb-10 text-4xl font-bold">Accessibility Measures</h1>
+          <h2 class="text-lg font-medium">Prefers-Reduced-Motion</h2>
+          <p class="mb-10">If the user has a reduced motion accessibility option on, parts of the website that move will be slowed down or stopped entirely.</p>
+          <h2 class="text-lg font-medium">Aria-Labels</h2>
+          <p>"Accessible Rich Internet Applications Labels" or "Aria-Labels," have been added to many parts of the entire website.</p>
         </div>
       </div>
     </main>
