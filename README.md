@@ -19,7 +19,7 @@ A submission for (435) BPA Web Design Competition, 2024-25.
 8. SQLAlchemy
 9. SQLite
 
-# Intructions
+# Instructions for running
 **1. Clone the repository**
 ```
 git clone https://github.com/SoftwareNotion/bpa-webdesignteam.git
