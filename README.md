@@ -18,3 +18,19 @@ A submission for (435) BPA Web Design Competition, 2024-25.
 7. MJML
 8. SQLAlchemy
 9. SQLite
+
+# Intructions
+**1. Clone the repository**
+```
+git clone https://github.com/SoftwareNotion/bpa-webdesignteam.git
+```
+
+**2. Install the node modules**
+```
+npm install
+```
+**3. Install the python modules**
+```
+pip install -r requirements.txt
+pip install mjml-python
+```
