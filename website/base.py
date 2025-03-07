@@ -83,33 +83,44 @@ def About():
     print('About')
     return render_template('about.html')
 
+# Defines a route '/contact' that accepts both GET and POST requests
 @base.route('/contact', methods=["GET", "POST"])
 def form():
+    # Checks if the request method is POST (form submission)
     if request.method == 'POST':
-        print('contact: inside if')
-        name = request.form.get("contact-name" )
+        print('contact: inside if')  # Debugging print statement
+        
+        # Retrieves form data submitted by the user
+        name = request.form.get("contact-name")
         email = request.form.get("contact-email")
         message = request.form.get("contact-message")
         subject = request.form.get("contact-subject")
-        log = f'{subject}  {name}  {email}  {message}'
-        print(log)
-        print (subject)
-        msg = EmailMessage(
-            subject,
-            log,
-            "stagefrightbandokc@gmail.com",
-            ["stagefrightbandokc@gmail.com"]
-            )
         
+        # Logs the form data into a formatted string
+        log = f'{subject}  {name}  {email}  {message}'
+        print(log)  # Debugging: prints the log information
+        print(subject)  # Debugging: prints the subject
+        
+        # Creates an email message with the collected form data
+        msg = EmailMessage(
+            subject,                    # Email subject
+            log,                        # Email body content
+            "stagefrightbandokc@gmail.com",  # Sender email
+            ["stagefrightbandokc@gmail.com"] # Recipient email
+        )
+        
+        # Attempts to send the email and handles any errors
         try:
             msg.send()
-            print("Email sent successfully!")
+            print("Email sent successfully!")  # Confirmation message
         except Exception as e:
-            print(f"Error sending email: {e}")
+            print(f"Error sending email: {e}")  # Error handling
         
+        # Renders the contact.html template after form submission
         return render_template("contact.html")
     else:
-        print('contact: outside if')
+        # If the request method is GET, simply render the contact form
+        print('contact: outside if')  # Debugging: indicates GET request
         return render_template("contact.html")
 
 @base.route('/bpa', methods=['POST', 'GET'])
