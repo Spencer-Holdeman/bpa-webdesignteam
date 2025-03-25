@@ -352,9 +352,9 @@ function incrementCartItems(current_node) {
     var total_price_element = document.createElement('p'); // this p contains the total price of the item
 
     // Get the current node and its details
-    var img_source = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.src : current_node.previousElementSibling.previousElementSibling.previousElementSibling.src;
-    var merch_item = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.innerText : current_node.previousElementSibling.previousElementSibling.innerText;
-    var merch_price = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.innerText : current_node.previousElementSibling.innerText;
+    var img_source = current_node.dataset.img_src;
+    var merch_item = current_node.dataset.merch_item;
+    var merch_price = current_node.dataset.merch_price;
     var node_id = current_node.id;
 
     // Fetch variables from the server
@@ -486,10 +486,10 @@ function incrementTicketItems(current_node) {
 
     // Get the current node and its details
     var img_source = '../static/img/misc/download.png'
-    var venue = current_node.parentElement.previousElementSibling.previousElementSibling.firstElementChild.innerText;
-    var city = current_node.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerText;
-    var date = current_node.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerText;
-    var merch_price = current_node.parentElement.previousElementSibling.firstElementChild.innerText;
+    var venue = current_node.dataset.venue;
+    var city = current_node.dataset.city;
+    var date = current_node.dataset.date;
+    var merch_price = current_node.dataset.merch_price;
     var merch_item = `Ticket ${venue}, ${city} - ${date}`;
     var node_id = current_node.id;
 
