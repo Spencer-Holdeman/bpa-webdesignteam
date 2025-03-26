@@ -35,7 +35,7 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+          <td><button id="okc-ticket" onclick="incrementTicketItems(this)" data-merch_price="$29.99" data-date="May 7th 2025" data-city="Oklahoma City, OK" data-venue="blue-door" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
@@ -50,7 +50,7 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="little-rock" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+          <td><button id="little-rock" onclick="incrementTicketItems(this)" data-merch_price="$29.99" data-date="May 9th 2025" data-city="Little Rock, AR" data-venue="The Hall" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
@@ -65,7 +65,7 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="nashville"  onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+          <td><button id="nashville"  onclick="incrementTicketItems(this)" data-merch_price="$29.99" data-date="May 12th 2025" data-city="Nashville, TN" data-venue="The Bluebird Cafe" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
@@ -80,7 +80,7 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="asheville" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+          <td><button id="asheville" onclick="incrementTicketItems(this)" data-merch_price="$29.99" data-date="May 15th 2025" data-city="Asheville, NC" data-venue="The Orange Peel" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
         </tr>
         <tr class="border-gray-700 border-y-[1px]">
           <td>
@@ -95,7 +95,7 @@
           <td>
             <p class="font-semibold">$29.99</p>
           </td>
-          <td><button id="alexandria" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+          <td><button id="alexandria" onclick="incrementTicketItems(this)" data-merch_price="$29.99" data-date="May 17th 2025" data-city="Alexandria, VA" data-venue="The Birchmere"  class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
         </tr>
       </table>
       <a href="/tours">
@@ -123,7 +123,7 @@
                 <h2 class="my-2 text-lg font-bold">Fall of Autumn Vinyl</h2>
                 <h2 class="my-2 text-lg">$19.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" data-merch_price="$19.99" data-merch_item="Fall of Autumn Vinyl" data-img_src="../static/img/swag/vinyl/autumn.webp" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="Fall-of-Autumn" onclick="incrementCartItems(this)" data-merch_price="$19.99" data-merch_item="Fall of Autumn Vinyl" data-img_src="../static/img/swag/vinyl/autumn.webp" class="py-2 w-80 bg-purple-600 rounded-xl">
                 Add to Cart    
               </button>
             </div>
@@ -133,7 +133,7 @@
                 <h2 class="my-2 text-lg font-bold">Failure to Cope Vinyl</h2>
                 <h2 class="my-2 text-lg">$19.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" data-merch_price="$19.99" data-merch_item="Failure to Cope Vinyl" data-imgSrc="../static/img/swag/vinyl/ftc.webp" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="Failure-to-Cope" onclick="incrementCartItems(this)" data-merch_price="$19.99" data-merch_item="Failure to Cope Vinyl" data-img_src="../static/img/swag/vinyl/ftc.webp" class="py-2 w-80 bg-purple-600 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -143,7 +143,7 @@
                 <h2 class="my-2 text-lg font-bold">Vexed Vinyl</h2>
                 <h2 class="my-2 text-lg">$19.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" data-merch_price="$19.99" data-merch_item="Vexed Vinyl" data-img_src="../static/img/swag/vinyl/vexed.webp" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="Vexed" onclick="incrementCartItems(this)" data-merch_price="$19.99" data-merch_item="Vexed Vinyl" data-img_src="../static/img/swag/vinyl/vexed.webp" class="py-2 w-80 bg-purple-600 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -153,7 +153,7 @@
                 <h2 class="my-2 text-lg font-bold">Skull Cap</h2>
                 <h2 class="my-2 text-lg">$9.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" data-merch_price="$9.99" data-merch_item="Skull Cap" data-img_src="../static/img/swag/hat/hat-fr.png" class="py-2 w-full bg-purple-600 rounded-xl" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="Skull Cap" onclick="incrementCartItems(this)" data-merch_price="$9.99" data-merch_item="Skull Cap" data-img_src="../static/img/swag/hat/hat-fr.png" class="py-2 w-full bg-purple-600 rounded-xl" class="py-2 w-80 bg-purple-600 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -165,7 +165,7 @@
                 <h2 class="my-2 text-lg font-bold">Stage Fright Hoodie</h2>
                 <h2 class="my-2 text-lg">$24.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" data-merch_price="$29.99" data-merch_item="Stage Fright Hoodie" data-img_src="../static/img/swag/hoodie/hoodie-f.png" class="py-2 w-full bg-purple-600 rounded-xl" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="Hoodie" onclick="incrementCartItems(this)" data-merch_price="$29.99" data-merch_item="Stage Fright Hoodie" data-img_src="../static/img/swag/hoodie/hoodie-f.png" class="py-2 w-full bg-purple-600 rounded-xl" class="py-2 w-80 bg-purple-600 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -175,7 +175,7 @@
                 <h2 class="my-2 text-lg font-bold">Jacket</h2>
                 <h2 class="my-2 text-lg">$29.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)"  data-merch_price="$24.99" data-merch_item="jacket" data-img_src="../static/img/swag/jacket/jacket-f.png" class="py-2 w-full bg-purple-600 rounded-xl" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="Jacket" onclick="incrementCartItems(this)"  data-merch_price="$24.99" data-merch_item="jacket" data-img_src="../static/img/swag/jacket/jacket-f.png" class="py-2 w-full bg-purple-600 rounded-xl" class="py-2 w-80 bg-purple-600 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -185,7 +185,7 @@
                 <h2 class="my-2 text-lg font-bold">Socks</h2>
                 <h2 class="my-2 text-lg">$12.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" data-merch_price="$12.99" data-merch_item="socks" data-img_src="../static/img/swag/socks/socks.webp" class="py-2 w-full bg-purple-600 rounded-xl" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="Socks" onclick="incrementCartItems(this)" data-merch_price="$12.99" data-merch_item="socks" data-img_src="../static/img/swag/socks/socks.webp" class="py-2 w-full bg-purple-600 rounded-xl" class="py-2 w-80 bg-purple-600 rounded-xl">
                   Add to Cart    
               </button>
             </div>
@@ -195,7 +195,7 @@
                 <h2 class="my-2 text-lg font-bold">Skull Water Bottle</h2>
                 <h2 class="my-2 text-lg">$14.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" data-merch_price="$14.99" data-merch_item="Skull Water Bottle" data-img_src="../static/img/swag/bottle/cup-f.png" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="Skull Bottle" onclick="incrementCartItems(this)" data-merch_price="$14.99" data-merch_item="Skull Water Bottle" data-img_src="../static/img/swag/bottle/cup-f.png" class="py-2 w-80 bg-purple-600 rounded-xl">
                 Add to Cart
               </button>
             </div>
@@ -206,7 +206,7 @@
                 <h2 class="my-2 text-lg font-bold">Airpod Case</h2>
                 <h2 class="my-2 text-lg">$6.99</h2>
               </div>
-              <button id="vinyl 1" onclick="incrementCartItems(this)" data-merch_price="$6.99" data-merch_item="Airpod Case" data-img_src="../static/img/swag/headphone/17a041b1-0518-4505-b48c-f45d67fe83e1.png" class="py-2 w-80 bg-purple-600 rounded-xl">
+              <button id="Airpod-Case" onclick="incrementCartItems(this)" data-merch_price="$6.99" data-merch_item="Airpod Case" data-img_src="../static/img/swag/headphone/17a041b1-0518-4505-b48c-f45d67fe83e1.png" class="py-2 w-80 bg-purple-600 rounded-xl">
                 Add to Cart
               </button>
             </div>

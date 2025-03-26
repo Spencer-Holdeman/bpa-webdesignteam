@@ -18,7 +18,7 @@
   <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-  <title>{% block title %} Stage Fright test{% endblock %}</title>
+  <title>{% block title %} Stage Fright {% endblock %}</title>
 
   {% block js_scripts %}
   <script defer src="../static/js/navbar.js"></script>
@@ -30,11 +30,15 @@
 
 {% block body %}
 
-<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
+<body
+  class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
   {% endblock %}
   {% block nav %}
-  <div id="mobile-menu" class="md:hidden h-screen fixed top-0 right-0 transition-all duration-[1.3s] z-[60]" style="background-color: rgba(1, 1, 1, 0.8); backdrop-filter: blur(10px); width: 0%;">
-    <i onclick="closeMenu()" id="mobile-menu-x" class="absolute top-6 right-7 fa-solid fa-xmark cursor-pointer text-5xl transition-all duration-[0.5s]" style="display: none; opacity: 0;"></i>
+  <div id="mobile-menu" class="md:hidden h-screen fixed top-0 right-0 transition-all duration-[1.3s] z-[60]"
+    style="background-color: rgba(1, 1, 1, 0.8); backdrop-filter: blur(10px); width: 0%;">
+    <i onclick="closeMenu()" id="mobile-menu-x"
+      class="absolute top-6 right-7 fa-solid fa-xmark cursor-pointer text-5xl transition-all duration-[0.5s]"
+      style="display: none; opacity: 0;"></i>
     <div class="inline-block mx-5 text-left text-4xl font-semibold">
       <a href="/home" class="transition-all duration-[0.5s]" style="opacity: 0;">
         <p class="px-3 my-6 rounded-full hover:underline">Home</p>
@@ -53,18 +57,24 @@
       </a>
     </div>
   </div>
-  <div onclick="closeShoppingBag()" id="cart-blur" class="hidden h-screen w-full fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] transition-all duration-[0.5s] z-50">
+  <div onclick="closeShoppingBag()" id="cart-blur"
+    class="hidden h-screen w-full fixed top-0 left-0 bg-transparent backdrop-brightness-50 backdrop-blur-[4px] transition-all duration-[0.5s] z-50">
   </div>
-  <div id="shopping-bag" class="h-screen w-full md:w-[400px] fixed hidden flex flex-col justify-between top-0 right-0 bg-dark-raw z-50">
+  <div id="shopping-bag"
+    class="h-screen w-full md:w-[400px] fixed hidden flex flex-col justify-between top-0 right-0 bg-dark-raw z-50">
     <div id="total-price" class="p-6">
       <div class="flex flex-row justify-between items-center">
-        <div class="h-[50px] w-[50px] hidden md:flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
+        <div
+          class="h-[50px] w-[50px] hidden md:flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer"
+          onclick="closeShoppingBag()">
           <i class="fa-solid fa-xmark"></i>
         </div>
         <img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-[50px] md:hidden">
         <h1 class="text-3xl font-lacquer">Your Cart</h1>
         <img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-[50px] md:block hidden">
-        <div class="h-[50px] w-[50px] md:hidden flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
+        <div
+          class="h-[50px] w-[50px] md:hidden flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer"
+          onclick="closeShoppingBag()">
           <i class="fa-solid fa-xmark"></i>
         </div>
       </div>
@@ -76,7 +86,8 @@
     <div class="p-6">
       <div class="h-[2px] w-full mb-4 bg-purple-800"></div>
       <p id="total-price-cart">Total $0.00</p>
-      <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-900 rounded-md" onclick="removeCartItems()">
+      <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-900 rounded-md"
+        onclick="removeCartItems()">
         Clear Items
       </button>
       <a href="/checkout">
@@ -89,7 +100,8 @@
   <nav id="navbar" class="w-full flex flex-row items-center justify-between fixed top-0 px-5 py-5 font-semibold z-40">
     <div class="xl:w-[30%] flex flow-row">
       <a href="/home"><img class="h-12" src="../static/img/logo/icon.png" alt="Stage Fright Icon" draggable="false"></a>
-      <a href="/home"><img class="h-12 ml-5 hidden lg:block" src="../static/img/logo/text.png" alt="Stage Fright Text Logo" draggable="false"></a>
+      <a href="/home"><img class="h-12 ml-5 hidden lg:block" src="../static/img/logo/text.png"
+          alt="Stage Fright Text Logo" draggable="false"></a>
     </div>
     <div class="hidden md:flex space-x-5 text-lg px-2 py-2 bg-dark-raw/60 backdrop-blur-md rounded-full">
       <a href="/home">
@@ -109,14 +121,17 @@
       </a>
     </div>
     <div class="xl:w-[30%] flex flex-row justify-end items-center space-x-5 text-base rounded-full">
-      <a onclick="openShoppingBag()" class="flex flex-row space-x-3 px-4 py-2 hover:brightness-75 bg-dark-raw/60 backdrop-blur-md rounded-full cursor-pointer">
+      <a onclick="openShoppingBag()"
+        class="flex flex-row space-x-3 px-4 py-2 hover:brightness-75 bg-dark-raw/60 backdrop-blur-md rounded-full cursor-pointer">
         <i class="fa-solid fa-bag-shopping text-2xl"></i>
         <p class="text-lg">Cart (<span id="nums-value">0</span>)</p>
       </a>
-      <a onclick="openMenu()" class="md:hidden flex flex-row space-x-3 px-4 py-2 hover:brightness-75 bg-dark-raw/60 backdrop-blur-md rounded-full cursor-pointer">
+      <a onclick="openMenu()"
+        class="md:hidden flex flex-row space-x-3 px-4 py-2 hover:brightness-75 bg-dark-raw/60 backdrop-blur-md rounded-full cursor-pointer">
         <i class="fa-solid fa-bars text-2xl"></i>
       </a>
-      <a href="/swag" class="hidden lg:block px-2 rounded-full bg-purple-500 hover:bg-purple-600 transition-all duration-100">
+      <a href="/swag"
+        class="hidden lg:block px-2 rounded-full bg-purple-500 hover:bg-purple-600 transition-all duration-100">
         <p class="px-3 py-1.5 text-lg">Buy Merch</p>
       </a>
     </div>
@@ -132,7 +147,8 @@
   <footer>
     <section class="w-full px-10 py-[2%] font-serif">
       <div class="lg:flex flex-row justify-between">
-        <div class="flex flex-row justify-center items-center"><img class="h-16" src="../static/img/logo/text.png" alt="Stage Fright Text Logo"></div>
+        <div class="flex flex-row justify-center items-center"><img class="h-16" src="../static/img/logo/text.png"
+            alt="Stage Fright Text Logo"></div>
         <div class="flex flex-row justify-center items-center text-gray-400">
           <a href="/home">
             <p class="px-3 py-3 sm:py-0 hover:text-gray-500">Home</p>
@@ -154,7 +170,8 @@
             <a href="/home"><i class="fa-brands fa-x-twitter text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
             <a href="/home"><i class="fa-brands fa-youtube text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
             <a href="/home"><i class="fa-brands fa-spotify text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
-            <a href="https://github.com/SoftwareNotion/bpa-webdesignteam" target="_blank"><i class="fa-brands fa-github hover:text-gray-500 mx-[0.5em]"></i></a>
+            <a href="https://github.com/SoftwareNotion/bpa-webdesignteam" target="_blank"><i
+                class="fa-brands fa-github hover:text-gray-500 mx-[0.5em]"></i></a>
           </div>
         </div>
       </div>
@@ -166,8 +183,280 @@
     </section>
   </footer>
   {% endblock %}
-  <!-- hidden cart + hidden tickets --> <table class="w-[0%] h-[0%] hidden text-white text-center table-fixed rounded-2xl"> <tr class="border-gray-700 border-y-[1px]"> <td> <p class="md:text-xl font-bold py-6">May 7th, 2025</p> </td> <td> <p class="font-semibold">Oklahoma City, OK</p> </td> <td> <p>Blue Door</p> </td> <td> <p class="font-semibold">$29.99</p> </td> <td><button id="okc-ticket" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td> </tr> <tr class="border-gray-700 border-y-[1px]"> <td> <p class="md:text-xl font-bold py-6">May 9th, 2025</p> </td> <td> <p class="font-semibold">Little Rock, AR</p> </td> <td> <p>The Hall</p> </td> <td> <p class="font-semibold">$29.99</p> </td> <td><button id="little-rock" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td> </tr> <tr class="border-gray-700 border-y-[1px]"> <td> <p class="md:text-xl font-bold py-6">May 12th, 2025</p> </td> <td> <p class="font-semibold">Nashville, TN</p> </td> <td> <p>The Bluebird Cafe</p> </td> <td> <p class="font-semibold">$29.99</p> </td> <td><button id="nashville" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td> </tr> <tr class="border-gray-700 border-y-[1px]"> <td> <p class="md:text-xl font-bold py-6">May 15th, 2025</p> </td> <td> <p class="font-semibold">Asheville, NC</p> </td> <td> <p>The Orange Peel</p> </td> <td> <p class="font-semibold">$29.99</p> </td> <td><button id="asheville" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td> </tr> <tr class="border-gray-700 border-y-[1px]"> <td> <p class="md:text-xl font-bold py-6">May 17th, 2025</p> </td> <td> <p class="font-semibold">Alexandria, VA</p> </td> <td> <p>The Birchmere</p> </td> <td> <p class="font-semibold">$29.99</p> </td> <td><button id="alexandria" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td> </tr> <tr class="border-gray-700 border-y-[1px]"> <td> <p class="md:text-xl font-bold py-6">May 19th, 2025</p> </td> <td> <p class="font-semibold">Philadelphia, PA</p> </td> <td> <p>Franklin Music Hall</p> </td> <td> <p class="font-semibold">$29.99</p> </td> <td><button id="philadelpia" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td> </tr> <tr class="border-gray-700 border-y-[1px]"> <td> <p class="md:text-xl font-bold py-6">May 22nd, 2025</p> </td> <td> <p class="font-semibold">Manhattan, NY</p> </td> <td> <p>Radio City Music Hall</p> </td> <td> <p class="font-semibold">$29.99</p> </td> <td><button id="manhattan" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td> </tr> <tr class="border-gray-700 border-y-[1px]"> <td> <p class="md:text-xl font-bold py-6">May 25th, 2025</p> </td> <td> <p class="font-semibold">Clarkston, MI</p> </td> <td> <p>Pine Knob Music Theatre</p> </td> <td> <p class="font-semibold">$29.99</p> </td> <td><button id="clarkston" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td> </tr> <tr class="border-gray-700 border-y-[1px]"> <td> <p class="md:text-xl font-bold py-6">May 28th, 2025</p> </td> <td> <p class="font-semibold">Denver, CO</p> </td> <td> <p>Ogden Theatre</p> </td> <td> <p class="font-semibold">$29.99</p> </td> <td><button id="denver" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td> </tr> <tr class="border-gray-700 border-y-[1px]"> <td> <p class="md:text-xl font-bold py-6">June 1st, 2025</p> </td> <td> <p class="font-semibold">Hollywood, CA</p> </td> <td> <p>Hotel California</p> </td> <td> <p class="font-semibold">$29.99</p> </td> <td><button id="hollywood" onclick="incrementTicketItems(this)" class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td> </tr> </table> <div class="hidden flex flex-col w-[0%] h-[0%]"> <div class="w-full flex flex-col items-center bg-purple-950"> <h2 class="w-[60%] py-5 mt-14 font-lacquer font-semibold uppercase text-4xl text-center bg-dark-raw rounded-xl">New Vinyls</h2> <div class="w-full flex flex-row justify-evenly"> <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl"> <img class="h-80 w-80 mb-4 bg-white rounded-xl" src="../static/img/swag/vinyl/autumn.webp" alt=""> <h2 class="my-2 text-lg font-bold">Fall of Autumn Vinyl</h2> <h2 class="my-2 text-lg">$19.99</h2> <button id="Fall-of-Autumn" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button> </div> <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl"> <img class="h-80 w-80 mb-4 bg-white rounded-xl" src="../static/img/swag/vinyl/ftc.webp" alt=""> <h2 class="my-2 text-lg font-bold">Failure to Cope Vinyl</h2> <h2 class="my-2 text-lg">$19.99</h2> <button id="Failure-to-Cope" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button> </div> <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl"> <img class="h-80 w-80 mb-4 bg-white rounded-xl" src="../static/img/swag/vinyl/vexed.webp" alt=""> <h2 class="my-2 text-lg font-bold">Vexed Vinyl</h2> <h2 class="my-2 text-lg">$19.99</h2> <button id="Vexed" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button> </div> </div> </div> <div class="w-full flex flex-col items-center"> <h2 class="py-5 mt-14 font-lacquer font-semibold uppercase text-4xl text-center">Clothing</h1> <div class="w-full flex flex-row justify-evenly"> <div class="min-h-96 w-80 my-14 p-4"> <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/hat/hat-fr.png" alt=""> <h1 class="my-2 text-lg font-bold">Skull Cap</h1> <h1 class="my-2 text-lg">$9.99</h2> <button id="Skull Cap" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button> </div> <div class="min-h-96 w-80 my-14 p-4"> <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/hoodie/hoodie-f.png" alt=""> <h1 class="my-2 text-lg font-bold">Stage Fright Hoodie</h1> <h1 class="my-2 text-lg">$24.99</h1> <button id="Hoodie" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button> </div> <div class="min-h-96 w-80 my-14 p-4"> <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/jacket/jacket-f.png" alt=""> <h1 class="my-2 text-lg font-bold">Jacket</h2> <h1 class="my-2 text-lg">$29.99</h2> <button id="Jacket" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button> </div> <div class="min-h-96 w-80 my-14 p-4"> <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/socks/socks.webp" alt=""> <h1 class="my-2 text-lg font-bold">Socks</h2> <h1 class="my-2 text-lg">$12.99</h2> <button id="Socks" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button> </div> </div> <div class="w-full flex flex-col items-center"> <h2 class="py-5 mt-14 font-lacquer font-semibold uppercase text-4xl text-center">Accessories</h1> <div class="w-full flex flex-row justify-evenly"> <div class="min-h-96 w-80 my-14 p-4"> <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/bottle/cup-f.png" alt=""> <h2 class="my-2 text-lg font-bold">Skull Water Bottle</h2> <h2 class="my-2 text-lg">$14.99</h2> <button id="Skull Bottle" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button> </div> <div class="min-h-96 w-80 my-14 p-4"> <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/headphone/17a041b1-0518-4505-b48c-f45d67fe83e1.png" alt=""> <h2 class="my-2 text-lg font-bold">Airpod Case</h2> <h2 class="my-2 text-lg">$6.99</h2> <button id="Airpod-Case" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button> </div> </div>
-  <div class="hidden h-20 w-20"><div class="w-[55%]"></div></div>
+  <!-- hidden cart + hidden tickets -->
+  <table class="w-[0%] h-[0%] hidden text-white text-center table-fixed rounded-2xl">
+    <tr class="border-gray-700 border-y-[1px]">
+      <td>
+        <p class="md:text-xl font-bold py-6">May 7th, 2025</p>
+      </td>
+      <td>
+        <p class="font-semibold">Oklahoma City, OK</p>
+      </td>
+      <td>
+        <p>Blue Door</p>
+      </td>
+      <td>
+        <p class="font-semibold">$29.99</p>
+      </td>
+      <td><button id="okc-ticket" onclick="incrementTicketItems(this)" data-merch_price="$29.99"
+          data-date="May 7th 2025" data-city="Oklahoma City, OK" data-venue="blue-door"
+          class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+    </tr>
+    <tr class="border-gray-700 border-y-[1px]">
+      <td>
+        <p class="md:text-xl font-bold py-6">May 9th, 2025</p>
+      </td>
+      <td>
+        <p class="font-semibold">Little Rock, AR</p>
+      </td>
+      <td>
+        <p>The Hall</p>
+      </td>
+      <td>
+        <p class="font-semibold">$29.99</p>
+      </td>
+      <td><button id="little-rock" onclick="incrementTicketItems(this)" data-merch_price="$29.99"
+          data-date="May 9th 2025" data-city="Little Rock, AR" data-venue="The Hall"
+          class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+    </tr>
+    <tr class="border-gray-700 border-y-[1px]">
+      <td>
+        <p class="md:text-xl font-bold py-6">May 12th, 2025</p>
+      </td>
+      <td>
+        <p class="font-semibold">Nashville, TN</p>
+      </td>
+      <td>
+        <p>The Bluebird Cafe</p>
+      </td>
+      <td>
+        <p class="font-semibold">$29.99</p>
+      </td>
+      <td><button id="nashville" onclick="incrementTicketItems(this)" data-merch_price="$29.99"
+          data-date="May 12th 2025" data-city="Nashville, TN" data-venue="The Bluebird Cafe"
+          class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+    </tr>
+    <tr class="border-gray-700 border-y-[1px]">
+      <td>
+        <p class="md:text-xl font-bold py-6">May 15th, 2025</p>
+      </td>
+      <td>
+        <p class="font-semibold">Asheville, NC</p>
+      </td>
+      <td>
+        <p>The Orange Peel</p>
+      </td>
+      <td>
+        <p class="font-semibold">$29.99</p>
+      </td>
+      <td><button id="asheville" onclick="incrementTicketItems(this)" data-merch_price="$29.99"
+          data-date="May 15th 2025" data-city="Asheville, NC" data-venue="The Orange Peel"
+          class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+    </tr>
+    <tr class="border-gray-700 border-y-[1px]">
+      <td>
+        <p class="md:text-xl font-bold py-6">May 17th, 2025</p>
+      </td>
+      <td>
+        <p class="font-semibold">Alexandria, VA</p>
+      </td>
+      <td>
+        <p>The Birchmere</p>
+      </td>
+      <td>
+        <p class="font-semibold">$29.99</p>
+      </td>
+      <td><button id="alexandria" onclick="incrementTicketItems(this)" data-merch_price="$29.99"
+          data-date="May 17th 2025" data-city="Alexandria, VA" data-venue="The Birchmere"
+          class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+    </tr>
+    <tr class="border-gray-700 border-y-[1px]">
+      <td>
+        <p class="md:text-xl font-bold py-6">May 19th, 2025</p>
+      </td>
+      <td>
+        <p class="font-semibold">Philadelphia, PA</p>
+      </td>
+      <td>
+        <p>Franklin Music Hall</p>
+      </td>
+      <td>
+        <p class="font-semibold">$29.99</p>
+      </td>
+      <td><button id="philadelpia" onclick="incrementTicketItems(this)" data-merch_price="$29.99"
+          data-date="May 19th 2025" data-city="Philadelphia, PA" data-venue="Franklin Music Hall"
+          class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+    </tr>
+    <tr class="border-gray-700 border-y-[1px]">
+      <td>
+        <p class="md:text-xl font-bold py-6">May 22nd, 2025</p>
+      </td>
+      <td>
+        <p class="font-semibold">Manhattan, NY</p>
+      </td>
+      <td>
+        <p>Radio City Music Hall</p>
+      </td>
+      <td>
+        <p class="font-semibold">$29.99</p>
+      </td>
+      <td><button id="manhattan" onclick="incrementTicketItems(this)" data-merch_price="$29.99"
+          data-date="May 22nd 2025" data-city="Manhattan, NY" data-venue="Radio City Music Hall"
+          class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+    </tr>
+    <tr class="border-gray-700 border-y-[1px]">
+      <td>
+        <p class="md:text-xl font-bold py-6">May 25th, 2025</p>
+      </td>
+      <td>
+        <p class="font-semibold">Clarkston, MI</p>
+      </td>
+      <td>
+        <p>Pine Knob Music Theatre</p>
+      </td>
+      <td>
+        <p class="font-semibold">$29.99</p>
+      </td>
+      <td><button id="clarkston" onclick="incrementTicketItems(this)" data-merch_price="$29.99"
+          data-date="May 25th 2025" data-city="Clarkston, MI" data-venue="Pine Knob Music Theatre"
+          class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+    </tr>
+    <tr class="border-gray-700 border-y-[1px]">
+      <td>
+        <p class="md:text-xl font-bold py-6">May 28th, 2025</p>
+      </td>
+      <td>
+        <p class="font-semibold">Denver, CO</p>
+      </td>
+      <td>
+        <p>Ogden Theatre</p>
+      </td>
+      <td>
+        <p class="font-semibold">$29.99</p>
+      </td>
+      <td><button id="denver" onclick="incrementTicketItems(this)" data-merch_price="$29.99" data-date="May 28th 2025"
+          data-city="Denver, CO" data-venue="Ogden Theatre"
+          class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+    </tr>
+    <tr class="border-gray-700 border-y-[1px]">
+      <td>
+        <p class="md:text-xl font-bold py-6">June 1st, 2025</p>
+      </td>
+      <td>
+        <p class="font-semibold">Hollywood, CA</p>
+      </td>
+      <td>
+        <p>Hotel California</p>
+      </td>
+      <td>
+        <p class="font-semibold">$29.99</p>
+      </td>
+      <td><button id="hollywood" onclick="incrementTicketItems(this)" data-merch_price="$29.99"
+          data-date="June 1st, 2025" data-city="Hollywood, CA" data-venue="Hotel California"
+          class="bg-purple-700 px-5 md:px-10 py-2 md:py-3 rounded-lg">Tickets</button></td>
+    </tr>
+  </table>
+  <div class="hidden flex flex-col w-[0%] h-[0%]">
+    <div class="w-full flex flex-col items-center bg-purple-950">
+      <h2 class="w-[60%] py-5 mt-14 font-lacquer font-semibold uppercase text-4xl text-center bg-dark-raw rounded-xl">
+        New Vinyls</h2>
+      <div class="w-full flex flex-row justify-evenly">
+        <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
+          <img class="h-80 w-80 mb-4 bg-white rounded-xl" src="../static/img/swag/vinyl/autumn.webp" alt="">
+          <h2 class="my-2 text-lg font-bold">Fall of Autumn Vinyl</h2>
+          <h2 class="my-2 text-lg">$19.99</h2>
+          <button id="Fall-of-Autumn" onclick="incrementCartItems(this)" data-merch_price="$19.99"
+            data-merch_item="Fall of Autumn Vinyl" data-img_src="../static/img/swag/vinyl/autumn.webp"
+            class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button>
+        </div>
+        <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
+          <img class="h-80 w-80 mb-4 bg-white rounded-xl" src="../static/img/swag/vinyl/ftc.webp" alt="">
+          <h2 class="my-2 text-lg font-bold">Failure to Cope Vinyl</h2>
+          <h2 class="my-2 text-lg">$19.99</h2>
+          <button id="Failure-to-Cope" onclick="incrementCartItems(this)" data-merch_price="$19.99"
+            data-merch_item="Failure to Cope Vinyl" data-img_src="../static/img/swag/vinyl/ftc.webp"
+            class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button>
+        </div>
+        <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
+          <img class="h-80 w-80 mb-4 bg-white rounded-xl" src="../static/img/swag/vinyl/vexed.webp" alt="">
+          <h2 class="my-2 text-lg font-bold">Vexed Vinyl</h2>
+          <h2 class="my-2 text-lg">$19.99</h2>
+          <button id="Vexed" onclick="incrementCartItems(this)" data-merch_price="$19.99" data-merch_item="Vexed Vinyl"
+            data-img_src="../static/img/swag/vinyl/vexed.webp" class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="w-full flex flex-col items-center">
+      <h2 class="py-5 mt-14 font-lacquer font-semibold uppercase text-4xl text-center">
+        Clothing</h1>
+        <div class="w-full flex flex-row justify-evenly">
+          <div class="min-h-96 w-80 my-14 p-4">
+            <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/hat/hat-fr.png" alt="">
+            <h1 class="my-2 text-lg font-bold">Skull Cap</h1>
+            <h1 class="my-2 text-lg">
+              $9.99
+      </h2>
+      <button id="Skull Cap" onclick="incrementCartItems(this)" data-merch_price="$9.99" data-merch_item="Skull Cap"
+        data-img_src="../static/img/swag/hat/hat-fr.png" class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart
+      </button>
+    </div>
+   
+  </div>
+  <div class="w-full flex flex-col items-center">
+    <h2 class="py-5 mt-14 font-lacquer font-semibold uppercase text-4xl text-center">Accessories</h1>
+      <div class="min-h-96 w-80 my-14 p-4">
+        <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/hoodie/hoodie-f.png" alt="">
+        <h1 class="my-2 text-lg font-bold">Stage Fright Hoodie
+    </h2>
+    <h1 class="my-2 text-lg">$29.99</h2>
+      <button id="Hoodie" onclick="incrementCartItems(this)" data-merch_price="$29.99"
+        data-merch_item="Stage Fright Hoodie" data-img_src="../static/img/swag/hoodie/hoodie-f.png"
+        class="py-2 w-full bg-purple-600 rounded-xl">
+        Add to Cart
+      </button>
+  </div>
+  <div class="min-h-96 w-80 my-14 p-4">
+    <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/jacket/jacket-f.png" alt="">
+    <h1 class="my-2 text-lg font-bold">Jacket</h2>
+      <h1 class="my-2 text-lg">$24.99</h2>
+        <button id="Jacket" onclick="incrementCartItems(this)" data-merch_price="$24.99" data-merch_item="jacket"
+          data-img_src="../static/img/swag/jacket/jacket-f.png" class="py-2 w-full bg-purple-600 rounded-xl">
+          Add to Cart
+        </button>
+  </div>
+  <div class="min-h-96 w-80 my-14 p-4">
+    <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/socks/socks.webp" alt="">
+    <h1 class="my-2 text-lg font-bold">Socks</h2>
+      <h1 class="my-2 text-lg">$12.99</h2>
+        <button id="Socks" onclick="incrementCartItems(this)" data-merch_price="$12.99" data-merch_item="socks"
+          data-img_src="../static/img/swag/socks/socks.webp" class="py-2 w-full bg-purple-600 rounded-xl">
+          Add to Cart
+        </button>
+  </div>
+  <div class="w-full flex flex-row justify-evenly">
+    <div class="min-h-96 w-80 my-14 p-4">
+      <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/bottle/cup-f.png" alt="">
+      <h2 class="my-2 text-lg font-bold">Skull Water Bottle</h2>
+      <h2 class="my-2 text-lg">$14.99</h2>
+      <button id="Skull Bottle" onclick="incrementCartItems(this)" data-merch_price="$14.99"
+        data-merch_item="Skull Water Bottle" data-img_src="../static/img/swag/bottle/cup-f.png"
+        class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart </button>
+    </div>
+    <div class="min-h-96 w-80 my-14 p-4">
+      <img class="h-80 w-80 my-4 bg-white rounded-xl"
+        src="../static/img/swag/headphone/17a041b1-0518-4505-b48c-f45d67fe83e1.png" alt="">
+      <h2 class="my-2 text-lg font-bold">Airpod Case</h2>
+      <h2 class="my-2 text-lg">$6.99</h2>
+      <button id="Airpod-Case" onclick="incrementCartItems(this)" data-merch_price="$6.99" data-merch_item="Airpod Case"
+        data-img_src="../static/img/swag/headphone/17a041b1-0518-4505-b48c-f45d67fe83e1.png"
+        class="py-2 w-full bg-purple-600 rounded-xl"></button> class="py-2 w-80 bg-purple-600 rounded-xl"> Add to Cart
+      </button>
+    </div>
+  </div>
+  <div class="hidden h-20 w-20">
+    <div class="w-[55%]"></div>
+  </div>
   </div>
   </div>
   </div>

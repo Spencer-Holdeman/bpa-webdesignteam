@@ -53,12 +53,18 @@ def update_vars():
     global first_cart_item
     global num_cart_items
 
-    data = request.get_json()
-    ticket_node_history = data.get('ticket_node_history')
-    current_node_history = data.get('current_node_history')
-    first_cart_item = data.get('first_cart_item')
+    serverData = request.get_json()
+    ticket_node_history = serverData.get('ticket_node_history')
+    current_node_history = serverData.get('current_node_history')
+    first_cart_item = serverData.get('first_cart_item')
     num_cart_items = sum(current_node_history.values()) + sum(ticket_node_history.values())
-    return jsonify({'message': 'vars updated', 'num_cart_items': num_cart_items})
+    data = {
+        'ticket_node_history': ticket_node_history,
+        'current_node_history': current_node_history,
+        'first_cart_item': first_cart_item,
+        'num_cart_items': num_cart_items
+    }
+    return jsonify(data)
 
 @base.route('/home', methods=['POST', 'GET'])
 def Home():
