@@ -82,6 +82,15 @@
     --gradient-color-4: #240638;
     z-index: -1;
 }
+.canvas-swag {
+    width: 100%;
+    height: 100%;
+    --gradient-color-1: #3f0863;
+    --gradient-color-2: #702fda;
+    --gradient-color-3: #553981;
+    --gradient-color-4: #240638;
+    z-index: -1;
+}
 .canvas-main {
     width: 100%;
     height: 100%;
@@ -190,4 +199,9 @@
         -webkit-transform: translate3d(0, -100%, 0);
         transform: translate3d(0, -100%, 0);
     }
+}
+
+/* Cart Buttons */
+.cart-button {
+    @apply active:scale-125
 }
