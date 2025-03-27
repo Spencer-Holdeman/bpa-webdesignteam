@@ -58,10 +58,9 @@
   <!---------- Checkout ---------->
   <!-- User Information -->
   <section class="min-h-screen w-full flex hidden">
-    <form action="" method="POST">
-      <div id="checkoutInfo" class="min-h-full flex justify-center lg:justify-end bg-dark-raw transition-all duration-500 ease-in-out" style="width: 0%;">
+      <form action="" method="POST" id="checkoutInfo" class="min-h-full flex justify-center lg:justify-end bg-dark-raw transition-all duration-500 ease-in-out" style="width: 0%;">
         <div class="w-[98%] md:w-[80%] lg:w-[500px] p-7 transition-all duration-500 hidden" style="opacity: 0;">
-          <p onclick="location.reload()" class="text-purple-500 hover:text-purple-700 transition-all duration-200 cursor-pointer">< Return to cart</p>
+          <a href="/home" class="text-purple-500 hover:text-purple-700 transition-all duration-200 cursor-pointer"><i class="fa-solid fa-xmark"></i> Return Home</a>
           <div class="block lg:hidden p-5">
             <button onclick="openMobileCart()" class="w-full py-3 px-3 my-3 text-lg font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg">View Summary</button>
           </div>
@@ -117,12 +116,11 @@
             <input type="text" required name="billing-zip" id="billing-zip" placeholder="Zip code" maxlength="5" class="w-full py-1 px-3 bg-gray-800 rounded-lg">
           </div>
           <div class="p-5 flex flex-row justify-between items-center">
-            <p onclick="location.reload()" class="text-purple-500 hover:text-purple-700 transition-all duration-200 cursor-pointer">< Return to cart</p>
+            <p onclick="location.reload()" class="text-purple-500 hover:text-purple-700 transition-all duration-200 cursor-pointer"><i class="fa-solid fa-angle-left"></i> Return to cart</p>
             <button class="w-auto py-2 px-4 my-3 text-lg font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg">Complete Payment</button>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
     
     <!-- Cart -->
     <div class="w-full flex justify-center lg:justify-start absolute lg:static bg-purple-500 lg:bg-transparent transition-all duration-100" style="opacity: 0;">

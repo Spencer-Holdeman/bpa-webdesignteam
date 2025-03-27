@@ -1029,6 +1029,10 @@ video {
   flex-wrap: wrap;
 }
 
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
 .items-start {
   align-items: flex-start;
 }
@@ -1061,6 +1065,12 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-5 > :not([hidden]) ~ :not([hidden]) {
@@ -1384,6 +1394,10 @@ video {
   padding-top: 1rem;
 }
 
+.pt-40 {
+  padding-top: 10rem;
+}
+
 .pt-8 {
   padding-top: 2rem;
 }
@@ -1673,6 +1687,16 @@ video {
   z-index: -1;
 }
 
+.canvas-swag {
+  width: 100%;
+  height: 100%;
+  --gradient-color-1: #3f0863;
+  --gradient-color-2: #702fda;
+  --gradient-color-3: #553981;
+  --gradient-color-4: #240638;
+  z-index: -1;
+}
+
 .canvas-main {
   width: 100%;
   height: 100%;
@@ -1753,6 +1777,14 @@ video {
   }
 }
 
+/* Cart Buttons */
+
+.cart-button:active {
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .hover\:border-purple-500:hover {
   --tw-border-opacity: 1;
   border-color: rgb(168 85 247 / var(--tw-border-opacity));
@@ -1799,6 +1831,12 @@ video {
 
 .focus\:outline-purple-500:focus {
   outline-color: #a855f7;
+}
+
+.active\:scale-125:active {
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 @media (prefers-reduced-motion: reduce) {
