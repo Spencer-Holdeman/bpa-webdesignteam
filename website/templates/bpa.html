@@ -5,34 +5,55 @@
 {% block body %}
   <body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
 {% endblock %}
-{% block js_scripts %}
-  <script defer src="../static/js/navbar.js"></script>
-  <script defer src="../static/js/cart.js"></script>
+{% block meta_tags %}
+<meta name="description" content="BPA Info - Learn more about the BPA team and their roles." />
+<meta name="keywords" content="BPA, Business Professionals of America, team, roles, members" />
+<meta name="author" content="BPA Team" />
+<meta property="og:title" content="BPA Info" />
+<meta property="og:description" content="Learn more about the BPA team and their roles." />
+<meta property="og:image" content="../static/img/logo/bpa_logo.png" />
+<meta property="og:url" content="https://stagefrightbpa.pythonanywhere.com/bpa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BPA Info" />
+<meta name="twitter:description" content="Learn more about the BPA team and their roles." />
+<meta name="twitter:image" content="../static/img/logo/bpa_logo.png" />
 {% endblock %}
 {% block content %}
     <main class="w-full">
       <div class="min-h-screen flex flex-col justify-center items-center">
-        <p class="py-8 mt-24 text-lg font-semibold">━━━━ Team ID: 00117209 ━━━━</h1>
-        <div class="flex flex-row flex-wrap justify-center mb-16 text-center">
-          <div class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl">
+        <div class="hidden md:flex flex-col justify-center items-center text-center">
+          <p class="pt-8 mt-24 text-lg font-semibold">━━━━ 2024-25 ━━━━</h1>
+          <p class="text-lg font-semibold">━━━━ Website Design Team / Theme: Stage Fright ━━━━</p>
+          <p class="text-lg font-semibold">━━━━ Canadian Valley Technology Center, El Reno, OK 73036 ━━━━</p>
+          <p class="pb-8 md:mt-0 text-lg font-semibold">━━━━ Local Team ID: 1 ━━━━</h1>
+        </div>
+        <div class="md:hidden flex flex-col justify-center items-center text-center">
+          <p class="pt-8 mt-24 text-lg font-semibold">2024-25</h1>
+          <p class="pt-4 text-lg font-semibold">Website Design Team / Theme: Stage Fright</p>
+          <!-- <p class="text-lg font-semibold">Theme: Stage Fright</p> -->
+          <p class="pt-4 text-lg font-semibold">Canadian Valley Technology Center, El Reno, OK 73036</p>
+          <p class="pt-4 pb-8 md:mt-0 text-lg font-semibold">Local Team ID: 1</h1>
+        </div>
+          <div class="flex flex-row flex-wrap justify-center mb-16 text-center">
+          <div class="border-transparent border-dashed border-[1px] rounded-2xl">
             <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/landon.webp);" alt="Landon Warren, Electric Guitarist"></div>
             <h1 class="text-xl font-bold">Landon Warren</h1>
-            <p>Front-End Developer</p>
+            <p>Team Lead / Front-End Developer</p>
             <p class="pb-6">ID: 00117209</p>
           </div>
-          <div class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl">
+          <div class="border-transparent border-dashed border-[1px] rounded-2xl">
             <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/spencer.webp);" alt="Spencer Holdeman, Drummer"></div>
             <h1 class="text-xl font-bold">Spencer Holdeman</h1>
             <p>Back-End Developer</p>
             <p class="pb-6">ID: 00117175</p>
           </div>
-          <div class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl">
+          <div class="border-transparent border-dashed border-[1px] rounded-2xl">
             <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/connor.webp);" alt="Connor Crossley, Bassist"></div>
             <h1 class="text-xl font-bold">Connor Crossley</h1>
             <p>Communications Developer</p>
             <p class="pb-6">ID: 00117157</p>
           </div>
-          <div class="hover:border-purple-500 border-transparent border-dashed border-[1px] rounded-2xl">
+          <div class="border-transparent border-dashed border-[1px] rounded-2xl">
             <div class="h-96 w-60 m-6 bg-cover bg-center flex flex-col items-center justify-end bg-gray-800 rounded-2xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/member/david.webp);" alt="David Casswell, Vocalist"></div>
             <h1 class="text-xl font-bold">David Casswell</h1>
             <p>Media Specialist</p>
@@ -40,9 +61,19 @@
           </div>
         </div>
       </div>
-      <p class="py-8 mt-24 text-lg text-center font-semibold">━━━━ Works Cited | Attributions ━━━━</h1>
-      <div class="w-full flex justify-center">
-        <iframe src="../static/pdf/works_cited.pdf" zoom="89" class="h-screen w-[80%] lg:w-[755px]" frameborder="0"></iframe>
+      <p class="py-8 mt-24 text-lg text-center font-semibold">━━━━ Works Cited | Accessibility ━━━━</p>
+      <div class="flex flex-row flex-wrap-reverse justify-evenly">
+        <div class="w-[800px] mb-20 flex flex-col items-center">
+          <div class="w-full mb-10 flex justify-center underline">
+            <a href="https://www.flaticon.com/free-icons/ticket" title="ticket icons">Ticket icons created by Freepik - Flaticon</a>
+          </div>
+          <iframe src="../static/pdf/works_cited.pdf" zoom="89" class="h-screen w-[80%] lg:w-full" frameborder="0"></iframe>
+        </div>
+        <div class="w-[80%] lg:w-[800px] mb-10 flex flex-col text-center">
+          <h1 class="mb-10 text-4xl font-bold">Accessibility Measures</h1>
+          <h2 class="text-lg font-medium">Prefers-Reduced-Motion</h2>
+          <p class="mb-10">If the user has a reduced motion accessibility option on, parts of the website that move will be slowed down or stopped entirely.</p>
+        </div>
       </div>
     </main>
 {% endblock %}

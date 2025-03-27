@@ -35,7 +35,7 @@ function constCart() {
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.current_node_history)[i]);
             var img_source = current_node.parentElement.parentElement.previousElementSibling.src;
-            var merch_item = current_node.parentElement.previousElementSibling.innerText
+            var merch_item = current_node.parentElement.previousElementSibling.previousElementSibling.innerText + '<br>' + current_node.parentElement.previousElementSibling.innerText
             // var merch_price = current_node.previousElementSibling.previousElementSibling == null ? current_node.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.innerText : current_node.previousElementSibling.innerText;
 
             var node_id = current_node.id;
@@ -44,18 +44,18 @@ function constCart() {
             div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
             button_div.setAttribute('class', 'cart-item-buttons');
             button_div.setAttribute('style', 'display: flex; align-items: center;');
-            item_count.setAttribute('class', 'cart-item-count');
+            item_count.setAttribute('class', 'cart-item-count font-normal');
             item_count.setAttribute('id', node_id);
-            item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
+            item_image.setAttribute('class', 'h-20 w-20 mr-2 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
 
-            item_count.innerText = `item count: ${data.current_node_history[node_id]}`;
+            item_count.innerText = `Count: ${data.current_node_history[node_id]}`;
             // remove_item_button.innerText = 'Remove';
 
             // Append the new elements to the cart item div
             button_div.appendChild(item_count);
 
-            item_description.innerText = merch_item;
+            item_description.innerHTML = merch_item;
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
             div_element2.appendChild(button_div);
@@ -73,25 +73,25 @@ function constCart() {
 
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.ticket_node_history)[i]);
-            var img_source = '../static/img/misc/download.png'
-            var merch_item = current_node.parentElement.previousElementSibling.innerText
+            var img_source = '../static/img/swag/ticket.png'
+            var merch_item = current_node.parentElement.previousElementSibling.previousElementSibling.innerText + '<br>' + current_node.parentElement.previousElementSibling.innerText 
             var node_id = current_node.id;
 
             // Set attributes and inner text for the new cart item elements
             div_element.setAttribute('class', 'cart-item flex mb-2 mt-2');
             button_div.setAttribute('class', 'cart-item-buttons');
             button_div.setAttribute('style', 'display: flex; align-items: center;');
-            item_count.setAttribute('class', 'cart-item-count');
+            item_count.setAttribute('class', 'cart-item-count font-normal');
             item_count.setAttribute('id', node_id);
-            item_image.setAttribute('class', 'h-20 w-20 bg-white rounded-xl');
+            item_image.setAttribute('class', 'h-20 w-20 mr-2 bg-white rounded-xl');
             item_image.setAttribute('src', img_source);
 
-            item_count.innerText = `Item count: ${data.ticket_node_history[node_id]}`;
+            item_count.innerText = `Count: ${data.ticket_node_history[node_id]}`;
 
             // Append the new elements to the cart item div
             button_div.appendChild(item_count);
 
-            item_description.innerText = merch_item;
+            item_description.innerHTML = merch_item;
             div_element.appendChild(item_image);
             div_element2.appendChild(item_description);
             div_element2.appendChild(button_div);
@@ -105,9 +105,11 @@ function constCart() {
 // Landon
 function moveOn() {
     const body = document.getElementsByTagName('body')[0];
+    const checkout = document.getElementById('checkoutInfo').parentElement;
     const fullCart = document.getElementById('fullCart');
     const info = document.getElementById('checkoutInfo');
     const summary = document.getElementById('checkoutSummary');
+    checkout.classList.remove('hidden')
     body.classList.remove('overflow-y-hidden')
     fullCart.style.animation = "slideUpCheckout 500ms forwards ease-in-out";
     setTimeout(() => {
@@ -122,7 +124,7 @@ function moveOn() {
         info.children[0].classList.toggle('hidden');
         summary.classList.toggle('hidden');
         document.getElementById('total-price-cart').removeAttribute('id');
-        constCart()
+        constCart();
     }, 600);
     setTimeout(() => {
         info.children[0].style = 'opacity: 1;';

@@ -8,10 +8,26 @@
 {% block js_scripts %}
 <script defer src="../static/js/cart.js"></script>
 <script defer src="../static/js/navbar.js"></script>
+<script defer src="../static/js/gradient.js"></script>
 {% endblock %}
 
+{% block meta_tags %}
+<meta name="description" content="Stage Fright - Explore our exclusive merchandise. Get your favorite band gear now!" />
+<meta name="keywords" content="Stage Fright, band, music, merchandise, merch, shop, store" />
+<meta name="author" content="Stage Fright Band" />
+<meta property="og:title" content="Stage Fright Merch" />
+<meta property="og:description" content="Explore Stage Fright's exclusive merchandise. Get your favorite band gear now!" />
+<meta property="og:image" content="../static/img/logo/icon.png" />
+<meta property="og:url" content="https://stagefrightbpa.pythonanywhere.com/swag" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Stage Fright Merch" />
+<meta name="twitter:description" content="Explore Stage Fright's exclusive merchandise. Get your favorite band gear now!" />
+<meta name="twitter:image" content="../static/img/logo/icon.png" />
+{% endblock %}
 
 {% block body %}
+<body class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
+{% endblock %}
 
 <body
     class="scroll-smooth relative overflow-x-hidden transition-all duration-[1.5s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
@@ -70,6 +86,27 @@
                 <button id="Skull Cap" onclick="incrementCartItems(this)" data-merch_price="$9.99" data-merch_item="Skull Cap" data-img_src="../static/img/swag/hat/hat-fr.png" class="py-2 w-full bg-purple-600 rounded-xl">
                     Add to Cart
                 </button>
+            </div>
+            <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
+                <div class="h-80 w-80 px-4 mb-4 flex flex-col justify-end bg-white bg-cover bg-center rounded-xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/swag/vinyl/ftc.webp);">
+                  <img class="hidden w[0%] h[0%]" src="../static/img/swag/vinyl/ftc.webp" alt="">
+                  <h2 class="mt-2 text-lg font-bold">Failure to Cope Vinyl</h2>
+                  <h2 class="mb-2 text-lg">$19.99</h2>
+                </div>
+                <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 active:scale-125 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>
+            <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
+                <div class="h-80 w-80 px-4 mb-4 flex flex-col justify-end bg-white bg-cover bg-center rounded-xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/swag/vinyl/vexed.webp);">
+                  <img class="hidden w[0%] h[0%]" src="../static/img/swag/vinyl/vexed.webp" alt="">
+                  <h2 class="mt-2 text-lg font-bold">Vexed Vinyl</h2>
+                  <h2 class="mb-2 text-lg">$19.99</h2>
+                </div>
+                <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 active:scale-125 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>
         </div>
         <div class="min-h-96 w-80 my-14 p-4">
             <img class="h-80 w-80 my-4 bg-white rounded-xl" src="../static/img/swag/hoodie/hoodie-f.png" alt="">
@@ -119,8 +156,66 @@
                             Add to Cart
                         </button>
                     </div>
+
                 </div>
+                <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 active:scale-125 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>
+            <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
+                <div class="h-80 w-80 px-4 mb-4 flex flex-col justify-end bg-white bg-cover bg-center rounded-xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/swag/hoodie/hoodie-f.png);">
+                  <img class="hidden w[0%] h[0%]" src="../static/img/swag/hoodie/hoodie-f.png" alt="">
+                  <h2 class="mt-2 text-lg font-bold">Stage Fright Hoodie</h2>
+                  <h2 class="mb-2 text-lg">$24.99</h2>
+                </div>
+                <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 active:scale-125 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>
+            <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
+                <div class="h-80 w-80 px-4 mb-4 flex flex-col justify-end bg-white bg-cover bg-center rounded-xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/swag/jacket/jacket-f.png);">
+                  <img class="hidden w[0%] h[0%]" src="../static/img/swag/jacket/jacket-f.png" alt="">
+                  <h2 class="mt-2 text-lg font-bold">Jacket</h2>
+                  <h2 class="mb-2 text-lg">$29.99</h2>
+                </div>
+                <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 active:scale-125 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>
         </div>
+
+        <div class="flex flex-row flex-wrap space-x-4 justify-center items-center">
+            <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
+                <div class="h-80 w-80 px-4 mb-4 flex flex-col justify-end bg-white bg-cover bg-center rounded-xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/swag/socks/socks.webp);">
+                  <img class="hidden w[0%] h[0%]" src="../static/img/swag/socks/socks.webp" alt="">
+                  <h2 class="mt-2 text-lg font-bold">Socks</h2>
+                  <h2 class="mb-2 text-lg">$12.99</h2>
+                </div>
+                <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 active:scale-125 rounded-xl">
+                    Add to Cart    
+                </button>
+            </div>
+            <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
+                <div class="h-80 w-80 px-4 mb-4 flex flex-col justify-end bg-white bg-cover bg-center rounded-xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/swag/bottle/cup-f.png);">
+                  <img class="hidden w[0%] h[0%]" src="../static/img/swag/bottle/cup-f.png" alt="">
+                  <h2 class="mt-2 text-lg font-bold">Skull Water Bottle</h2>
+                  <h2 class="mb-2 text-lg">$14.99</h2>
+                </div>
+                <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 active:scale-125 rounded-xl">
+                  Add to Cart
+                </button>
+            </div>
+            <div class="min-h-96 min-w-80 my-14 p-4 bg-dark-raw rounded-xl">
+                <div class="h-80 w-80 px-4 mb-4 flex flex-col justify-end bg-white bg-cover bg-center rounded-xl" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 90%), url(../static/img/swag/headphone/case-f.png);">
+                    <img class="hidden w[0%] h[0%]" src="../static/img/swag/headphone/case-f.png" alt="">
+                    <h2 class="mt-2 text-lg font-bold">Airpod Case</h2>
+                    <h2 class="mb-2 text-lg">$6.99</h2>
+                </div>
+                <button id="vinyl 1" onclick="incrementCartItems(this)" class="py-2 w-80 bg-purple-500 hover:bg-purple-700 transition-all duration-200 active:scale-125 rounded-xl">
+                    Add to Cart
+                </button>
+            </div>
         </div>
-    </main>
-    {% endblock %}
+    </div>
+</main>
+{% endblock %}

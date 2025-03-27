@@ -9,22 +9,29 @@
   <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Permanent+Marker&family=Rowdies:wght@300;400;700&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Permanent+Marker&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet"/>
+  <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="(min-width: 550px)"/>
   <title>{% block title %} Stage Fright {% endblock %}</title>
-
+  {% block meta_tags %}
+  <meta name="description" content="Stage Fright - Official website of the band. Check out our latest tours, merch, and more." />
+  <meta name="keywords" content="Stage Fright, band, music, tours, merch, concerts" />
+  <meta name="author" content="Stage Fright Band" />
+  <meta property="og:title" content="Stage Fright" />
+  <meta property="og:description" content="Official website of Stage Fright. Discover our music, tours, and merchandise." />
+  <meta property="og:image" content="../static/img/logo/icon.png" />
+  <meta property="og:url" content="https://stagefrightbpa.pythonanywhere.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stage Fright" />
+  <meta name="twitter:description" content="Official website of Stage Fright. Discover our music, tours, and merchandise." />
+  <meta name="twitter:image" content="../static/img/logo" />
+  {% endblock %}
   {% block js_scripts %}
   <script defer src="../static/js/navbar.js"></script>
   <script defer src="../static/js/cart.js"></script>
   {% endblock %}
-
   <script src="https://kit.fontawesome.com/26eaa8b1dc.js" crossorigin="anonymous"></script>
 </head>
 
@@ -34,11 +41,8 @@
   class="scroll-smooth relative overflow-x-hidden transition-all duration-[1s] bg-fixed bg-center bg-cover text-white bg-dark-raw">
   {% endblock %}
   {% block nav %}
-  <div id="mobile-menu" class="md:hidden h-screen fixed top-0 right-0 transition-all duration-[1.3s] z-[60]"
-    style="background-color: rgba(1, 1, 1, 0.8); backdrop-filter: blur(10px); width: 0%;">
-    <i onclick="closeMenu()" id="mobile-menu-x"
-      class="absolute top-6 right-7 fa-solid fa-xmark cursor-pointer text-5xl transition-all duration-[0.5s]"
-      style="display: none; opacity: 0;"></i>
+  <div id="mobile-menu" class="md:hidden h-screen fixed top-0 right-0 transition-all duration-[1.3s] motion-reduce:duration-[3.3s] z-[60]" style="background-color: rgba(1, 1, 1, 0.8); backdrop-filter: blur(10px); width: 0%;">
+    <i onclick="closeMenu()" id="mobile-menu-x" class="absolute top-6 right-7 fa-solid fa-xmark cursor-pointer text-5xl transition-all duration-[0.5s]" style="display: none; opacity: 0;"></i>
     <div class="inline-block mx-5 text-left text-4xl font-semibold">
       <a href="/home" class="transition-all duration-[0.5s]" style="opacity: 0;">
         <p class="px-3 my-6 rounded-full hover:underline">Home</p>
@@ -64,65 +68,58 @@
     class="h-screen w-full md:w-[400px] fixed hidden flex flex-col justify-between top-0 right-0 bg-dark-raw z-50">
     <div id="total-price" class="p-6">
       <div class="flex flex-row justify-between items-center">
-        <div
-          class="h-[50px] w-[50px] hidden md:flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer"
-          onclick="closeShoppingBag()">
+        <div class="h-[50px] w-[50px] hidden md:flex flex-row justify-center items-center text-2xl text-purple-500 hover:text-purple-700 border-purple-500 hover:border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
           <i class="fa-solid fa-xmark"></i>
         </div>
         <img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-[50px] md:hidden">
         <h1 class="text-3xl font-lacquer">Your Cart</h1>
         <img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-[50px] md:block hidden">
-        <div
-          class="h-[50px] w-[50px] md:hidden flex flex-row justify-center items-center text-2xl text-purple-600 border-purple-700 border-2 rounded-full cursor-pointer"
-          onclick="closeShoppingBag()">
+        <div class="h-[50px] w-[50px] md:hidden flex flex-row justify-center items-center text-2xl text-purple-500 hover:text-purple-700 border-purple-500 hover:border-purple-700 border-2 rounded-full cursor-pointer" onclick="closeShoppingBag()">
           <i class="fa-solid fa-xmark"></i>
         </div>
       </div>
       <div class="h-[2px] w-full mt-4 bg-purple-800"></div>
     </div>
     <div id="cart-items" class="h-full overflow-y-scroll minimal-scrollbar px-4 mx-3">
-      <p id="cart-message">You currently have no items in your cart!</p>
+      <p id="cart-message" class="text-lg font-semibold">(0) items in cart</p>
     </div>
     <div class="p-6">
       <div class="h-[2px] w-full mb-4 bg-purple-800"></div>
-      <p id="total-price-cart">Total $0.00</p>
-      <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-900 rounded-md"
-        onclick="removeCartItems()">
+      <p id="total-price-cart" class="text-lg font-semibold">Total $0.00</p>
+      <button class="h-10 w-full my-2 text-xl font-lacquer text-white bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-md" onclick="removeCartItems()">
         Clear Items
       </button>
       <a href="/checkout">
-        <button class="h-12 w-full my-2 text-xl font-lacquer text-white bg-purple-700 rounded-md">
+        <button class="h-10 w-full my-2 text-xl font-lacquer text-white bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-md">
           Checkout
         </button>
       </a>
     </div>
   </div>
-  <nav id="navbar" class="w-full flex flex-row items-center justify-between fixed top-0 px-5 py-5 font-semibold z-40">
-    <div class="xl:w-[30%] flex flow-row">
+  <nav id="navbar" class="w-full flex flex-row items-center justify-between fixed top-0 px-5 my-5 font-semibold z-40">
+    <div class="h-[52px] xl:w-[30%] flex flow-row">
       <a href="/home"><img class="h-12" src="../static/img/logo/icon.png" alt="Stage Fright Icon" draggable="false"></a>
-      <a href="/home"><img class="h-12 ml-5 hidden lg:block" src="../static/img/logo/text.png"
-          alt="Stage Fright Text Logo" draggable="false"></a>
+      <a href="/home"><img class="h-12 px-1 ml-5 hidden lg:block bg-dark-raw/60 backdrop-blur-md rounded-full" src="../static/img/logo/text.png" alt="Stage Fright Text Logo" draggable="false"></a>
     </div>
-    <div class="hidden md:flex space-x-5 text-lg px-2 py-2 bg-dark-raw/60 backdrop-blur-md rounded-full">
+    <div class="h-[52px] hidden md:flex space-x-5 text-lg px-2 py-2 bg-dark-raw/60 backdrop-blur-md rounded-full">
       <a href="/home">
-        <p class="px-3 py-1 rounded-full hover:underline">Home</p>
+        <p class="hover:brightness-75 px-3 py-1 rounded-full hover:underline">Home</p>
       </a>
       <a href="/tours">
-        <p class="px-3 py-1 rounded-full hover:underline">Tours</p>
+        <p class="hover:brightness-75 px-3 py-1 rounded-full hover:underline">Tours</p>
       </a>
       <a href="/about">
-        <p class="px-3 py-1 rounded-full hover:underline">About</p>
+        <p class="hover:brightness-75 px-3 py-1 rounded-full hover:underline">About</p>
       </a>
       <a href="/contact">
-        <p class="px-3 py-1 rounded-full hover:underline">Contact Us</p>
+        <p class="hover:brightness-75 px-3 py-1 rounded-full hover:underline">Contact Us</p>
       </a>
       <a href="/swag" class="block lg:hidden ">
-        <p class="px-3 py-1 rounded-full hover:underline bg-purple-500 hover:bg-purple-600">Merch</p>
+        <p class="hover:brightness-75 px-3 py-1 rounded-full hover:underline">Merch</p>
       </a>
     </div>
-    <div class="xl:w-[30%] flex flex-row justify-end items-center space-x-5 text-base rounded-full">
-      <a onclick="openShoppingBag()"
-        class="flex flex-row space-x-3 px-4 py-2 hover:brightness-75 bg-dark-raw/60 backdrop-blur-md rounded-full cursor-pointer">
+    <div class="h-[52px] xl:w-[30%] flex flex-row justify-end items-center space-x-5 text-base rounded-full">
+      <a onclick="openShoppingBag()" class="flex flex-row space-x-3 px-4 py-2 hover:brightness-75 bg-dark-raw/60 backdrop-blur-md rounded-full cursor-pointer">
         <i class="fa-solid fa-bag-shopping text-2xl"></i>
         <p class="text-lg">Cart (<span id="nums-value">0</span>)</p>
       </a>
@@ -130,8 +127,7 @@
         class="md:hidden flex flex-row space-x-3 px-4 py-2 hover:brightness-75 bg-dark-raw/60 backdrop-blur-md rounded-full cursor-pointer">
         <i class="fa-solid fa-bars text-2xl"></i>
       </a>
-      <a href="/swag"
-        class="hidden lg:block px-2 rounded-full bg-purple-500 hover:bg-purple-600 transition-all duration-100">
+      <a href="/swag" class="hidden lg:block px-2 rounded-full bg-purple-500 hover:bg-purple-600 border-dark-raw/60 border-2 transition-all duration-100">
         <p class="px-3 py-1.5 text-lg">Buy Merch</p>
       </a>
     </div>
@@ -144,11 +140,10 @@
 
   {% block footer %}
   <!-- Footer -->
-  <footer>
+  <footer class="bg-dark-raw">
     <section class="w-full px-10 py-[2%] font-serif">
       <div class="lg:flex flex-row justify-between">
-        <div class="flex flex-row justify-center items-center"><img class="h-16" src="../static/img/logo/text.png"
-            alt="Stage Fright Text Logo"></div>
+        <div class="flex flex-row justify-center items-center"><a href="/home"><img class="h-16" src="../static/img/logo/text.png" alt="Stage Fright Text Logo"></a></div>
         <div class="flex flex-row justify-center items-center text-gray-400">
           <a href="/home">
             <p class="px-3 py-3 sm:py-0 hover:text-gray-500">Home</p>
@@ -165,20 +160,22 @@
           <a href="/swag" class="hidden sm:block">
             <p class="px-3 py-3 sm:py-0 hover:text-gray-500">Merch</p>
           </a>
+          <a href="/bpa">
+            <p class="px-3 py-3 sm:py-0 hover:text-gray-500">Attributions</p>
+          </a>
           <div class="flex flex-row">
-            <a href="/home"><i class="fa-brands fa-instagram text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
-            <a href="/home"><i class="fa-brands fa-x-twitter text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
-            <a href="/home"><i class="fa-brands fa-youtube text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
-            <a href="/home"><i class="fa-brands fa-spotify text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
-            <a href="https://github.com/SoftwareNotion/bpa-webdesignteam" target="_blank"><i
-                class="fa-brands fa-github hover:text-gray-500 mx-[0.5em]"></i></a>
+            <a href="https://www.instagram.com/stage_frightband/" target="_blank"><i class="fa-brands fa-instagram text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
+            <a href="https://x.com/StageFrightOKC" target="_blank"><i class="fa-brands fa-x-twitter text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
+            <a href="https://www.youtube.com/@StageFrightOKC" target="_blank"><i class="fa-brands fa-youtube text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61572413551374" target="_blank"><i class="fa-brands fa-facebook text-lg hover:text-gray-500 mx-[0.5em]"></i></a>
+            <a href="https://github.com/SoftwareNotion/bpa-webdesignteam" target="_blank"><i class="fa-brands fa-github hover:text-gray-500 mx-[0.5em]"></i></a>
           </div>
         </div>
       </div>
       <div class="h-[1px] w-full my-4 bg-gray-600"></div>
       <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center">
-        <p class="mb-3 lg:pb-0 text-sm sm:text-base">©2024 - Stage Fright. All Rights Reserved.</p>
-        <p class="text-sm sm:text-base">BPA Competition | Canadian Valley Technology Center, El Reno, OK 73036</a></p>
+        <p class="mb-3 lg:pb-0 text-sm sm:text-base">©2025 - Stage Fright. All Rights Reserved.</p>
+        <p class="text-sm sm:text-base underline"><a href="/bpa">Click for BPA Competition Information.</a></p>
       </div>
     </section>
   </footer>

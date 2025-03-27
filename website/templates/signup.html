@@ -3,10 +3,24 @@
     Sign Up | Stage Fright
 {% endblock %}
 
+{% block meta_tags %}
+    <meta name="description" content="Sign up for Stage Fright to create a new account and join our community." />
+    <meta name="keywords" content="Stage Fright, sign up, register, music, band" />
+    <meta name="author" content="Stage Fright Band" />
+    <meta property="og:title" content="Sign Up for Stage Fright" />
+    <meta property="og:description" content="Sign up for Stage Fright to create a new account and join our community." />
+    <meta property="og:image" content="../static/img/logo/icon.png" />
+    <meta property="og:url" content="https://stagefrightbpa.pythonanywhere.com/signup" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sign Up for Stage Fright" />
+    <meta name="twitter:description" content="Sign up for Stage Fright to create a new account and join our community." />
+    <meta name="twitter:image" content="../static/img/logo/icon.png" />
+{% endblock %}
+
 {% block form %}
 <main class="h-screen w-full flex flex-col items-center justify-center">
     <div class="flex flex-row mdh:flex-col items-center justify-center z-10 my-5 mdh:my-0">
-        <a href="/"><img src="../static/img/logo/icon.png" alt="" class="h-12 mx-2 mdh:mx-0 mdh:h-20"></a>
+        <a href="/" aria-label="Home"><img src="../static/img/logo/icon.png" alt="Stage Fright Logo" class="h-12 mx-2 mdh:mx-0 mdh:h-20"></a>
         <h1 class="text-2xl mdh:text-4xl text-center font-bold my-2 mdh:my-6">Create a new account</h1>
         <br class="hidden md:block">
     </div>
@@ -14,24 +28,29 @@
         class="w-full md:w-[600px] flex flex-col items-center justify-center md:rounded-xl Z-1 bg-opacity-0 md:bg-opacity-100 bg-[#431288]">
         <form action="/signup" method="POST" class="w-full flex flex-col justify-center px-10 py-5 md:py-10">
             <label class="my-2 font-medium" for="signup-name">Name</label>
-            <input class="p-2 my-2 rounded-xl text-black" type="text" name="signup-name" id="signup-name">
+            <input class="p-2 my-2 rounded-xl text-black" type="text" name="signup-name" id="signup-name" placeholder="Enter your name" aria-label="Name">
             <br class="hidden md:block">
             <label class="my-2 font-medium" for="signup-email">Email</label>
-            <input class="p-2 my-2 rounded-xl text-black" type="email" name="signup-email" id="signup-email"
-                placeholder="example@example.com">
+            <input class="p-2 my-2 rounded-xl text-black" type="email" name="signup-email" id="signup-email" placeholder="Enter your email" aria-label="Email">
             <br class="hidden md:block">
             <label class="my-2 font-medium" for="signup-pass">Password</label>
-            <input class="my-2 p-2 rounded-xl text-black" type="password" name="signup-password" id="signup-password">
+            <input class="my-2 p-2 rounded-xl text-black" type="password" name="signup-password" id="signup-password" placeholder="Enter your password" aria-label="Password">
             <span>
-                <input class="my-4" type="checkbox" name="signup-newsletter" id="signup-newsletter">
-                <label for="signup-news">I would like to recieve emails from the <i>Stage Fright</i> newsletter.</label>
+                <input class="my-4" type="checkbox" name="signup-newsletter" id="signup-newsletter" checked aria-label="Newsletter Signup">
+                <label for="signup-newsletter">I would like to receive emails from the <i>Stage Fright</i> newsletter.</label>
             </span>
-            <button
-                class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-2 my-2 rounded-xl font-medium">Create
-                Account</button>
+            <p class="w-full my-2 text-red-500 font-medium">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </p>
+            <button class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-2 my-2 rounded-xl font-medium" aria-label="Create Account">Create Account</button>
         </form>
     </div>
-    <p class="font-medium py-0 md:py-5">Already have an account? <span
-            class="text-purple-400 hover:text-purple-500 duration-200"><a href="/login">Sign In.</a></span></p>
+    <p class="font-medium py-0 md:py-5">Already have an account? <span class="text-purple-400 hover:text-purple-500 duration-200"><a href="/login" aria-label="Sign In">Sign In.</a></span></p>
 </main>
 {% endblock %}

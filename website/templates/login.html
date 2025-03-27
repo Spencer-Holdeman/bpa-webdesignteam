@@ -14,20 +14,33 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>{% block title %} Sign In | Stage Fright {% endblock %}</title>
     <link rel="shortcut icon" href="../static/img/logo/icon.png" type="image/x-icon">
+    {% block meta_tags %}
+    <meta name="description" content="Sign in to Stage Fright to access exclusive content and updates." />
+    <meta name="keywords" content="Stage Fright, login, sign in, music, band" />
+    <meta name="author" content="Stage Fright Band" />
+    <meta property="og:title" content="Sign In to Stage Fright" />
+    <meta property="og:description" content="Sign in to Stage Fright to access exclusive content and updates." />
+    <meta property="og:image" content="../static/img/logo/icon.png" />
+    <meta property="og:url" content="https://stagefrightbpa.pythonanywhere.com/login" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sign In to Stage Fright" />
+    <meta name="twitter:description" content="Sign in to Stage Fright to access exclusive content and updates." />
+    <meta name="twitter:image" content="../static/img/logo/icon.png" />
+    {% endblock %}
     <script defer src="../static/js/gradient.js"></script>
+    <script defer src="../static/js/popup.js"></script>
+    <script src="https://kit.fontawesome.com/26eaa8b1dc.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="flex flex-col h-screen bg-fixed bg-center bg-cover bg-black text-white">
     <canvas id="gradient-canvas" class="canvas-login fixed h-screen max-h-screen"></canvas>
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-    <div>
         {% for category, message in messages %}
-        <div>
-            {{ message }}
-        </div>
+            {% if category == 'info' %}
+                {{ message | safe }}
+            {% endif %}
         {% endfor %}
-    </div>
     {% endif %}
     {% endwith %}
     {% block form %}
@@ -40,15 +53,23 @@
         <div class="w-full md:w-[600px] flex flex-col items-center justify-center md:rounded-xl Z-1 bg-opacity-0 md:bg-opacity-100 bg-[#431288]">
             <form action="/login" method="POST" class="w-full flex flex-col justify-center px-10 py-5 md:py-10">
                 <label class="my-2 font-medium" for="email-login">Email</label>
-                <input class="p-2 my-2 rounded-xl text-black" type="email" name="email-login" id="email-login"
-                    placeholder="example@example.com">
+                <input class="p-2 my-2 rounded-xl text-black" type="email" name="email-login" id="email-login" placeholder="Enter your email">
                 <br class="hidden md:block">
                 <label class="my-2 font-medium" for="password-login">Password</label>
-                <input class="my-2 p-2 rounded-xl text-black" type="password" name="password-login" id="password-login">
+                <input class="my-2 p-2 rounded-xl text-black" type="password" name="password-login" id="password-login" placeholder="Enter your password">
                 <br class="hidden md:block">
-                <!-- <p class="w-full my-2 md:my-4 text-right text-purple-400 hover:text-purple-500 duration-200 font-medium"><a href="">Forgot Password?</a></p> -->
-                <button class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-2 my-2 rounded-xl font-medium">Sign
-                    In</button>
+                <p class="w-full my-2 text-red-500 font-medium">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            {% if category == 'error' %}
+                                {{ message }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </p>
+                <button class="w-full bg-purple-500 hover:bg-purple-600 duration-200 py-2 my-2 rounded-xl font-medium">Sign In</button>
             </form>
         </div>
         <p class="font-medium py-0 md:py-5">Need an account? <span class="text-purple-400 hover:text-purple-500 duration-200"><a href="/signup">Create one.</a></span></p>
