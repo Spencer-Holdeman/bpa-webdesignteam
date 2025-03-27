@@ -56,7 +56,7 @@ function increment(current_node) {
     current_node.disabled = true;
 
     // show a loading message
-    current_node.innerText = 'Loading...';
+    current_node.innerText = '#';
 
     // Get the ID of the next sibling element of the current node
     var node_id = current_node.nextElementSibling.id;
