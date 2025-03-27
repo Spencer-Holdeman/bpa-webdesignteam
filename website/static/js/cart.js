@@ -742,9 +742,9 @@ function removeCartItems() {
                 // Update the UI with the new number of items in the cart
                 document.getElementById('nums-value').innerText = data.num_cart_items;
                 document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
+                calculatePrice('remove items');
             })
             .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
-        calculatePrice('remove items');
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
 
