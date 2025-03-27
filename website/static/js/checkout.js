@@ -98,7 +98,7 @@ function constCart() {
             div_element.appendChild(div_element2);
             document.getElementById('const-cart').appendChild(div_element);
         }
-        calculatePrice(true);
+        calculatePrice('checkout');
     });
 }
 

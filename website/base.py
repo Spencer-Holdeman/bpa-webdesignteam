@@ -21,6 +21,8 @@ class User(db.Model):
         
 @base.route('/', methods=['POST', 'GET'])
 def clear_session():
+    db.session.query(User).delete()
+    db.session.commit()
     session.clear()
     return redirect(url_for('base.Home'))
 
@@ -51,36 +53,40 @@ def update_vars():
     global first_cart_item
     global num_cart_items
 
-    data = request.get_json()
-    ticket_node_history = data.get('ticket_node_history')
-    current_node_history = data.get('current_node_history')
-    first_cart_item = data.get('first_cart_item')
+    serverData = request.get_json()
+    ticket_node_history = serverData.get('ticket_node_history')
+    current_node_history = serverData.get('current_node_history')
+    first_cart_item = serverData.get('first_cart_item')
     num_cart_items = sum(current_node_history.values()) + sum(ticket_node_history.values())
-    return jsonify({'message': 'vars updated', 'num_cart_items': num_cart_items})
+    data = {
+        'ticket_node_history': ticket_node_history,
+        'current_node_history': current_node_history,
+        'first_cart_item': first_cart_item,
+        'num_cart_items': num_cart_items
+    }
+    return jsonify(data)
 
 @base.route('/home', methods=['POST', 'GET'])
 def Home():
-    print(session.items())
-    
     if 'logged_in?' in session:
         if session['logged_in?'] == True:
+            name = session['name']
+            flash(f'Hello {name}, you have logged in!', 'success')
             print('home (logged in)')
             return render_template('index.html')
         else:
-            print('Home (session[logged_in?] is false)')
-        return render_template('index.html')
+            return render_template('index.html')
     else:
-        print('Home (logged out)')
         return render_template('index.html')
 
 @base.route('/tours', methods=['POST', 'GET'])
 def Tours():
-    print('Tours')
+
     return render_template('tours.html')
 
 @base.route('/about', methods=['POST', 'GET'])
 def About():
-    print('About')
+
     return render_template('about.html')
 
 # Defines a route '/contact' that accepts both GET and POST requests
@@ -98,10 +104,6 @@ def form():
         
         # Logs the form data into a formatted string
         log = f'{subject}  {name}  {email}  {message}'
-        print(log)  # Debugging: prints the log information
-        print(subject)  # Debugging: prints the subject
-        
-        # Creates an email message with the collected form data
         msg = EmailMessage(
             subject,                    # Email subject
             log,                        # Email body content
@@ -119,18 +121,16 @@ def form():
         # Renders the contact.html template after form submission
         return render_template("contact.html")
     else:
-        # If the request method is GET, simply render the contact form
-        print('contact: outside if')  # Debugging: indicates GET request
         return render_template("contact.html")
 
 @base.route('/bpa', methods=['POST', 'GET'])
 def BPA():
-    print('BPA')
+
     return render_template('bpa.html')
 
 @base.route('/swag', methods=['POST', 'GET'])
 def Swag():
-    print('Swag')
+
     return render_template('swag.html')
 
 @base.route('/checkout', methods=['POST', 'GET'])
@@ -159,15 +159,11 @@ def Checkout():
 @base.route('/login', methods=['POST', 'GET'])
 def Login():
     if request.method == 'POST':
-        print('login: inside if')
         email = request.form.get('email-login', False)
         password = request.form.get('password-login', False)
         emails_passwords = db.session.query(User.email, User.password).all()
         database_emails = [email[0] for email in emails_passwords]
         database_passwords = [password[1] for password in emails_passwords]
-        
-        print(database_emails)
-        print(database_passwords)
         
         if email in database_emails and password in database_passwords:
             if db.session.query(exists().where(and_(User.email == email, User.password == password))).scalar() == True:
@@ -187,14 +183,11 @@ def Login():
             flash('Incorrect Email or Password, Try again.', 'error')
             return render_template('login.html')
     else:
-        print('login: outside if')
         return render_template('login.html')
 
 @base.route('/signup', methods=['POST', 'GET'])
 def SignUp():
     if request.method == 'POST':
-        print('Sign-up: inside if')
-        
         name = request.form.get('signup-name', False)
         email = request.form.get('signup-email', False)
         password = request.form.get('signup-password', False)
