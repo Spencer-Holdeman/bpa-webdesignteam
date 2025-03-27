@@ -51,67 +51,11 @@ async function fetchVars() {
     }
 }
 
-
-// /**
-//  * Increments the quantity of a cart item.
-//  *
-//  * This function fetches the current variables from the server, increments the
-//  * quantity of the specified cart item, updates the server with the new quantity,
-//  * and updates the UI to reflect the new quantity.
-//  *
-//  * current_node - The button element that was clicked to trigger this function.
-//  */
-// function increment(current_node) {
-//     // Get the ID of the next sibling element of the current node
-//     var node_id = current_node.nextElementSibling.id;
-//     var merch_price = current_node.dataset.price;
-//     // Fetch variables from the server
-//     fetchVars().then(data => {
-//         // Check if the item quantity has reached the maximum limit of 99
-//         if (data.current_node_history[node_id] == 99) {
-//             return; // Exit the function if the limit is reached
-//         } else {
-//             // Increment the quantity of the current item in the data object
-//             data.current_node_history[node_id] += 1;
-
-//             var total_price = parseFloat(merch_price) * data.current_node_history[node_id];
-//             console.log(`${merch_price} * ${data.current_node_history[node_id]} = ${total_price}`);
-
-//             // Send the updated data to the server
-//             fetch('/update_vars', {
-//                 method: 'POST', // Specify HTTP POST method
-//                 headers: {
-//                     'Content-Type': 'application/json', // Set content type to JSON
-//                 },
-//                 // Send updated data including current item quantities and cart information
-//                 body: JSON.stringify({
-//                     ticket_node_history: data.ticket_node_history,
-//                     current_node_history: data.current_node_history,
-//                     first_cart_item: data.first_cart_item,
-//                     num_cart_items: data.num_cart_items
-//                 }),
-//             })
-//                 .then(response => response.json()) // Parse the server response as JSON
-//                 .then(data => {
-//                     // Update the UI with the new number of items in the cart
-//                     document.getElementById('nums-value').innerText = data.num_cart_items;
-//                     document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
-//                 })
-//                 .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
-
-//             // Update the displayed quantity of the current item
-//             document.getElementById(node_id).innerText = data.current_node_history[node_id];
-//             document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
-//             calculatePrice();
-//         }
-//     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
-// }
-
 function increment(current_node) {
     // Disable the button to prevent multiple clicks
     current_node.disabled = true;
 
-    // Optionally, show a loading spinner or message
+    // show a loading message
     current_node.innerText = 'Loading...';
 
     // Get the ID of the next sibling element of the current node
@@ -182,6 +126,12 @@ function increment(current_node) {
 
 
 function ticketIncrement(current_node) {
+    // Disable the button to prevent multiple clicks
+    current_node.disabled = true;
+
+    // show a loading message
+    current_node.innerText = 'Loading...';
+
     // Get the ID of the next sibling element of the current node
     var node_id = current_node.nextElementSibling.id;
     var merch_price = current_node.dataset.price;
@@ -190,6 +140,9 @@ function ticketIncrement(current_node) {
     fetchVars().then(data => {
         // Check if the item quantity has reached the maximum limit of 99
         if (data.ticket_node_history[node_id] == 99) {
+            // Re-enable the button and reset the text if the limit is reached
+            current_node.disabled = false;
+            current_node.innerText = '+';
             return; // Exit the function if the limit is reached
         } else {
             // Increment the quantity of the current item in the data object
@@ -217,15 +170,32 @@ function ticketIncrement(current_node) {
                     // Update the UI with the new number of items in the cart
                     document.getElementById('nums-value').innerText = data.num_cart_items;
                     document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
-                })
-                .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
-            // Update the displayed quantity of the current item
-            document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
-            document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
-            calculatePrice();
+                    // Update the displayed quantity of the current item
+                    document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
+                    document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
+
+                    // Re-enable the button after the update is complete
+                    current_node.disabled = false;
+                    current_node.innerText = '+'; // Reset button text
+                    calculatePrice();
+                })
+                .catch(error => {
+                    console.error('Error updating num:', error)
+
+                    // Re-enable the button and reset the text if there's an error
+                    current_node.disabled = false;
+                    current_node.innerText = '+';
+                }); // Log any errors during the update process
+
         }
-    }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
+    }).catch(error => {
+        console.error('Error fetching vars:', error)
+
+        // Re-enable the button and reset the text if there's an error
+        current_node.disabled = false;
+        current_node.innerText = '+';
+    }); // Log any errors during data fetching
 }
 
 /**
@@ -239,11 +209,18 @@ function ticketIncrement(current_node) {
  * current_node - The button element that was clicked to trigger this function.
  */
 function decrement(current_node) {
+    // Disable the button to prevent multiple clicks
+    current_node.disabled = true;
+
+    // show a loading message
+    current_node.innerText = 'Loading...';
+
+    // Get the ID of the previous sibling element of the current node
+    var node_id = current_node.previousElementSibling.id;
+    var merch_price = current_node.dataset.price;
+
     // Fetch variables from the server
     fetchVars().then(data => {
-        // Get the ID of the previous sibling element of the current node
-        var node_id = current_node.previousElementSibling.id;
-        var merch_price = current_node.dataset.price;
 
         // Decrement the quantity of the current item in the data object
         data.current_node_history[node_id] -= 1;
@@ -270,11 +247,21 @@ function decrement(current_node) {
                 // Update the UI with the new number of items in the cart
                 document.getElementById('nums-value').innerText = data.num_cart_items;
                 document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+
+                // Re-enable the button and reset the text if the limit is reached
+                current_node.disabled = false;
+                current_node.innerText = '-';
             })
-            .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
+            .catch(error => {
+                // Re-enable the button and reset the text if the limit is reached
+                current_node.disabled = false;
+                current_node.innerText = '-';
+
+                console.error('Error updating num:', error)
+            }); // Log any errors during the update process
 
         // Check if the item quantity has reached zero
-        if (data.current_node_history[node_id] == 0) {
+        if (data.current_node_history[node_id] <= 0) {
             // Get the parent element of the current node
             var parent_element = current_node.parentElement.parentElement.parentElement;
 
@@ -310,17 +297,34 @@ function decrement(current_node) {
             // Update the displayed quantity of the current item
             document.getElementById(node_id).innerText = data.current_node_history[node_id];
             document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
+
+            // Re-enable the button and reset the text if the limit is reached
+            current_node.disabled = false;
+            current_node.innerText = '-';
             calculatePrice();
         }
-    }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
+    }).catch(error => {
+        // Re-enable the button and reset the text if the limit is reached
+        current_node.disabled = false;
+        current_node.innerText = '-';
+
+        console.error('Error fetching vars:', error)
+    }); // Log any errors during data fetching
 }
 
 function ticketDecrement(current_node) {
+    // Disable the button to prevent multiple clicks
+    current_node.disabled = true;
+
+    // show a loading message
+    current_node.innerText = 'Loading...';
+    
+    // Get the ID of the previous sibling element of the current node
+    var node_id = current_node.previousElementSibling.id;
+    var merch_price = current_node.dataset.price;
+    
     // Fetch variables from the server
     fetchVars().then(data => {
-        // Get the ID of the previous sibling element of the current node
-        var node_id = current_node.previousElementSibling.id;
-        var merch_price = current_node.dataset.price;
 
         // Decrement the quantity of the current item in the data object
         data.ticket_node_history[node_id] -= 1;
@@ -347,6 +351,10 @@ function ticketDecrement(current_node) {
                 // Update the UI with the new number of items in the cart
                 document.getElementById('nums-value').innerText = data.num_cart_items;
                 document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+
+                // Re-enable the button and reset the text if the limit is reached
+                current_node.disabled = false;
+                current_node.innerText = '-';
             })
             .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
 
@@ -385,11 +393,21 @@ function ticketDecrement(current_node) {
             calculatePrice();
         } else {
             // Update the displayed quantity of the current item
-            document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
+            document.getElementById(node_id).innerText = data.current_node_history[node_id];
             document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
+
+            // Re-enable the button and reset the text if the limit is reached
+            current_node.disabled = false;
+            current_node.innerText = '-';
             calculatePrice();
         }
-    }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
+    }).catch(error => {
+        // Re-enable the button and reset the text if the limit is reached
+        current_node.disabled = false;
+        current_node.innerText = '-';
+
+        console.error('Error fetching vars:', error)
+    }); // Log any errors during data fetching
 }
 
 // function removeCartItem(current_node) {
@@ -720,7 +738,7 @@ function removeCartItems() {
                 document.getElementById('cart-message').innerText = `you have ${data.num_cart_items} items in your cart`;
             })
             .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
-        calculatePrice();
+        calculatePrice('remove items');
     }).catch(error => console.error('Error fetching vars:', error)); // Log any errors during data fetching
 }
 
@@ -758,7 +776,7 @@ window.addEventListener('load', function () {
             var merch_item = current_node.dataset.merch_item;
             var merch_price = current_node.dataset.merch_price;
             var node_id = current_node.id;
-            
+
             console.log(`node_id = ${node_id}`)
             console.log(`merch_price = ${merch_price}`)
             var total_price = parseFloat(merch_price.split('$').join('')) * data.current_node_history[node_id];
@@ -864,7 +882,7 @@ window.addEventListener('load', function () {
     }).catch(error => console.error('Error displaying num on load:', error)); // Log any errors during data fetching
 });
 
-function calculatePrice(chekcout2) {
+function calculatePrice(calculation_type) {
     fetchVars().then(data => {
         var totals = [];
 
@@ -888,10 +906,12 @@ function calculatePrice(chekcout2) {
         for (var i = 0; i < totals.length; i++) {
             total_price += totals[i];
         }
-        if (chekcout2 == true) {
+        if (calculation_type == 'checkout') {
             document.getElementById('total-price-cart').innerText = `$${total_price.toFixed(2)}`;
             document.getElementById('tax').innerText = `$${(total_price * 0.045).toFixed(2)}`;
             document.getElementById('total-price').innerText = `$${(total_price * 1.045).toFixed(2)}`;
+        } else if (calculation_type == 'remove items') {
+            document.getElementById('total-price-cart').innerText = 'Total Price: $0.00';
         } else {
             document.getElementById('total-price-cart').innerText = 'Total Price: $' + total_price.toFixed(2);
         }
