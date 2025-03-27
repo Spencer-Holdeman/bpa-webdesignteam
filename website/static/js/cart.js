@@ -356,7 +356,13 @@ function ticketDecrement(current_node) {
                 current_node.disabled = false;
                 current_node.innerText = '-';
             })
-            .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
+            .catch(error => {
+                // Re-enable the button and reset the text if the limit is reached
+                current_node.disabled = false;
+                current_node.innerText = '-';
+
+                console.error('Error updating num:', error)
+            }); // Log any errors during the update process
 
         // Check if the item quantity has reached zero
         if (data.ticket_node_history[node_id] == 0) {
@@ -393,7 +399,7 @@ function ticketDecrement(current_node) {
             calculatePrice();
         } else {
             // Update the displayed quantity of the current item
-            document.getElementById(node_id).innerText = data.current_node_history[node_id];
+            document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
             document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
 
             // Re-enable the button and reset the text if the limit is reached
