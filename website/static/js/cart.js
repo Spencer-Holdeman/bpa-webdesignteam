@@ -589,7 +589,7 @@ function incrementTicketItems(current_node) {
     var city = current_node.dataset.city;
     var date = current_node.dataset.date;
     var merch_price = current_node.dataset.merch_price;
-    var merch_item = `Ticket ${venue}, ${city} - ${date}`;
+    var merch_item = `Ticket - ${city}`;
     var node_id = current_node.id;
 
     // Fetch variables from the server
@@ -843,12 +843,12 @@ window.addEventListener('load', function () {
 
             // Get the current node and its details
             var current_node = document.getElementById(Object.keys(data.ticket_node_history)[i]);
-            var img_source = '../static/img/misc/download.png'
+            var img_source = '../static/img/swag/ticket.png'
             var venue = current_node.dataset.venue;
             var city = current_node.dataset.city;
             var date = current_node.dataset.date;
             var merch_price = current_node.dataset.merch_price;
-            var merch_item = `Ticket ${venue}, ${city} - ${date}`;
+            var merch_item = `Ticket - ${city}`;
             var node_id = current_node.id;
 
             var total_price = parseFloat(merch_price.split('$').join('')) * data.current_node_history[node_id];

@@ -203,5 +203,5 @@
 
 /* Cart Buttons */
 .cart-button {
-    @apply active:scale-125
+    @apply active:scale-125 h-[32px] w-[32px]
 }
