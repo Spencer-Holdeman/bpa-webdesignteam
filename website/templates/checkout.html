@@ -64,17 +64,28 @@
           <div class="block lg:hidden p-5">
             <button onclick="openMobileCart()" class="w-full py-3 px-3 my-3 text-lg font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg">View Summary</button>
           </div>
+          {% if not logged_in %}
           <div class="p-5 text-lg rounded-xl">
             <h1 class="text-xl font-semibold"><i class="fa-solid fa-user pr-4"></i>Account</h1>
             <div class="flex flex-row mt-5 text-lg">
               <a href="/login" class="w-[50%] mr-4">
-                <button class="w-full py-1 px-3 font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg text-white">Log In</button>
+                <button type="button" class="w-full py-1 px-3 font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg text-white">Log In</button>
               </a>
               <a href="/signup" class="w-[50%]">
-                <button class="w-full py-1 px-3 font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg text-white">Sign Up</button>
+                <button type="button" class="w-full py-1 px-3 font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg text-white">Sign Up</button>
               </a>
             </div>
           </div>
+
+            {% else %}
+            <div class="p-5 text-lg rounded-xl">
+              <h1 class="text-xl font-semibold"><i class="fa-solid fa-user pr-4"></i>Account</h1>
+              <div class="flex flex-row mt-5 text-lg">
+                <p>Hello {{ name }}!</p>
+              </div>
+            </div>
+
+          {% endif %}
           <div id="shipping" class="p-5 text-lg rounded-xl">
             <h1 class="text-xl font-semibold"><i class="fa-solid fa-truck pr-4"></i>Shipping Address</h1>
             <div class="flex flex-row my-5 text-lg">
@@ -101,7 +112,7 @@
           </div>
           <div id="billing" class="p-5 text-lg rounded-xl">
             <h1 class="text-xl font-semibold"><i class="fa-solid fa-money-check-dollar pr-4"></i>Billing Address</h1>
-            <button onclick="shipToBill()" class="w-full py-1 px-3 my-5 font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg text-white">Make Same as Shipping</button>
+            <button type="button" onclick="shipToBill()" class="w-full py-1 px-3 my-5 font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg text-white">Make Same as Shipping</button>
             <div class="flex flex-row mb-5 text-lg">
               <input type="text" required name="billing-fname" id="billing-fname" placeholder="First name" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
               <input type="text" required name="billing-lname" id="billing-lname" placeholder="Last name" class="w-[50%] py-1 px-3 bg-gray-800 rounded-lg">
@@ -117,7 +128,7 @@
           </div>
           <div class="p-5 flex flex-row justify-between items-center">
             <p onclick="location.reload()" class="text-purple-500 hover:text-purple-700 transition-all duration-200 cursor-pointer"><i class="fa-solid fa-angle-left"></i> Return to cart</p>
-            <button class="w-auto py-2 px-4 my-3 text-lg font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg">Complete Payment</button>
+            <button type="submit" class="w-auto py-2 px-4 my-3 text-lg font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg">Complete Payment</button>
           </div>
         </div>
       </form>

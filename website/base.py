@@ -21,8 +21,6 @@ class User(db.Model):
         
 @base.route('/', methods=['POST', 'GET'])
 def clear_session():
-    db.session.query(User).delete()
-    db.session.commit()
     session.clear()
     return redirect(url_for('base.Home'))
 
@@ -71,7 +69,6 @@ def Home():
     if 'logged_in?' in session:
         if session['logged_in?'] == True:
             name = session['name']
-            flash(f'Hello {name}, you have logged in!', 'success')
             print('home (logged in)')
             return render_template('index.html')
         else:
@@ -139,6 +136,13 @@ def Checkout():
     global current_node_history
     global first_cart_item
     global num_cart_items
+    
+    if 'logged_in?' in session:
+        name = session['name']
+        logged_in = session['logged_in?']
+    else:
+        name = None
+        logged_in = False
 
     if request.method == 'POST':
         if 'logged_in?' not in session:
@@ -154,7 +158,7 @@ def Checkout():
             num_cart_items = sum(current_node_history.values()) + sum(ticket_node_history.values())
             return redirect(url_for('base.Home'))
     else:
-        return render_template('checkout.html')
+        return render_template('checkout.html', logged_in=logged_in, name=name)
 
 @base.route('/login', methods=['POST', 'GET'])
 def Login():
