@@ -1073,6 +1073,22 @@ video {
   gap: 0.5rem;
 }
 
+.gap-20 {
+  gap: 5rem;
+}
+
+.gap-72 {
+  gap: 18rem;
+}
+
+.gap-80 {
+  gap: 20rem;
+}
+
+.gap-96 {
+  gap: 24rem;
+}
+
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
@@ -1403,6 +1419,10 @@ video {
   padding-right: 0.5rem;
 }
 
+.pr-20 {
+  padding-right: 5rem;
+}
+
 .pr-4 {
   padding-right: 1rem;
 }
@@ -1421,6 +1441,18 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pr-72 {
+  padding-right: 18rem;
+}
+
+.pr-80 {
+  padding-right: 20rem;
+}
+
+.pr-96 {
+  padding-right: 24rem;
 }
 
 .text-left {
@@ -1656,23 +1688,13 @@ video {
 
 /* Marquee */
 
-.marquee {
-  display: flex;
-  overflow: hidden;
-  flex-wrap: nowrap;
+.marquee-track-swag {
+  width: -moz-max-content;
+  width: max-content;
+  animation: marquee-move 10s linear infinite;
 }
 
-.marquee-content {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: space-around;
-  min-width: 100%;
-  gap: 1rem;
-}
-
-.marquee-track {
+.marquee-track-merch {
   width: -moz-max-content;
   width: max-content;
   padding-left: 4em;
@@ -1695,24 +1717,15 @@ video {
   }
 }
 
-.marquee-text-scroll {
-  animation: marquee-scroll 15s linear infinite;
-}
-
-.marquee-item-scroll {
-  animation: marquee-scroll 25s linear infinite;
-}
-
 @media (prefers-reduced-motion) {
-  .marquee-text-scroll {
-    animation: marquee-scroll 60s linear infinite;
+  .marquee-track-swag {
+    width: -moz-max-content;
+    width: max-content;
+    padding-left: 4em;
+    animation: marquee-move 150s linear infinite;
   }
 
-  .marquee-item-scroll {
-    animation: marquee-scroll 95s linear infinite;
-  }
-
-  .marquee-track {
+  .marquee-track-merch {
     width: -moz-max-content;
     width: max-content;
     padding-left: 4em;
