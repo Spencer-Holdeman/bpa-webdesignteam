@@ -12,7 +12,7 @@
 .marquee-track-swag {
     width: -moz-max-content;
     width: max-content;
-    animation: marquee-move 10s linear infinite;
+    animation: marquee-move 17s linear infinite;
 }
 .marquee-track-merch {
     width: -moz-max-content;
@@ -53,7 +53,7 @@
         width: -moz-max-content;
         width: max-content;
         padding-left: 4em;
-        animation: marquee-move 150s linear infinite;
+        animation: marquee-move 60s linear infinite;
     }
     .marquee-track-merch {
         width: -moz-max-content;
