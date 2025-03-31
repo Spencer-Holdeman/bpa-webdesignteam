@@ -1,0 +1,74 @@
+<mjml>
+  <mj-head>
+    <mj-breakpoint width="480px" />
+
+    <!-- Attempt to load web fonts -->
+    <mj-font name="Metal Mania" href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" />
+    <mj-font name="Chakra Petch" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap" />
+
+    <mj-attributes>
+      <mj-all font-family="Chakra Petch, Arial, sans-serif" font-size="16px" line-height="1.7" />
+      <mj-text color="#ffffff" />
+    </mj-attributes>
+
+    <mj-style inline="inline">
+      .header-text {
+        font-size: 3rem; /* text-7xl */
+        text-align: center; /* text-center */
+        font-weight: 600; /* font-semibold */
+        font-family: 'Metal Mania', Impact, sans-serif; /* Added fallback fonts */
+        text-transform: uppercase; /* uppercase */
+        margin: 28px 0; /* my-7 */
+      }
+
+      .body-text {
+        font-size: 1.5em; /* text-[1.5em] */
+        font-weight: bold; /* font-bold */
+        font-family: 'Chakra Petch', Arial, sans-serif;
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body width="600px" background-color="#9b9b9b">
+    <!-- Header -->
+    <mj-section padding="20px 0px" text-align="center" background-color="#121117">
+      <mj-column>
+        <mj-image src="http://stagefright.pythonanywhere.com/static/img/logo/icon.png" width="50px" padding="10px 25px"></mj-image>
+      </mj-column>
+    </mj-section>
+
+    <!-- Main Content -->
+    <mj-section padding="10px 0px" background-color="#1f2937">
+      <mj-column width="100%">
+        <mj-text align="center" class="header-text">
+          New Support Request Received
+        </mj-text>
+        <mj-divider border-color="#ffffff" border-width="1px" width="50%" />
+      </mj-column>
+    </mj-section>
+
+    <!-- User Submitted Information -->
+    <mj-section padding="20px" background-color="#3b2f5c">
+      <mj-column>
+        <mj-text class="body-text">
+          Submitted Information:
+        </mj-text>
+        <mj-text class="body-text">
+          <strong>Subject:</strong> {{ subject }}<br>
+          <strong>Name:</strong> {{ name }}<br>
+          <strong>Email:</strong> {{ email }}<br>
+          <strong>Message:</strong> {{ message }}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Footer -->
+    <mj-section padding="10px" background-color="#121117">
+      <mj-column>
+        <mj-text font-size="12px" color="#bbbbbb" align="center">
+          This is an automated email. Please do not reply.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
