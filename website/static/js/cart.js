@@ -318,11 +318,11 @@ function ticketDecrement(current_node) {
 
     // show a loading message
     current_node.innerText = 'Loading...';
-    
+
     // Get the ID of the previous sibling element of the current node
     var node_id = current_node.previousElementSibling.id;
     var merch_price = current_node.dataset.price;
-    
+
     // Fetch variables from the server
     fetchVars().then(data => {
 
@@ -348,13 +348,58 @@ function ticketDecrement(current_node) {
         })
             .then(response => response.json()) // Parse the server response as JSON
             .then(data => {
-                // Update the UI with the new number of items in the cart
-                document.getElementById('nums-value').innerText = data.num_cart_items;
-                document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+                // Check if the item quantity has reached zero
+                if (data.ticket_node_history[node_id] == 0) {
+                    // Get the parent element of the current node
+                    var parent_element = current_node.parentElement.parentElement.parentElement;
 
-                // Re-enable the button and reset the text if the limit is reached
-                current_node.disabled = false;
-                current_node.innerText = '-';
+                    // Remove the item from the data object
+                    delete data.ticket_node_history[node_id];
+
+                    // Send the updated data to the server
+                    fetch('/update_vars', {
+                        method: 'POST', // Specify HTTP POST method
+                        headers: {
+                            'Content-Type': 'application/json', // Set content type to JSON
+                        },
+                        // Send updated data including current item quantities and cart information
+                        body: JSON.stringify({
+                            ticket_node_history: data.ticket_node_history,
+                            current_node_history: data.current_node_history,
+                            first_cart_item: data.first_cart_item,
+                            num_cart_items: data.num_cart_items
+                        }),
+                    })
+                        .then(response => response.json()) // Parse the server response as JSON
+                        .then(data => {
+                            // Update the UI with the new number of items in the cart
+                            document.getElementById('nums-value').innerText = data.num_cart_items;
+                            document.getElementById('cart-message').innerText = `You have (${data.num_cart_items}) Items in your cart.`;
+                            // Remove the item from the UI
+                            parent_element.remove();
+                            calculatePrice();
+                        })
+                        .catch(error => {
+                            // Re-enable the button and reset the text if the limit is reached
+                            current_node.disabled = false;
+                            current_node.innerText = '-';
+            
+                            console.error('Error updating num:', error)
+                        }); // Log any errors during the update process
+                } else {
+                    // Update the displayed quantity of the current item
+                    document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
+                    document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
+
+                    // Update the UI with the new number of items in the cart
+                    document.getElementById('nums-value').innerText = data.num_cart_items;
+                    document.getElementById('cart-message').innerText = `You have ${data.num_cart_items} items in your cart`;
+    
+                    // Re-enable the button and reset the text if the limit is reached
+                    current_node.disabled = false;
+                    current_node.innerText = '-';
+                    calculatePrice();
+                }
             })
             .catch(error => {
                 // Re-enable the button and reset the text if the limit is reached
@@ -363,50 +408,6 @@ function ticketDecrement(current_node) {
 
                 console.error('Error updating num:', error)
             }); // Log any errors during the update process
-
-        // Check if the item quantity has reached zero
-        if (data.ticket_node_history[node_id] == 0) {
-            // Get the parent element of the current node
-            var parent_element = current_node.parentElement.parentElement.parentElement;
-
-            // Remove the item from the data object
-            delete data.ticket_node_history[node_id];
-
-            // Send the updated data to the server
-            fetch('/update_vars', {
-                method: 'POST', // Specify HTTP POST method
-                headers: {
-                    'Content-Type': 'application/json', // Set content type to JSON
-                },
-                // Send updated data including current item quantities and cart information
-                body: JSON.stringify({
-                    ticket_node_history: data.ticket_node_history,
-                    current_node_history: data.current_node_history,
-                    first_cart_item: data.first_cart_item,
-                    num_cart_items: data.num_cart_items
-                }),
-            })
-                .then(response => response.json()) // Parse the server response as JSON
-                .then(data => {
-                    // Update the UI with the new number of items in the cart
-                    document.getElementById('nums-value').innerText = data.num_cart_items;
-                    document.getElementById('cart-message').innerText = `You have (${data.num_cart_items}) Items in your cart.`;
-                })
-                .catch(error => console.error('Error updating num:', error)); // Log any errors during the update process
-
-            // Remove the item from the UI
-            parent_element.remove();
-            calculatePrice();
-        } else {
-            // Update the displayed quantity of the current item
-            document.getElementById(node_id).innerText = data.ticket_node_history[node_id];
-            document.getElementById(`total-price-item-${node_id}`).innerText = 'Item Total: $' + total_price.toFixed(2);
-
-            // Re-enable the button and reset the text if the limit is reached
-            current_node.disabled = false;
-            current_node.innerText = '-';
-            calculatePrice();
-        }
     }).catch(error => {
         // Re-enable the button and reset the text if the limit is reached
         current_node.disabled = false;
@@ -809,7 +810,7 @@ window.addEventListener('load', function () {
             item_image.setAttribute('src', img_source);
             total_price_element.setAttribute('id', `total-price-item-${node_id}`);
 
-        item_description.classList.add('font-semibold');
+            item_description.classList.add('font-semibold');
 
             add_button.innerText = '+';
             item_count.innerText = data.current_node_history[node_id];
@@ -872,7 +873,7 @@ window.addEventListener('load', function () {
             item_image.setAttribute('src', img_source);
             total_price_element.setAttribute('id', `total-price-item-${node_id}`);
 
-        item_description.classList.add('font-semibold');
+            item_description.classList.add('font-semibold');
 
             add_button.innerText = '+';
             item_count.innerText = data.ticket_node_history[node_id];
