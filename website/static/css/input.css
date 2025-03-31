@@ -14,7 +14,7 @@
     display: -ms-flexbox;
     display: flex;
     overflow: hidden;
-    gap: 1rem;
+    flex-wrap: nowrap;
 }
 .marquee-content {
     -webkit-box-flex: 0;
@@ -29,6 +29,19 @@
     min-width: 100%;
     gap: 1rem;
 }
+
+.marquee-track {
+    width: -moz-max-content;
+    width: max-content;
+    padding-left: 4em;
+    animation: marquee-move 45s linear infinite;
+  }
+  
+  @keyframes marquee-move {
+    to {
+      transform: translateX(-50%);
+    }
+  }
 
 @-webkit-keyframes marquee-scroll {
     0% {
@@ -69,6 +82,12 @@
         -webkit-animation: marquee-scroll 95s linear infinite;
         animation: marquee-scroll 95s linear infinite;
     }
+    .marquee-track {
+        width: -moz-max-content;
+        width: max-content;
+        padding-left: 4em;
+        animation: marquee-move 150s linear infinite;
+      }
 }
 
 /* ----Animated Backgrounds---- */
@@ -205,3 +224,49 @@
 .cart-button {
     @apply active:scale-125 h-[32px] w-[32px]
 }
+
+/* Underline Animations */
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 5%;
+    left: 10%;
+    background-color: #ffffff;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+  }
+  
+  .hover-underline-animation.left::after {
+    transform-origin: bottom right;
+  }
+  
+  .hover-underline-animation.left:hover::after {
+    transform-origin: bottom left;
+  }
+  
+  .hover-underline-animation.center::after {
+    transform-origin: bottom center;
+  }
+  
+  .hover-underline-animation.center:hover::after {
+    transform-origin: bottom center;
+  }
+  
+  .hover-underline-animation.right::after {
+    transform-origin: bottom left;
+  }
+  
+  .hover-underline-animation.right:hover::after {
+    transform-origin: bottom right;
+  }

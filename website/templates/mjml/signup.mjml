@@ -61,7 +61,7 @@
         <mj-social mode="horizontal" align="center" color="#9b9b9b" padding="10px 25px" font-size="13px" icon-size="20px" font-weight="normal" line-height="22px" icon-padding="0px" text-padding="4px 4px 4px 0px" border-radius="3px" inner-padding="4px 4px 4px 4px">
           <mj-social-element src="http://stagefright.pythonanywhere.com/static/img/logo/icon.png" href="http://stagefright.pythonanywhere.com/" target="_blank">Main Website</mj-social-element>
           <mj-social-element src="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png" href="https://www.instagram.com/stage_frightband/" target="_blank">Instagram</mj-social-element>
-          <mj-social-element src="//abs.twimg.com/favicons/twitter.3.ico" href="x.com" target="_blank">X (Twitter)</mj-social-element>
+          <mj-social-element src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/X_logo.jpg/1200px-X_logo.jpg" href="x.com" target="_blank">X (Twitter)</mj-social-element>
           <mj-social-element src="https://img.icons8.com/ios11/512/FFFFFF/github.png" href="https://github.com/SoftwareNotion/bpa-webdesignteam" target="_blank">Github</mj-social-element>
         </mj-social>
       </mj-column>

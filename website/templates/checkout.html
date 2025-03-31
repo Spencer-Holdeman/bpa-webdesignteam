@@ -79,9 +79,9 @@
 
             {% else %}
             <div class="p-5 text-lg rounded-xl">
-              <h1 class="text-xl font-semibold"><i class="fa-solid fa-user pr-4"></i>Account</h1>
-              <div class="flex flex-row mt-5 text-lg">
-                <p>Hello {{ name }}!</p>
+              <h1 class="text-xl font-semibold"><i class="fa-solid fa-user pr-4"></i>Account: {{ name }}</h1>
+              <div class="flex flex-row text-lg">
+                <a href="/" class="w-full"><button type="button" class="w-full py-1 px-3 my-5 font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg text-white">Log Out</button></a>
               </div>
             </div>
 
@@ -89,42 +89,42 @@
           <div id="shipping" class="p-5 text-lg rounded-xl">
             <h1 class="text-xl font-semibold"><i class="fa-solid fa-truck pr-4"></i>Shipping Address</h1>
             <div class="flex flex-row my-5 text-lg">
-              <input type="text" required name="shipping-fname" id="shipping-fname" placeholder="First name" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
-              <input type="text" required name="shipping-lname" id="shipping-lname" placeholder="Last name" class="w-[50%] py-1 px-3 bg-gray-800 rounded-lg">
+              <input required type="text" name="shipping-fname" id="shipping-fname" placeholder="First name" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
+              <input required type="text" name="shipping-lname" id="shipping-lname" placeholder="Last name" class="w-[50%] py-1 px-3 bg-gray-800 rounded-lg">
             </div>
             <input type="text" name="shipping-company" id="shipping-company" placeholder="Company name (optional)" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
-            <input type="text" required name="shipping-address" id="shipping-address" placeholder="Address" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
-            <input type="text" required name="shipping-apartment" id="shipping-apartment" placeholder="Apartment, suite, etc. (optional)" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
+            <input required type="text" name="shipping-address" id="shipping-address" placeholder="Address" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
+            <input type="text" name="shipping-apartment" id="shipping-apartment" placeholder="Apartment, suite, etc. (optional)" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
             <div class="flex flex-row mb-5 text-lg">
-              <input type="text" required name="shipping-city" id="shipping-city" placeholder="City" class="w-[70%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
-              <input type="text" required name="shipping-city" id="shipping-state" placeholder="State" class="w-[30%] py-1 px-3 bg-gray-800 rounded-lg">
+              <input required type="text" name="shipping-city" id="shipping-city" placeholder="City" class="w-[70%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
+              <input required type="text" name="shipping-city" id="shipping-state" placeholder="State" class="w-[30%] py-1 px-3 bg-gray-800 rounded-lg">
             </div>
-            <input type="text" required name="shipping-zip" id="shipping-zip" placeholder="Zip code" maxlength="5" class="w-full py-1 px-3 bg-gray-800 rounded-lg">
+            <input required type="text" name="shipping-zip" id="shipping-zip" placeholder="Zip code" maxlength="5" class="w-full py-1 px-3 bg-gray-800 rounded-lg">
           </div>
           <div class="p-5 text-lg rounded-xl">
             <h1 class="text-xl font-semibold"><i class="fa-solid fa-credit-card pr-4"></i>Payment Method</h1>
-            <input type="text" required name="payment-name" id="payment-name" placeholder="Name on card" class="w-full py-1 px-3 my-5 bg-gray-800 rounded-lg">
-            <input type="text" required name="payment-card" id="payment-card" placeholder="Card number" maxlength="19" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
+            <input required type="text" name="payment-name" id="payment-name" placeholder="Name on card" class="w-full py-1 px-3 my-5 bg-gray-800 rounded-lg">
+            <input required type="text" name="payment-card" id="payment-card" placeholder="Card number" maxlength="19" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
             <div class="flex flex-row text-lg">
-              <input type="text" required name="payment-expire" id="payment-expire" placeholder="Expiration date" maxlength="5" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
-              <input type="text" required name="payment-cvc" id="payment-cvc" placeholder="Security code" maxlength="4" class="w-[50%] py-1 px-3 bg-gray-800 rounded-lg">
+              <input required type="text" name="payment-expire" id="payment-expire" placeholder="Expiration date" maxlength="5" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
+              <input required type="text" name="payment-cvc" id="payment-cvc" placeholder="Security code" maxlength="4" class="w-[50%] py-1 px-3 bg-gray-800 rounded-lg">
             </div>
           </div>
           <div id="billing" class="p-5 text-lg rounded-xl">
             <h1 class="text-xl font-semibold"><i class="fa-solid fa-money-check-dollar pr-4"></i>Billing Address</h1>
             <button type="button" onclick="shipToBill()" class="w-full py-1 px-3 my-5 font-semibold bg-purple-500 hover:bg-purple-700 transition-all duration-200 rounded-lg text-white">Make Same as Shipping</button>
             <div class="flex flex-row mb-5 text-lg">
-              <input type="text" required name="billing-fname" id="billing-fname" placeholder="First name" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
-              <input type="text" required name="billing-lname" id="billing-lname" placeholder="Last name" class="w-[50%] py-1 px-3 bg-gray-800 rounded-lg">
+              <input required type="text" name="billing-fname" id="billing-fname" placeholder="First name" class="w-[50%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
+              <input required type="text" name="billing-lname" id="billing-lname" placeholder="Last name" class="w-[50%] py-1 px-3 bg-gray-800 rounded-lg">
             </div>
             <input type="text" name="billing-company" id="billing-company" placeholder="Company name (optional)" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
-            <input type="text" required name="billing-address" id="billing-address" placeholder="Address" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
-            <input type="text" required name="billing-apartment" id="billing-apartment" placeholder="Apartment, suite, etc. (optional)" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
+            <input required type="text" name="billing-address" id="billing-address" placeholder="Address" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
+            <input type="text" name="billing-apartment" id="billing-apartment" placeholder="Apartment, suite, etc. (optional)" class="w-full py-1 px-3 mb-5 bg-gray-800 rounded-lg">
             <div class="flex flex-row mb-5 text-lg">
-              <input type="text" required name="billing-city" id="billing-city" placeholder="City" class="w-[70%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
-              <input type="text" required name="billing-city" id="billing-state" placeholder="State" class="w-[30%] py-1 px-3 bg-gray-800 rounded-lg">
+              <input required type="text" name="billing-city" id="billing-city" placeholder="City" class="w-[70%] py-1 px-3 mr-4 bg-gray-800 rounded-lg">
+              <input required type="text" name="billing-city" id="billing-state" placeholder="State" class="w-[30%] py-1 px-3 bg-gray-800 rounded-lg">
             </div>
-            <input type="text" required name="billing-zip" id="billing-zip" placeholder="Zip code" maxlength="5" class="w-full py-1 px-3 bg-gray-800 rounded-lg">
+            <input required type="text" name="billing-zip" id="billing-zip" placeholder="Zip code" maxlength="5" class="w-full py-1 px-3 bg-gray-800 rounded-lg">
           </div>
           <div class="p-5 flex flex-row justify-between items-center">
             <p onclick="location.reload()" class="text-purple-500 hover:text-purple-700 transition-all duration-200 cursor-pointer"><i class="fa-solid fa-angle-left"></i> Return to cart</p>
