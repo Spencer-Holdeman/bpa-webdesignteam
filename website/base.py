@@ -101,16 +101,27 @@ def form():
         
         # Logs the form data into a formatted string
         log = f'{subject}  {name}  {email}  {message}'
+        print(log)  # Debugging: prints the log information
+        print(subject)  # Debugging: prints the subject
+        
+        mjml_content = render_template('mjml/contact.mjml', name=name, email=email, message=message, subject=subject)
+        html_content = mjml.mjml2html(mjml_content)
+        
+        
+        # Creates an email message with the collected form data
         msg = EmailMessage(
-            subject,                    # Email subject
-            log,                        # Email body content
-            "stagefrightbandokc@gmail.com",  # Sender email
-            ["stagefrightbandokc@gmail.com"] # Recipient email
-        )
+                subject="Welcome to Our Newsletter!",
+                body=html_content,
+                to=["stagefrightbandokc@gmail.com"]
+            )
+        
+        msg.content_subtype = 'html'
+        msg.html = html_content
+        msg.send()
+        
         
         # Attempts to send the email and handles any errors
         try:
-            msg.send()
             print("Email sent successfully!")  # Confirmation message
         except Exception as e:
             print(f"Error sending email: {e}")  # Error handling
@@ -118,6 +129,8 @@ def form():
         # Renders the contact.html template after form submission
         return render_template("contact.html")
     else:
+        # If the request method is GET, simply render the contact form
+        print('contact: outside if')  # Debugging: indicates GET request
         return render_template("contact.html")
 
 @base.route('/bpa', methods=['POST', 'GET'])

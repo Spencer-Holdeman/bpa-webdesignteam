@@ -9,26 +9,23 @@
 } */
 
 /* Marquee */
-.marquee {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    overflow: hidden;
-    gap: 1rem;
+.marquee-track-swag {
+    width: -moz-max-content;
+    width: max-content;
+    animation: marquee-move 17s linear infinite;
 }
-.marquee-content {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex-shrink: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-around;
-    min-width: 100%;
-    gap: 1rem;
+.marquee-track-merch {
+    width: -moz-max-content;
+    width: max-content;
+    padding-left: 4em;
+    animation: marquee-move 45s linear infinite;
 }
+  
+  @keyframes marquee-move {
+    to {
+      transform: translateX(-50%);
+    }
+  }
 
 @-webkit-keyframes marquee-scroll {
     0% {
@@ -51,23 +48,18 @@
     }
 }
 
-.marquee-text-scroll {
-    -webkit-animation: marquee-scroll 15s linear infinite;
-    animation: marquee-scroll 15s linear infinite;
-}
-.marquee-item-scroll {
-    -webkit-animation: marquee-scroll 25s linear infinite;
-    animation: marquee-scroll 25s linear infinite;
-}
-
 @media (prefers-reduced-motion) {
-    .marquee-text-scroll {
-        -webkit-animation: marquee-scroll 60s linear infinite;
-        animation: marquee-scroll 60s linear infinite;
+    .marquee-track-swag {
+        width: -moz-max-content;
+        width: max-content;
+        padding-left: 4em;
+        animation: marquee-move 60s linear infinite;
     }
-    .marquee-item-scroll {
-        -webkit-animation: marquee-scroll 95s linear infinite;
-        animation: marquee-scroll 95s linear infinite;
+    .marquee-track-merch {
+        width: -moz-max-content;
+        width: max-content;
+        padding-left: 4em;
+        animation: marquee-move 150s linear infinite;
     }
 }
 
@@ -205,3 +197,49 @@
 .cart-button {
     @apply active:scale-125 h-[32px] w-[32px]
 }
+
+/* Underline Animations */
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 5%;
+    left: 10%;
+    background-color: #ffffff;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+  }
+  
+  .hover-underline-animation.left::after {
+    transform-origin: bottom right;
+  }
+  
+  .hover-underline-animation.left:hover::after {
+    transform-origin: bottom left;
+  }
+  
+  .hover-underline-animation.center::after {
+    transform-origin: bottom center;
+  }
+  
+  .hover-underline-animation.center:hover::after {
+    transform-origin: bottom center;
+  }
+  
+  .hover-underline-animation.right::after {
+    transform-origin: bottom left;
+  }
+  
+  .hover-underline-animation.right:hover::after {
+    transform-origin: bottom right;
+  }
