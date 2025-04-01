@@ -56,7 +56,7 @@ function increment(current_node) {
     current_node.disabled = true;
 
     // show a loading message
-    current_node.innerText = '#';
+    // current_node.innerText = '#';
 
     // Get the ID of the next sibling element of the current node
     var node_id = current_node.nextElementSibling.id;
@@ -68,7 +68,7 @@ function increment(current_node) {
         if (data.current_node_history[node_id] == 99) {
             // Re-enable the button and reset the text if the limit is reached
             current_node.disabled = false;
-            current_node.innerText = '+';
+            // current_node.innerText = '+';
             return; // Exit the function if the limit is reached
         } else {
             // Increment the quantity of the current item in the data object
@@ -102,7 +102,7 @@ function increment(current_node) {
 
                     // Re-enable the button after the update is complete
                     current_node.disabled = false;
-                    current_node.innerText = '+'; // Reset button text
+                    // current_node.innerText = '+'; // Reset button text
                     calculatePrice();
                 })
                 .catch(error => {
@@ -111,7 +111,7 @@ function increment(current_node) {
 
                     // Re-enable the button and reset the text if there's an error
                     current_node.disabled = false;
-                    current_node.innerText = '+';
+                    // current_node.innerText = '+';
                 });
         }
     }).catch(error => {
@@ -120,7 +120,7 @@ function increment(current_node) {
 
         // Re-enable the button and reset the text if there's an error
         current_node.disabled = false;
-        current_node.innerText = '+';
+        // current_node.innerText = '+';
     });
 }
 
@@ -130,7 +130,7 @@ function ticketIncrement(current_node) {
     current_node.disabled = true;
 
     // show a loading message
-    current_node.innerText = 'Loading...';
+    // current_node.innerText = 'Loading...';
 
     // Get the ID of the next sibling element of the current node
     var node_id = current_node.nextElementSibling.id;
@@ -142,7 +142,7 @@ function ticketIncrement(current_node) {
         if (data.ticket_node_history[node_id] == 99) {
             // Re-enable the button and reset the text if the limit is reached
             current_node.disabled = false;
-            current_node.innerText = '+';
+            // current_node.innerText = '+';
             return; // Exit the function if the limit is reached
         } else {
             // Increment the quantity of the current item in the data object
@@ -177,7 +177,7 @@ function ticketIncrement(current_node) {
 
                     // Re-enable the button after the update is complete
                     current_node.disabled = false;
-                    current_node.innerText = '+'; // Reset button text
+                    // current_node.innerText = '+'; // Reset button text
                     calculatePrice();
                 })
                 .catch(error => {
@@ -185,7 +185,7 @@ function ticketIncrement(current_node) {
 
                     // Re-enable the button and reset the text if there's an error
                     current_node.disabled = false;
-                    current_node.innerText = '+';
+                    // current_node.innerText = '+';
                 }); // Log any errors during the update process
         }
     }).catch(error => {
@@ -193,7 +193,7 @@ function ticketIncrement(current_node) {
 
         // Re-enable the button and reset the text if there's an error
         current_node.disabled = false;
-        current_node.innerText = '+';
+        // current_node.innerText = '+';
     }); // Log any errors during data fetching
 }
 
@@ -212,7 +212,7 @@ function decrement(current_node) {
     current_node.disabled = true;
 
     // show a loading message
-    current_node.innerText = 'Loading...';
+    // current_node.innerText = 'Loading...';
 
     // Get the ID of the previous sibling element of the current node
     var node_id = current_node.previousElementSibling.id;
@@ -277,7 +277,7 @@ function decrement(current_node) {
                         .catch(error => {
                             // Re-enable the button and reset the text if the limit is reached
                             current_node.disabled = false;
-                            current_node.innerText = '-';
+                            // current_node.innerText = '-';
 
                             console.error('Error updating num:', error)
                         }); // Log any errors during the update process
@@ -292,21 +292,21 @@ function decrement(current_node) {
 
                     // Re-enable the button and reset the text if the limit is reached
                     current_node.disabled = false;
-                    current_node.innerText = '-';
+                    // current_node.innerText = '-';
                     calculatePrice();
                 }
             })
             .catch(error => {
                 // Re-enable the button and reset the text if the limit is reached
                 current_node.disabled = false;
-                current_node.innerText = '-';
+                // current_node.innerText = '-';
 
                 console.error('Error updating num:', error)
             }); // Log any errors during the update process
     }).catch(error => {
         // Re-enable the button and reset the text if the limit is reached
         current_node.disabled = false;
-        current_node.innerText = '-';
+        // current_node.innerText = '-';
 
         console.error('Error fetching vars:', error)
     }); // Log any errors during data fetching
@@ -317,7 +317,7 @@ function ticketDecrement(current_node) {
     current_node.disabled = true;
 
     // show a loading message
-    current_node.innerText = 'Loading...';
+    // current_node.innerText = 'Loading...';
 
     // Get the ID of the previous sibling element of the current node
     var node_id = current_node.previousElementSibling.id;
@@ -382,7 +382,7 @@ function ticketDecrement(current_node) {
                         .catch(error => {
                             // Re-enable the button and reset the text if the limit is reached
                             current_node.disabled = false;
-                            current_node.innerText = '-';
+                            // current_node.innerText = '-';
 
                             console.error('Error updating num:', error)
                         }); // Log any errors during the update process
@@ -397,21 +397,21 @@ function ticketDecrement(current_node) {
 
                     // Re-enable the button and reset the text if the limit is reached
                     current_node.disabled = false;
-                    current_node.innerText = '-';
+                    // current_node.innerText = '-';
                     calculatePrice();
                 }
             })
             .catch(error => {
                 // Re-enable the button and reset the text if the limit is reached
                 current_node.disabled = false;
-                current_node.innerText = '-';
+                // current_node.innerText = '-';
 
                 console.error('Error updating num:', error)
             }); // Log any errors during the update process
     }).catch(error => {
         // Re-enable the button and reset the text if the limit is reached
         current_node.disabled = false;
-        current_node.innerText = '-';
+        // current_node.innerText = '-';
 
         console.error('Error fetching vars:', error)
     }); // Log any errors during data fetching
