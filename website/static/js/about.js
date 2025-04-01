@@ -22,3 +22,4 @@ function closeAboutMember() {
     body.classList.remove("overflow-y-hidden");
     memberMenu.classList.toggle("hidden");
 }
+
