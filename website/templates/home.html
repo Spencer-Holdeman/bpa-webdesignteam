@@ -17,7 +17,7 @@
   {% endwith %}
   {% endblock %}
   {% block content %}
-  <header class="h-screen w-full flex flex-1 flex-col justify-between bg-skatepark bg-cover bg-center backdrop-brightness-[75%]">
+  <header class="h-screen w-full flex flex-1 flex-col justify-between bg-skatepark bg-no-repeat backdrop-brightness-[75%]" style="background-size: 100% 15%, cover; background-position: bottom, center;">
     <div class="flex flex-col items-center"></div>
     <section class="flex flex-row items-start justify-center gap-2 flex-wrap mb-12">
       <a href="/swag" aria-label="Buy the new vinyls" class="px-3.5 py-2 bg-purple-500 hover:bg-purple-700 transition-all duration-200 active:scale-125 rounded-lg shadow-2xl">
@@ -114,7 +114,7 @@
         </tr>
       </table>
       <a href="/tours">
-        <button class="my-5 py-2 px-4 text-lg font-medium border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">View All Tours</button>
+        <button class="my-5 py-2 px-4 text-lg font-medium hover:underline border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">View All Tours</button>
       </a>
     </section>
 
@@ -303,11 +303,11 @@
       <section class="w-full mb-40 p-5 sm:p-20 xl:hidden flex flex-col justify-center items-center">
         <h1 class="text-4xl md:text-7xl text-center my-7 font-semibold font-lacquer uppercase">New Vinyls</h1>
         <div class="w-full flex flex-row justify-center sm:justify-between items-center flex-wrap">
-          <img src="../static/img/swag/vinyl/autumn.webp" alt="" class="w-[45%] m-2 sm:m-0 sm:w-[30%] bg-gray-800 rounded-xl">
-          <img src="../static/img/swag/vinyl/ftc.webp" alt="" class="w-[45%] m-2 sm:m-0 sm:w-[30%] bg-gray-800 rounded-xl">
-          <img src="../static/img/swag/vinyl/vexed.webp" alt="" class="w-[45%] m-2 sm:m-0 sm:w-[30%] bg-gray-800 rounded-xl">
+          <img src="../static/img/swag/vinyl/autumn.webp" alt="Fall of Autmn Vinyl Cover" class="w-[45%] m-2 sm:m-0 sm:w-[30%] bg-gray-800 rounded-xl">
+          <img src="../static/img/swag/vinyl/ftc.webp" alt="Failure to Cope Vinyl Cover" class="w-[45%] m-2 sm:m-0 sm:w-[30%] bg-gray-800 rounded-xl">
+          <img src="../static/img/swag/vinyl/vexed.webp" alt="Vexed Vinyl Cover" class="w-[45%] m-2 sm:m-0 sm:w-[30%] bg-gray-800 rounded-xl">
         </div>
-        <a href="/swag"><button class="my-5 py-2 px-4 text-lg font-medium border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">Check Out</button></a>
+        <a href="/swag"><button class="my-5 py-2 px-4 text-lg font-medium hover:underline border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">Check Out</button></a>
     </section>
 
       <!---------- Latest Album ---------->
@@ -372,7 +372,7 @@
         <div class="space-y-4 text-center md:text-left">
           <h1 class="text-4xl font-lacquer">Failure to Cope</h1>
           <p>Our latest released album. "Failure to Cope" contains 9 tracks that are bound to catch your attention.</p>
-          <button class="bg-purple-500 hover:bg-purple-700 transition-all duration-200 active:scale-125 px-5 md:px-10 py-2 md:py-3 rounded-lg">Listen Now</button>
+          <button class="hover:underline bg-purple-500 hover:bg-purple-700 transition-all duration-200 active:scale-125 px-5 md:px-10 py-2 md:py-3 rounded-lg">Listen Now</button>
         </div>
       </div>
       </div>
@@ -382,8 +382,8 @@
       <section class="min-h-[30vh] w-full flex flex-col justify-center items-center">
         <h1 class="hidden lg:block text-4xl text-center font-lacquer font-semibold">Want the latest Stage Fright news and updates?</h1>
         <h1 class="lg:hidden block text-4xl text-center font-lacquer font-semibold">Join our Newsletter!</h1>
-        <a href="/signup"><button class="hidden lg:block my-5 py-2 px-4 text-2xl font-medium border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">Join The Newsletter</button></a>
-        <a href="/signup"><button class="lg:hidden block my-5 py-2 px-4 text-lg font-medium border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">Sign Up</button></a>
+        <a href="/signup"><button class="hidden lg:block my-5 py-2 px-4 text-2xl font-medium hover:underline border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">Join The Newsletter</button></a>
+        <a href="/signup"><button class="lg:hidden block my-5 py-2 px-4 text-lg font-medium hover:underline border-purple-500 hover:border-purple-700 transition-all duration-200 border-2 rounded-lg">Sign Up</button></a>
       </section>
     </main>
 {% endblock %}
