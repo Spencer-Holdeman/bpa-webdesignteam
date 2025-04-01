@@ -24,7 +24,7 @@ module.exports = {
         'rowdies': ['Rowdies', 'sans-serif'],
       },
       backgroundImage: {
-        'skatepark': "url(../img/background/group.webp)"
+        'skatepark': "-webkit-gradient(linear, left bottom, left top, from(#121117), to(rgba(0, 0, 0, 0))), url(../img/background/group.webp);"
       }
     }
   },
